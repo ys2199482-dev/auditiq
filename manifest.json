@@ -1,0 +1,21 @@
+{
+  "name": "AuditIQ — منصة المراجعة والـ DipIFR",
+  "short_name": "AuditIQ",
+  "description": "منصة دراسة ومراجعة احترافية لـ ACCA DipIFR والمراجعة المالية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f4f0",
+  "theme_color": "#b8860b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
