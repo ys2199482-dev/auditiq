@@ -1,5 +1,5 @@
 // AuditIQ Service Worker — offline support
-const CACHE = 'auditiq-v13-1';
+const CACHE = 'auditiq-v14-1';
 const ASSETS = [
   '.',
   'index.html',
