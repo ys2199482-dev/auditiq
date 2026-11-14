@@ -1,5 +1,5 @@
 // AuditIQ Service Worker — offline support
-const CACHE = 'auditiq-v9-1';
+const CACHE = 'auditiq-v10-1';
 const ASSETS = [
   '.',
   'index.html',
@@ -23,20 +23,28 @@ self.addEventListener('activate', e => {
   );
 });
 
-// الجلب: الكاش أولاً ثم الشبكة (يشتغل offline بالكامل)
+// الجلب: الصفحة نفسها من الشبكة أولاً (عشان أي تحديث يظهر فوراً) ولو مفيش نت من الكاش.
+// باقي الملفات: الكاش أولاً ثم الشبكة.
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+  const sameOrigin = e.request.url.startsWith(self.location.origin);
+  const isPage = e.request.mode === 'navigate' || (sameOrigin && /(\/|index\.html)$/.test(new URL(e.request.url).pathname));
+  const store = res => {
+    if (res && res.status === 200 && sameOrigin) {
+      const copy = res.clone();
+      caches.open(CACHE).then(c => c.put(e.request, copy));
+    }
+    return res;
+  };
+  if (isPage) {
+    e.respondWith(
+      fetch(e.request).then(store).catch(() =>
+        caches.match(e.request).then(c => c || caches.match('index.html'))
+      )
+    );
+    return;
+  }
   e.respondWith(
-    caches.match(e.request).then(cached => {
-      if (cached) return cached;
-      return fetch(e.request).then(res => {
-        // خزّن نسخة من الطلبات الناجحة من نفس الأصل
-        if (res && res.status === 200 && e.request.url.startsWith(self.location.origin)) {
-          const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(e.request, copy));
-        }
-        return res;
-      }).catch(() => cached);
-    })
+    caches.match(e.request).then(cached => cached || fetch(e.request).then(store))
   );
 });
