@@ -663,6 +663,189 @@ body.print-mode .site-tag,body.print-mode #aiFab,body.print-mode #aiFabBox{displ
 }
 @media(max-width:768px){#topbar > div:nth-of-type(1){display:flex !important}}
 
+
+/* ═══ v13 — استوديو القوائم المالية ═══ */
+.fa-head{padding:14px 16px;margin-bottom:12px}
+.fa-head-row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.fa-fld{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--text3);min-width:130px}
+.fa-fld select,.fa-fld input{padding:8px 10px;border:1px solid var(--border2);border-radius:9px;background:var(--bg3);color:var(--text);font-family:var(--font);font-size:13.5px}
+.fa-grow{flex:1;min-width:170px}
+.fa-head-btns{display:flex;gap:6px;flex-wrap:wrap}
+.fa-filebtn{position:relative;overflow:hidden;cursor:pointer;display:inline-flex;align-items:center}
+.fa-filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.fa-years{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid var(--border)}
+.fa-years-l{font-size:12.5px;color:var(--text3)}
+.fa-ychip{display:inline-flex;align-items:center;gap:4px;background:var(--accent-soft);color:var(--accent);border-radius:20px;padding:4px 6px 4px 12px;font-family:var(--mono);font-weight:600;font-size:13px}
+.fa-ychip button{border:none;background:none;color:inherit;cursor:pointer;font-size:15px;line-height:1;padding:0 4px;opacity:.6}
+.fa-ychip button:hover{opacity:1}
+.fa-addy{display:inline-flex;gap:6px;align-items:center}
+.fa-addy input{width:80px;padding:6px 8px;border:1px solid var(--border2);border-radius:8px;background:var(--bg3);color:var(--text);font-family:var(--mono);font-size:13px}
+.fa-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;border-bottom:1px solid var(--border)}
+.fa-tab{border:none;background:none;padding:10px 14px;font-family:var(--font);font-size:14px;font-weight:600;color:var(--text2);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.fa-tab:hover{color:var(--text)}
+.fa-tab.on{color:var(--text);border-bottom-color:var(--gold2)}
+.fa-note-bar{background:var(--accent-soft);color:var(--text2);border-radius:10px;padding:9px 14px;font-size:13px;line-height:1.8;margin-bottom:12px}
+.fa-muted{color:var(--text3)}
+.fa-ok{color:var(--green);font-weight:600}
+.fa-bad{color:var(--red);font-weight:600}
+.fa-note{font-size:12px;color:var(--text3);line-height:1.8;margin-top:8px}
+.fa-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.fa-empty-c{text-align:center;color:var(--text2);padding:30px 16px;font-size:14px;line-height:1.9}
+.fa-empty-i{font-size:34px;margin-bottom:6px}
+/* hero */
+.fa-hero{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(110deg,#0b1733,#14295a 55%,#2a4d9c);color:#fff;padding:30px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:14px;box-shadow:0 12px 34px rgba(16,34,74,.3)}
+.fa-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px}
+.fa-hero-t{position:relative;max-width:620px}
+.fa-kick{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px}
+.fa-hero h2{font-size:30px;line-height:1.3;margin:0 0 10px}
+.fa-hero h2 em{font-style:normal;color:var(--gold2)}
+.fa-hero p{color:#d7e1f8;font-size:15px;line-height:1.9;margin:0 0 16px}
+.fa-hero-b{display:flex;gap:8px;flex-wrap:wrap}
+.fa-hero-art{position:relative;flex:0 1 300px;background:#fff;color:#0f1b33;border-radius:14px;padding:14px 16px;transform:rotate(-2deg);box-shadow:0 22px 34px -18px rgba(0,0,0,.55);font-size:13px}
+.fa-hero-art .hd{display:flex;justify-content:space-between;border-bottom:2px solid #0f1b33;padding-bottom:7px;font-weight:700}
+.fa-hero-art .ln{display:grid;grid-template-columns:1fr auto 18px;gap:10px;align-items:center;padding:6px 0;border-top:1px solid #eef1f6}
+.fa-hero-art b{font-family:var(--mono);font-weight:500;font-size:12px}
+.fa-hero-art b.x{background:#fde9e6;color:#b53a2a;outline:2px solid #d64545;border-radius:3px;padding:0 4px}
+.fa-hero-art i{font-style:normal;color:#15936a;font-weight:700}.fa-hero-art i.x{color:#d64545}
+.fa-how-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fa-how-g div{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:12px;font-size:13px;line-height:1.8;color:var(--text2)}
+.fa-how-g b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--mono);margin-left:6px}
+/* input grid */
+.fa-sec{padding:14px 16px;margin-bottom:12px;overflow-x:auto}
+.fa-sec-h{border-right:4px solid;padding-right:10px;margin-bottom:10px;display:flex;align-items:baseline;gap:8px}
+.fa-sec-h b{font-size:15px;color:var(--text)}.fa-sec-h small{color:var(--text3);font-size:12px}
+.fa-grid{display:grid;gap:8px;align-items:center;padding:3px 0;min-width:fit-content}
+.fa-grid-h{font-size:12px;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:4px}
+.fa-c{text-align:center;font-family:var(--mono)}
+.fa-lbl{font-size:13.5px;color:var(--text);line-height:1.4}
+.fa-lbl small{display:block;font-size:11px;color:var(--text3);direction:ltr;text-align:right}
+.fa-in{width:100%;padding:7px 9px;border:1px solid var(--border2);border-radius:8px;background:var(--bg3);color:var(--text);font-family:var(--mono);font-size:13px;text-align:left;direction:ltr}
+.fa-in:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.fa-tot{border-top:1px dashed var(--border2);margin-top:4px;padding-top:6px;font-weight:700;font-size:13.5px;color:var(--text)}
+.fa-tot .fa-c{font-size:13px}
+/* toolbar */
+.fa-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.fa-seg{display:inline-flex;background:var(--bg4);border-radius:10px;padding:3px}
+.fa-seg button{border:none;background:none;padding:7px 13px;border-radius:8px;font-family:var(--font);font-size:13px;font-weight:600;color:var(--text2);cursor:pointer}
+.fa-seg button.on{background:var(--bg2);color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.fa-chips{display:flex;flex-wrap:wrap;gap:6px}
+.fa-chips button{border:1px solid var(--border2);background:var(--bg2);color:var(--text2);border-radius:20px;padding:6px 13px;font-family:var(--font);font-size:12.5px;cursor:pointer}
+.fa-chips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.fa-inline{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text2)}
+.fa-inline input{width:70px;padding:6px 8px;border:1px solid var(--border2);border-radius:8px;background:var(--bg3);color:var(--text);font-family:var(--mono)}
+/* tables */
+.fa-tw{overflow-x:auto}
+.fa-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.fa-tbl th{background:var(--bg4);color:var(--text);font-weight:600;padding:8px 10px;text-align:right;white-space:nowrap;font-size:12.5px;position:sticky;top:0}
+.fa-tbl td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+.fa-tbl .num{text-align:left;direction:ltr;font-family:var(--mono);white-space:nowrap}
+.fa-tbl tr.sub td{font-weight:700;color:var(--text);background:var(--bg3)}
+.fa-tbl tr.tot td{font-weight:700;color:var(--text);border-top:2px solid var(--text);border-bottom:3px double var(--text3)}
+.fa-tbl tr.fa-tr-h td{font-weight:700;color:var(--accent);background:var(--accent-soft);font-size:12.5px}
+.fa-tbl tr.fa-sel td{background:var(--accent-soft)}
+.fa-act{white-space:nowrap}
+.fa-up{color:var(--green);font-weight:700;background:rgba(21,147,106,.10);border-radius:4px;padding:0 4px}
+.fa-dn{color:var(--red);font-weight:700;background:rgba(214,69,69,.10);border-radius:4px;padding:0 4px}
+.fa-new{color:var(--accent);font-size:11.5px}
+.fa-fs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.fa-fs-grid .card{margin-bottom:14px}
+.fa-balrow{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--text2);margin-bottom:10px}
+.fa-checks{margin-bottom:14px;border-right:4px solid var(--gold2)}
+/* ratio tiles */
+.fa-grp{margin-bottom:18px}
+.fa-grp-h{font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
+.fa-grp-h small{font-size:12px;color:var(--text3);font-weight:500;margin-right:6px}
+.fa-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.fa-rt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:right;border-radius:14px;padding:12px 14px;border:1px solid var(--border);cursor:pointer;font-family:var(--font);color:var(--text);transition:transform .12s,box-shadow .12s}
+.fa-rt:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(15,27,51,.10)}
+.fa-rt-n{font-weight:700;font-size:13.5px}
+.fa-rt-e{font-size:11px;color:var(--text3);direction:ltr}
+.fa-rt strong{font-family:var(--mono);font-size:23px;margin-top:4px;unicode-bidi:isolate}
+.fa-rt-f{display:flex;justify-content:space-between;width:100%;font-size:12px;align-items:center}
+.fa-rt-y{color:var(--text3);font-family:var(--mono)}
+.fa-pos{color:var(--green);font-weight:700}.fa-neg{color:var(--red);font-weight:700}
+.fa-spark{width:100%;height:24px;margin-top:4px}
+.fa-spark path{fill:none;stroke:currentColor;stroke-width:2;opacity:.55}
+.fa-bench{font-size:11px;border-radius:12px;padding:1px 8px;margin-top:4px;font-weight:600}
+.fa-bench.ok{background:rgba(21,147,106,.12);color:var(--green)}.fa-bench.low,.fa-bench.high{background:rgba(217,115,26,.12);color:var(--orange)}
+.t-b{background:#e8f0fe;border-color:#cfdcf8;color:#1d4fb8}.t-g{background:#fff4dc;border-color:#f3dfac;color:#96650c}
+.t-p{background:#f0ebfd;border-color:#ddd2f7;color:#5b3fc4}.t-o{background:#fdece6;border-color:#f3cfc3;color:#b2482a}
+.t-b .fa-rt-n,.t-g .fa-rt-n,.t-p .fa-rt-n,.t-o .fa-rt-n,.fa-rt strong{color:var(--text)}
+body.dark .t-b{background:rgba(110,164,255,.10);border-color:rgba(110,164,255,.22);color:#8fb6ff}
+body.dark .t-g{background:rgba(245,184,46,.10);border-color:rgba(245,184,46,.22);color:#f0c060}
+body.dark .t-p{background:rgba(174,147,245,.10);border-color:rgba(174,147,245,.22);color:#ae93f5}
+body.dark .t-o{background:rgba(240,112,92,.10);border-color:rgba(240,112,92,.22);color:#f0a28f}
+/* drawer & modal */
+.fa-ov{position:fixed;inset:0;background:rgba(8,16,32,.45);z-index:2000;display:flex;justify-content:flex-end}
+.fa-ov-c{justify-content:center;align-items:center;padding:16px}
+.fa-drawer{background:var(--bg2);width:min(640px,96vw);height:100%;overflow-y:auto;padding:18px 22px 30px;box-shadow:-8px 0 30px rgba(0,0,0,.22)}
+html[dir=rtl] .fa-ov:not(.fa-ov-c){justify-content:flex-start}
+.fa-drawer h4{font-size:14px;color:var(--text);margin:16px 0 6px}
+.fa-drawer p{font-size:14px;color:var(--text2);line-height:1.9;margin:0}
+.fa-dr-h{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.fa-dr-h h3{margin:0;font-size:19px;color:var(--text)}
+.fa-dr-h small{color:var(--text3)}
+.fa-big{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:10px 0}
+.fa-big strong{font-family:var(--mono);font-size:30px;color:var(--text)}
+.fa-big span{font-size:13px;color:var(--text2)}
+.fa-ex{background:var(--bg3);border-right:3px solid var(--gold2);border-radius:8px;padding:10px 12px}
+.fa-steps{padding-right:20px;margin:0;font-size:13.5px;line-height:2;color:var(--text2)}
+.fa-bul{padding-right:20px;margin:0;font-size:13.5px;line-height:1.9;color:var(--text2)}
+.fa-modal{background:var(--bg2);border-radius:16px;width:min(760px,96vw);max-height:92vh;overflow:auto;padding:18px 20px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.fa-modal-w{width:min(1100px,98vw)}
+.fa-imp-top{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+.fa-imp-sum{display:flex;flex-wrap:wrap;gap:12px;font-size:13px}
+.fa-imp-opts{display:flex;flex-wrap:wrap;gap:10px}
+.fa-imp-years{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:13px;color:var(--text2)}
+.fa-imp-years input{width:72px;padding:5px 8px;border:1px solid var(--border2);border-radius:7px;background:var(--bg3);color:var(--text);font-family:var(--mono)}
+.fa-imp-tw{max-height:52vh;overflow:auto;border:1px solid var(--border);border-radius:10px}
+.fa-imp select{max-width:230px;padding:5px 6px;border:1px solid var(--border2);border-radius:7px;background:var(--bg3);color:var(--text);font-family:var(--font);font-size:12.5px}
+.fa-imp tr.fa-imp-un td{background:rgba(214,69,69,.06)}
+.fa-imp tr.fa-imp-un select{border-color:var(--red)}
+.fa-imp tr.fa-imp-tot td{color:var(--text3);font-style:italic}
+.fa-imp tr.fa-imp-head td{font-weight:700;color:var(--accent);background:var(--bg3)}
+/* charts */
+.fa-chartgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fa-chart{padding:14px 16px}
+.fa-chart h4{font-size:14px;margin:0 0 6px;color:var(--text)}
+.fa-svg{width:100%;height:auto;direction:ltr}
+.fa-svg .g{stroke:var(--border);stroke-width:1}.fa-svg .g.z{stroke:var(--text3)}
+.fa-svg .ax{fill:var(--text3);font-size:11px;font-family:var(--font)}
+.fa-svg .s0{fill:#2563eb}.fa-svg .s1{fill:#f5b82e}.fa-svg .s2{fill:#15936a}.fa-svg .s3{fill:#d64545}
+.fa-svg path.ln{fill:none;stroke-width:2.5}.fa-svg path.s0{stroke:#2563eb}.fa-svg path.s1{stroke:#f5b82e}.fa-svg path.s2{stroke:#15936a}.fa-svg path.s3{stroke:#d64545}
+.fa-svg circle.dot{fill:var(--bg2);stroke-width:2.5}.fa-svg circle.s0{stroke:#2563eb}.fa-svg circle.s1{stroke:#f5b82e}.fa-svg circle.s2{stroke:#15936a}.fa-svg circle.s3{stroke:#d64545}
+.fa-svg rect:hover,.fa-svg circle:hover{opacity:.75}
+.fa-lgs{display:flex;flex-wrap:wrap;gap:4px 12px;margin-bottom:4px}
+.fa-lg{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)}
+.fa-lg i{width:12px;height:8px;border-radius:2px;display:inline-block}
+.fa-lg i.s0{background:#2563eb}.fa-lg i.s1{background:#f5b82e}.fa-lg i.s2{background:#15936a}.fa-lg i.s3{background:#d64545}
+.fa-empty{color:var(--text3);font-size:13px;padding:30px 0;text-align:center}
+.fa-drawer .fa-chart{box-shadow:none;border:1px solid var(--border);margin:6px 0}
+/* review */
+.fa-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.fa-kpi{border:1px solid var(--border);border-radius:14px;background:var(--bg2);padding:12px 14px;text-align:right;cursor:pointer;font-family:var(--font);border-right:4px solid var(--accent)}
+.fa-kpi span{display:block;font-size:12.5px;color:var(--text3)}.fa-kpi strong{font-family:var(--mono);font-size:26px;color:var(--text)}
+.fa-kpi.on{box-shadow:0 0 0 2px var(--accent)}
+.fa-kpi.fa-sH{border-right-color:var(--red)}.fa-kpi.fa-sM{border-right-color:var(--orange)}.fa-kpi.fa-sL{border-right-color:var(--green)}
+.fa-flag{background:var(--bg2);border:1px solid var(--border);border-right:4px solid var(--text3);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.fa-flag.fa-sH{border-right-color:var(--red)}.fa-flag.fa-sM{border-right-color:var(--orange)}.fa-flag.fa-sL{border-right-color:var(--green)}
+.fa-flag-h{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14.5px;color:var(--text)}
+.fa-pill{font-size:11.5px;border-radius:20px;padding:2px 10px;font-weight:700}
+.fa-pill.fa-sH{background:var(--red);color:#fff}.fa-pill.fa-sM{background:#fff1d6;color:#8a5a00}.fa-pill.fa-sL{background:#e6f7f0;color:#0f7a57}
+.fa-std{font-family:var(--mono);font-size:11.5px;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:1px 8px;margin-right:auto}
+.fa-flag-d{font-family:var(--mono);font-size:12.5px;color:var(--text);margin:6px 0;direction:rtl}
+.fa-flag-w,.fa-flag-p{font-size:13px;color:var(--text2);line-height:1.8}
+.fa-flag-p ul{margin:2px 0 0;padding-right:20px}
+@media(max-width:1100px){.fa-fs-grid,.fa-chartgrid{grid-template-columns:1fr}.fa-how-g{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+  .fa-hero{padding:22px 18px}.fa-hero h2{font-size:23px}.fa-hero-art{display:none}
+  .fa-how-g{grid-template-columns:1fr}.fa-kpis{grid-template-columns:1fr 1fr}
+  .fa-head-btns{width:100%}.fa-fld{min-width:0;flex:1 1 45%}
+  .fa-rgrid{grid-template-columns:1fr 1fr}.fa-rt strong{font-size:19px}
+  .fa-tab{padding:8px 10px;font-size:13px}
+  .fa-drawer{padding:14px 14px 30px}
+}
+
 /* ═══ PRINT MODE ═══ */
 .print-header{display:none;align-items:center;gap:16px;padding:10px 0 12px;margin-bottom:14px;border-bottom:0.5px solid var(--border)}
 body.print-mode .sidebar{display:none !important}
@@ -742,8 +925,8 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
     <span>📊 التحليل المالي</span><span class="nav-arrow">▾</span>
   </button>
   <div class="nav-group">
-    <button class="nav-item" onclick="goTo('fsinput',this)"><span class="nav-icon">📥</span> مدخلات القوائم</button>
-    <button class="nav-item" onclick="goTo('ratioanalyzer',this)"><span class="nav-icon">📐</span> محلل النسب</button>
+    <button class="nav-item" onclick="goTo('fsinput',this)"><span class="nav-icon">📥</span> استوديو القوائم المالية</button>
+    <button class="nav-item" onclick="goTo('ratioanalyzer',this)"><span class="nav-icon">📐</span> النسب المالية للشركة</button>
     <button class="nav-item" onclick="goTo('commonsize',this)"><span class="nav-icon">📊</span> Common Size</button>
     <button class="nav-item" onclick="goTo('dupont',this)"><span class="nav-icon">🔀</span> DuPont</button>
     <button class="nav-item" onclick="goTo('altman',this)"><span class="nav-icon">⚠️</span> Altman Z-Score</button>
@@ -873,7 +1056,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- PRINT HEADER — مرئي فقط في وضع الطباعة -->
 <div class="print-header" id="printHeader">
-  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v12</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v13</div>
   <div style="flex:1">
     <div id="printHeaderTitle" style="font-size:17px;font-weight:700;color:var(--text)">—</div>
     <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · <span data-exam-label>DipIFR Jun 2027</span></div>
@@ -1378,13 +1561,13 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- FINANCIAL STATEMENTS SHARED INPUT -->
 <div class="page" id="page-fsinput">
-  <div class="page-header"><div class="page-title">مدخلات القوائم المالية 📥</div><div class="page-sub">بنية واحدة لإدخال قائمة المركز المالي وقائمة الدخل (فترتين) — تُغذّي محلل النسب المالية والقوائم بالحجم الموحد تلقائيًا</div></div>
+  <div class="page-header"><div class="page-title">استوديو القوائم المالية 📥</div><div class="page-sub">Financial Statements Studio — شركات محفوظة · لحد 10 سنين · استيراد من Excel · تحليل رأسي وأفقي · نسب بخطوات الحساب · رسوم · مراجعة تحليلية</div></div>
   <div id="fsinputContent"></div>
 </div>
 
 <!-- FINANCIAL RATIO ANALYZER -->
 <div class="page" id="page-ratioanalyzer">
-  <div class="page-header"><div class="page-title">محلل النسب المالية 📐</div><div class="page-sub">30+ نسبة مالية تُحسب تلقائيًا من بيانات "مدخلات القوائم المالية" — سيولة، ربحية، رفع مالي، كفاءة، سوق، وتدفقات نقدية</div></div>
+  <div class="page-header"><div class="page-title">النسب المالية للشركة 📐</div><div class="page-sub">Financial Ratios — 33 نسبة من استوديو القوائم: اضغط على أي نسبة تشوف المعادلة والأرقام وخطوات الحساب والمقارنة بالسنين</div></div>
   <div id="ratioanalyzerContent"></div>
 </div>
 
@@ -2284,7 +2467,7 @@ function goTo(id,btn){
   const _pg=document.getElementById('page-'+id); if(!_pg){console.error('Page not found:',id);return;} _pg.classList.add('active');
   if(btn)btn.classList.add('active');
   closeMobileMenu();
-  ({'sync':renderSync,'learn':renderLearn,'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
+  ({'sync':renderSync,'learn':renderLearn,'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFAStudioInput,'ratioanalyzer':renderFAStudioRatios,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
   if(id==='home') setTimeout(injectDailyHome,50);
 }
 
@@ -3750,6 +3933,18 @@ const ABBR=[
   ['ROCE','Return on Capital Employed','العائد على رأس المال المستخدم'],
   ['CBE','Computer-based Exam','امتحان على الكمبيوتر'],
   ['PWA','Progressive Web App','تطبيق ويب بيشتغل من غير إنترنت'],
+  ['PBT','Profit Before Tax','الربح قبل الضريبة'],
+  ['FCF','Free Cash Flow','التدفق النقدي الحر'],
+  ['ETR','Effective Tax Rate','سعر الضريبة الفعلي'],
+  ['DSO','Days Sales Outstanding','فترة التحصيل من العملاء'],
+  ['DIO','Days Inventory Outstanding','فترة التخزين'],
+  ['DPO','Days Payables Outstanding','فترة السداد للموردين'],
+  ['CCC','Cash Conversion Cycle','دورة التحويل النقدي'],
+  ['BVPS','Book Value per Share','القيمة الدفترية للسهم'],
+  ['P/E','Price to Earnings','مضاعف الربحية'],
+  ['P/BV','Price to Book Value','السعر إلى القيمة الدفترية'],
+  ['IS','Income Statement','قائمة الدخل'],
+  ['Capex','Capital Expenditure','الإنفاق الرأسمالي'],
 ];
 function renderAbbr(q){
   const el=document.getElementById('abbrContent'); if(!el) return;
@@ -3759,6 +3954,1046 @@ function renderAbbr(q){
   el.innerHTML=`<div style="font-size:12.5px;color:var(--text3);margin-bottom:8px">${rows.length} اختصار</div>
   <div style="overflow-x:auto"><table class="eg-table"><thead><tr><th>الاختصار</th><th>بالإنجليزي</th><th>بالعربي</th></tr></thead>
   <tbody>${rows.map(a=>`<tr><td>${a[0]}</td><td style="direction:ltr;text-align:left">${a[1]}</td><td>${a[2]}</td></tr>`).join('')||'<tr><td colspan="3">مفيش نتيجة</td></tr>'}</tbody></table></div>`;
+}
+
+
+// ═══════════════════════ v13 — استوديو القوائم المالية (عدة شركات × عدة سنوات) ═══════════════════════
+// الفكرة مأخوذة من أداة "مراجِع القوائم المالية": شركات محفوظة، سنوات متعددة، استيراد من Excel مع تبويب تلقائي،
+// نسب بتتفتح بالمعادلة والأرقام وخطوات الحساب، رسوم اتجاهات، ومراجعة تحليلية (ISA 520).
+// البيانات بتتحفظ في fh_fa، وآخر سنتين للشركة النشطة بيتنسخوا في _FS عشان باقي الأدوات (DuPont، Altman، Common Size...) تفضل شغالة.
+
+const FA_KEY='fh_fa';
+let FA=(function(){ try{ const d=JSON.parse(localStorage.getItem(FA_KEY)||'null'); if(d&&Array.isArray(d.companies)) return d; }catch(e){} return {companies:[],active:null,ui:{}}; })();
+if(!FA.ui) FA.ui={};
+function faSave(){ try{ localStorage.setItem(FA_KEY,JSON.stringify(FA)); }catch(e){ showToast('⚠️ المساحة مش كفاية لحفظ البيانات'); } faSyncLegacy(); }
+function faCo(){ return FA.companies.find(c=>c.id===FA.active)||FA.companies[0]||null; }
+function faYears(co){ return Object.keys((co||{}).years||{}).sort((a,b)=>b.localeCompare(a,undefined,{numeric:true})); }
+function faEsc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function faUid(){ return 'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+
+const FA_UNITS=[{v:1,ar:'جنيه',en:'EGP'},{v:1000,ar:'ألف جنيه',en:'EGP 000'},{v:1000000,ar:'مليون جنيه',en:'EGP m'}];
+function faUnit(co){ return FA_UNITS.find(u=>u.v===+((co||{}).unit||1))||FA_UNITS[0]; }
+
+// ── البنود: نفس مفاتيح مدخلات القوائم القديمة (عشان التوافق) ──
+const FA_SECTIONS=[
+  {id:'CA', st:'SFP', ar:'الأصول المتداولة', en:'Current assets', color:'var(--teal)', keys:['cash','recv','inv','contractAssets','prepaid']},
+  {id:'NCA',st:'SFP', ar:'الأصول غير المتداولة', en:'Non-current assets', color:'var(--purple)', keys:['ppe','rouAssets','intangibles','invProp','assocInv','deferredTaxAsset','otherNCA']},
+  {id:'CL', st:'SFP', ar:'الالتزامات المتداولة', en:'Current liabilities', color:'var(--orange)', keys:['payables','contractLiab','stBorrow','taxPayable','provisionsCL','otherCL']},
+  {id:'NCL',st:'SFP', ar:'الالتزامات غير المتداولة', en:'Non-current liabilities', color:'var(--red)', keys:['ltBorrow','leaseLiabNC','deferredTaxLiab','provisionsNCL','otherNCL']},
+  {id:'EQ', st:'SFP', ar:'حقوق الملكية', en:'Equity', color:'var(--gold)', keys:['shareCapital','reserves','retainedEarnings','nci']},
+  {id:'PL', st:'IS',  ar:'قائمة الدخل', en:'Income statement', color:'var(--blue)', keys:['revenue','cogs','opex','impairment','otherIncome','financeCost','financeIncome','fxGainLoss','assocShare','tax']},
+  {id:'CF', st:'CF',  ar:'التدفقات النقدية وبيانات إضافية', en:'Cash flow & other data', color:'var(--green)', keys:['cfo','capex','depAmort','dividendsPaid','sharesOutstanding','marketPrice','preferredDiv']},
+];
+const FA_LABEL={
+  cash:['النقدية وما في حكمها','Cash and cash equivalents'], recv:['العملاء وأوراق القبض','Trade receivables'], inv:['المخزون','Inventories'],
+  contractAssets:['أصول العقود','Contract assets'], prepaid:['مدينون وأرصدة مدينة أخرى','Prepayments and other receivables'],
+  ppe:['الأصول الثابتة (صافي)','Property, plant and equipment'], rouAssets:['أصول حق الانتفاع','Right-of-use assets'], intangibles:['أصول غير ملموسة وشهرة','Intangible assets and goodwill'],
+  invProp:['استثمارات عقارية','Investment property'], assocInv:['استثمارات في شركات شقيقة ومشروعات مشتركة','Investments in associates and JVs'],
+  deferredTaxAsset:['أصول ضريبية مؤجلة','Deferred tax assets'], otherNCA:['أصول غير متداولة أخرى','Other non-current assets'],
+  payables:['الموردون وأوراق الدفع','Trade payables'], contractLiab:['التزامات العقود (دفعات مقدمة من العملاء)','Contract liabilities'],
+  stBorrow:['قروض وتسهيلات قصيرة الأجل','Short-term borrowings'], taxPayable:['ضريبة الدخل المستحقة','Current tax payable'],
+  provisionsCL:['مخصصات متداولة','Current provisions'], otherCL:['دائنون وأرصدة دائنة أخرى','Other current liabilities'],
+  ltBorrow:['قروض طويلة الأجل','Long-term borrowings'], leaseLiabNC:['التزامات عقود التأجير','Lease liabilities'], deferredTaxLiab:['التزامات ضريبية مؤجلة','Deferred tax liabilities'],
+  provisionsNCL:['مخصصات غير متداولة','Non-current provisions'], otherNCL:['التزامات غير متداولة أخرى','Other non-current liabilities'],
+  shareCapital:['رأس المال','Share capital'], reserves:['الاحتياطيات','Reserves'], retainedEarnings:['أرباح مرحلة / (خسائر)','Retained earnings'], nci:['الحقوق غير المسيطرة','Non-controlling interests'],
+  revenue:['الإيرادات','Revenue'], cogs:['تكلفة المبيعات / الإيرادات','Cost of sales'], opex:['مصروفات بيعية وعمومية وإدارية','Selling, general and administrative expenses'],
+  impairment:['خسائر اضمحلال وخسائر ائتمانية','Impairment and credit losses'], otherIncome:['إيرادات تشغيل أخرى','Other operating income'],
+  financeCost:['مصروفات تمويلية','Finance costs'], financeIncome:['إيرادات تمويلية','Finance income'], fxGainLoss:['فروق عملة (الخسارة بالسالب)','Foreign exchange gain/(loss)'],
+  assocShare:['نصيب الشركة في أرباح الشركات الشقيقة','Share of profit of associates'], tax:['ضريبة الدخل','Income tax expense'],
+  cfo:['صافي التدفقات النقدية من أنشطة التشغيل','Net cash from operating activities'], capex:['مدفوعات شراء أصول ثابتة','Capital expenditure'],
+  depAmort:['الإهلاك والاستهلاك (من التدفقات النقدية)','Depreciation and amortisation'], dividendsPaid:['توزيعات أرباح مدفوعة','Dividends paid'],
+  sharesOutstanding:['عدد الأسهم (عدد — مش بالوحدة)','Number of shares'], marketPrice:['سعر السهم (جنيه — مش بالوحدة)','Share price (EGP)'], preferredDiv:['توزيعات الأسهم الممتازة','Preference dividends'],
+};
+const FA_NOUNIT={sharesOutstanding:1,marketPrice:1};
+const FA_EXPENSE={cogs:1,opex:1,impairment:1,financeCost:1,tax:1};
+const FA_ALLKEYS=FA_SECTIONS.reduce((a,s)=>a.concat(s.keys),[]);
+function faLbl(k){ return (FA_LABEL[k]||[k])[0]; }
+
+function faCalc(d){
+  const g=k=>{ const v=+((d||{})[k]); return isFinite(v)?v:0; };
+  const x={}; FA_ALLKEYS.forEach(k=>x[k]=g(k));
+  x.CA=x.cash+x.recv+x.inv+x.contractAssets+x.prepaid;
+  x.NCA=x.ppe+x.rouAssets+x.intangibles+x.invProp+x.assocInv+x.deferredTaxAsset+x.otherNCA;
+  x.totalAssets=x.CA+x.NCA;
+  x.CL=x.payables+x.contractLiab+x.stBorrow+x.taxPayable+x.provisionsCL+x.otherCL;
+  x.NCL=x.ltBorrow+x.leaseLiabNC+x.deferredTaxLiab+x.provisionsNCL+x.otherNCL;
+  x.totalLiabilities=x.CL+x.NCL;
+  x.totalEquity=x.shareCapital+x.reserves+x.retainedEarnings+x.nci;
+  x.ownersEquity=x.totalEquity-x.nci;
+  x.totalEqLiab=x.totalEquity+x.totalLiabilities;
+  x.balanceDiff=x.totalAssets-x.totalEqLiab;
+  x.workingCapital=x.CA-x.CL;
+  x.debt=x.stBorrow+x.ltBorrow+x.leaseLiabNC;
+  x.netDebt=x.debt-x.cash;
+  x.grossProfit=x.revenue-x.cogs;
+  x.ebit=x.grossProfit-x.opex-x.impairment+x.otherIncome;
+  x.ebitda=x.ebit+x.depAmort+x.impairment;
+  x.pbt=x.ebit-x.financeCost+x.financeIncome+x.fxGainLoss+x.assocShare;
+  x.netProfit=x.pbt-x.tax;
+  x.profitNCI=(x.nci&&x.totalEquity)?x.netProfit*(x.nci/x.totalEquity):0;
+  x.profitOwners=x.netProfit-x.profitNCI;
+  x.fcf=x.cfo-x.capex;
+  x.hasSFP=['totalAssets','totalEqLiab'].some(k=>x[k]!==0);
+  x.hasIS=x.revenue!==0||x.netProfit!==0;
+  return x;
+}
+const FA_DERIVED_LBL={CA:'إجمالي الأصول المتداولة',NCA:'إجمالي الأصول غير المتداولة',totalAssets:'إجمالي الأصول',CL:'إجمالي الالتزامات المتداولة',NCL:'إجمالي الالتزامات غير المتداولة',
+  totalLiabilities:'إجمالي الالتزامات',totalEquity:'إجمالي حقوق الملكية',ownersEquity:'حقوق ملكية مساهمي الشركة الأم',totalEqLiab:'إجمالي حقوق الملكية والالتزامات',workingCapital:'رأس المال العامل',
+  debt:'إجمالي القروض والتزامات التأجير',netDebt:'صافي الدين (القروض − النقدية)',grossProfit:'مجمل الربح',ebit:'ربح التشغيل (EBIT)',ebitda:'EBITDA',pbt:'الربح قبل الضريبة',netProfit:'صافي الربح',
+  profitOwners:'صافي الربح الخاص بمساهمي الأم (تقديري)',fcf:'التدفق النقدي الحر (CFO − Capex)'};
+function faAnyLbl(k){ return FA_LABEL[k]?FA_LABEL[k][0]:(FA_DERIVED_LBL[k]||k); }
+
+// ── التوافق مع الأدوات القديمة (_FS) ──
+function faSyncLegacy(){
+  try{
+    const co=faCo(); if(!co||typeof _FS==='undefined') return;
+    const ys=faYears(co); if(!ys.length) return;
+    const c=co.years[ys[0]]||{}, p=ys[1]?(co.years[ys[1]]||{}):{};
+    Object.keys(_FS).forEach(k=>delete _FS[k]);
+    FA_ALLKEYS.forEach(k=>{ if(c[k]!=null&&c[k]!=='') _FS[k+'_c']=c[k]; if(p[k]!=null&&p[k]!=='') _FS[k+'_p']=p[k]; });
+    _FS.company=co.name||''; _FS.sector=co.sector||''; _FS.labelC=ys[0]; _FS.labelP=ys[1]||'';
+    saveFS();
+  }catch(e){}
+}
+(function faMigrate(){
+  if(FA.companies.length) return;
+  try{
+    if(typeof _FS==='undefined'||!Object.keys(_FS).some(k=>/_(c|p)$/.test(k))) return;
+    const yN=s=>{ const m=String(s||'').match(/(19|20)\d{2}/); return m?m[0]:''; };
+    let yc=yN(_FS.labelC)||String(new Date().getFullYear()-1), yp=yN(_FS.labelP)||String(+yc-1);
+    if(yp===yc) yp=String(+yc-1);
+    const co={id:faUid(),name:_FS.company||'شركتي',sector:_FS.sector||'',unit:1,notes:'',years:{},created:Date.now(),updated:Date.now()};
+    co.years[yc]={}; co.years[yp]={};
+    FA_ALLKEYS.forEach(k=>{ if(_FS[k+'_c']!=null&&_FS[k+'_c']!=='') co.years[yc][k]=+_FS[k+'_c']; if(_FS[k+'_p']!=null&&_FS[k+'_p']!=='') co.years[yp][k]=+_FS[k+'_p']; });
+    if(!Object.keys(co.years[yp]).length) delete co.years[yp];
+    FA.companies.push(co); FA.active=co.id;
+    localStorage.setItem(FA_KEY,JSON.stringify(FA));
+  }catch(e){}
+})();
+
+// ── تنسيق الأرقام ──
+function faN(v,dec){ if(v==null||!isFinite(v)) return '—'; const a=Math.abs(v); const s=a.toLocaleString('en-US',{maximumFractionDigits:dec||0,minimumFractionDigits:dec||0}); return v<0?'('+s+')':s; }
+function faFmt(v,kind){
+  if(v==null||!isFinite(v)) return '—';
+  if(kind==='%') return (v*100).toFixed(1)+'%';
+  if(kind==='x') return v.toFixed(2)+'×';
+  if(kind==='d') return Math.round(v)+' يوم';
+  if(kind==='n') return v.toFixed(2);
+  return faN(v);
+}
+function faDiv(a,b){ return (b&&isFinite(a)&&isFinite(b))?a/b:null; }
+function faPct(c,p){ return (p&&isFinite(c)&&isFinite(p))?(c-p)/Math.abs(p):null; }
+
+// ── النسب المالية: المعادلة، الأرقام المطلوبة، خطوات الحساب، القراءة، وملاحظات المراجع ──
+const FA_GROUPS=[
+  {id:'liq', ar:'السيولة', en:'Liquidity', cls:'t-b'},
+  {id:'prof',ar:'الربحية', en:'Profitability', cls:'t-g'},
+  {id:'lev', ar:'المديونية والهيكل التمويلي', en:'Leverage', cls:'t-p'},
+  {id:'act', ar:'النشاط والكفاءة', en:'Activity', cls:'t-o'},
+  {id:'cf',  ar:'التدفقات النقدية', en:'Cash flow', cls:'t-b'},
+  {id:'mkt', ar:'السوق والسهم', en:'Market', cls:'t-p'},
+];
+// b = {avg:boolean, mult:number}. bal(k) = رصيد آخر المدة، أو متوسط أول وآخر المدة لو اخترت المتوسط ولقيت سنة سابقة
+function faBal(v,pv,b,k){ return (b&&b.avg&&pv&&pv.hasSFP)?(v[k]+pv[k])/2:v[k]; }
+function faBalTxt(b,pv){ return (b&&b.avg&&pv&&pv.hasSFP)?'متوسط':'آخر المدة'; }
+const FA_RATIOS=[
+ {id:'current',g:'liq',kind:'x',dir:'up',bench:'currentRatio',ar:'نسبة التداول',en:'Current ratio',f:'الأصول المتداولة ÷ الالتزامات المتداولة',need:['CA','CL'],
+  calc:v=>faDiv(v.CA,v.CL),
+  about:'قدرة الشركة على سداد الالتزامات اللي هتستحق خلال سنة من الأصول اللي هتتحول لنقدية خلال سنة.',
+  read:x=>x<1?'أقل من 1: الأصول المتداولة مش مغطية الالتزامات المتداولة — ضغط سيولة، ولازم تقيّم الاستمرارية.':x<1.2?'تغطية ضعيفة: أي تأخير في التحصيل هيضغط على السداد.':x>3?'عالية جداً: ممكن تكون فيه أصول راكدة (مخزون أو عملاء متأخرين) — النسبة العالية مش دايماً كويسة.':'تغطية مقبولة للالتزامات قصيرة الأجل.',
+  audit:['راجع تبويب القروض والأطراف ذات العلاقة متداول/غير متداول — التبويب الغلط بيغير النسبة كلها.','لو أقل من 1: إجراءات الاستمرارية (ISA 570) وخطط الإدارة والتمويل المتاح.','قارنها بتعهدات عقود القروض (Covenants) لو موجودة.']},
+ {id:'quick',g:'liq',kind:'x',dir:'up',bench:'quickRatio',ar:'نسبة السيولة السريعة',en:'Quick ratio',f:'(الأصول المتداولة − المخزون) ÷ الالتزامات المتداولة',need:['CA','inv','CL'],
+  calc:v=>faDiv(v.CA-v.inv,v.CL),
+  about:'السيولة من غير المخزون، لأنه أبطأ أصل متداول في التحول لنقدية.',
+  read:x=>x<0.8?'أقل من 0.8: الشركة معتمدة على بيع المخزون عشان تسدد.':x<1?'قريبة من الحد: السداد مرتبط بسرعة التحصيل.':'الأصول السريعة مغطية الالتزامات المتداولة.',
+  audit:['فرق كبير بينها وبين نسبة التداول = اعتماد على المخزون، فزوّد وزن اختبار الجرد والتقييم (صافي القيمة البيعية).']},
+ {id:'cashR',g:'liq',kind:'x',dir:'up',ar:'نسبة النقدية',en:'Cash ratio',f:'النقدية وما في حكمها ÷ الالتزامات المتداولة',need:['cash','CL'],
+  calc:v=>faDiv(v.cash,v.CL),
+  about:'أكثر مقاييس السيولة تحفظاً: النقدية بس مقابل الالتزامات المتداولة.',
+  read:x=>x<0.1?'نقدية قليلة جداً مقارنة بالالتزامات.':x>1?'النقدية لوحدها مغطية الالتزامات المتداولة.':'مستوى نقدية متوسط.',
+  audit:['تأكد إن النقدية مفيهاش ودائع مرهونة أو محجوزة (تتفصل وممكن تتبوب غير متداول).','مصادقات البنوك وكشوف الحساب في تاريخ القوائم.']},
+ {id:'ocfR',g:'liq',kind:'x',dir:'up',ar:'نسبة التدفق النقدي التشغيلي',en:'Operating cash flow ratio',f:'صافي التدفق من التشغيل ÷ الالتزامات المتداولة',need:['cfo','CL'],
+  calc:v=>v.cfo?faDiv(v.cfo,v.CL):null,
+  about:'قد إيه النقدية اللي التشغيل ولّدها في السنة بتغطي الالتزامات المتداولة — بتكمّل نسب الأرصدة.',
+  read:x=>x<0?'التشغيل استهلك نقدية بدل ما يولّدها.':x<0.4?'التشغيل بيولّد نقدية قليلة مقارنة بالالتزامات.':'تغطية نقدية جيدة من التشغيل.',
+  audit:['راجع تبويب بنود قائمة التدفقات (تشغيل/استثمار/تمويل).']},
+ {id:'wc',g:'liq',kind:'m',dir:'up',ar:'رأس المال العامل',en:'Working capital',f:'الأصول المتداولة − الالتزامات المتداولة',need:['CA','CL'],
+  calc:v=>(v.CA||v.CL)?v.CA-v.CL:null,
+  about:'الفائض (أو العجز) بين الأصول والالتزامات المتداولة.',
+  read:x=>x<0?'عجز في رأس المال العامل — الالتزامات المتداولة أكبر.':'رأس مال عامل موجب.',
+  audit:['عجز رأس المال العامل من مؤشرات الاستمرارية في ISA 570.']},
+
+ {id:'gm',g:'prof',kind:'%',dir:'up',bench:'grossMargin',ar:'هامش مجمل الربح',en:'Gross margin',f:'مجمل الربح ÷ الإيرادات',need:['grossProfit','revenue'],
+  calc:v=>faDiv(v.grossProfit,v.revenue),
+  about:'اللي بيفضل من كل جنيه إيراد بعد تكلفة المبيعات.',
+  read:x=>x<0?'مجمل خسارة: البيع بأقل من التكلفة.':x<0.1?'هامش ضيق.':'هامش موجب.',
+  audit:['تغيير كبير في الهامش عن السنة اللي فاتت: اختبر القطع (Cut-off) وتبويب التكاليف بين تكلفة المبيعات والمصروفات.','قارن بأسعار البيع والتكلفة لكل منتج أو عقد.']},
+ {id:'ebitM',g:'prof',kind:'%',dir:'up',ar:'هامش ربح التشغيل',en:'Operating margin',f:'ربح التشغيل (EBIT) ÷ الإيرادات',need:['ebit','revenue'],
+  calc:v=>faDiv(v.ebit,v.revenue),
+  about:'ربحية النشاط بعد المصروفات التشغيلية وقبل التمويل والضرائب.',
+  read:x=>x<0?'خسارة تشغيلية.':'النشاط بيحقق ربح تشغيلي.',
+  audit:['راجع اكتمال المصروفات المستحقة في آخر السنة (Accruals).']},
+ {id:'ebitdaM',g:'prof',kind:'%',dir:'up',ar:'هامش EBITDA',en:'EBITDA margin',f:'(ربح التشغيل + الإهلاك والاستهلاك + الاضمحلال) ÷ الإيرادات',need:['ebitda','revenue'],
+  calc:v=>v.depAmort?faDiv(v.ebitda,v.revenue):null,
+  about:'الربح التشغيلي قبل البنود غير النقدية — قريب من النقدية اللي النشاط بيولّدها.',
+  read:x=>x<0?'سالب: النشاط مش مغطي تكاليفه النقدية.':'موجب.',
+  audit:['الإهلاك مأخوذ من بند الإهلاك (قائمة التدفقات) — طابقه مع إيضاح الأصول الثابتة.']},
+ {id:'nm',g:'prof',kind:'%',dir:'up',bench:'netMargin',ar:'هامش صافي الربح',en:'Net margin',f:'صافي الربح ÷ الإيرادات',need:['netProfit','revenue'],
+  calc:v=>faDiv(v.netProfit,v.revenue),
+  about:'صافي الربح من كل جنيه إيراد بعد كل المصروفات والضرائب.',
+  read:x=>x<0?'خسارة صافية.':x<0.03?'هامش صافي ضعيف.':'هامش صافي موجب.',
+  audit:['لو فيه فرق كبير بين هامش التشغيل والصافي: راجع التمويل وفروق العملة والبنود غير المتكررة.']},
+ {id:'roa',g:'prof',kind:'%',dir:'up',ar:'العائد على الأصول',en:'Return on assets (ROA)',f:'صافي الربح ÷ إجمالي الأصول',need:['netProfit','totalAssets'],avg:['totalAssets'],
+  calc:(v,pv,b)=>faDiv(v.netProfit,faBal(v,pv,b,'totalAssets')),
+  about:'كفاءة الإدارة في تحقيق ربح من كل الأصول اللي تحت إيدها.',
+  read:x=>x<0?'العائد سالب.':x<0.03?'عائد ضعيف على الأصول.':'عائد موجب على الأصول.',
+  audit:['أصول كبيرة بعائد ضعيف: فكّر في مؤشرات اضمحلال (IAS 36).']},
+ {id:'roe',g:'prof',kind:'%',dir:'up',ar:'العائد على حقوق الملكية',en:'Return on equity (ROE)',f:'صافي الربح الخاص بمساهمي الأم ÷ حقوق ملكية مساهمي الأم',need:['profitOwners','ownersEquity'],avg:['ownersEquity'],
+  calc:(v,pv,b)=>{ const e=faBal(v,pv,b,'ownersEquity'); return e>0?faDiv(v.profitOwners,e):null; },
+  about:'العائد اللي المساهمين بياخدوه على أموالهم.',
+  read:x=>x<0?'عائد سالب على أموال المساهمين.':x<0.1?'عائد أقل من عوائد بديلة زي أذون الخزانة غالباً.':'عائد جيد للمساهمين.',
+  audit:['لو حقوق الملكية سالبة النسبة مالهاش معنى — ركّز على الاستمرارية.','نصيب الحقوق غير المسيطرة هنا تقديري بنسبة حصتها في حقوق الملكية.']},
+ {id:'roce',g:'prof',kind:'%',dir:'up',ar:'العائد على رأس المال المستخدم',en:'Return on capital employed (ROCE)',f:'ربح التشغيل ÷ (إجمالي الأصول − الالتزامات المتداولة)',need:['ebit','totalAssets','CL'],
+  calc:v=>{ const ce=v.totalAssets-v.CL; return ce>0?faDiv(v.ebit,ce):null; },
+  about:'العائد التشغيلي على التمويل طويل الأجل (حقوق ملكية + قروض طويلة).',
+  read:x=>x<0?'سالب.':'موجب.',
+  audit:['قارنه بتكلفة الاقتراض: لو أقل منها، الاقتراض بيقلل العائد على المساهمين.']},
+ {id:'etr',g:'prof',kind:'%',dir:null,ar:'سعر الضريبة الفعلي',en:'Effective tax rate',f:'ضريبة الدخل ÷ الربح قبل الضريبة',need:['tax','pbt'],
+  calc:v=>v.pbt>0?faDiv(v.tax,v.pbt):null,
+  about:'العبء الضريبي الفعلي مقارنة بالسعر القانوني لضريبة شركات الأموال في مصر (22.5%).',
+  read:x=>Math.abs(x-0.225)>0.075?'بعيد عن 22.5%: لازم تفسير (مصروفات غير قابلة للخصم، إعفاءات، أصل ضريبي مؤجل مش متسجل، ضرائب سنين سابقة).':'قريب من السعر القانوني.',
+  audit:['اطلب تسوية السعر الفعلي بالسعر القانوني (IAS 12 / المعيار المصري 24).','راجع الضريبة المؤجلة والفروق المؤقتة.']},
+
+ {id:'liabEq',g:'lev',kind:'x',dir:'down',bench:'debtEquity',ar:'الالتزامات إلى حقوق الملكية',en:'Liabilities to equity',f:'إجمالي الالتزامات ÷ إجمالي حقوق الملكية',need:['totalLiabilities','totalEquity'],
+  calc:v=>v.totalEquity>0?faDiv(v.totalLiabilities,v.totalEquity):null,
+  about:'قد إيه الشركة معتمدة على أموال الغير مقارنة بأموال الملاك.',
+  read:x=>x>2?'اعتماد عالي على أموال الغير.':x>1?'الالتزامات أكبر من حقوق الملكية.':'هيكل تمويلي متحفظ.',
+  audit:['لو حقوق الملكية سالبة النسبة مش بتتحسب — ده مؤشر استمرارية بحد ذاته.']},
+ {id:'debtEq',g:'lev',kind:'x',dir:'down',ar:'القروض إلى حقوق الملكية',en:'Debt to equity',f:'(القروض قصيرة وطويلة الأجل + التزامات التأجير) ÷ حقوق الملكية',need:['debt','totalEquity'],
+  calc:v=>(v.totalEquity>0&&v.debt)?faDiv(v.debt,v.totalEquity):null,
+  about:'الديون اللي عليها فوائد مقارنة بحقوق الملكية.',
+  read:x=>x>1.5?'رافعة مالية عالية.':'رافعة مالية معتدلة.',
+  audit:['طابق القروض مع مصادقات البنوك وعقود القروض، وراجع الضمانات والتعهدات.']},
+ {id:'liabAs',g:'lev',kind:'%',dir:'down',ar:'الالتزامات إلى الأصول',en:'Liabilities to assets',f:'إجمالي الالتزامات ÷ إجمالي الأصول',need:['totalLiabilities','totalAssets'],
+  calc:v=>faDiv(v.totalLiabilities,v.totalAssets),
+  about:'نسبة الأصول الممولة من أموال الغير.',
+  read:x=>x>1?'الالتزامات أكبر من الأصول — حقوق ملكية سالبة.':x>0.7?'أغلب الأصول ممولة من الغير.':'نسبة معتدلة.',
+  audit:['أكبر من 100% = عجز في حقوق الملكية: ISA 570.']},
+ {id:'eqR',g:'lev',kind:'%',dir:'up',ar:'نسبة حقوق الملكية',en:'Equity ratio',f:'إجمالي حقوق الملكية ÷ إجمالي الأصول',need:['totalEquity','totalAssets'],
+  calc:v=>faDiv(v.totalEquity,v.totalAssets),
+  about:'نسبة الأصول الممولة من الملاك — عكس النسبة اللي قبلها.',
+  read:x=>x<0?'حقوق ملكية سالبة.':x<0.2?'تمويل الملاك ضعيف.':'نسبة معقولة.',
+  audit:['لو الخسائر وصلت نص رأس المال أو أكتر، راجع متطلبات قانون الشركات (دعوة الجمعية العامة غير العادية) والاستمرارية.']},
+ {id:'icov',g:'lev',kind:'x',dir:'up',ar:'تغطية الفوائد',en:'Interest cover',f:'ربح التشغيل ÷ المصروفات التمويلية',need:['ebit','financeCost'],
+  calc:v=>v.financeCost?faDiv(v.ebit,v.financeCost):null,
+  about:'كام مرة ربح التشغيل بيغطي تكلفة الاقتراض.',
+  read:x=>x<1?'ربح التشغيل مش مغطي الفوائد.':x<1.5?'تغطية ضعيفة — خطر على الوفاء بالفوائد.':x<3?'تغطية مقبولة.':'تغطية مريحة.',
+  audit:['أقل من 1.5: مؤشر استمرارية واختبر الالتزام بتعهدات القروض.','راجع رسملة تكاليف الاقتراض على الأصول المؤهلة (IAS 23).']},
+ {id:'ndE',g:'lev',kind:'x',dir:'down',ar:'صافي الدين إلى EBITDA',en:'Net debt to EBITDA',f:'(القروض + التزامات التأجير − النقدية) ÷ EBITDA',need:['netDebt','ebitda'],
+  calc:v=>(v.ebitda>0&&v.depAmort&&v.debt)?faDiv(v.netDebt,v.ebitda):null,
+  about:'عدد السنين اللازمة لسداد صافي الدين من الأرباح النقدية التشغيلية — شائع في تعهدات القروض.',
+  read:x=>x<0?'النقدية أكبر من الديون (صافي نقدية).':x>4?'مديونية عالية مقارنة بالأرباح.':x>2.5?'مديونية متوسطة إلى عالية.':'مديونية مقبولة.',
+  audit:['قارنها بالحد المكتوب في عقد القرض.']},
+
+ {id:'at',g:'act',kind:'x',dir:'up',bench:'assetTurnover',ar:'معدل دوران الأصول',en:'Asset turnover',f:'الإيرادات ÷ إجمالي الأصول',need:['revenue','totalAssets'],avg:['totalAssets'],
+  calc:(v,pv,b)=>faDiv(v.revenue,faBal(v,pv,b,'totalAssets')),
+  about:'كل جنيه أصول بيولّد كام جنيه إيراد.',
+  read:x=>x<0.3?'دوران بطيء — طبيعي في العقارات والقابضة، غير طبيعي في التجارة.':'—',
+  audit:['انخفاض مفاجئ: أصول متعطلة أو إيرادات ناقصة؛ زيادة مفاجئة: راجع اكتمال الأصول وصحة الإيراد.']},
+ {id:'dso',g:'act',kind:'d',dir:'down',bench:'dso',ar:'فترة التحصيل',en:'Receivable days (DSO)',f:'العملاء ÷ الإيرادات × 365',need:['recv','revenue'],avg:['recv'],
+  calc:(v,pv,b)=>{ const r=faBal(v,pv,b,'recv'); return (r&&v.revenue)?r/v.revenue*365:null; },
+  about:'متوسط عدد الأيام اللي الشركة بتستنى فيها تحصيل مبيعاتها الآجلة.',
+  read:x=>x>120?'تحصيل بطيء جداً — خطر خسائر ائتمانية.':x>90?'تحصيل بطيء.':'—',
+  audit:['زيادة الفترة: اختبر الخسائر الائتمانية المتوقعة (IFRS 9) وأعمار الديون.','قد تكون مؤشر لإيرادات مسجلة قبل وقتها أو وهمية (ISA 240) — مصادقات العملاء والتحصيلات اللاحقة.']},
+ {id:'dio',g:'act',kind:'d',dir:'down',bench:'dio',ar:'فترة التخزين',en:'Inventory days (DIO)',f:'المخزون ÷ تكلفة المبيعات × 365',need:['inv','cogs'],avg:['inv'],
+  calc:(v,pv,b)=>{ const i=faBal(v,pv,b,'inv'); return (i&&v.cogs)?i/v.cogs*365:null; },
+  about:'عدد الأيام اللي المخزون بيقعدها قبل ما يتباع.',
+  read:x=>x>180?'مخزون بطيء الحركة جداً.':x>90?'مخزون بطيء نسبياً.':'—',
+  audit:['زيادة الفترة: مخزون راكد أو متقادم — اختبر صافي القيمة البيعية (IAS 2) وحضور الجرد.']},
+ {id:'dpo',g:'act',kind:'d',dir:null,ar:'فترة السداد للموردين',en:'Payable days (DPO)',f:'الموردون ÷ تكلفة المبيعات × 365',need:['payables','cogs'],avg:['payables'],
+  calc:(v,pv,b)=>{ const p=faBal(v,pv,b,'payables'); return (p&&v.cogs)?p/v.cogs*365:null; },
+  about:'متوسط الأيام اللي الشركة بتاخدها عشان تسدد للموردين.',
+  read:x=>x>150?'تأخير كبير في السداد — ممكن ضغط سيولة.':'—',
+  audit:['انخفاض مفاجئ ممكن يعني موردين مش متسجلين (اكتمال الالتزامات): اختبر المدفوعات اللاحقة والفواتير غير المسجلة.']},
+ {id:'ccc',g:'act',kind:'d',dir:'down',ar:'دورة التحويل النقدي',en:'Cash conversion cycle',f:'فترة التحصيل + فترة التخزين − فترة السداد',need:['recv','inv','payables','revenue','cogs'],avg:['recv','inv','payables'],
+  calc:(v,pv,b)=>{ const r=faBal(v,pv,b,'recv'),i=faBal(v,pv,b,'inv'),p=faBal(v,pv,b,'payables'); if(!v.revenue||!v.cogs) return null; return r/v.revenue*365+i/v.cogs*365-p/v.cogs*365; },
+  about:'عدد الأيام اللي الشركة بتمول فيها نشاطها من فلوسها قبل ما الفلوس ترجع.',
+  read:x=>x<0?'الموردين بيمولوا النشاط.':x>120?'دورة طويلة — بتفسر الضغط على السيولة والاقتراض.':'—',
+  audit:['زيادتها بتفسّر زيادة القروض قصيرة الأجل.']},
+
+ {id:'cfoNp',g:'cf',kind:'x',dir:'up',ar:'جودة الأرباح (التدفق التشغيلي ÷ صافي الربح)',en:'Cash flow to net profit',f:'صافي التدفق من التشغيل ÷ صافي الربح',need:['cfo','netProfit'],
+  calc:v=>(v.cfo&&v.netProfit>0)?faDiv(v.cfo,v.netProfit):null,
+  about:'هل الأرباح بتتحول لنقدية؟ أقل من 1 لفترات متتالية علامة تحذير.',
+  read:x=>x<0?'ربح من غير نقدية — التشغيل استهلك نقدية.':x<0.8?'جزء كبير من الربح مش متحول لنقدية.':'الربح مدعوم بنقدية.',
+  audit:['أقل من 1 بشكل متكرر: مؤشر على جودة الأرباح (ISA 240) — راجع زيادة العملاء والمخزون والإيرادات المستحقة.']},
+ {id:'fcf',g:'cf',kind:'m',dir:'up',ar:'التدفق النقدي الحر',en:'Free cash flow',f:'صافي التدفق من التشغيل − مدفوعات شراء أصول ثابتة',need:['cfo','capex'],
+  calc:v=>v.cfo?v.cfo-v.capex:null,
+  about:'النقدية اللي بتفضل بعد الصيانة والتوسع في الأصول — متاحة للتوزيعات وسداد الديون.',
+  read:x=>x<0?'سالب: الاستثمار أكبر من النقدية المتولدة، فالتمويل جاي من قروض أو مساهمين.':'موجب.',
+  audit:['التدفق الحر السالب المستمر مع قروض متزايدة: راجع خطط التمويل.']},
+ {id:'capexDep',g:'cf',kind:'x',dir:null,ar:'الإنفاق الرأسمالي إلى الإهلاك',en:'Capex to depreciation',f:'مدفوعات شراء أصول ثابتة ÷ الإهلاك والاستهلاك',need:['capex','depAmort'],
+  calc:v=>(v.capex&&v.depAmort)?faDiv(v.capex,v.depAmort):null,
+  about:'هل الشركة بتجدد أصولها؟ أقل من 1 = بتصرف أقل من اللي بيتهلك.',
+  read:x=>x<1?'الإنفاق أقل من الإهلاك — أصول بتتقادم.':'الشركة بتستثمر في أصولها.',
+  audit:['إنفاق رأسمالي كبير: اختبر الإضافات (مصروف ولا رأسمالي) وتاريخ الاستخدام.']},
+ {id:'payout',g:'cf',kind:'%',dir:null,ar:'نسبة التوزيع',en:'Payout ratio',f:'توزيعات الأرباح المدفوعة ÷ صافي الربح',need:['dividendsPaid','netProfit'],
+  calc:v=>(v.dividendsPaid&&v.netProfit>0)?faDiv(v.dividendsPaid,v.netProfit):null,
+  about:'الجزء من الربح اللي اتوزع نقدي.',
+  read:x=>x>1?'التوزيعات أكبر من ربح السنة.':'—',
+  audit:['طابق التوزيعات مع محضر الجمعية العامة، وراجع الاحتياطي القانوني قبل التوزيع.']},
+
+ {id:'eps',g:'mkt',kind:'n',dir:'up',ar:'نصيب السهم في الأرباح (جنيه)',en:'Earnings per share',f:'(صافي الربح الخاص بمساهمي الأم − توزيعات الممتاز) × الوحدة ÷ عدد الأسهم',need:['profitOwners','preferredDiv','sharesOutstanding'],
+  calc:(v,pv,b)=>v.sharesOutstanding?(v.profitOwners-v.preferredDiv)*b.mult/v.sharesOutstanding:null,
+  about:'نصيب السهم العادي الواحد من ربح السنة (IAS 33).',
+  read:x=>x<0?'خسارة للسهم.':'—',
+  audit:['الحساب هنا بعدد أسهم آخر السنة، مش المتوسط المرجح — راجع حساب الشركة لو اتغير عدد الأسهم.']},
+ {id:'bvps',g:'mkt',kind:'n',dir:'up',ar:'القيمة الدفترية للسهم (جنيه)',en:'Book value per share',f:'حقوق ملكية مساهمي الأم × الوحدة ÷ عدد الأسهم',need:['ownersEquity','sharesOutstanding'],
+  calc:(v,pv,b)=>v.sharesOutstanding?v.ownersEquity*b.mult/v.sharesOutstanding:null,
+  about:'نصيب السهم من صافي أصول الشركة.', read:x=>'—', audit:[]},
+ {id:'pe',g:'mkt',kind:'x',dir:null,ar:'مضاعف الربحية',en:'P/E ratio',f:'سعر السهم ÷ نصيب السهم في الأرباح',need:['marketPrice','sharesOutstanding','profitOwners'],
+  calc:(v,pv,b)=>{ if(!v.sharesOutstanding||!v.marketPrice) return null; const e=(v.profitOwners-v.preferredDiv)*b.mult/v.sharesOutstanding; return e>0?v.marketPrice/e:null; },
+  about:'السوق بيدفع كام سنة أرباح في السهم.', read:x=>'—', audit:[]},
+ {id:'pbv',g:'mkt',kind:'x',dir:null,ar:'السعر إلى القيمة الدفترية',en:'Price to book',f:'سعر السهم ÷ القيمة الدفترية للسهم',need:['marketPrice','ownersEquity','sharesOutstanding'],
+  calc:(v,pv,b)=>{ if(!v.sharesOutstanding||!v.marketPrice) return null; const bv=v.ownersEquity*b.mult/v.sharesOutstanding; return bv>0?v.marketPrice/bv:null; },
+  about:'أقل من 1: السوق مقيّم الشركة بأقل من دفاترها.',
+  read:x=>x<1?'أقل من الدفاتر — مؤشر اضمحلال محتمل (IAS 36).':'—',
+  audit:['القيمة السوقية أقل من صافي الأصول من المؤشرات الخارجية للاضمحلال في IAS 36.']},
+ {id:'dy',g:'mkt',kind:'%',dir:null,ar:'عائد التوزيعات',en:'Dividend yield',f:'التوزيعات للسهم ÷ سعر السهم',need:['dividendsPaid','sharesOutstanding','marketPrice'],
+  calc:(v,pv,b)=>(v.sharesOutstanding&&v.marketPrice&&v.dividendsPaid)?(v.dividendsPaid*b.mult/v.sharesOutstanding)/v.marketPrice:null,
+  about:'العائد النقدي اللي المستثمر بياخده على سعر السهم.', read:x=>'—', audit:[]},
+];
+function faRatioSeries(co,id,b){
+  const r=FA_RATIOS.find(x=>x.id===id), ys=faYears(co);
+  return ys.map((y,i)=>{ const v=faCalc(co.years[y]), pv=ys[i+1]?faCalc(co.years[ys[i+1]]):null; let val=null; try{ val=r.calc(v,pv,b); }catch(e){} return {y,val:(val!=null&&isFinite(val))?val:null}; });
+}
+
+// ── الاستيراد من Excel أو اللصق: تبويب البنود تلقائياً بالكلمات (عربي وإنجليزي) ──
+function faNorm(s){ return String(s==null?'':s).toLowerCase().replace(/[ً-ْـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^ء-يa-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim(); }
+function faParseNum(c){
+  if(c==null||c==='') return null;
+  if(typeof c==='number') return isFinite(c)?c:null;
+  let s=String(c).trim(); if(!s) return null;
+  s=s.replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/٫/g,'.').replace(/٬/g,',');
+  if(/^[-–—]+$/.test(s)) return 0;
+  const neg=/^\(.*\)$/.test(s)||/^-/.test(s)||/-$/.test(s);
+  s=s.replace(/[^0-9.,]/g,'');
+  if(!/\d/.test(s)) return null;
+  s=s.replace(/,/g,'');
+  const n=parseFloat(s); if(!isFinite(n)) return null;
+  return neg?-n:n;
+}
+// [regex على النص بعد التطبيع, المفتاح, الأقسام المسموحة (اختياري)]
+const FA_HEAD=[
+  [/(اصول|الاصول) غير المتداوله|non ?current assets/,'NCA'],[/(اصول|الاصول) (ال)?متداوله|current assets/,'CA'],
+  [/(التزامات|الالتزامات) غير المتداوله|non ?current liabilities|التزامات طويله الاجل/,'NCL'],[/(التزامات|الالتزامات) (ال)?متداوله|current liabilities/,'CL'],
+  [/حقوق (ال)?ملكيه|حقوق المساهمين|حقوق الشركاء|shareholders equity|^equity$|total equity/,'EQ'],
+  [/الدخل الشامل الاخر|other comprehensive/,'OCI'],
+  [/قائمه الدخل|الارباح (او|و) الخسائر|الارباح والخسائر|income statement|profit or loss|statement of profit/,'PL'],
+  [/التدفقات النقديه|cash flows?/,'CF'],
+];
+const FA_TOTALS=[
+  [/اجمالي الاصول المتداوله|total current assets/,'CA'],[/اجمالي الاصول غير المتداوله|total non ?current assets/,'NCA'],[/^(اجمالي|مجموع) الاصول$|^total assets$/,'totalAssets'],
+  [/اجمالي الالتزامات المتداوله|total current liabilities/,'CL'],[/اجمالي الالتزامات غير المتداوله|total non ?current liabilities/,'NCL'],
+  [/اجمالي حقوق الملكيه والالتزامات|اجمالي الالتزامات وحقوق الملكيه|total equity and liabilities|total liabilities and equity/,'totalEqLiab'],
+  [/^(اجمالي|مجموع) الالتزامات$|^total liabilities$/,'totalLiabilities'],[/اجمالي حقوق الملكيه|total equity/,'totalEquity'],
+  [/^مجمل (ال)?(ربح|خساره)|gross (profit|loss)/,'grossProfit'],[/قبل (ال)?ضرائب|قبل ضريبه|before (income )?tax/,'pbt'],
+];
+const FA_RULES=[
+  // تدفقات نقدية
+  [/صافي (ال)?(تدفقات|التدفق) (ال)?نقدي(ه)? (الناتج(ه)? )?(من|عن|في) (ال)?(انشطه|نشاط) (ال)?تشغيل|net cash (generated )?(from|used in) operating/,'cfo'],
+  [/(مدفوعات|شراء|اقتناء|اضافات)\s.*(اصول ثابته|ممتلكات|مشروعات تحت التنفيذ)|purchase of property|acquisition of property|capital expenditure|purchase of fixed/,'capex',['CF','UNK']],
+  [/توزيعات (ال)?ارباح (ال)?مدفوعه|dividends paid/,'dividendsPaid',['CF','UNK']],
+  [/اهلاك|استهلاك|depreciation|amortisation|amortization/,'depAmort',['CF']],
+  // قائمة الدخل
+  [/تكلف(ه|ة) (ال)?(مبيعات|ايرادات|الحصول علي الايراد|النشاط)|تكاليف (ال)?نشاط|cost of (sales|revenue|goods)/,'cogs',['PL','UNK']],
+  [/ايرادات (ال)?(تمويل|فوائد)|فوائد دائنه|عوائد (ودائع|اذون|استثمار)|ايرادات (ال)?استثمار|finance income|interest income|investment income/,'financeIncome',['PL','UNK']],
+  [/(مصروفات|تكاليف|اعباء) (ال)?(تمويل|تمويليه|اقتراض)|فوائد مدينه|فوائد (ال)?(قروض|تسهيلات)|finance (cost|expense)|interest expense|borrowing cost/,'financeCost',['PL','UNK']],
+  [/فروق (ال)?(عمله|عملات|تقييم عمله|ترجمه)|exchange (gain|loss|difference)|foreign (currency|exchange)/,'fxGainLoss',['PL','UNK']],
+  [/نصيب (ال)?شركه في (ارباح|نتائج)|حصه (ال)?شركه في|share of (profit|loss|results)/,'assocShare',['PL','UNK']],
+  [/ضريب(ه|ة) (ال)?دخل|ضرائب (ال)?دخل|الضريبه المؤجله|ضريبه مؤجله|income tax|deferred tax/,'tax',['PL']],
+  [/اضمحلال|انخفاض (في )?(ال)?قيمه|خسائر ائتماني|خسائر (ال)?ائتمان|مخصص (ال)?ديون|ديون معدومه|impairment|expected credit loss|bad debt/,'impairment',['PL','UNK']],
+  [/ايرادات (تشغيل )?اخري|ايرادات متنوعه|ارباح (راسماليه|بيع اصول)|other (operating )?income|gain on (sale|disposal)/,'otherIncome',['PL','UNK']],
+  [/اهلاك|استهلاك|depreciation|amortisation|amortization/,'opex_dep',['PL']],
+  [/مصروفات|مصاريف|تكاليف (بيعيه|تسويقيه|اداريه)|اجور|مرتبات|بدلات|expenses|selling|distribution|administrative/,'opex',['PL','UNK']],
+  [/ايرادات|ايراد|مبيعات|revenue|sales|turnover/,'revenue',['PL','UNK']],
+  // حقوق الملكية
+  [/غير (ال)?مسيطره|حقوق (ال)?اقليه|non ?controlling|minority/,'nci'],
+  [/راس (ال)?مال (ال)?(مدفوع|مصدر|المرخص)|^راس (ال)?مال$|share capital|paid ?up capital|issued capital/,'shareCapital',['EQ','UNK']],
+  [/احتياطي|فائض (ال)?اعاده (ال)?تقييم|reserve|revaluation surplus/,'reserves',['EQ','UNK']],
+  [/ارباح مرحله|خسائر مرحله|ارباح (ال)?محتجزه|ارباح \(?خسائر\)? مرحله|retained|accumulated (loss|deficit)/,'retainedEarnings',['EQ','UNK']],
+  [/صافي (ال)?(ربح|خساره|ارباح|خسائر)|ارباح (ال)?(عام|سنه|فتره)|profit for the (year|period)|net (profit|loss)/,'retainedEarnings',['EQ']],
+  // أصول
+  [/حق (ال)?انتفاع|حق (ال)?استخدام|right ?of ?use/,'rouAssets',['NCA','UNK']],
+  [/استثمار(ات)? عقاري|investment propert/,'invProp',['NCA','UNK']],
+  [/شركات شقيقه|شركه شقيقه|مشروع(ات)? مشترك|زميله|associate|joint venture/,'assocInv',['NCA','UNK','CA']],
+  [/اصول (ال)?(ثابته|طويله)|ممتلكات|الات ومعدات|مشروعات تحت التنفيذ|اعمال راسماليه|property|plant|equipment|fixed assets|capital work/,'ppe',['NCA','UNK']],
+  [/غير (ال)?ملموس|شهره|برامج|intangible|goodwill|software/,'intangibles',['NCA','UNK']],
+  [/(اصول|اصل) (ال)?ضريبي(ه)? (ال)?مؤجل|ضرائب مؤجله|ضريبه مؤجله|deferred tax/,'deferredTaxAsset',['NCA']],
+  [/(اصول|اصل) (ال)?ضريبي(ه)? (ال)?مؤجل|deferred tax asset/,'deferredTaxAsset',['UNK']],
+  [/اصول (ال)?عقود|اصل (ال)?عقد|مستحقات من عملاء عقود|contract asset/,'contractAssets',['CA','UNK']],
+  [/نقدي(ه)?|بنوك|صندوق|ودائع|حسابات جاريه|cash|bank|deposit/,'cash',['CA','UNK']],
+  [/مخزون|بضاعه|خامات|inventor|stock/,'inv',['CA','UNK']],
+  [/مدينون (و)?ارصده مدينه|ارصده مدينه اخري|مدينون متنوعون|مصروفات مدفوعه مقدما|دفعات مقدمه (لل)?موردين|prepayment|other receivable|other debit|advances to suppliers/,'prepaid',['CA','UNK']],
+  [/عملاء|اوراق قبض|ذمم مدينه|مدينون|receivable|debtors/,'recv',['CA','UNK']],
+  [/استثمار|investment/,'otherNCA',['NCA']],
+  [/استثمار|investment|اذون خزانه|treasury/,'prepaid',['CA']],
+  // التزامات
+  [/دفعات مقدمه من (ال)?عملاء|عملاء (-|–)? ?دفعات مقدمه|التزامات (ال)?عقود|ايرادات (مقدمه|مؤجله)|contract liabilit|advances? from customers|deferred revenue/,'contractLiab',['CL','UNK']],
+  [/التزام(ات)? (عقود )?(ال)?(تاجير|ايجار)|lease liabilit/,'stBorrow',['CL']],
+  [/التزام(ات)? (عقود )?(ال)?(تاجير|ايجار)|lease liabilit/,'leaseLiabNC',['NCL','UNK']],
+  [/ضريب(ه|ة) (ال)?دخل (ال)?مستحقه|ضرائب (ال)?دخل (ال)?مستحقه|مصلحه الضرائب|current tax|income tax payable|tax payable/,'taxPayable',['CL','UNK']],
+  [/(التزامات|التزام) (ال)?ضريبي(ه)? (ال)?مؤجل|ضرائب مؤجله|ضريبه مؤجله|deferred tax/,'deferredTaxLiab',['NCL','UNK']],
+  [/(بنوك|بنك) (سحب علي المكشوف|دائنه)|سحب علي المكشوف|تسهيلات|قروض قصيره|الجزء (ال)?متداول|overdraft|short ?term (loan|borrow)|current portion|bank facilit/,'stBorrow',['CL','UNK']],
+  [/قروض|قرض|سندات|loan|borrowing|bond/,'stBorrow',['CL']],
+  [/قروض|قرض|سندات|loan|borrowing|bond/,'ltBorrow',['NCL','UNK']],
+  [/مخصص|provision|مزايا (ال)?عاملين|employee benefit/,'provisionsCL',['CL']],
+  [/مخصص|provision|مزايا (ال)?عاملين|employee benefit/,'provisionsNCL',['NCL','UNK']],
+  [/دائنون (و)?ارصده دائنه|ارصده دائنه اخري|دائنون متنوعون|مصروفات مستحقه|accrued|other payable|other credit/,'otherCL',['CL','UNK']],
+  [/موردين|موردون|اوراق دفع|ذمم دائنه|دائنون|payable|creditors/,'payables',['CL','UNK']],
+  [/.*/,'otherNCA',['NCA']],[/.*/,'otherCL',['CL']],[/.*/,'otherNCL',['NCL']],
+];
+function faMatchRule(n,sec){
+  for(const r of FA_RULES){ if(r[2]&&r[2].indexOf(sec)<0) continue; if(r[0].test(n)) return r[1]; }
+  return '';
+}
+function faDetectUnit(text){
+  const t=faNorm(text);
+  if(/بالمليون|مليون جنيه|ملايين|in millions|egp m\b|million/.test(t)) return 1000000;
+  if(/بالالف|الف جنيه|بالاف|in thousands|000|thousand/.test(t)) return 1000;
+  return 0;
+}
+// AOA (مصفوفة صفوف) → {years, rows:[{label,sec,key,vals:{year:value},total,head}], unit}
+function faAnalyzeAOA(aoa,fileName,initSec){
+  aoa=(aoa||[]).map(r=>(r||[]).map(c=>c==null?'':c));
+  const nRows=aoa.length, nCols=Math.max(0,...aoa.map(r=>r.length));
+  const hdrText=aoa.slice(0,12).map(r=>r.join(' ')).join(' ');
+  const unit=faDetectUnit(hdrText+' '+(fileName||''));
+  // عمود المفتاح (نموذج AuditIQ)
+  let keyCol=-1, hdrRow=-1;
+  for(let r=0;r<Math.min(nRows,15)&&keyCol<0;r++) for(let c=0;c<nCols;c++){ if(String(aoa[r][c]).trim().toLowerCase()==='key'){ keyCol=c; hdrRow=r; break; } }
+  // أعمدة الإيضاحات
+  const noteCols=new Set();
+  for(let r=0;r<Math.min(nRows,20);r++) for(let c=0;c<nCols;c++){ const t=faNorm(aoa[r][c]); if(/^(ايضاح|ايضاحات|رقم الايضاح|note|notes)$/.test(t)) noteCols.add(c); }
+  // السنين في الصفوف الأولى
+  let yearCols=[];
+  for(let r=0;r<Math.min(nRows,25);r++){
+    const found=[];
+    for(let c=0;c<nCols;c++){
+      if(noteCols.has(c)||c===keyCol) continue;
+      const raw=aoa[r][c]; let y=null;
+      if(typeof raw==='number'&&raw>=1990&&raw<=2100&&Math.floor(raw)===raw) y=String(raw);
+      else{ const m=String(raw).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).match(/(?:^|\D)((?:19|20)\d{2})(?:\D|$)/); if(m) y=m[1]; }
+      if(y) found.push({c,y,r});
+    }
+    const uniq=[...new Set(found.map(f=>f.y))];
+    if(found.length>=2&&uniq.length>=2){ yearCols=found; hdrRow=Math.max(hdrRow,r); break; }
+    if(found.length===1&&!yearCols.length) yearCols=found;
+  }
+  // عمود رقمي = أكتر من 3 أرقام تحت صف العناوين
+  const numCount=c=>{ let n=0; for(let r=hdrRow+1;r<nRows;r++){ const v=aoa[r][c]; if(v!==''&&faParseNum(v)!=null&&!(typeof v==='number'&&v>=1990&&v<=2100&&r<=hdrRow+1)) n++; } return n; };
+  if(yearCols.length){ const seen={}; yearCols=yearCols.filter(f=>{ if(seen[f.y]) return false; seen[f.y]=1; return numCount(f.c)>0; }); }
+  let guessed=false;
+  if(!yearCols.length){
+    const cols=[]; for(let c=0;c<nCols;c++){ if(noteCols.has(c)||c===keyCol) continue; const n=numCount(c); if(n>=3) cols.push(c); }
+    // استبعد عمود الإيضاحات المخفي: أرقام صغيرة صحيحة
+    const real=cols.filter(c=>{ let big=0; for(let r=0;r<nRows;r++){ const v=faParseNum(aoa[r][c]); if(v!=null&&(Math.abs(v)>=100||Math.floor(v)!==v)) big++; } return big>0; });
+    const y0=new Date().getFullYear()-1;
+    yearCols=real.slice(0,6).map((c,i)=>({c,y:String(y0-i),r:-1})); guessed=true;
+  }
+  const valCols=yearCols.map(f=>f.c);
+  const rows=[]; let sec=initSec||'UNK'; let anyHead=false;
+  for(let r=0;r<nRows;r++){
+    const row=aoa[r];
+    const vals={}; let hasVal=false;
+    yearCols.forEach(f=>{ const v=faParseNum(row[f.c]); if(v!=null){ vals[f.y]=v; hasVal=true; } });
+    const labelCells=[]; for(let c=0;c<row.length;c++){ if(valCols.indexOf(c)>=0||noteCols.has(c)||c===keyCol) continue; const s=String(row[c]).trim(); if(s&&faParseNum(s)==null) labelCells.push(s); }
+    const label=labelCells.join(' — ');
+    if(r<=hdrRow&&hdrRow>=0&&keyCol<0) { if(!hasVal){ const n0=faNorm(label); for(const h of FA_HEAD) if(h[0].test(n0)){ sec=h[1]; anyHead=true; } } continue; }
+    if(!label&&!hasVal) continue;
+    const n=faNorm(label);
+    if(keyCol>=0){ const k=String(row[keyCol]).trim(); if(r===hdrRow) continue; if(FA_ALLKEYS.indexOf(k)>=0&&hasVal) rows.push({label:label||faLbl(k),sec:'KEY',key:k,vals,total:false,head:false}); continue; }
+    // عنوان قسم؟
+    let headHit=null; for(const h of FA_HEAD) if(h[0].test(n)&&!/^(اجمالي|مجموع|total)/.test(n)){ headHit=h[1]; break; }
+    const isTotal=/^(ال)?(اجمالي|مجموع|الاجمالي)|^total|^subtotal/.test(n)||/^(صافي (ال)?(ربح|خساره|ارباح|خسائر))|^net (profit|loss)|profit for the (year|period)|loss for the (year|period)/.test(n)&&sec!=='EQ';
+    if(headHit&&!hasVal){ sec=headHit; anyHead=true; rows.push({label,sec,key:'',vals,total:false,head:true}); continue; }
+    if(headHit&&hasVal&&/^(ال)?(اصول|التزامات|الالتزامات)/.test(n)){ sec=headHit; anyHead=true; }
+    if(!hasVal){ continue; }
+    if(isTotal){
+      let chk=''; for(const t of FA_TOTALS) if(t[0].test(n)){ chk=t[1]; break; }
+      if(!chk&&/صافي (ال)?(ربح|خساره|ارباح|خسائر)|net (profit|loss)|profit for the|loss for the/.test(n)&&(sec==='PL'||sec==='UNK')) chk='netProfit';
+      if(!chk&&/صافي (ال)?(تدفقات|التدفق)|net cash/.test(n)&&/تشغيل|operating/.test(n)) { rows.push({label,sec,key:'cfo',vals,total:false,head:false}); continue; }
+      rows.push({label,sec,key:'',vals,total:true,check:chk,head:false}); continue;
+    }
+    if(sec==='OCI') { rows.push({label,sec,key:'',vals,total:false,head:false}); continue; }
+    let key=faMatchRule(n,sec);
+    // صافي ربح العام داخل قائمة الدخل = مراجعة مش بند
+    if(sec==='PL'&&/^ربح التشغيل|ارباح التشغيل|operating profit|^مجمل/.test(n)) { rows.push({label,sec,key:'',vals,total:true,check:/مجمل|gross/.test(n)?'grossProfit':'ebit',head:false}); continue; }
+    rows.push({label,sec,key,vals,total:false,head:false});
+  }
+  // اصطلاح الإشارة في قائمة الدخل: لو أغلب المصروفات سالبة يبقى المصروفات بتتكتب بالسالب
+  const exp=rows.filter(x=>FA_EXPENSE[x.key]||x.key==='opex_dep');
+  let neg=0,pos=0; exp.forEach(x=>Object.values(x.vals).forEach(v=>{ if(v<0) neg++; else if(v>0) pos++; }));
+  const expNeg=neg>pos;
+  return {years:yearCols.map(f=>f.y),guessedYears:guessed,unit,rows,expNeg,anyHead,keyMode:keyCol>=0};
+}
+// يحوّل التحليل لقيم سنوية: {year:{key:value}} + فحوص المجاميع
+function faBuildFromImport(an,map){
+  const out={}; an.years.forEach(y=>out[y]={});
+  const add=(y,k,v)=>{ out[y][k]=(out[y][k]||0)+v; };
+  let cfDep=false; an.rows.forEach((r,i)=>{ if((map[i]||r.key)==='depAmort'&&r.sec==='CF') cfDep=true; });
+  an.rows.forEach((r,i)=>{
+    const k=map[i]!=null?map[i]:r.key; if(!k||r.head) return;
+    an.years.forEach(y=>{
+      let v=r.vals[y]; if(v==null) return;
+      if(k==='opex_dep'){ const e=an.expNeg?-v:v; add(y,'opex',e); if(!cfDep) add(y,'depAmort',Math.abs(e)); return; }
+      if(FA_EXPENSE[k]) v=an.expNeg?-v:v;
+      else if(['capex','dividendsPaid','depAmort'].indexOf(k)>=0) v=Math.abs(v);
+      add(y,k,v);
+    });
+  });
+  const checks=[];
+  an.rows.forEach(r=>{ if(r.total&&r.check) an.years.forEach(y=>{ if(r.vals[y]==null) return; const c=faCalc(out[y]); let calc=c[r.check]; if(calc==null) return; const file=r.vals[y]; const ok=Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005); checks.push({y,label:r.label,check:r.check,file,calc,ok}); }); });
+  return {data:out,checks};
+}
+
+// ── المراجعة التحليلية (ISA 520): مؤشرات تلقائية بين آخر سنتين ──
+function faReview(co,opt){
+  opt=opt||{}; const thr=(+opt.thr||20)/100, mat=+opt.mat||0;
+  const ys=faYears(co); const out=[];
+  if(!ys.length) return out;
+  const v=faCalc(co.years[ys[0]]), pv=ys[1]?faCalc(co.years[ys[1]]):null, y0=ys[0], y1=ys[1];
+  const P=x=>x==null?'—':(x*100).toFixed(1)+'%';
+  const push=(sev,title,detail,why,proc,std)=>out.push({sev,title,detail,why,proc,std});
+  ys.forEach(y=>{ const c=faCalc(co.years[y]); if(c.hasSFP&&Math.abs(c.balanceDiff)>=1) push('H','قائمة المركز المالي مش متوازنة — '+y,'الأصول '+faN(c.totalAssets)+' مقابل الالتزامات وحقوق الملكية '+faN(c.totalEqLiab)+' — الفرق '+faN(c.balanceDiff),'بند ناقص أو متبوب غلط في الإدخال أو في المسودة نفسها.',['راجع الإدخال مع المسودة بند بند.','لو المسودة نفسها مش متوازنة: ارجع لميزان المراجعة.'],'—'); });
+  if(v.hasSFP&&v.CA&&v.CL&&v.CA/v.CL<1) push('H','نسبة التداول أقل من 1','نسبة التداول '+(v.CA/v.CL).toFixed(2)+'× — عجز رأس مال عامل '+faN(v.CA-v.CL),'الالتزامات اللي هتستحق خلال سنة أكبر من الأصول اللي هتتحول لنقدية خلال سنة.',['قيّم الاستمرارية وخطط الإدارة لمدة 12 شهر على الأقل.','راجع التسهيلات البنكية المتاحة وتواريخ تجديدها.','راجع الأحداث اللاحقة والتدفقات الفعلية بعد نهاية السنة.'],'ISA 570');
+  if(v.hasSFP&&v.totalEquity<0) push('H','حقوق الملكية بالسالب','إجمالي حقوق الملكية '+faN(v.totalEquity),'الالتزامات أكبر من الأصول.',['إجراءات الاستمرارية والدعم المالي من المساهمين (خطاب دعم).','راجع متطلبات قانون الشركات.'],'ISA 570');
+  else if(v.shareCapital>0&&v.retainedEarnings<0&&Math.abs(v.retainedEarnings)>=v.shareCapital/2) push('H','الخسائر المتراكمة وصلت نص رأس المال أو أكتر','الخسائر المرحلة '+faN(v.retainedEarnings)+' مقابل رأس مال '+faN(v.shareCapital)+' ('+P(Math.abs(v.retainedEarnings)/v.shareCapital)+')','حالة بتستلزم إجراء من الجمعية العامة حسب قانون الشركات، ومؤشر على الاستمرارية.',['اتأكد من دعوة الجمعية العامة غير العادية وقرارها.','إجراءات الاستمرارية.'],'ISA 570');
+  if(v.financeCost&&v.ebit/v.financeCost<1.5) push(v.ebit/v.financeCost<1?'H':'M','تغطية الفوائد ضعيفة','ربح التشغيل ÷ الفوائد = '+(v.ebit/v.financeCost).toFixed(2)+'×','ربح التشغيل بالكاد مغطي (أو مش مغطي) تكلفة الاقتراض.',['راجع تعهدات عقود القروض وأي إخلال بيها وأثره على التبويب.','راجع رسملة الفوائد على الأصول المؤهلة.'],'ISA 570 · IAS 23');
+  if(v.cfo&&v.netProfit>0&&v.cfo<0) push('H','ربح محاسبي مع تدفق تشغيلي سالب','صافي الربح '+faN(v.netProfit)+' والتدفق من التشغيل '+faN(v.cfo),'الربح مش بيتحول لنقدية — ممكن يكون من زيادة العملاء أو المخزون أو إيرادات مسجلة قبل وقتها.',['حلّل حركة رأس المال العامل في قائمة التدفقات.','اختبر الإيرادات قرب نهاية السنة والتحصيلات اللاحقة.'],'ISA 240 · ISA 520');
+  else if(v.cfo&&v.netProfit>0&&v.cfo/v.netProfit<0.5) push('M','جودة الأرباح: أقل من نص الربح اتحول لنقدية','التدفق من التشغيل ÷ صافي الربح = '+(v.cfo/v.netProfit).toFixed(2)+'×','جزء كبير من الربح لسه في أرصدة مدينة أو مخزون.',['حلّل الزيادة في العملاء والمخزون.'],'ISA 520');
+  if(v.pbt>0&&Math.abs(v.tax/v.pbt-0.225)>0.075) push('M','سعر الضريبة الفعلي بعيد عن 22.5%','سعر الضريبة الفعلي '+P(v.tax/v.pbt)+' على ربح قبل الضريبة '+faN(v.pbt),'لازم يتفسر بتسوية: مصروفات غير قابلة للخصم، إعفاءات، أصل ضريبي مؤجل مش متسجل، أو ضرائب سنين سابقة.',['اطلب تسوية السعر الفعلي بالسعر القانوني.','راجع حساب الضريبة المؤجلة.'],'IAS 12');
+  if(pv){
+    const g=(a,b)=>faPct(a,b);
+    const gr=g(v.revenue,pv.revenue), grc=g(v.recv,pv.recv), gi=g(v.inv,pv.inv), gc=g(v.cogs,pv.cogs), gca=g(v.contractAssets,pv.contractAssets);
+    if(gr!=null&&grc!=null&&v.recv>0&&grc-gr>0.15) push(grc-gr>0.3?'H':'M','العملاء بيزيدوا أسرع من الإيرادات','نمو العملاء '+P(grc)+' مقابل نمو الإيرادات '+P(gr),'ممكن: تحصيل أبطأ، مبيعات قرب نهاية السنة، أو إيرادات مسجلة قبل وقتها.',['مصادقات العملاء واختبار التحصيلات اللاحقة.','اختبار القطع للمبيعات حوالين تاريخ القوائم.','مراجعة الخسائر الائتمانية المتوقعة (IFRS 9).'],'ISA 240 · ISA 505');
+    if(gca!=null&&gr!=null&&v.contractAssets>0&&gca-gr>0.2) push('M','أصول العقود بتزيد أسرع من الإيرادات','نمو أصول العقود '+P(gca)+' مقابل نمو الإيرادات '+P(gr),'إيراد معترف بيه ومش مفوتر — راجع تقدير نسبة الإتمام.',['راجع حساب نسبة الإتمام وشهادات الاستشاري.'],'IFRS 15');
+    if(gi!=null&&gc!=null&&v.inv>0&&gi-gc>0.15) push(gi-gc>0.3?'H':'M','المخزون بيزيد أسرع من تكلفة المبيعات','نمو المخزون '+P(gi)+' مقابل نمو تكلفة المبيعات '+P(gc),'ممكن مخزون راكد أو متقادم، أو أخطاء في الجرد والتسعير.',['حضور الجرد واختبار الأصناف بطيئة الحركة.','اختبار صافي القيمة البيعية بعد نهاية السنة.'],'IAS 2 · ISA 501');
+    const gm=faDiv(v.grossProfit,v.revenue), pgm=faDiv(pv.grossProfit,pv.revenue);
+    if(gm!=null&&pgm!=null&&Math.abs(gm-pgm)>=0.05) push('M','تغيير كبير في هامش مجمل الربح','الهامش '+P(gm)+' مقابل '+P(pgm)+' السنة اللي فاتت','تغيير في الأسعار أو مزيج المبيعات، أو مشكلة في القطع أو تبويب التكاليف.',['اطلب تفسير الإدارة وادعمه بأدلة (قوائم أسعار، تكاليف).','اختبار القطع للمبيعات والمشتريات.'],'ISA 520');
+    if(gr!=null&&v.netProfit!=null&&pv.netProfit>0&&gr>0.1&&v.netProfit<pv.netProfit*0.8) push('L','الإيرادات زادت والربح نزل','الإيرادات '+P(gr)+' وصافي الربح '+P(g(v.netProfit,pv.netProfit)),'مصروفات زادت بشكل غير متناسب.',['حلّل المصروفات حسب طبيعتها وقارنها بالسنة اللي فاتت.'],'ISA 520');
+    const ir=(c,p)=>{ const d=(c.debt+p.debt)/2; return d>0&&c.financeCost?c.financeCost/d:null; };
+    if(ys[2]){ const ppv=faCalc(co.years[ys[2]]); const a=ir(v,pv), b=ir(pv,ppv); if(a!=null&&b!=null&&Math.abs(a-b)>0.05) push('M','معدل الفائدة الضمني اتغير كتير','الفوائد ÷ متوسط القروض = '+P(a)+' مقابل '+P(b),'ممكن فوائد ناقصة أو مرسملة، أو قروض جديدة في آخر السنة.',['إعادة حساب الفوائد من عقود القروض.','راجع رسملة الفوائد (IAS 23).'],'ISA 520'); }
+    else{ const a=ir(v,pv); if(a!=null&&(a<0.03||a>0.45)) push('L','معدل الفائدة الضمني غير معتاد','الفوائد ÷ متوسط القروض = '+P(a),'معدل بعيد عن أسعار الإقراض المعتادة.',['إعادة حساب الفوائد من عقود القروض.'],'ISA 520'); }
+    if(v.dividendsPaid&&v.netProfit>0&&v.dividendsPaid>v.netProfit) push('M','التوزيعات أكبر من ربح السنة','توزيعات '+faN(v.dividendsPaid)+' مقابل صافي ربح '+faN(v.netProfit),'التوزيع من أرباح مرحلة — اتأكد إنها متاحة قانونياً.',['محضر الجمعية العامة والاحتياطي القانوني.'],'—');
+    // تغييرات البنود
+    const lines=[];
+    FA_ALLKEYS.forEach(k=>{ if(FA_NOUNIT[k]) return; const c=v[k],p=pv[k]; if(!c&&!p) return; const d=c-p, ch=p?d/Math.abs(p):null; if((ch==null||Math.abs(ch)>=thr)&&Math.abs(d)>=mat&&Math.abs(d)>0) lines.push({k,c,p,d,ch}); });
+    lines.sort((a,b)=>Math.abs(b.d)-Math.abs(a.d));
+    lines.slice(0,15).forEach(l=>{ const big=(l.ch==null||Math.abs(l.ch)>=thr*2)&&(!mat||Math.abs(l.d)>=mat*2);
+      push(big?'M':'L','تغير كبير: '+faLbl(l.k),faN(l.p)+' ← '+faN(l.c)+' ('+(l.ch==null?'بند جديد':(l.ch>0?'+':'')+(l.ch*100).toFixed(1)+'%')+')','تغير أكبر من الحد اللي حددته ('+(thr*100).toFixed(0)+'%'+(mat?' و '+faN(mat):'')+').',['اطلب تفسير الإدارة واحصل على أدلة بتأيده (ISA 520 فقرة 7).','لو التفسير مش مقنع: زوّد اختبارات التفاصيل على البند.'],'ISA 520'); });
+  }
+  const rank={H:0,M:1,L:2}; out.sort((a,b)=>rank[a.sev]-rank[b.sev]);
+  return out;
+}
+
+// ── رسوم بيانية SVG ──
+function faChart(type,title,years,series,kind,note){
+  const W=520,H=230,L=58,R=12,T=16,B=34; const iw=W-L-R, ih=H-T-B;
+  const all=[]; series.forEach(s=>s.vals.forEach(v=>{ if(v!=null&&isFinite(v)) all.push(v); }));
+  if(!all.length||!years.length) return '<div class="fa-chart card"><h4>'+title+'</h4><div class="fa-empty">مفيش بيانات كفاية للرسم ده</div></div>';
+  let mn=Math.min(0,...all), mx=Math.max(0,...all); if(mn===mx) mx=mn+1;
+  const pad=(mx-mn)*0.08; mx+=pad; if(mn<0) mn-=pad;
+  const yv=v=>T+ih-(v-mn)/(mx-mn)*ih;
+  const fmt=v=>kind==='%'?(v*100).toFixed(0)+'%':kind==='x'?v.toFixed(1)+'×':Math.abs(v)>=1e6?(v/1e6).toFixed(1)+'m':Math.abs(v)>=1e3?(v/1e3).toFixed(0)+'k':v.toFixed(0);
+  let g='';
+  for(let i=0;i<=4;i++){ const v=mn+(mx-mn)*i/4, y=yv(v); g+='<line class="g" x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'"/><text class="ax" x="'+(L-6)+'" y="'+(y+4)+'" text-anchor="end">'+fmt(v)+'</text>'; }
+  g+='<line class="g z" x1="'+L+'" x2="'+(W-R)+'" y1="'+yv(0)+'" y2="'+yv(0)+'"/>';
+  const n=years.length, step=iw/n;
+  years.forEach((y,i)=>{ g+='<text class="ax" x="'+(L+step*i+step/2)+'" y="'+(H-12)+'" text-anchor="middle">'+y+'</text>'; });
+  series.forEach((s,si)=>{
+    if(type==='bar'){
+      const bw=Math.min(34,(step*0.7)/series.length);
+      s.vals.forEach((v,i)=>{ if(v==null) return; const x=L+step*i+step/2-(bw*series.length)/2+bw*si, y0=yv(0), y1=yv(v);
+        g+='<rect class="s'+si+'" x="'+x+'" y="'+Math.min(y0,y1)+'" width="'+(bw-2)+'" height="'+Math.max(1,Math.abs(y1-y0))+'" rx="2"><title>'+s.name+' '+years[i]+': '+faFmt(v,kind)+'</title></rect>'; });
+    } else {
+      const pts=s.vals.map((v,i)=>v==null?null:[L+step*i+step/2,yv(v)]);
+      let d=''; pts.forEach(p=>{ if(p) d+=(d?'L':'M')+p[0]+' '+p[1]; });
+      g+='<path class="ln s'+si+'" d="'+d+'"/>';
+      pts.forEach((p,i)=>{ if(p) g+='<circle class="dot s'+si+'" cx="'+p[0]+'" cy="'+p[1]+'" r="4"><title>'+s.name+' '+years[i]+': '+faFmt(s.vals[i],kind)+'</title></circle>'; });
+    }
+  });
+  const lg=series.map((s,si)=>'<span class="fa-lg"><i class="s'+si+'"></i>'+s.name+'</span>').join('');
+  return '<div class="fa-chart card"><h4>'+title+'</h4><div class="fa-lgs">'+lg+'</div><svg viewBox="0 0 '+W+' '+H+'" class="fa-svg" role="img" aria-label="'+faEsc(title)+'">'+g+'</svg>'+(note?'<div class="fa-note">'+note+'</div>':'')+'</div>';
+}
+
+// ── واجهة الاستوديو ──
+let _faImp=null, _faChecks=null, _faDrawer=null, _faPaste=false, _faHost='fsinputContent';
+const FA_TABS=[['input','✏️ إدخال القوائم'],['fs','📄 القوائم والتحليل'],['ratios','📐 النسب المالية'],['charts','📊 الرسوم'],['review','🔎 المراجعة التحليلية'],['cos','🏢 الشركات']];
+function faB(){ const co=faCo(); return {avg:!!FA.ui.avg,mult:+((co||{}).unit||1)}; }
+function faGo(tab){ FA.ui.tab=tab; faSaveUi(); faRender(); const el=document.getElementById(_faHost); if(el&&el.scrollIntoView) window.scrollTo({top:0,behavior:'smooth'}); }
+function faSaveUi(){ try{ localStorage.setItem(FA_KEY,JSON.stringify(FA)); }catch(e){} }
+function renderFAStudioInput(){ _faHost='fsinputContent'; const o=document.getElementById('ratioanalyzerContent'); if(o) o.innerHTML=''; if(!FA.ui.tab||FA.ui.tab==='ratios') FA.ui.tab=(faCo()&&faYears(faCo()).length)?'fs':'input'; faRender(); }
+function renderFAStudioRatios(){ _faHost='ratioanalyzerContent'; const o=document.getElementById('fsinputContent'); if(o) o.innerHTML=''; FA.ui.tab='ratios'; faRender(); }
+function faRender(){
+  const el=document.getElementById(_faHost); if(!el) return;
+  const co=faCo();
+  if(!co){ el.innerHTML=faEmptyHtml(); faModals(); return; }
+  if(FA.active!==co.id) FA.active=co.id;
+  const ys=faYears(co), tab=FA.ui.tab||'input';
+  const sectOpts=(typeof SECTORS!=='undefined'?SECTORS:[{id:'',label:'—'}]).map(s=>'<option value="'+s.id+'" '+((co.sector||'')===s.id?'selected':'')+'>'+faEsc(s.label)+'</option>').join('');
+  el.innerHTML=`
+  <div class="fa-head card">
+    <div class="fa-head-row">
+      <label class="fa-fld fa-grow"><span>الشركة</span>
+        <select onchange="faSwitch(this.value)">${FA.companies.map(c=>'<option value="'+c.id+'" '+(c.id===co.id?'selected':'')+'>'+faEsc(c.name||'بدون اسم')+'</option>').join('')}</select></label>
+      <label class="fa-fld fa-grow"><span>الاسم</span><input type="text" value="${faEsc(co.name)}" onchange="faCo().name=this.value.trim()||'بدون اسم';faCo().updated=Date.now();faSave();faRender()"></label>
+      <label class="fa-fld"><span>النشاط</span><select onchange="faCo().sector=this.value;faSave();faRender()">${sectOpts}</select></label>
+      <label class="fa-fld"><span>وحدة الأرقام</span><select onchange="faCo().unit=+this.value;faSave();faRender()">${FA_UNITS.map(u=>'<option value="'+u.v+'" '+(+co.unit===u.v?'selected':'')+'>'+u.ar+'</option>').join('')}</select></label>
+      <div class="fa-head-btns">
+        <button class="btn btn-gold btn-sm" onclick="faNewCompany()">＋ شركة جديدة</button>
+        <label class="btn btn-outline btn-sm fa-filebtn">⬆ استيراد Excel<input type="file" accept=".xlsx,.xls,.xlsm,.csv" onchange="faImportFile(this.files[0]);this.value=''"></label>
+        <button class="btn btn-outline btn-sm" onclick="faOpenPaste()">📋 لصق من Excel</button>
+        <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ تصدير Excel</button>
+      </div>
+    </div>
+    <div class="fa-years">
+      <span class="fa-years-l">السنين:</span>
+      ${ys.map(y=>'<span class="fa-ychip">'+y+'<button title="حذف السنة" onclick="faDelYear(\''+y+'\')">×</button></span>').join('')||'<span class="fa-muted">لسه مفيش سنين</span>'}
+      <span class="fa-addy"><input id="faNewYear" type="text" inputmode="numeric" maxlength="7" placeholder="${ys.length?(+ys[0]+1):new Date().getFullYear()-1}"><button class="btn btn-outline btn-sm" onclick="faAddYear()">＋ سنة</button></span>
+    </div>
+  </div>
+  <div class="fa-tabs">${FA_TABS.map(t=>'<button class="fa-tab '+(tab===t[0]?'on':'')+'" onclick="faGo(\''+t[0]+'\')">'+t[1]+'</button>').join('')}</div>
+  <div id="faBody">${faBody(co,tab)}</div>`;
+  faModals();
+}
+function faEmptyHtml(){
+  return `<div class="fa-hero">
+    <div class="fa-hero-t">
+      <div class="fa-kick">FINANCIAL STATEMENTS STUDIO</div>
+      <h2>حلّل القوائم المالية <em>في دقايق</em></h2>
+      <p>استورد مسودة القوائم من Excel أو الصقها، والأداة هتبوّب البنود لوحدها، وتحسب أكتر من 30 نسبة بالمعادلة وخطوات الحساب، وترسم الاتجاهات، وتطلعلك مؤشرات المراجعة التحليلية.</p>
+      <div class="fa-hero-b">
+        <label class="btn btn-gold fa-filebtn">⬆ استيراد من Excel<input type="file" accept=".xlsx,.xls,.xlsm,.csv" onchange="faImportFile(this.files[0]);this.value=''"></label>
+        <button class="hero-ghost" onclick="faOpenPaste()">📋 لصق من Excel</button>
+        <button class="hero-ghost" onclick="faNewCompany()">✏️ إدخال يدوي</button>
+        <button class="hero-ghost" onclick="faLoadDemo()">تحميل بيانات تجريبية</button>
+      </div>
+    </div>
+    <div class="fa-hero-art">
+      <div class="hd">قائمة المركز المالي <small>31/12</small></div>
+      <div class="ln"><span>النقدية</span><b>18,500</b><i>✓</i></div>
+      <div class="ln"><span>العملاء</span><b class="x">96,000</b><i class="x">!</i></div>
+      <div class="ln"><span>المخزون</span><b>22,000</b><i>✓</i></div>
+      <div class="ln"><span>نسبة التداول</span><b>1.11×</b><i>✓</i></div>
+    </div>
+  </div>
+  <div class="card fa-how"><div class="sec-title">ملف Excel لازم يكون شكله إزاي؟</div>
+    <div class="fa-how-g">
+      <div><b>1</b>عمود فيه أسماء البنود (عربي أو إنجليزي) وعمود لكل سنة، وفوقهم صف فيه السنين (2025، 2024…).</div>
+      <div><b>2</b>عناوين الأقسام زي «الأصول المتداولة» و«الالتزامات المتداولة» بتساعد في التبويب الصح.</div>
+      <div><b>3</b>لو القوائم في أكتر من شيت (مركز مالي، دخل، تدفقات) الأداة بتقرا كل الشيتات.</div>
+      <div><b>4</b>عايز دقة 100%؟ نزّل <a href="#" onclick="faTemplate();return false">النموذج الجاهز</a> واملاه.</div>
+    </div></div>`;
+}
+function faBody(co,tab){
+  const ys=faYears(co);
+  if(!ys.length&&tab!=='cos') return `<div class="card fa-empty-c"><div class="fa-empty-i">📅</div><div>ضيف سنة من فوق (مثلاً ${new Date().getFullYear()-1}) أو استورد ملف Excel عشان تبدأ.</div></div>`;
+  if(tab==='input') return faInputHtml(co,ys);
+  if(tab==='fs') return faFsHtml(co,ys);
+  if(tab==='ratios') return faRatiosHtml(co,ys);
+  if(tab==='charts') return faChartsHtml(co,ys);
+  if(tab==='review') return faReviewHtml(co,ys);
+  if(tab==='cos') return faCosHtml(co);
+  return '';
+}
+
+// ── إدخال ──
+function faInputHtml(co,ys){
+  const u=faUnit(co);
+  const colsT='minmax(230px,2.2fr) '+ys.map(()=>'minmax(110px,1fr)').join(' ');
+  const totals={CA:'CA',NCA:'NCA',CL:'CL',NCL:'NCL',EQ:'totalEquity'};
+  let h=`<div class="fa-note-bar">الأرقام بـ <b>${u.ar}</b> · المصروفات تتكتب بالموجب · فروق العملة والنتائج اللي ممكن تبقى خسارة تتكتب بالسالب · عدد الأسهم وسعر السهم بأرقامهم الفعلية</div>`;
+  FA_SECTIONS.forEach(s=>{
+    h+=`<div class="card fa-sec"><div class="fa-sec-h" style="border-color:${s.color}"><b>${s.ar}</b><small>${s.en}</small></div>
+      <div class="fa-grid fa-grid-h" style="grid-template-columns:${colsT}"><div>البند</div>${ys.map(y=>'<div class="fa-c">'+y+'</div>').join('')}</div>`;
+    s.keys.forEach(k=>{
+      h+=`<div class="fa-grid" style="grid-template-columns:${colsT}"><div class="fa-lbl">${faLbl(k)}<small>${FA_LABEL[k][1]}</small></div>${ys.map(y=>{ const v=(co.years[y]||{})[k]; return '<input '+NUM_ATTRS+' class="fa-in" data-numid="fa_'+y+'_'+k+'" value="'+numDisp(v)+'" oninput="faSet(\''+y+'\',\''+k+'\',event)">'; }).join('')}</div>`;
+    });
+    if(totals[s.id]) h+=`<div class="fa-grid fa-tot" style="grid-template-columns:${colsT}"><div>${FA_DERIVED_LBL[totals[s.id]]}</div>${ys.map(y=>'<div class="fa-c" data-tot="'+y+'|'+totals[s.id]+'">'+faN(faCalc(co.years[y])[totals[s.id]])+'</div>').join('')}</div>`;
+    if(s.id==='EQ') h+=`<div class="fa-grid fa-tot" style="grid-template-columns:${colsT}"><div>إجمالي الأصول ← → حقوق الملكية والالتزامات</div>${ys.map(y=>'<div class="fa-c" data-bal="'+y+'">'+faBalBadge(faCalc(co.years[y]))+'</div>').join('')}</div>`;
+    if(s.id==='PL') ['grossProfit','ebit','pbt','netProfit'].forEach(k=>{ h+=`<div class="fa-grid fa-tot" style="grid-template-columns:${colsT}"><div>${FA_DERIVED_LBL[k]}</div>${ys.map(y=>'<div class="fa-c" data-tot="'+y+'|'+k+'">'+faN(faCalc(co.years[y])[k])+'</div>').join('')}</div>`; });
+    h+='</div>';
+  });
+  h+=`<div class="fa-actions"><button class="btn btn-gold" onclick="faGo('fs')">عرض القوائم والتحليل ←</button><button class="btn btn-outline" onclick="faGo('ratios')">النسب المالية ←</button></div>`;
+  return h;
+}
+function faBalBadge(c){ if(!c.hasSFP) return '<span class="fa-muted">—</span>'; const ok=Math.abs(c.balanceDiff)<1; return ok?'<span class="fa-ok">✓ متوازنة</span>':'<span class="fa-bad">فرق '+faN(c.balanceDiff)+'</span>'; }
+let _faSaveT=null;
+function faSet(y,k,e){
+  const co=faCo(); if(!co) return; const val=numLF(e);
+  if(!co.years[y]) co.years[y]={};
+  if(val===''||val===null||val===undefined||(typeof val==='number'&&isNaN(val))) delete co.years[y][k]; else co.years[y][k]=+val;
+  co.updated=Date.now();
+  const c=faCalc(co.years[y]);
+  document.querySelectorAll('[data-tot^="'+y+'|"]').forEach(el=>{ const kk=el.getAttribute('data-tot').split('|')[1]; el.textContent=faN(c[kk]); });
+  const b=document.querySelector('[data-bal="'+y+'"]'); if(b) b.innerHTML=faBalBadge(c);
+  clearTimeout(_faSaveT); _faSaveT=setTimeout(faSave,500);
+}
+function faAddYear(){
+  const co=faCo(); const el=document.getElementById('faNewYear'); let y=(el&&el.value||el&&el.placeholder||'').trim().replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  if(!/^(19|20)\d{2}(-\d{1,2})?$/.test(y)){ showToast('اكتب السنة بالشكل ده: 2025'); return; }
+  if(co.years[y]){ showToast('السنة دي موجودة'); return; }
+  if(Object.keys(co.years).length>=10){ showToast('الحد الأقصى 10 سنين'); return; }
+  co.years[y]={}; co.updated=Date.now(); faSave(); faRender();
+}
+function faDelYear(y){ const co=faCo(); if(!confirm('حذف سنة '+y+' بكل أرقامها؟')) return; delete co.years[y]; co.updated=Date.now(); faSave(); faRender(); }
+function faSwitch(id){ FA.active=id; _faChecks=null; faSave(); faRender(); }
+function faNewCompany(){
+  const name=prompt('اسم الشركة:','');
+  if(name===null) return;
+  const y=String(new Date().getFullYear()-1);
+  const co={id:faUid(),name:name.trim()||'شركة جديدة',sector:'',unit:1,notes:'',years:{},created:Date.now(),updated:Date.now()};
+  co.years[y]={}; co.years[String(+y-1)]={};
+  FA.companies.push(co); FA.active=co.id; FA.ui.tab='input'; _faChecks=null; faSave(); faRender();
+}
+function faDelCompany(id){ const c=FA.companies.find(x=>x.id===id); if(!c||!confirm('حذف «'+c.name+'» بكل سنينها؟ مفيش رجوع.')) return; FA.companies=FA.companies.filter(x=>x.id!==id); if(FA.active===id) FA.active=(FA.companies[0]||{}).id||null; faSave(); faRender(); }
+
+// ── القوائم والتحليل الرأسي والأفقي ──
+function faFsHtml(co,ys){
+  const view=FA.ui.view||'amt', thr=(+FA.ui.thr||20)/100, u=faUnit(co);
+  const C=ys.map(y=>faCalc(co.years[y]));
+  const cell=(k,i,base)=>{
+    const v=C[i][k];
+    if(view==='vert'){ const b=C[i][base]; return b?(v/b*100).toFixed(1)+'%':'—'; }
+    if(view==='horiz'){ if(i===ys.length-1) return '—'; const p=C[i+1][k]; const ch=faPct(v,p); if(ch==null) return (v&&!p)?'<span class="fa-new">جديد</span>':'—'; const cls=Math.abs(ch)>=thr?(ch>0?'fa-up':'fa-dn'):''; return '<span class="'+cls+'" title="'+faN(p)+' ← '+faN(v)+'">'+(ch>0?'+':'')+(ch*100).toFixed(1)+'%</span>'; }
+    return faN(v);
+  };
+  const row=(k,base,cls)=>{ if(!cls&&C.every(c=>!c[k])) return ''; return '<tr class="'+(cls||'')+'"><td>'+faAnyLbl(k)+'</td>'+ys.map((y,i)=>'<td class="num">'+cell(k,i,base)+'</td>').join('')+'</tr>'; };
+  const hd=t=>'<tr class="fa-tr-h"><td colspan="'+(ys.length+1)+'">'+t+'</td></tr>';
+  let sfp=hd('الأصول');
+  FA_SECTIONS[0].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('CA','totalAssets','sub');
+  FA_SECTIONS[1].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('NCA','totalAssets','sub'); sfp+=row('totalAssets','totalAssets','tot');
+  sfp+=hd('حقوق الملكية والالتزامات');
+  FA_SECTIONS[4].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('totalEquity','totalAssets','sub');
+  FA_SECTIONS[3].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('NCL','totalAssets','sub');
+  FA_SECTIONS[2].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('CL','totalAssets','sub');
+  sfp+=row('totalLiabilities','totalAssets','sub'); sfp+=row('totalEqLiab','totalAssets','tot');
+  let is='';
+  ['revenue','cogs'].forEach(k=>is+=row(k,'revenue')); is+=row('grossProfit','revenue','sub');
+  ['opex','impairment','otherIncome'].forEach(k=>is+=row(k,'revenue')); is+=row('ebit','revenue','sub');
+  ['financeCost','financeIncome','fxGainLoss','assocShare'].forEach(k=>is+=row(k,'revenue')); is+=row('pbt','revenue','sub'); is+=row('tax','revenue'); is+=row('netProfit','revenue','tot');
+  let cf='';
+  ['cfo','capex'].forEach(k=>cf+=row(k,'revenue')); cf+=row('fcf','revenue','sub'); ['depAmort','dividendsPaid'].forEach(k=>cf+=row(k,'revenue')); cf+=row('ebitda','revenue','sub');
+  const th='<tr><th>البند</th>'+ys.map((y,i)=>'<th class="num">'+y+(view==='horiz'&&i<ys.length-1?' مقابل '+ys[i+1]:'')+'</th>').join('')+'</tr>';
+  const balRow='<div class="fa-balrow">'+ys.map((y,i)=>'<span>'+y+': '+faBalBadge(C[i])+'</span>').join('')+'</div>';
+  const chRow=c=>'<tr><td>'+faEsc(c.label)+'</td><td>'+c.y+'</td><td class="num">'+faN(c.file)+'</td><td class="num">'+faN(c.calc)+'</td><td>'+(c.ok?'<span class="fa-ok">✓</span>':'<span class="fa-bad">فرق '+faN(Math.abs(c.calc)-Math.abs(c.file))+'</span>')+'</td></tr>';
+  const chHead='<thead><tr><th>المجموع في الملف</th><th>السنة</th><th class="num">في الملف</th><th class="num">محسوب</th><th></th></tr></thead>';
+  const badC=(_faChecks||[]).filter(c=>!c.ok);
+  const checks=_faChecks&&_faChecks.length?`<div class="card fa-checks"><div class="fa-dr-h"><div class="sec-title" style="border:none;margin:0;padding:0">مطابقة مع مجاميع ملف Excel</div><button class="btn btn-outline btn-sm" onclick="_faChecks=null;faRender()">إخفاء</button></div>
+    <div style="font-size:14px;margin:6px 0 10px">${badC.length?'<span class="fa-bad">'+badC.length+' مجموع مش مطابق</span> من '+_faChecks.length:'<span class="fa-ok">✓ كل المجاميع مطابقة ('+_faChecks.length+')</span>'}</div>
+    ${badC.length?'<div class="fa-tw"><table class="fa-tbl">'+chHead+'<tbody>'+badC.map(chRow).join('')+'</tbody></table></div><div class="fa-note">الفرق معناه: بند اتبوب غلط أو اتجاهل، أو المجموع نفسه غلط في المسودة (خطأ جمع). راجع البنود من «إدخال القوائم».</div>':''}
+    <details><summary class="fa-muted" style="cursor:pointer;margin-top:8px">كل المجاميع</summary><div class="fa-tw"><table class="fa-tbl">${chHead}<tbody>${_faChecks.map(chRow).join('')}</tbody></table></div></details></div>`:'';
+  return `${checks}
+  <div class="fa-toolbar">
+    <div class="fa-seg">${[['amt','الأرقام'],['vert','تحليل رأسي %'],['horiz','تحليل أفقي (التغير)']].map(v=>'<button class="'+(view===v[0]?'on':'')+'" onclick="FA.ui.view=\''+v[0]+'\';faSaveUi();faRender()">'+v[1]+'</button>').join('')}</div>
+    ${view==='horiz'?'<label class="fa-inline">تلوين التغير أكبر من <input type="number" min="1" max="500" value="'+(+FA.ui.thr||20)+'" onchange="FA.ui.thr=+this.value||20;faSaveUi();faRender()"> %</label>':''}
+    <span class="fa-muted">الأرقام بـ ${u.ar}${view==='vert'?' · المركز المالي ÷ إجمالي الأصول · الدخل والتدفقات ÷ الإيرادات':''}</span>
+  </div>
+  ${balRow}
+  <div class="fa-fs-grid">
+    <div class="card"><div class="sec-title">قائمة المركز المالي <small class="fa-muted">Statement of financial position</small></div><div class="fa-tw"><table class="fa-tbl">${th}${sfp}</table></div></div>
+    <div><div class="card"><div class="sec-title">قائمة الدخل <small class="fa-muted">Income statement</small></div><div class="fa-tw"><table class="fa-tbl">${th}${is}</table></div></div>
+    ${C.some(c=>c.cfo||c.capex||c.depAmort||c.dividendsPaid)?'<div class="card"><div class="sec-title">التدفقات النقدية وبيانات إضافية</div><div class="fa-tw"><table class="fa-tbl">'+th+cf+'</table></div></div>':''}
+    </div>
+  </div>`;
+}
+
+// ── النسب ──
+function faRatiosHtml(co,ys){
+  const b=faB(), grp=FA.ui.grp||'all', sec=co.sector||'';
+  const bench=(sec&&typeof SECTOR_BENCHMARKS!=='undefined')?SECTOR_BENCHMARKS[sec]:null;
+  const secObj=(typeof SECTORS!=='undefined')?SECTORS.find(s=>s.id===sec):null;
+  const groups=FA_GROUPS.filter(g=>grp==='all'||g.id===grp);
+  let tiles='';
+  groups.forEach(g=>{
+    const rs=FA_RATIOS.filter(r=>r.g===g.id);
+    const cards=rs.map(r=>{
+      const ser=faRatioSeries(co,r.id,b); const cur=ser[0]?ser[0].val:null, prev=ser[1]?ser[1].val:null;
+      if(cur==null&&prev==null&&g.id==='mkt') return '';
+      let ch='';
+      if(cur!=null&&prev!=null){ const d=cur-prev; const good=r.dir==='up'?d>0:r.dir==='down'?d<0:null; const txt=r.kind==='%'?((d*100).toFixed(1)+' نقطة'):r.kind==='d'?Math.round(d)+' يوم':r.kind==='m'?faN(d):d.toFixed(2); ch='<small class="'+(d===0||good===null?'fa-muted':good?'fa-pos':'fa-neg')+'">'+(d>0?'▲ +':d<0?'▼ ':'')+txt.replace('-','')+'</small>'; }
+      let bc=''; if(bench&&r.bench&&bench[r.bench]&&cur!=null){ const x=r.kind==='d'?cur:cur; const rg=bench[r.bench]; const st=x<rg[0]?'low':x>rg[1]?'high':'ok'; bc='<span class="fa-bench '+st+'">'+(st==='ok'?'ضمن نطاق النشاط':st==='low'?'أقل من نطاق النشاط':'أعلى من نطاق النشاط')+'</span>'; }
+      const sp=faSpark(ser.slice().reverse().map(s=>s.val));
+      return '<button class="fa-rt '+g.cls+'" onclick="faOpenRatio(\''+r.id+'\')"><span class="fa-rt-n">'+r.ar+'</span><small class="fa-rt-e">'+r.en+'</small><strong dir="auto">'+faFmt(cur,r.kind)+'</strong><span class="fa-rt-f">'+ch+'<span class="fa-rt-y">'+ys[0]+'</span></span>'+sp+bc+'</button>';
+    }).join('');
+    if(cards.trim()) tiles+='<div class="fa-grp"><div class="fa-grp-h">'+g.ar+' <small>'+g.en+'</small></div><div class="fa-rgrid">'+cards+'</div></div>';
+  });
+  if(!tiles) tiles='<div class="card fa-empty-c">مفيش نسب في المجموعة دي — دخّل بيانات السوق (عدد الأسهم وسعر السهم) من «إدخال القوائم».</div>';
+  return `<div class="fa-toolbar">
+    <div class="fa-chips">${[['all','الكل']].concat(FA_GROUPS.map(g=>[g.id,g.ar])).map(g=>'<button class="'+(grp===g[0]?'on':'')+'" onclick="FA.ui.grp=\''+g[0]+'\';faSaveUi();faRender()">'+g[1]+'</button>').join('')}</div>
+    <div class="fa-seg"><button class="${!b.avg?'on':''}" onclick="FA.ui.avg=false;faSaveUi();faRender()">أرصدة آخر المدة</button><button class="${b.avg?'on':''}" onclick="FA.ui.avg=true;faSaveUi();faRender()">متوسط الأرصدة</button></div>
+  </div>
+  <div class="fa-note-bar">اضغط على أي نسبة عشان تشوف المعادلة والأرقام المستخدمة ومصدرها وخطوات الحساب والمقارنة بالسنين اللي فاتت. ${secObj&&sec?'نطاقات النشاط («'+faEsc(secObj.label)+'») إرشادية عامة مش بديل عن المقارنة بمنافسين فعليين.':'اختار النشاط من فوق عشان تظهر مقارنة بنطاق إرشادي للنشاط.'}</div>
+  ${tiles}`;
+}
+function faSpark(vals){
+  const v=vals.filter(x=>x!=null&&isFinite(x)); if(v.length<2) return '';
+  const mn=Math.min(...v), mx=Math.max(...v), W=90,H=24; const n=vals.length;
+  let d=''; vals.forEach((x,i)=>{ if(x==null||!isFinite(x)) return; const px=(i/(n-1))*W, py=H-2-((x-mn)/((mx-mn)||1))*(H-4); d+=(d?'L':'M')+px.toFixed(1)+' '+py.toFixed(1); });
+  return '<svg class="fa-spark" viewBox="0 0 '+W+' '+H+'" aria-hidden="true"><path d="'+d+'"/></svg>';
+}
+function faOpenRatio(id){ _faDrawer=id; faModals(); }
+function faCloseDrawer(){ _faDrawer=null; faModals(); }
+function faDrawerHtml(){
+  const co=faCo(); const r=FA_RATIOS.find(x=>x.id===_faDrawer); if(!co||!r) return '';
+  const b=faB(), ys=faYears(co), ser=faRatioSeries(co,r.id,b);
+  const cur=ser[0]?ser[0].val:null, prev=ser[1]?ser[1].val:null;
+  const v=faCalc(co.years[ys[0]]), pv=ys[1]?faCalc(co.years[ys[1]]):null, u=faUnit(co);
+  const showYs=ys.slice(0,4);
+  const inp='<table class="fa-tbl"><thead><tr><th>الرقم</th>'+showYs.map(y=>'<th class="num">'+y+'</th>').join('')+'</tr></thead><tbody>'+r.need.map(k=>'<tr><td>'+faAnyLbl(k)+(FA_LABEL[k]?'':' <small class="fa-muted">(مجموع محسوب)</small>')+'</td>'+showYs.map(y=>'<td class="num">'+faN(faCalc(co.years[y])[k])+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+  const avgNote=(r.avg&&b.avg)?(pv&&pv.hasSFP?'<li>الأرصدة ('+r.avg.map(faAnyLbl).join('، ')+') محسوبة كمتوسط '+ys[0]+' و'+ys[1]+'.</li>':'<li>مفيش سنة سابقة، فاتحسبت على رصيد آخر المدة.</li>'):(r.avg?'<li>محسوبة على رصيد آخر المدة. غيّرها لـ«متوسط الأرصدة» من فوق لو عايز.</li>':'');
+  const steps='<ol class="fa-steps">'+r.need.map(k=>'<li>'+faAnyLbl(k)+' = <bdi dir="ltr">'+faN(v[k])+'</bdi></li>').join('')+avgNote+'<li><b>'+r.f+' = <bdi dir="auto">'+faFmt(cur,r.kind)+'</bdi></b></li></ol>';
+  const hist='<table class="fa-tbl"><thead><tr><th>السنة</th><th class="num">القيمة</th><th class="num">التغير</th></tr></thead><tbody>'+ser.map((s,i)=>{ const p=ser[i+1]; const d=(s.val!=null&&p&&p.val!=null)?s.val-p.val:null; return '<tr><td>'+s.y+'</td><td class="num">'+faFmt(s.val,r.kind)+'</td><td class="num">'+(d==null?'—':(d>0?'+':'')+(r.kind==='%'?(d*100).toFixed(1)+' نقطة':r.kind==='d'?Math.round(d)+' يوم':r.kind==='m'?faN(d):d.toFixed(2)))+'</td></tr>'; }).join('')+'</tbody></table>';
+  const chart=ser.filter(s=>s.val!=null).length>1?faChart('line','',ser.slice().reverse().map(s=>s.y),[{name:r.ar,vals:ser.slice().reverse().map(s=>s.val)}],r.kind):'';
+  const sec=co.sector, bench=(sec&&typeof SECTOR_BENCHMARKS!=='undefined')?SECTOR_BENCHMARKS[sec]:null;
+  const bTxt=(bench&&r.bench&&bench[r.bench])?'<h4>نطاق إرشادي للنشاط</h4><p>'+faFmt(bench[r.bench][0],r.kind)+' – '+faFmt(bench[r.bench][1],r.kind)+' · نطاق عام مش بديل عن المقارنة بمنافسين فعليين.</p>':'';
+  return `<div class="fa-ov" onclick="if(event.target===this)faCloseDrawer()"><aside class="fa-drawer">
+    <div class="fa-dr-h"><div><h3>${r.ar}</h3><small dir="ltr">${r.en}</small></div><button class="btn btn-outline btn-sm" onclick="faCloseDrawer()">✕</button></div>
+    <div class="fa-big"><span>${ys[0]}</span><strong><bdi dir="auto">${faFmt(cur,r.kind)}</bdi></strong>${ys[1]?'<span>'+ys[1]+': <bdi dir="auto">'+faFmt(prev,r.kind)+'</bdi></span>':''}</div>
+    <h4>النسبة بتقيس إيه؟</h4><p>${r.about}</p>
+    <h4>المعادلة</h4><p class="fa-ex"><b>${r.f}</b></p>
+    <h4>الأرقام المستخدمة <small class="fa-muted">(بـ ${u.ar}${r.need.some(k=>FA_NOUNIT[k])?' — عدد الأسهم والسعر بأرقامهم الفعلية':''})</small></h4><div class="fa-tw">${inp}</div>
+    <h4>خطوات الحساب — ${ys[0]}</h4>${cur==null?'<p class="fa-muted">مش محسوبة: رقم ناقص أو المقام صفر أو سالب.</p>':steps}
+    ${ser.length>1?'<h4>المقارنة بالسنين</h4>'+chart+'<div class="fa-tw">'+hist+'</div>':''}
+    <h4>قراءة النتيجة</h4><p>${cur==null?'—':r.read(cur)}</p>
+    ${bTxt}
+    ${r.audit&&r.audit.length?'<h4>ملاحظات للمراجع</h4><ul class="fa-bul">'+r.audit.map(a=>'<li>'+a+'</li>').join('')+'</ul>':''}
+    <p class="fa-note">النسبة مؤشر تحليلي من الأرقام كما اتدخلت، مش بديل عن الحكم المهني.</p>
+    <button class="btn btn-outline btn-sm" onclick="aiAsk('حلّلي ${r.en} لشركة قيمتها ${faFmt(cur,r.kind)} في ${ys[0]}${prev!=null?' و'+faFmt(prev,r.kind)+' في '+ys[1]:''}${co.sector&&typeof SECTORS!=='undefined'?' ونشاطها '+(SECTORS.find(s=>s.id===co.sector)||{}).label:''}. إيه الأسباب المحتملة وإجراءات المراجعة المناسبة؟')">✦ اسأل Claude عن النسبة دي</button>
+  </aside></div>`;
+}
+
+// ── الرسوم ──
+function faChartsHtml(co,ys){
+  const asc=ys.slice().reverse(), b=faB(), C=asc.map(y=>faCalc(co.years[y]));
+  const s=(name,k)=>({name,vals:C.map(c=>c.hasIS||c.hasSFP||c[k]?c[k]:null)});
+  const rs=(id)=>{ const r=FA_RATIOS.find(x=>x.id===id); const ser=faRatioSeries(co,id,b).slice().reverse(); return {name:r.ar,vals:ser.map(x=>x.val)}; };
+  const u=faUnit(co).ar;
+  return `<div class="fa-note-bar">الرسوم من ${asc[0]} لـ ${asc[asc.length-1]} · المبالغ بـ ${u} · عدّي بالماوس على أي عمود أو نقطة عشان تشوف الرقم.</div>
+  <div class="fa-chartgrid">
+    ${faChart('bar','الإيرادات وصافي الربح',asc,[s('الإيرادات','revenue'),s('صافي الربح','netProfit')],'m')}
+    ${faChart('bar','مجمل الربح وربح التشغيل',asc,[s('مجمل الربح','grossProfit'),s('ربح التشغيل','ebit')],'m')}
+    ${faChart('bar','التدفق التشغيلي مقابل صافي الربح',asc,[s('التدفق من التشغيل','cfo'),s('صافي الربح','netProfit')],'m','لو التدفق أقل من الربح بشكل مستمر: راجع جودة الأرباح.')}
+    ${faChart('bar','تحليل المديونية',asc,[s('القروض والتأجير','debt'),s('النقدية','cash'),s('صافي الدين','netDebt')],'m')}
+    ${faChart('line','اتجاه نسب الربحية',asc,[rs('gm'),rs('ebitM'),rs('nm'),rs('roe')],'%')}
+    ${faChart('line','اتجاه نسب السيولة',asc,[rs('current'),rs('quick'),rs('cashR')],'x')}
+    ${faChart('line','أيام التحصيل والتخزين والسداد',asc,[rs('dso'),rs('dio'),rs('dpo')],'n','بالأيام.')}
+    ${faChart('line','الرافعة المالية',asc,[rs('liabEq'),rs('debtEq'),rs('icov')],'x')}
+  </div>`;
+}
+
+// ── المراجعة التحليلية ──
+function faReviewHtml(co,ys){
+  const thr=+FA.ui.thr||20, mat=+FA.ui.mat||0;
+  const fl=faReview(co,{thr,mat});
+  const n=s=>fl.filter(f=>f.sev===s).length;
+  const SEV={H:['عالي','fa-sH'],M:['متوسط','fa-sM'],L:['منخفض','fa-sL']};
+  const sevF=FA.ui.sev||'';
+  const list=fl.filter(f=>!sevF||f.sev===sevF).map(f=>`<div class="fa-flag ${SEV[f.sev][1]}">
+    <div class="fa-flag-h"><span class="fa-pill ${SEV[f.sev][1]}">${SEV[f.sev][0]}</span><b>${f.title}</b>${f.std&&f.std!=='—'?'<span class="fa-std">'+f.std+'</span>':''}</div>
+    <div class="fa-flag-d">${f.detail}</div>
+    <div class="fa-flag-w"><b>ليه مهم:</b> ${f.why}</div>
+    <div class="fa-flag-p"><b>الإجراء المقترح:</b><ul>${f.proc.map(p=>'<li>'+p+'</li>').join('')}</ul></div></div>`).join('');
+  return `<div class="fa-toolbar">
+    <label class="fa-inline">حد التغير <input type="number" min="1" max="500" value="${thr}" onchange="FA.ui.thr=+this.value||20;faSaveUi();faRender()"> %</label>
+    <label class="fa-inline">وأكبر من مبلغ <input type="text" inputmode="decimal" style="width:120px" value="${mat?faN(mat):''}" placeholder="مثلاً الأهمية النسبية للتنفيذ" onchange="FA.ui.mat=numVal(numClean(this.value));faSaveUi();faRender()"></label>
+    <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ تصدير Excel</button>
+  </div>
+  <div class="fa-note-bar">مقارنة ${ys[0]}${ys[1]?' بـ '+ys[1]:''} حسب ISA 520: التغيرات الكبيرة والعلاقات غير المتوقعة محتاجة تفسير من الإدارة وأدلة بتأيده. المؤشرات دي نقطة بداية للحكم المهني مش نتيجة.</div>
+  <div class="fa-kpis">
+    <button class="fa-kpi ${!sevF?'on':''}" onclick="FA.ui.sev='';faSaveUi();faRender()"><span>كل المؤشرات</span><strong>${fl.length}</strong></button>
+    <button class="fa-kpi fa-sH ${sevF==='H'?'on':''}" onclick="FA.ui.sev='H';faSaveUi();faRender()"><span>عالي</span><strong>${n('H')}</strong></button>
+    <button class="fa-kpi fa-sM ${sevF==='M'?'on':''}" onclick="FA.ui.sev='M';faSaveUi();faRender()"><span>متوسط</span><strong>${n('M')}</strong></button>
+    <button class="fa-kpi fa-sL ${sevF==='L'?'on':''}" onclick="FA.ui.sev='L';faSaveUi();faRender()"><span>منخفض</span><strong>${n('L')}</strong></button>
+  </div>
+  ${list||'<div class="card fa-empty-c">مفيش مؤشرات بالحدود دي.'+(ys[1]?'':' ضيف سنة مقارنة عشان تظهر تحليلات التغير.')+'</div>'}`;
+}
+
+// ── الشركات ──
+function faCosHtml(co){
+  return `<div class="card"><div class="sec-title">الشركات المحفوظة (${FA.companies.length})</div><div class="fa-tw"><table class="fa-tbl"><thead><tr><th>الشركة</th><th>النشاط</th><th>السنين</th><th>آخر تعديل</th><th></th></tr></thead><tbody>
+  ${FA.companies.map(c=>{ const s=(typeof SECTORS!=='undefined')?(SECTORS.find(x=>x.id===c.sector)||{}).label:''; return '<tr class="'+(c.id===co.id?'fa-sel':'')+'"><td><b>'+faEsc(c.name)+'</b></td><td>'+faEsc(s||'—')+'</td><td>'+faYears(c).join('، ')+'</td><td><bdi dir="ltr">'+new Date(c.updated||c.created).toLocaleDateString('en-GB')+'</bdi></td><td class="fa-act"><button class="btn btn-gold btn-sm" onclick="faSwitch(\''+c.id+'\');faGo(\'fs\')">فتح</button> <button class="btn btn-outline btn-sm" onclick="faDelCompany(\''+c.id+'\')">حذف</button></td></tr>'; }).join('')}
+  </tbody></table></div></div>
+  <div class="card"><div class="sec-title">ذاكرة الشركة: ${faEsc(co.name)}</div>
+  <textarea class="notes-area" placeholder="جهة الاتصال، نقاط السنة اللي فاتت، حاجات لازم تتابعها، خصوصيات النظام المحاسبي…" oninput="faCo().notes=this.value;clearTimeout(_faSaveT);_faSaveT=setTimeout(faSave,600)">${faEsc(co.notes||'')}</textarea>
+  <div class="fa-note">البيانات محفوظة على الجهاز ده، وبتتزامن مع حسابك لو المزامنة شغالة. آخر سنتين للشركة المفتوحة بيتنقلوا تلقائياً لأدوات DuPont وAltman وBeneish والقوائم بالحجم الموحد.</div></div>`;
+}
+
+// ── نوافذ: معاينة الاستيراد، اللصق، تفاصيل النسبة ──
+function faModals(){
+  let host=document.getElementById('faModalHost');
+  if(!host){ host=document.createElement('div'); host.id='faModalHost'; document.body.appendChild(host); }
+  host.innerHTML=(_faDrawer?faDrawerHtml():'')+(_faPaste?faPasteHtml():'')+(_faImp?faImpHtml():'');
+}
+function faOpenPaste(){ _faPaste=true; faModals(); setTimeout(()=>{ const t=document.getElementById('faPasteTxt'); if(t) t.focus(); },50); }
+function faPasteHtml(){
+  return `<div class="fa-ov fa-ov-c" onclick="if(event.target===this){_faPaste=false;faModals()}"><div class="fa-modal">
+    <div class="fa-dr-h"><h3>📋 لصق القوائم من Excel</h3><button class="btn btn-outline btn-sm" onclick="_faPaste=false;faModals()">✕</button></div>
+    <p class="fa-muted">ظلّل في Excel عمود البنود وأعمدة السنين (ومعاهم صف السنين لو موجود)، اعمل Copy، والصق هنا.</p>
+    <textarea id="faPasteTxt" class="notes-area" style="min-height:260px;direction:ltr;text-align:left;font-family:var(--mono);font-size:12px" placeholder="البند&#9;2025&#9;2024"></textarea>
+    <div class="fa-actions"><button class="btn btn-gold" onclick="faAnalyzePaste()">تحليل ←</button></div>
+  </div></div>`;
+}
+function faAnalyzePaste(){
+  const t=(document.getElementById('faPasteTxt')||{}).value||'';
+  if(!t.trim()){ showToast('الصق البيانات الأول'); return; }
+  const aoa=t.replace(/\r/g,'').split('\n').map(l=>l.split('\t'));
+  const an=faAnalyzeAOA(aoa,'','UNK');
+  _faPaste=false; faOpenImport([{name:'اللصق',an}],'',an.unit);
+}
+function faImportFile(file){
+  if(!file) return;
+  if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل أو مفيش إنترنت — جرّب كمان لحظة'); return; }
+  const rd=new FileReader();
+  rd.onload=e=>{
+    try{
+      const wb=XLSX.read(new Uint8Array(e.target.result),{type:'array',cellDates:true});
+      const parts=[]; let coName='';
+      wb.SheetNames.forEach(sn=>{
+        const ws=wb.Sheets[sn]; if(!ws||!ws['!ref']) return;
+        const aoa=XLSX.utils.sheet_to_json(ws,{header:1,raw:true,defval:''});
+        if(!coName){ for(const r of aoa.slice(0,6)){ for(const c of r){ const s=String(c||'').trim(); if(s&&/شرك[هة]|company|ش\.?\s?م\.?\s?م|ش\.?\s?م\.?\s?م/i.test(s)&&s.length<90){ coName=s.replace(/\s+/g,' '); break; } } if(coName) break; } }
+        const n=faNorm(sn); const init=/دخل|ارباح|خسائر|income|profit|p ?& ?l|pl\b/.test(n)?'PL':/تدفق|cash/.test(n)?'CF':'UNK';
+        const an=faAnalyzeAOA(aoa,sn+' '+file.name,init);
+        if(an.rows.some(r=>Object.keys(r.vals).length)) parts.push({name:sn,an});
+      });
+      if(!parts.length){ showToast('⚠️ ملقتش أرقام في الملف'); return; }
+      const unit=parts.map(p=>p.an.unit).find(u=>u)||0;
+      faOpenImport(parts,coName||file.name.replace(/\.[^.]+$/,''),unit);
+    }catch(err){ showToast('⚠️ الملف مش بيتقري: '+(err&&err.message||err)); }
+  };
+  rd.readAsArrayBuffer(file);
+}
+function faOpenImport(parts,coName,unit){
+  const years=[]; parts.forEach(p=>p.an.years.forEach(y=>{ if(years.indexOf(y)<0) years.push(y); }));
+  years.sort((a,b)=>b.localeCompare(a,undefined,{numeric:true}));
+  const rows=[]; parts.forEach((p,pi)=>p.an.rows.forEach(r=>rows.push(Object.assign({},r,{part:pi,expNeg:p.an.expNeg,on:!!r.key&&!r.head&&!r.total}))));
+  const co=faCo();
+  _faImp={parts,rows,years,ymap:Object.fromEntries(years.map(y=>[y,y])),guessed:parts.some(p=>p.an.guessedYears),unit:unit||(co?+co.unit:1)||1,target:co?'cur':'new',name:coName||'',unitDetected:!!unit};
+  faModals();
+}
+function faImpOptions(sel){
+  let o='<option value="">— تجاهل —</option>';
+  FA_SECTIONS.forEach(s=>{ o+='<optgroup label="'+s.ar+'">'+s.keys.map(k=>'<option value="'+k+'" '+(sel===k?'selected':'')+'>'+faLbl(k)+'</option>').join('')+(s.id==='PL'?'<option value="opex_dep" '+(sel==='opex_dep'?'selected':'')+'>مصروفات تشغيل (إهلاك)</option>':'')+'</optgroup>'; });
+  return o;
+}
+const FA_SECN={CA:'متداول',NCA:'غير متداول',CL:'التزام متداول',NCL:'التزام غير متداول',EQ:'حقوق ملكية',PL:'الدخل',CF:'تدفقات',OCI:'دخل شامل',UNK:'—',KEY:'نموذج'};
+function faImpHtml(){
+  const I=_faImp, co=faCo();
+  const mapped=I.rows.filter(r=>r.on&&r.key).length, unmapped=I.rows.filter(r=>!r.key&&!r.head&&!r.total&&r.sec!=='CF'&&r.sec!=='OCI'&&Object.keys(r.vals).length).length;
+  let body='', lastPart=-1;
+  I.rows.forEach((r,i)=>{
+    if(r.part!==lastPart&&I.parts.length>1){ body+='<tr class="fa-tr-h"><td colspan="'+(4+I.years.length)+'">شيت: '+faEsc(I.parts[r.part].name)+'</td></tr>'; lastPart=r.part; }
+    if(r.head){ body+='<tr class="fa-imp-head"><td></td><td colspan="'+(3+I.years.length)+'">'+faEsc(r.label)+'</td></tr>'; return; }
+    const cls=r.total?'fa-imp-tot':(!r.key?'fa-imp-un':'');
+    body+='<tr class="'+cls+'"><td>'+(r.total?'':'<input type="checkbox" '+(r.on?'checked':'')+' onchange="_faImp.rows['+i+'].on=this.checked">')+'</td><td>'+faEsc(r.label)+(r.total?' <small class="fa-muted">(مجموع — للمطابقة بس)</small>':'')+'</td><td><small class="fa-muted">'+(FA_SECN[r.sec]||r.sec)+'</small></td><td>'+(r.total?'—':'<select onchange="_faImp.rows['+i+'].key=this.value;_faImp.rows['+i+'].on=!!this.value;faModals()">'+faImpOptions(r.key)+'</select>')+'</td>'+I.years.map(y=>'<td class="num">'+(r.vals[y]==null?'':faN(r.vals[y]))+'</td>').join('')+'</tr>';
+  });
+  return `<div class="fa-ov fa-ov-c"><div class="fa-modal fa-modal-w">
+    <div class="fa-dr-h"><h3>معاينة الاستيراد</h3><button class="btn btn-outline btn-sm" onclick="_faImp=null;faModals()">✕</button></div>
+    <div class="fa-imp-top">
+      <div class="fa-imp-sum"><span class="fa-ok">✓ ${mapped} بند متبوب</span>${unmapped?'<span class="fa-bad">'+unmapped+' بند محتاج تبويب</span>':''}<span class="fa-muted">راجع العمود «البند في AuditIQ» وعدّل أي تبويب غلط قبل ما تضيف.</span></div>
+      <div class="fa-imp-opts">
+        <label class="fa-fld"><span>إضافة إلى</span><select onchange="_faImp.target=this.value;faModals()">${co?'<option value="cur" '+(I.target==='cur'?'selected':'')+'>الشركة المفتوحة: '+faEsc(co.name)+'</option>':''}<option value="new" ${I.target==='new'?'selected':''}>شركة جديدة</option></select></label>
+        ${I.target==='new'?'<label class="fa-fld"><span>اسم الشركة</span><input type="text" value="'+faEsc(I.name)+'" oninput="_faImp.name=this.value"></label>':''}
+        <label class="fa-fld"><span>وحدة الأرقام في الملف ${I.unitDetected?'<small class="fa-ok">(من الملف)</small>':'<small class="fa-muted">(مش مذكورة — اختارها)</small>'}</span><select onchange="_faImp.unit=+this.value">${FA_UNITS.map(u=>'<option value="'+u.v+'" '+(I.unit===u.v?'selected':'')+'>'+u.ar+'</option>').join('')}</select></label>
+      </div>
+      <div class="fa-imp-years"><span>${I.guessed?'⚠️ ملقتش سنين في العناوين — اكتب السنة لكل عمود:':'السنين:'}</span>${I.years.map(y=>'<label>عمود '+y+' = <input type="text" maxlength="7" value="'+I.ymap[y]+'" oninput="_faImp.ymap[\''+y+'\']=this.value.trim()"></label>').join('')}</div>
+      <div class="fa-muted" style="font-size:12px">اصطلاح المصروفات في الملف: ${I.parts.some(p=>p.an.expNeg)?'بالسالب (أو بين أقواس) — هتتحول لموجب':'بالموجب'}. الإهلاك من قائمة التدفقات بيتاخد كرقم الإهلاك.</div>
+    </div>
+    <div class="fa-tw fa-imp-tw"><table class="fa-tbl fa-imp"><thead><tr><th></th><th>البند في الملف</th><th>القسم</th><th>البند في AuditIQ</th>${I.years.map(y=>'<th class="num">'+y+'</th>').join('')}</tr></thead><tbody>${body}</tbody></table></div>
+    <div class="fa-actions"><button class="btn btn-gold" onclick="faApplyImport()">إضافة الأرقام ←</button><button class="btn btn-outline" onclick="_faImp=null;faModals()">إلغاء</button></div>
+  </div></div>`;
+}
+function faApplyImport(){
+  const I=_faImp; if(!I) return;
+  const ym={}; for(const y of I.years){ const t=String(I.ymap[y]||'').replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)); if(!/^(19|20)\d{2}(-\d{1,2})?$/.test(t)){ showToast('اكتب سنة صحيحة لكل عمود (مثلاً 2025)'); return; } ym[y]=t; }
+  if(new Set(Object.values(ym)).size!==Object.values(ym).length){ showToast('فيه عمودين بنفس السنة'); return; }
+  const allData={}, allChecks=[];
+  I.parts.forEach((p,pi)=>{
+    const an=Object.assign({},p.an,{rows:[]}); const map={};
+    I.rows.forEach(r=>{ if(r.part!==pi) return; const idx=an.rows.length; an.rows.push(r); map[idx]=r.on?(r.key||''):''; if(r.total) map[idx]=''; });
+    const res=faBuildFromImport(an,map);
+    Object.keys(res.data).forEach(y=>{ const t=ym[y]; allData[t]=allData[t]||{}; Object.keys(res.data[y]).forEach(k=>{ allData[t][k]=(allData[t][k]||0)+res.data[y][k]; }); });
+    res.checks.forEach(c=>allChecks.push(Object.assign(c,{y:ym[c.y]})));
+  });
+  const ys=Object.keys(allData).filter(y=>Object.keys(allData[y]).length);
+  if(!ys.length){ showToast('مفيش بنود متبوبة للإضافة'); return; }
+  let co=faCo();
+  if(I.target==='new'||!co){ co={id:faUid(),name:(I.name||'شركة جديدة').trim(),sector:'',unit:I.unit,notes:'',years:{},created:Date.now(),updated:Date.now()}; FA.companies.push(co); FA.active=co.id; }
+  else if(+co.unit!==I.unit){
+    const f=I.unit/(+co.unit||1);
+    ys.forEach(y=>Object.keys(allData[y]).forEach(k=>{ if(!FA_NOUNIT[k]) allData[y][k]=allData[y][k]*f; }));
+    showToast('اتحولت الأرقام من '+faUnit({unit:I.unit}).ar+' لـ '+faUnit(co).ar);
+  }
+  ys.forEach(y=>{ co.years[y]=Object.assign(co.years[y]||{},allData[y]); });
+  // إعادة حساب المطابقة بعد الدمج
+  _faChecks=allChecks.map(c=>{ const calc=faCalc(co.years[c.y])[c.check]; const conv=(I.target!=='new'&&+co.unit!==I.unit)?I.unit/(+co.unit||1):1; const file=c.file*conv; return Object.assign(c,{file,calc,ok:Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005)}); });
+  co.updated=Date.now(); _faImp=null; FA.ui.tab='fs'; faSave();
+  if(typeof goTo==='function'&&!document.getElementById(_faHost)) goTo('fsinput',NAVBTN_('fsinput'));
+  faRender(); faModals();
+  const bad=_faChecks.filter(c=>!c.ok).length;
+  showToast(bad?'⚠️ اتضافت الأرقام — فيه '+bad+' مجموع مش مطابق للملف':'✓ اتضافت الأرقام'+(_faChecks.length?' وكل المجاميع مطابقة للملف':''));
+}
+
+// ── تصدير Excel (مع شيت الاختصارات) ──
+function faExportExcel(){
+  const co=faCo(); if(!co){ showToast('مفيش شركة'); return; }
+  if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل أو مفيش إنترنت'); return; }
+  const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
+  const fs=[[co.name+' — القوائم المالية ('+u.ar+')'],[],['البند','Line'].concat(ys)];
+  const sec=(t)=>fs.push([t]);
+  const line=(k)=>fs.push([faAnyLbl(k),(FA_LABEL[k]||[])[1]||k].concat(C.map(c=>Math.round(c[k]*100)/100)));
+  sec('الأصول المتداولة'); FA_SECTIONS[0].keys.forEach(line); line('CA');
+  sec('الأصول غير المتداولة'); FA_SECTIONS[1].keys.forEach(line); line('NCA'); line('totalAssets');
+  sec('حقوق الملكية'); FA_SECTIONS[4].keys.forEach(line); line('totalEquity');
+  sec('الالتزامات غير المتداولة'); FA_SECTIONS[3].keys.forEach(line); line('NCL');
+  sec('الالتزامات المتداولة'); FA_SECTIONS[2].keys.forEach(line); line('CL'); line('totalLiabilities'); line('totalEqLiab'); line('balanceDiff');
+  sec('قائمة الدخل'); ['revenue','cogs','grossProfit','opex','impairment','otherIncome','ebit','financeCost','financeIncome','fxGainLoss','assocShare','pbt','tax','netProfit'].forEach(line);
+  sec('التدفقات النقدية وبيانات أخرى'); ['cfo','capex','fcf','depAmort','ebitda','dividendsPaid','sharesOutstanding','marketPrice'].forEach(line);
+  const rt=[['النسبة','Ratio','المعادلة'].concat(ys)];
+  FA_GROUPS.forEach(g=>{ rt.push([g.ar,g.en]); FA_RATIOS.filter(r=>r.g===g.id).forEach(r=>{ const s=faRatioSeries(co,r.id,b); if(s.every(x=>x.val==null)) return; rt.push([r.ar,r.en,r.f].concat(s.map(x=>x.val==null?'':faFmt(x.val,r.kind)))); }); });
+  rt.push([]); rt.push([b.avg?'الأرصدة محسوبة كمتوسط أول وآخر المدة لما السنة السابقة موجودة.':'النسب محسوبة على أرصدة آخر المدة.']);
+  const fl=faReview(co,{thr:+FA.ui.thr||20,mat:+FA.ui.mat||0});
+  const rv=[['الأهمية','المؤشر','الأرقام','ليه مهم','الإجراء المقترح','المرجع']].concat(fl.map(f=>[{H:'عالي',M:'متوسط',L:'منخفض'}[f.sev],f.title,f.detail,f.why,f.proc.join(' | '),f.std]));
+  const used=['SFP','IS','EBIT','EBITDA','PBT','CFO','FCF','ROA','ROE','ROCE','ETR','DSO','DIO','DPO','CCC','EPS','BVPS','P/E','P/BV','NCI','ISA','IFRS','IAS','EAS','ECL','NRV','EGP'];
+  const extra={PBT:['Profit Before Tax','الربح قبل الضريبة'],FCF:['Free Cash Flow','التدفق النقدي الحر'],ROCE:['Return on Capital Employed','العائد على رأس المال المستخدم'],ETR:['Effective Tax Rate','سعر الضريبة الفعلي'],DSO:['Days Sales Outstanding','فترة التحصيل'],DIO:['Days Inventory Outstanding','فترة التخزين'],DPO:['Days Payables Outstanding','فترة السداد للموردين'],CCC:['Cash Conversion Cycle','دورة التحويل النقدي'],BVPS:['Book Value per Share','القيمة الدفترية للسهم'],'P/E':['Price to Earnings','مضاعف الربحية'],'P/BV':['Price to Book Value','السعر إلى القيمة الدفترية'],IS:['Income Statement','قائمة الدخل'],EGP:['Egyptian Pound','الجنيه المصري']};
+  const ab=[['الاختصار','بالإنجليزي','بالعربي']].concat(used.map(a=>{ const r=(typeof ABBR!=='undefined'?ABBR.find(x=>x[0]===a):null)||(extra[a]?[a].concat(extra[a]):null); return r?[a,r[1],r[2]]:[a,'','']; }));
+  const wb=XLSX.utils.book_new(); wb.Workbook={Views:[{RTL:true}]};
+  const add=(aoa,name,w)=>{ const ws=XLSX.utils.aoa_to_sheet(aoa); ws['!cols']=w.map(x=>({wch:x})); XLSX.utils.book_append_sheet(wb,ws,name); };
+  add(fs,'القوائم',[42,34].concat(ys.map(()=>16)));
+  add(rt,'النسب',[36,30,50].concat(ys.map(()=>14)));
+  add(rv,'المراجعة التحليلية',[10,40,46,50,70,16]);
+  add(ab,'الاختصارات',[12,40,40]);
+  XLSX.writeFile(wb,(co.name||'company').replace(/[\\/:*?"<>|]/g,'')+' — تحليل القوائم.xlsx');
+  showToast('✓ اتصدر ملف Excel');
+}
+function faTemplate(){
+  if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل'); return; }
+  const y=new Date().getFullYear()-1;
+  const aoa=[['key','البند',String(y),String(y-1),String(y-2)]];
+  FA_SECTIONS.forEach(s=>{ aoa.push(['',s.ar]); s.keys.forEach(k=>aoa.push([k,faLbl(k),'','',''])); });
+  const wb=XLSX.utils.book_new(); wb.Workbook={Views:[{RTL:true}]};
+  const ws=XLSX.utils.aoa_to_sheet(aoa); ws['!cols']=[{wch:18},{wch:46},{wch:14},{wch:14},{wch:14}];
+  XLSX.utils.book_append_sheet(wb,ws,'نموذج القوائم');
+  XLSX.writeFile(wb,'AuditIQ — نموذج القوائم المالية.xlsx');
+}
+function faLoadDemo(){
+  const co={id:faUid(),name:'شركة النيل للمقاولات (بيانات تجريبية)',sector:'construction',unit:1000,notes:'بيانات تجريبية للتجربة بس.',created:Date.now(),updated:Date.now(),years:{
+    '2025':{cash:18500,recv:96000,inv:22000,contractAssets:41000,prepaid:15500,ppe:120000,rouAssets:9000,intangibles:2000,assocInv:14000,deferredTaxAsset:1000,payables:62000,contractLiab:28000,stBorrow:55000,taxPayable:7000,provisionsCL:4000,otherCL:18000,ltBorrow:38000,leaseLiabNC:6500,deferredTaxLiab:3500,provisionsNCL:5000,shareCapital:68000,reserves:12000,retainedEarnings:32000,revenue:410000,cogs:342000,opex:31000,impairment:3500,otherIncome:2500,financeCost:14500,financeIncome:1800,fxGainLoss:-900,assocShare:1600,tax:5600,cfo:9500,capex:21000,depAmort:14000,dividendsPaid:6000,sharesOutstanding:6800000},
+    '2024':{cash:24000,recv:70000,inv:18500,contractAssets:30000,prepaid:13500,ppe:113000,rouAssets:10500,intangibles:2300,assocInv:12400,deferredTaxAsset:800,payables:55000,contractLiab:25000,stBorrow:40000,taxPayable:6000,provisionsCL:3500,otherCL:16500,ltBorrow:42000,leaseLiabNC:7800,deferredTaxLiab:3200,provisionsNCL:4400,shareCapital:60000,reserves:11100,retainedEarnings:20500,revenue:368000,cogs:298000,opex:28500,impairment:2000,otherIncome:1500,financeCost:12000,financeIncome:1500,fxGainLoss:-2500,assocShare:1200,tax:6700,cfo:26000,capex:15000,depAmort:12800,dividendsPaid:5000,sharesOutstanding:6000000},
+    '2023':{cash:20000,recv:62000,inv:17000,contractAssets:25000,prepaid:12000,ppe:104000,rouAssets:12000,intangibles:2600,assocInv:11200,deferredTaxAsset:700,payables:50000,contractLiab:22000,stBorrow:36000,taxPayable:5500,provisionsCL:3000,otherCL:15000,ltBorrow:45000,leaseLiabNC:9000,deferredTaxLiab:3000,provisionsNCL:4000,shareCapital:60000,reserves:10000,retainedEarnings:4000,revenue:330000,cogs:264000,opex:26000,impairment:1500,otherIncome:1000,financeCost:10500,financeIncome:1200,fxGainLoss:-1000,assocShare:900,tax:6900,cfo:28000,capex:18000,depAmort:12000,dividendsPaid:4000,sharesOutstanding:6000000}}};
+  FA.companies.push(co); FA.active=co.id; FA.ui.tab='fs'; _faChecks=null; faSave(); faRender();
+  showToast('✓ اتحملت بيانات تجريبية — جرّب النسب والمراجعة التحليلية');
 }
 
 // ═══════════════════════ INIT ═══════════════════════
@@ -12345,7 +13580,7 @@ function backupStats(){
 }
 function backupExport(){
   const payload = {
-    __app:'AuditIQ', __version:'v12',
+    __app:'AuditIQ', __version:'v13',
     __exported:new Date().toISOString(),
     __user:'يوسف صلاح',
     data: backupCollectAll()
