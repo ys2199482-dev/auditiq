@@ -506,6 +506,156 @@ body.dark #quickNotePopup{background:var(--bg2) !important}
   .plan-row{flex-direction:column;gap:4px}
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   AuditIQ v11 — تصميم الصورة: سايدبار شمال، أزرار كبيرة، دروس بخطوات
+   ═══════════════════════════════════════════════════════════ */
+/* ── السايدبار على الشمال ── */
+.sidebar,body.dark .sidebar{right:auto;left:0;width:228px;background:linear-gradient(180deg,#0b1733 0%,#10224a 60%,#0b1733 100%) !important;box-shadow:2px 0 18px rgba(8,16,32,.2);padding:0 12px}
+.main{margin-right:0;margin-left:228px}
+#topbar,body.dark #topbar{right:0;left:228px;height:64px;gap:18px}
+body.print-mode .main{margin-left:0 !important}
+#quickNotePopup{left:248px !important;top:72px !important}
+.logo{padding:18px 6px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px;direction:ltr}
+.logo svg{width:44px;height:44px;flex-shrink:0}
+.logo-mark{display:none}
+.logo-name{font-size:25px;font-weight:700;color:#fff;line-height:1;letter-spacing:0}
+.logo-sub{font-size:10.5px;color:#aab8d8;margin-top:5px;letter-spacing:.3px}
+.nav-leader{margin:0 0 6px;padding:11px 14px;border-radius:12px;font-size:14px;font-weight:600;color:#dbe4f7;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06)}
+.nav-leader:hover,body.dark .nav-leader:hover{background:rgba(255,255,255,.09) !important;color:#fff}
+.nav-leader.open{background:linear-gradient(180deg,#f8c64a,#eea91a) !important;color:#231700 !important;border-color:transparent;box-shadow:0 4px 14px rgba(238,169,26,.28)}
+.nav-leader.open .nav-arrow{color:#231700}
+.nav-group{margin:0 0 2px}
+.nav-group.open{margin-bottom:8px}
+.nav-item{padding:8px 14px;font-size:13px;border-right:none;border-radius:9px;margin-bottom:1px}
+.nav-item.active,body.dark .nav-item.active{background:rgba(245,184,46,.16) !important;color:#ffd97a;border-right:none}
+.sidebar-footer{padding:12px 0 14px;border-top:none}
+.goal-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:16px 12px;text-align:center;margin-bottom:10px}
+.goal-card svg{width:42px;height:42px;margin-bottom:6px}
+.goal-card b{display:block;color:#fff;font-size:16px;margin-bottom:4px}
+.goal-card span{display:block;color:#b9c5e0;font-size:12px;line-height:1.7}
+.goal-card i{display:block;margin-top:12px;font-family:'Segoe Script','Brush Script MT','Lucida Handwriting',cursive;color:var(--gold2);font-size:15px;border-bottom:2px solid rgba(245,184,46,.5);padding-bottom:6px;direction:ltr}
+
+/* ── الشريط العلوي ── */
+#topbar > div:nth-of-type(1){display:none !important}                      /* اللوجو بقى في السايدبار */
+#topbar > div:last-of-type{order:-1}                             /* البحث والأزرار يمين */
+.topbar-tabs{justify-content:flex-start;gap:4px}
+.topbar-tab{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;font-size:14px;font-weight:600;color:var(--text);border-radius:0;border-bottom:3px solid transparent;background:none !important}
+.topbar-tab svg{width:19px;height:19px;flex-shrink:0}
+.topbar-tab:hover{color:var(--accent)}
+.topbar-tab.active{color:var(--text);border-bottom-color:var(--gold2);background:none !important}
+body.dark .topbar-tab.active{color:#fff}
+#gSearch{width:230px !important;border-radius:22px !important;background:var(--bg4) !important;border-color:transparent !important;padding:10px 16px !important}
+
+/* ── ترحيب الرئيسية ── */
+.home-greet{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.home-greet .page-title{font-size:22px}
+.home-cd{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:8px 16px;box-shadow:var(--shadow);cursor:pointer}
+.home-cd b{font-family:var(--mono);font-size:24px;color:var(--gold)}
+.home-cd span{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* ── الدرس: البانر ── */
+.ls-chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.ls-chip{padding:8px 14px;border-radius:22px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-family:var(--font);font-size:13px;cursor:pointer}
+.ls-chip b{font-family:var(--mono);color:var(--accent);margin-left:4px}
+.ls-chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}.ls-chip.on b{color:var(--gold2)}
+.ls-prog{font-size:12.5px;color:var(--text3);margin-right:auto}
+.ls-hero{position:relative;overflow:hidden;border-radius:18px;background:linear-gradient(110deg,#0b1733 0%,#14295a 48%,#2a4d9c 100%);color:#fff;padding:30px 34px 44px;min-height:290px;display:flex;align-items:center;direction:ltr;box-shadow:0 12px 34px rgba(16,34,74,.3);margin-bottom:16px}
+.ls-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 30%,rgba(245,184,46,.16),transparent 42%),radial-gradient(circle at 80% 110%,rgba(110,164,255,.25),transparent 50%);pointer-events:none}
+.ls-hero-body{position:relative;z-index:2;direction:ltr;text-align:left;max-width:56%}
+.ls-badge{display:inline-block;background:linear-gradient(180deg,#f8c64a,#eea91a);color:#231700;font-weight:700;font-size:15px;padding:5px 16px;border-radius:9px;margin-bottom:14px;font-family:var(--mono)}
+.ls-hero-en{font-size:34px;font-weight:700;line-height:1.2;letter-spacing:-.4px}
+.ls-hero-ar{font-size:27px;font-weight:700;color:var(--gold2);margin-top:8px;direction:rtl;text-align:left}
+.ls-hero-sub{font-size:15px;color:#d7e1f8;margin-top:10px;direction:rtl;text-align:left}
+.ls-hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.ls-hero-btns .btn-gold{padding:11px 24px;font-size:15px;border-radius:24px}
+.ls-hero-btns .hero-ghost{border-radius:24px}
+.ls-hero-tag{position:absolute;top:22px;right:0;background:rgba(11,23,51,.85);border-radius:14px 0 0 14px;padding:12px 22px 12px 26px;z-index:3;direction:ltr;text-align:left;border:1px solid rgba(255,255,255,.12);border-right:none}
+.ls-hero-tag b{display:block;font-size:20px;font-style:italic}
+.ls-hero-tag span{display:block;font-size:12px;color:#c9d6f2;max-width:190px;line-height:1.4}
+.ls-hero-art{position:absolute;right:90px;bottom:-14px;width:270px;height:auto;z-index:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35))}
+.ls-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.ls-dots button{width:10px;height:10px;border-radius:50%;border:none;background:rgba(255,255,255,.35);cursor:pointer;padding:0}
+.ls-dots button.on{background:var(--gold2);width:22px;border-radius:6px}
+
+/* ── الدرس: الخطوات + التعريف ── */
+.ls-row2{display:grid;grid-template-columns:1.75fr 1fr;gap:16px;margin-bottom:16px;scroll-margin-top:80px}
+.ls-steps{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.ls-steps-h{background:linear-gradient(90deg,#0b1733,#17306b);color:#fff;text-align:center;font-size:18px;font-weight:700;padding:11px}
+.ls-steps-b{display:grid;gap:0;padding:14px 8px 12px}
+.ls-step{position:relative;background:none;border:none;border-radius:12px;padding:26px 6px 12px;cursor:pointer;font-family:var(--font);color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+body.dark .ls-step{color:var(--text)}
+.ls-step:hover{background:var(--bg3)}
+.ls-step.on{background:#fff6dc}
+body.dark .ls-step.on{background:rgba(245,184,46,.12)}
+.ls-step:not(:last-child)::after{content:"←";position:absolute;left:-8px;top:52px;color:var(--text3);font-size:17px}
+.ls-num{position:absolute;top:0;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.ls-step.on .ls-num{background:var(--gold2);color:#231700}
+.ls-step.done .ls-num{background:var(--green);color:#fff}
+.ls-step svg{width:34px;height:34px}
+.ls-step-en{font-size:12.5px;font-weight:600;line-height:1.35;direction:ltr}
+.ls-step-ar{font-size:13px;color:var(--text2);line-height:1.4}
+.ls-step.on .ls-step-ar{color:var(--gold);font-weight:700}
+.ls-what{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center}
+.ls-what h4{font-size:19px;color:var(--text);margin-bottom:10px}
+.ls-what p{font-size:14.5px;color:var(--text2);line-height:2}
+
+/* ── الدرس: الكروت التلاتة ── */
+.ls-row3{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:16px;margin-bottom:12px}
+.ls-card{border-radius:16px;padding:18px 20px;border:1px solid var(--border)}
+.ls-card h4{font-size:18px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ls-card h4 svg{width:22px;height:22px}
+.ls-card ul{list-style:none;padding:0;margin:0}
+.ls-card li{position:relative;padding:5px 26px 5px 0;font-size:14px;color:var(--text2);line-height:1.8}
+.ls-card li::before{content:"✓";position:absolute;right:0;top:8px;width:18px;height:18px;border-radius:50%;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.ls-card p{font-size:14.5px;color:var(--text2);line-height:1.95}
+.ls-audit{background:#eaf2ff;border-color:#c9dcfb}.ls-audit h4{color:#1d4fb8}.ls-audit li::before{background:#2563eb}
+.ls-ex{background:#fff4e2;border-color:#f6dcb0}.ls-ex h4{color:#c7780a}
+.ls-pts{background:#e9f8f0;border-color:#c2e8d5}.ls-pts h4{color:#0f7a57}.ls-pts li::before{background:#15936a}
+body.dark .ls-audit{background:rgba(79,140,255,.10);border-color:rgba(79,140,255,.25)}body.dark .ls-audit h4{color:#8fb6ff}
+body.dark .ls-ex{background:rgba(245,184,46,.09);border-color:rgba(245,184,46,.25)}body.dark .ls-ex h4{color:#f0c060}
+body.dark .ls-pts{background:rgba(69,200,150,.09);border-color:rgba(69,200,150,.25)}body.dark .ls-pts h4{color:#45c896}
+.ls-q{margin-top:12px;padding:9px 20px;border-radius:22px;border:none;background:#fbdca4;color:#5a3a05;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer}
+.ls-q:hover{background:#f8cf85}
+.ls-ans{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.75);border:1px dashed #e0b56a;font-size:14px;color:var(--text);line-height:1.9}
+body.dark .ls-ans{background:rgba(255,255,255,.06)}
+.ls-foot{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+
+/* ── شريط الشعار تحت ── */
+.site-tag{margin-top:28px;border-radius:16px;background:linear-gradient(90deg,#0b1733,#17306b);color:#fff;text-align:center;padding:16px;font-size:18px;font-weight:600;border-top:3px solid var(--gold2)}
+.site-tag b{color:var(--gold2)}
+body.print-mode .site-tag,body.print-mode #aiFab,body.print-mode #aiFabBox{display:none !important}
+
+/* ── زرار اسأل Claude العائم ── */
+#aiFab{position:fixed;bottom:22px;left:250px;z-index:140;border:none;border-radius:28px;padding:12px 18px;background:linear-gradient(180deg,#f8c64a,#eea91a);color:#231700;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(238,169,26,.4)}
+#aiFabBox{display:none;position:fixed;bottom:76px;left:250px;z-index:141;width:340px;max-width:calc(100vw - 24px);background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:16px;box-shadow:0 18px 44px rgba(8,16,32,.28)}
+#aiFabBox h5{font-size:15px;color:var(--text);margin-bottom:4px}
+#aiFabCtx{font-size:11.5px;color:var(--text3);margin-bottom:10px;line-height:1.6}
+#aiFabQ{width:100%;min-height:70px;resize:vertical;padding:10px 12px;border-radius:10px;border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.7}
+.ai-chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.ai-chips button{padding:6px 11px;border-radius:18px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-family:var(--font);font-size:12px;cursor:pointer}
+.ai-chips button:hover{border-color:var(--accent);color:var(--accent)}
+.notes-area{min-height:240px}
+#notesAreaSec{min-height:420px !important}
+
+@media(max-width:1350px){.ls-hero-art{display:none}.ls-hero-body{max-width:74%}.ls-hero-en{font-size:28px}}
+@media(max-width:1100px){.ls-row2,.ls-row3{grid-template-columns:1fr}.topbar-tab span{display:none}}
+@media(max-width:768px){
+  .sidebar,body.dark .sidebar{width:270px;transform:translateX(-100%);padding-top:60px}
+  .sidebar.mobile-open{transform:translateX(0);box-shadow:4px 0 20px rgba(0,0,0,.25)}
+  .main{margin-left:0}
+  #topbar,body.dark #topbar{left:0;height:56px}
+  #topbar > div:last-of-type{order:0}
+  #quickNotePopup{left:12px !important;right:12px;width:auto !important}
+  .ls-hero{padding:22px 18px 40px;min-height:0}.ls-hero-body{max-width:100%}.ls-hero-tag{display:none}
+  .ls-hero-en{font-size:23px}.ls-hero-ar{font-size:20px}
+  .ls-steps-b{grid-template-columns:1fr 1fr !important;gap:10px}.ls-step:not(:last-child)::after{display:none}
+  .site-tag{font-size:14px}
+  #page-home > div[style*="grid-template-columns:1fr 1fr;"]{grid-template-columns:1fr !important}
+  #aiFab{bottom:14px;left:14px;padding:10px 14px}#aiFabBox{bottom:64px;left:12px}
+}
+@media(max-width:768px){#topbar > div:nth-of-type(1){display:flex !important}}
+
 /* ═══ PRINT MODE ═══ */
 .print-header{display:none;align-items:center;gap:16px;padding:10px 0 12px;margin-bottom:14px;border-bottom:0.5px solid var(--border)}
 body.print-mode .sidebar{display:none !important}
@@ -542,9 +692,8 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 <div id="menuOverlay" onclick="toggleMobileMenu()"></div>
 <nav class="sidebar" id="mainSidebar">
   <div class="logo">
-    <div class="logo-mark">AuditIQ v10</div>
-    <div class="logo-name">AUDIT<span style="color:var(--gold)">IQ</span></div>
-    <div class="logo-sub">يوسف صلاح · <span data-exam-label>DipIFR Jun 2027</span></div>
+    <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbd46a"/><stop offset="1" stop-color="#e59a12"/></linearGradient></defs><path d="M5 41L21.5 7h5L43 41h-7.5L24 16.5 12.5 41z" fill="url(#lgA)"/><path d="M3 35c13-2 25-8 40-23l-6 1.5M43 12l-1.5 6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><div class="logo-name">Audit<span>iq</span></div><div class="logo-sub">Learn • Practice • Excel</div></div>
   </div>
 
   <!-- الرئيسية -->
@@ -553,6 +702,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </button>
   <div class="nav-group open">
     <button class="nav-item active" onclick="goTo('home',this)"><span class="nav-icon">◈</span> Dashboard</button>
+    <button class="nav-item" onclick="goTo('learn',this)"><span class="nav-icon">▶</span> المحتوى التعليمي</button>
     <button class="nav-item" onclick="goTo('examguide',this)"><span class="nav-icon">🎯</span> دليل امتحان 2027</button>
     <button class="nav-item" onclick="goTo('planner',this)"><span class="nav-icon">🧠</span> المخطط الذكي</button>
     <button class="nav-item" onclick="goTo('timer',this)"><span class="nav-icon">◷</span> تتبع المذاكرة</button>
@@ -668,6 +818,10 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </div>
 
   <div class="sidebar-footer">
+    <div class="goal-card">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#f5b82e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="26" r="16"/><circle cx="22" cy="26" r="9"/><circle cx="22" cy="26" r="2.5" fill="#f5b82e"/><path d="M22 26L40 8M40 8h-7M40 8v7"/></svg>
+      <b>هدفنا</b><span>نجاحك في الامتحانات وتطوير مهاراتك المهنية</span><i>Focus. Learn. Grow.</i>
+    </div>
     <div class="exam-cd" onclick="goTo('examguide',document.querySelector('[onclick*=examguide]'))" title="دليل الامتحان وتعديل التاريخ">
       <div class="cd-num" id="sideCD">--</div>
       <div class="cd-lbl">يوم لحد الامتحان · <span data-exam-label>DipIFR Jun 2027</span></div>
@@ -686,12 +840,12 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </div>
   <!-- Section Tabs -->
   <div class="topbar-tabs" id="topbarTabs">
-    <button class="topbar-tab active" data-section="home" onclick="goTo('home',document.querySelector('[onclick*=\'goTo(\\\'home\\\'\']'))">الرئيسية</button>
-    <button class="topbar-tab" data-section="finance" onclick="goTo('fsinput',document.querySelector('[onclick*=\'fsinput\']'))">التحليل المالي</button>
-    <button class="topbar-tab" data-section="audit" onclick="goTo('workpapers',document.querySelector('[onclick*=\'workpapers\']'))">المراجعة</button>
-    <button class="topbar-tab" data-section="tax" onclick="goTo('taxrecon',document.querySelector('[onclick*=\'taxrecon\']'))">الضرائب</button>
-    <button class="topbar-tab" data-section="train" onclick="goTo('quiz',document.querySelector('[onclick*=\'quiz\']'))">التدريب</button>
-    <button class="topbar-tab" data-section="ai" onclick="goTo('ai',document.querySelector('[onclick*=\'goTo(\\\'ai\\\'\']'))">AI</button>
+    <button class="topbar-tab active" data-section="home" onclick="goTo('home',document.querySelector('[onclick*=\'goTo(\\\'home\\\'\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>الرئيسية</span></button>
+    <button class="topbar-tab" data-section="finance" onclick="goTo('fsinput',document.querySelector('[onclick*=\'fsinput\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>التحليل المالي</span></button>
+    <button class="topbar-tab" data-section="audit" onclick="goTo('workpapers',document.querySelector('[onclick*=\'workpapers\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>المراجعة</span></button>
+    <button class="topbar-tab" data-section="tax" onclick="goTo('taxrecon',document.querySelector('[onclick*=\'taxrecon\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M9.5 21V10M14.5 21V10M19 21V10M2 10l10-7 10 7z"/></svg><span>الضرائب</span></button>
+    <button class="topbar-tab" data-section="train" onclick="goTo('quiz',document.querySelector('[onclick*=\'quiz\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 12l3 3 5-6"/></svg><span>التدريب</span></button>
+    <button class="topbar-tab" data-section="ai" onclick="goTo('ai',document.querySelector('[onclick*=\'goTo(\\\'ai\\\'\']'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/></svg><span>AI</span></button>
   </div>
   <!-- Search + Actions -->
   <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
@@ -710,7 +864,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- PRINT HEADER — مرئي فقط في وضع الطباعة -->
 <div class="print-header" id="printHeader">
-  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v10</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v11</div>
   <div style="flex:1">
     <div id="printHeaderTitle" style="font-size:17px;font-weight:700;color:var(--text)">—</div>
     <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · <span data-exam-label>DipIFR Jun 2027</span></div>
@@ -740,24 +894,11 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- HOME -->
 <div class="page active" id="page-home">
-  <div class="hero">
-    <div class="hero-txt">
-      <div class="hero-kicker">AUDITIQ · FOCUS HUB</div>
-      <div class="page-title" id="greetMsg">مرحباً يا يوسف</div>
-      <div class="page-sub" id="todayDate">—</div>
-      <div class="hero-line">مذاكرة DipIFR، التحليل المالي، أدوات المراجعة والضرائب — كله في مكان واحد.</div>
-      <div class="hero-actions">
-        <button class="btn btn-gold" onclick="goTo('planner',document.querySelector('[onclick*=planner]'))">ابدأ مذاكرة النهارده</button>
-        <button class="hero-ghost" onclick="goTo('examguide',document.querySelector('[onclick*=examguide]'))">دليل امتحان 2027</button>
-        <button class="hero-ghost" onclick="goTo('fsinput',document.querySelector('[onclick*=fsinput]'))">التحليل المالي</button>
-      </div>
-    </div>
-    <div class="hero-cd">
-      <div class="hero-cd-num" data-exam-days>--</div>
-      <div class="hero-cd-lbl">يوم لحد الامتحان</div>
-      <div class="hero-cd-date"><span data-exam-label>DipIFR Jun 2027</span></div>
-    </div>
+  <div class="home-greet">
+    <div><div class="page-title" id="greetMsg">مرحباً يا يوسف</div><div class="page-sub" id="todayDate">—</div></div>
+    <div class="home-cd" onclick="goTo('examguide',NAVBTN_('examguide'))" title="دليل الامتحان"><b data-exam-days>--</b><span>يوم لحد الامتحان<br><span data-exam-label>DipIFR Jun 2027</span></span></div>
   </div>
+  <div id="lessonHome"></div>
   <!-- Smart Dashboard Widget -->
   <div id="dashSmart" style="margin-bottom:18px"></div>
   <!-- 3 Daily Tips -->
@@ -1005,6 +1146,12 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   <div class="card" id="toolContent"></div>
 </div>
 
+<!-- LEARN (v11) -->
+<div class="page" id="page-learn">
+  <div class="page-header"><div class="page-title">المحتوى التعليمي ▶</div><div class="page-sub">Learn — كل معيار متقسم خطوات: شرح بسيط · أهم النقاط · مثال عملي مصري · منظور المراجعة</div></div>
+  <div id="lessonLearn"></div>
+</div>
+
 <!-- EXAM GUIDE (v10) -->
 <div class="page" id="page-examguide">
   <div class="page-header"><div class="page-title">دليل امتحان DipIFR 🎯</div><div class="page-sub">Exam Guide — <span data-exam-label>DipIFR Jun 2027</span> · التاريخ · شكل الامتحان · المعايير الداخلة</div></div>
@@ -1070,16 +1217,16 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 
 <div class="page" id="page-files">
-  <div class="page-header"><div class="page-title">ملفاتي 📁</div><div class="page-sub">ارفع ملفاتك — محفوظة في المتصفح مع إمكانية التحميل</div></div>
+  <div class="page-header"><div class="page-title">ملفاتي 📁</div><div class="page-sub">ارفع ملازمك وملفاتك — محفوظة على جهازك وتفتحها من غير إنترنت</div></div>
   <div onclick="document.getElementById('fInput').click()" ondragover="event.preventDefault();this.style.borderColor='var(--gold)';this.style.background='rgba(201,168,76,.04)'" ondragleave="this.style.borderColor='var(--border2)';this.style.background=''" ondrop="event.preventDefault();this.style.borderColor='var(--border2)';this.style.background='';handleFDrop(event.dataTransfer.files)" style="border:2px dashed var(--border2);border-radius:12px;padding:32px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px">
-    <input type="file" id="fInput" multiple accept=".pdf,.doc,.docx,.xlsx,.pptx,.txt,.jpg,.png,.jpeg" onchange="handleFAdd(this.files)" style="display:none">
+    <input type="file" id="fInput" multiple onchange="handleFAdd(this.files)" style="display:none">
     <div style="font-size:36px;margin-bottom:10px">📂</div>
     <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px">اسحب الملفات هنا أو اضغط للاختيار</div>
-    <div style="font-size:12px;color:var(--text3)">PDF · Word · Excel · PowerPoint · صور — حتى 5MB للملف</div>
+    <div style="font-size:12px;color:var(--text3)">أي نوع ملف: PDF · Word · Excel · PowerPoint · صور · ZIP — حتى 200MB للملف</div>
   </div>
   <div style="display:flex;gap:8px;margin-bottom:12px">
     <button onclick="document.getElementById('fInput').click()" class="btn btn-gold btn-sm">+ رفع ملف</button>
-    <button onclick="if(confirm('مسح كل الملفات؟')){_fmeta=[];_fSaveAll();renderFList();showToast('تم مسح كل الملفات')}" class="btn btn-outline btn-sm" style="color:var(--red);border-color:rgba(224,90,90,.3)">🗑 مسح الكل</button>
+    <button onclick="if(confirm('مسح كل الملفات؟')){clearAllF()}" class="btn btn-outline btn-sm" style="color:var(--red);border-color:rgba(224,90,90,.3)">🗑 مسح الكل</button>
   </div>
   <div id="fList"></div>
 </div>
@@ -1440,7 +1587,22 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   <div id="backupContent"></div>
 </div>
 
+<div class="site-tag">مع <b>Auditiq</b> .. فهم أعمق .. استعداد أفضل .. نجاح أكبر</div>
 </main>
+<button id="aiFab" class="no-print" onclick="aiFabToggle()">✦ اسأل Claude</button>
+<div id="aiFabBox">
+  <h5>✦ اسأل Claude عن اللي قدامك</h5>
+  <div id="aiFabCtx"></div>
+  <textarea id="aiFabQ" placeholder="اكتب سؤالك... أو حدّد أي نص في الصفحة الأول وبعدين دوس الزرار"></textarea>
+  <div class="ai-chips">
+    <button onclick="aiFabSend('اشرحلي الصفحة دي ببساطة خطوة خطوة')">اشرحلي ببساطة</button>
+    <button onclick="aiFabSend('اديني مثال عملي بأرقام من شركة مصرية على الموضوع ده')">مثال عملي</button>
+    <button onclick="aiFabSend('اسألني 5 أسئلة على الموضوع ده واحد واحد وصحّحلي')">اسألني 5 أسئلة</button>
+    <button onclick="aiFabSend('إيه إجراءات المراجعة على البند ده والمستندات اللي أطلبها من العميل؟')">إجراءات المراجعة</button>
+    <button onclick="aiFabSend('إيه الفرق في الموضوع ده بين المعايير المصرية EAS والدولية IFRS؟')">EAS ولا IFRS</button>
+  </div>
+  <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn btn-outline btn-sm" onclick="aiFabToggle(false)">إلغاء</button><button class="btn btn-gold btn-sm" onclick="aiFabSend()">افتح في Claude ↗</button></div>
+</div>
 
 <script>
 // ═══════════════════════ UNIFIED NUMERIC INPUT ENGINE ═══════════════════════
@@ -2090,7 +2252,7 @@ function save(){
 }
 
 // ═══════════════════════ NAV ═══════════════════════
-const _TAB_MAP={examguide:'home',abbr:'train',home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
+const _TAB_MAP={learn:'home',examguide:'home',abbr:'train',home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
 function goTo(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -2101,13 +2263,13 @@ function goTo(id,btn){
   const _pg=document.getElementById('page-'+id); if(!_pg){console.error('Page not found:',id);return;} _pg.classList.add('active');
   if(btn)btn.classList.add('active');
   closeMobileMenu();
-  ({'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
+  ({'learn':renderLearn,'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
   if(id==='home') setTimeout(injectDailyHome,50);
 }
 
 // ═══════════════════════ HOME ═══════════════════════
 function renderHome(){
-  applyExamLabels();
+  applyExamLabels(); renderLesson('home');
   const now=new Date();
   const exam=examDate();
   const days=Math.max(0,Math.ceil((exam-now)/86400000));
@@ -2823,6 +2985,345 @@ function saveQuickNote(){
 
 
 
+// ═══════════════════════ v11 — تنبيه البومودورو (صوت + إشعار) ═══════════════════════
+let _pomAudio=null, _pomTitleT=null;
+function pomSoundOn(){ try{ return localStorage.getItem('fh_pomSound')!=='off'; }catch(e){ return true; } }
+function pomToggleSound(){ try{ localStorage.setItem('fh_pomSound',pomSoundOn()?'off':'on'); }catch(e){} renderPomodoroUI(); showToast(pomSoundOn()?'🔔 الصوت شغال':'🔕 الصوت مقفول'); }
+function pomPrime(){
+  // لازم يتنادى من ضغطة زرار: المتصفح مبيسمحش بالصوت أو الإشعارات من غير تفاعل من المستخدم
+  try{ const C=window.AudioContext||window.webkitAudioContext; if(C){ _pomAudio=_pomAudio||new C(); if(_pomAudio.state==='suspended') _pomAudio.resume(); } }catch(e){}
+  try{ if('Notification' in window && Notification.permission==='default') Notification.requestPermission(); }catch(e){}
+}
+function pomAlert(title,body){
+  if(pomSoundOn()){
+    try{ const ctx=_pomAudio; if(ctx){ if(ctx.state==='suspended') ctx.resume();
+      [0,.35,.7,1.5,1.85,2.2].forEach(function(t,i){ const o=ctx.createOscillator(), g=ctx.createGain(); o.type='sine'; o.frequency.value=(i%3===2)?1175:880; o.connect(g); g.connect(ctx.destination);
+        const s=ctx.currentTime+t; g.gain.setValueAtTime(0.0001,s); g.gain.exponentialRampToValueAtTime(0.4,s+.03); g.gain.exponentialRampToValueAtTime(0.0001,s+.3); o.start(s); o.stop(s+.32); }); } }catch(e){}
+    try{ if(navigator.vibrate) navigator.vibrate([300,150,300,150,300]); }catch(e){}
+  }
+  try{ if('Notification' in window && Notification.permission==='granted'){
+    const opt={body:body,icon:'icon.svg',tag:'auditiq-pomo',renotify:true};
+    const direct=function(){ try{ new Notification(title,opt); }catch(e){} };
+    if(navigator.serviceWorker && navigator.serviceWorker.controller){ navigator.serviceWorker.ready.then(function(r){ return r.showNotification(title,opt); }).catch(direct); } else direct();
+  } }catch(e){}
+  try{ const orig=document.title.replace(/^🔔 .*? — /,''); let n=0; clearInterval(_pomTitleT);
+    _pomTitleT=setInterval(function(){ document.title=(n++%2===0)?('🔔 '+title+' — '+orig):orig; if(n>24||document.hasFocus&&document.hasFocus()&&n>4){ clearInterval(_pomTitleT); document.title=orig; } },1000); }catch(e){}
+}
+
+// ═══════════════════════ v11 — مصطلحات إضافية (البنك بقى أكبر والترتيب بيتغير كل دورة) ═══════════════════════
+GLOSSARY.push(
+{en:"Operating Profit or Loss",ar:"ربح أو خسارة التشغيل",def:"مجموع فرعي إجباري في IFRS 18: كل الدخل والمصروفات اللي مش استثمارية ولا تمويلية ولا ضرائب ولا عمليات غير مستمرة.",std:"IFRS 18",cat:"ifrs"},
+{en:"Management-defined Performance Measure",ar:"مقياس أداء تحدده الإدارة",def:"رقم ربح معدّل الشركة بتعلنه برّه القوائم، ولازم يتفصح عنه في إيضاح مع تسوية.",std:"IFRS 18",cat:"ifrs"},
+{en:"Aggregation and Disaggregation",ar:"التجميع والتفصيل",def:"تجميع البنود المتشابهة في الصفات وفصل البنود المختلفة عشان المعلومة تبقى مفيدة.",std:"IFRS 18",cat:"ifrs"},
+{en:"Investing Category",ar:"الفئة الاستثمارية",def:"في قائمة الدخل: عوائد الشركات الشقيقة والنقدية والأصول اللي بتجيب دخل لوحدها.",std:"IFRS 18",cat:"ifrs"},
+{en:"Financing Category",ar:"الفئة التمويلية",def:"في قائمة الدخل: فوايد القروض وفوايد الالتزامات التانية زي التزام الإيجار.",std:"IFRS 18",cat:"ifrs"},
+{en:"Public Accountability",ar:"المساءلة العامة",def:"الشركة عليها مساءلة عامة لو أدواتها متداولة في سوق عام أو بتحتفظ بأموال للغير زي البنوك.",std:"IFRS 19",cat:"ifrs"},
+{en:"Transition Risk",ar:"مخاطر التحول",def:"مخاطر الانتقال لاقتصاد أقل في الكربون: قوانين جديدة، تكنولوجيا، تغير ذوق العملاء.",std:"IFRS S2",cat:"ifrs"},
+{en:"Physical Risk",ar:"المخاطر المادية للمناخ",def:"مخاطر من أحداث المناخ نفسها زي السيول والحرارة وارتفاع البحر.",std:"IFRS S2",cat:"ifrs"},
+{en:"Scope 1 Emissions",ar:"انبعاثات النطاق الأول",def:"الانبعاثات المباشرة من مصادر الشركة بتملكها أو بتسيطر عليها.",std:"IFRS S2",cat:"ifrs"},
+{en:"Scope 3 Emissions",ar:"انبعاثات النطاق الثالث",def:"الانبعاثات غير المباشرة في سلسلة القيمة كلها: الموردين والعملاء.",std:"IFRS S2",cat:"ifrs"},
+{en:"Distinct Good or Service",ar:"سلعة أو خدمة مميزة",def:"العميل يقدر يستفيد بيها لوحدها، والوعد بيها منفصل عن باقي وعود العقد.",std:"IFRS 15",cat:"ifrs"},
+{en:"Variable Consideration",ar:"المقابل المتغير",def:"جزء من السعر بيتغير حسب حدث مستقبلي: خصومات، مكافآت، غرامات، مرتجعات.",std:"IFRS 15",cat:"ifrs"},
+{en:"Stand-alone Selling Price",ar:"سعر البيع المستقل",def:"السعر اللي الشركة بتبيع بيه السلعة أو الخدمة لوحدها.",std:"IFRS 15",cat:"ifrs"},
+{en:"Contract Asset",ar:"أصل العقد",def:"حق الشركة في مقابل عن شغل اتنفذ، بس الحق ده لسه مشروط بحاجة غير مرور الوقت.",std:"IFRS 15",cat:"ifrs"},
+{en:"Contract Liability",ar:"التزام العقد",def:"التزام الشركة بتسليم سلع أو خدمات قبضت مقابلها مقدماً.",std:"IFRS 15",cat:"ifrs"},
+{en:"Significant Financing Component",ar:"عنصر تمويل مهم",def:"لما توقيت الدفع يدّي العميل أو الشركة ميزة تمويل مهمة، فالسعر يتعدل بقيمة الوقت.",std:"IFRS 15",cat:"ifrs"},
+{en:"Bill-and-Hold Arrangement",ar:"ترتيب الفوترة مع الاحتفاظ",def:"الشركة بتفوتر العميل لكن البضاعة لسه عندها لحد ما يطلبها.",std:"IFRS 15",cat:"ifrs"},
+{en:"Principal versus Agent",ar:"أصيل أم وكيل",def:"الأصيل بيسيطر على السلعة قبل نقلها ويسجل الإيراد بالإجمالي، والوكيل يسجل عمولته بس.",std:"IFRS 15",cat:"ifrs"},
+{en:"Incremental Borrowing Rate",ar:"معدل الاقتراض الإضافي",def:"سعر الفايدة اللي المستأجر كان هيدفعه لو اقترض لشراء أصل مشابه بنفس المدة والضمان.",std:"IFRS 16",cat:"ifrs"},
+{en:"Sale and Leaseback",ar:"البيع مع إعادة الاستئجار",def:"الشركة تبيع أصل وترجع تستأجره من المشتري.",std:"IFRS 16",cat:"ifrs"},
+{en:"Lease Modification",ar:"تعديل عقد الإيجار",def:"تغيير في نطاق الإيجار أو مقابله ماكانش في الشروط الأصلية.",std:"IFRS 16",cat:"ifrs"},
+{en:"Short-term Lease",ar:"إيجار قصير الأجل",def:"إيجار مدته 12 شهر أو أقل ومفيهوش خيار شراء، وممكن مصروفه يتسجل قسط ثابت.",std:"IFRS 16",cat:"ifrs"},
+{en:"Business Model Test",ar:"اختبار نموذج الأعمال",def:"الشركة ماسكة الأصل المالي ليه: تحصيل تدفقاته، ولا تحصيل وبيع، ولا متاجرة.",std:"IFRS 9",cat:"ifrs"},
+{en:"Significant Increase in Credit Risk",ar:"زيادة مهمة في خطر الائتمان",def:"الحدث اللي بينقل الأصل من المرحلة 1 للمرحلة 2 وتبقى الخسارة على العمر كله.",std:"IFRS 9",cat:"ifrs"},
+{en:"Credit-impaired",ar:"مضمحل ائتمانياً",def:"أصل مالي حصل له حدث تعثر فعلي (المرحلة 3).",std:"IFRS 9",cat:"ifrs"},
+{en:"Effective Interest Rate",ar:"معدل الفائدة الفعلي",def:"المعدل اللي بيخصم التدفقات المتوقعة للأداة لحد ما تساوي قيمتها الدفترية.",std:"IFRS 9",cat:"ifrs"},
+{en:"Derecognition",ar:"الاستبعاد من الدفاتر",def:"شطب أصل أو التزام مالي من المركز المالي لما الحقوق تنتهي أو تتنقل.",std:"IFRS 9",cat:"ifrs"},
+{en:"Hedge Accounting",ar:"محاسبة التغطية",def:"معالجة خاصة بتخلي أثر أداة التغطية والبند المغطى يظهروا في نفس الفترة.",std:"IFRS 9",cat:"ifrs"},
+{en:"Compound Financial Instrument",ar:"أداة مالية مركبة",def:"أداة فيها جزء التزام وجزء حقوق ملكية زي السندات القابلة للتحويل لأسهم.",std:"IAS 32",cat:"ifrs"},
+{en:"Treasury Shares",ar:"أسهم الخزينة",def:"أسهم الشركة اللي اشترتها من السوق، وبتتخصم من حقوق الملكية.",std:"IAS 32",cat:"ifrs"},
+{en:"Bargain Purchase",ar:"شراء بسعر مخفض",def:"لما المقابل المدفوع أقل من صافي الأصول المقتناة، والفرق مكسب في قائمة الدخل.",std:"IFRS 3",cat:"ifrs"},
+{en:"Contingent Consideration",ar:"المقابل المحتمل",def:"مبلغ إضافي المشتري هيدفعه لو تحققت شروط معينة بعد الاقتناء.",std:"IFRS 3",cat:"ifrs"},
+{en:"Measurement Period",ar:"فترة القياس",def:"مدة أقصاها سنة من تاريخ الاقتناء لاستكمال أرقام الاقتناء المؤقتة.",std:"IFRS 3",cat:"ifrs"},
+{en:"Step Acquisition",ar:"اقتناء على مراحل",def:"السيطرة بتتحقق بعد شراء حصص على دفعات، والحصة القديمة تتقاس بالقيمة العادلة.",std:"IFRS 3",cat:"ifrs"},
+{en:"Power over the Investee",ar:"السلطة على الشركة المستثمر فيها",def:"حقوق قائمة تدّي القدرة على توجيه الأنشطة المؤثرة على العوائد.",std:"IFRS 10",cat:"ifrs"},
+{en:"Investment Entity",ar:"منشأة استثمارية",def:"منشأة بتجمع أموال مستثمرين وتقيس استثماراتها بالقيمة العادلة بدل ما تجمّع.",std:"IFRS 10",cat:"ifrs"},
+{en:"Joint Operation",ar:"عملية مشتركة",def:"ترتيب مشترك الأطراف ليهم حقوق في الأصول والتزامات عن الديون مباشرة.",std:"IFRS 11",cat:"ifrs"},
+{en:"Significant Influence",ar:"النفوذ المؤثر",def:"القدرة على المشاركة في قرارات الشركة من غير سيطرة، غالباً من 20% لـ 50%.",std:"IAS 28",cat:"ifrs"},
+{en:"Disposal Group",ar:"مجموعة استبعاد",def:"مجموعة أصول والتزامات هتتباع مع بعض في صفقة واحدة.",std:"IFRS 5",cat:"ifrs"},
+{en:"Discontinued Operation",ar:"عملية غير مستمرة",def:"قطاع رئيسي اتباع أو مصنف محتفظ به للبيع، وبتتعرض نتيجته في سطر لوحده.",std:"IFRS 5",cat:"ifrs"},
+{en:"Chief Operating Decision Maker",ar:"متخذ القرار التشغيلي الرئيسي",def:"الشخص أو الجهة اللي بتوزع الموارد وتقيّم أداء القطاعات.",std:"IFRS 8",cat:"ifrs"},
+{en:"Reportable Segment",ar:"قطاع يجب التقرير عنه",def:"قطاع تعدّى حد 10% من الإيراد أو الربح أو الأصول.",std:"IFRS 8",cat:"ifrs"},
+{en:"Principal Market",ar:"السوق الرئيسي",def:"السوق اللي فيه أكبر حجم ونشاط للأصل أو الالتزام.",std:"IFRS 13",cat:"ifrs"},
+{en:"Highest and Best Use",ar:"أفضل وأعلى استخدام",def:"الاستخدام اللي يعظّم قيمة الأصل غير المالي من وجهة نظر المشاركين في السوق.",std:"IFRS 13",cat:"ifrs"},
+{en:"Level 3 Inputs",ar:"مدخلات المستوى الثالث",def:"مدخلات غير ملحوظة في السوق، بتعتمد على تقديرات الشركة.",std:"IFRS 13",cat:"ifrs"},
+{en:"Vesting Conditions",ar:"شروط الاستحقاق",def:"الشروط اللي لازم تتحقق عشان الموظف يستحق الأسهم أو الخيارات.",std:"IFRS 2",cat:"ifrs"},
+{en:"Grant Date",ar:"تاريخ المنح",def:"التاريخ اللي الشركة والموظف بيتفقوا فيه على شروط المنحة.",std:"IFRS 2",cat:"ifrs"},
+{en:"Equity-settled",ar:"تسوية بأدوات حقوق ملكية",def:"مدفوعات بالأسهم بتتقاس بالقيمة العادلة يوم المنح ومبتتعدلش بعد كده.",std:"IFRS 2",cat:"ifrs"},
+{en:"Cash-settled",ar:"تسوية نقدية",def:"مدفوعات مبنية على سعر السهم بتتدفع نقدي، والالتزام بيتعاد قياسه كل فترة.",std:"IFRS 2",cat:"ifrs"},
+{en:"Temporary Difference",ar:"فرق مؤقت",def:"الفرق بين القيمة الدفترية للأصل أو الالتزام وأساسه الضريبي.",std:"IAS 12",cat:"ifrs"},
+{en:"Tax Base",ar:"الأساس الضريبي",def:"قيمة الأصل أو الالتزام من وجهة نظر الضرايب.",std:"IAS 12",cat:"ifrs"},
+{en:"Unused Tax Losses",ar:"خسائر ضريبية مرحّلة",def:"خسائر ينفع تتخصم من أرباح سنين جاية، وبتعمل أصل ضريبي مؤجل لو فيه أرباح متوقعة.",std:"IAS 12",cat:"ifrs"},
+{en:"Component Depreciation",ar:"إهلاك المكونات",def:"إهلاك كل جزء مهم من الأصل لوحده حسب عمره.",std:"IAS 16",cat:"ifrs"},
+{en:"Revaluation Surplus",ar:"فائض إعادة التقييم",def:"الزيادة في قيمة الأصل عند إعادة تقييمه، وبتروح الدخل الشامل الآخر.",std:"IAS 16",cat:"ifrs"},
+{en:"Residual Value",ar:"القيمة التخريدية",def:"المبلغ المتوقع من بيع الأصل في آخر عمره بعد خصم تكاليف البيع.",std:"IAS 16",cat:"ifrs"},
+{en:"Defined Benefit Plan",ar:"نظام مزايا محددة",def:"الشركة ملتزمة بمزايا محددة للموظف وهي اللي شايلة المخاطر الاكتوارية.",std:"IAS 19",cat:"ifrs"},
+{en:"Defined Contribution Plan",ar:"نظام اشتراك محدد",def:"الشركة بتدفع اشتراك ثابت ومالهاش التزام بعده.",std:"IAS 19",cat:"ifrs"},
+{en:"Remeasurements",ar:"إعادة القياس",def:"الأرباح والخسائر الاكتوارية، وبتروح الدخل الشامل الآخر ومبترجعش قائمة الدخل.",std:"IAS 19",cat:"ifrs"},
+{en:"Functional Currency",ar:"عملة التعامل",def:"عملة البيئة الاقتصادية الأساسية اللي الشركة بتشتغل فيها.",std:"IAS 21",cat:"ifrs"},
+{en:"Presentation Currency",ar:"عملة العرض",def:"العملة اللي القوائم المالية بتتعرض بيها.",std:"IAS 21",cat:"ifrs"},
+{en:"Monetary Items",ar:"البنود النقدية",def:"نقدية وأرصدة هتتقبض أو تتدفع بمبلغ ثابت، وبتتترجم بسعر الإقفال.",std:"IAS 21",cat:"ifrs"},
+{en:"Qualifying Asset",ar:"أصل مؤهل",def:"أصل بياخد وقت طويل عشان يجهز، وتكاليف اقتراضه بتترسمل.",std:"IAS 23",cat:"ifrs"},
+{en:"Key Management Personnel",ar:"أفراد الإدارة العليا",def:"اللي ليهم سلطة ومسؤولية التخطيط والتوجيه والرقابة، وهم أطراف ذات علاقة.",std:"IAS 24",cat:"ifrs"},
+{en:"Diluted Earnings per Share",ar:"نصيب السهم المخفّض",def:"نصيب السهم بعد افتراض تحويل كل الأدوات القابلة للتحويل لأسهم.",std:"IAS 33",cat:"ifrs"},
+{en:"Bonus Issue",ar:"أسهم مجانية",def:"إصدار أسهم من غير مقابل، وبيتعدل بيه عدد الأسهم بأثر رجعي في حساب نصيب السهم.",std:"IAS 33",cat:"ifrs"},
+{en:"Value in Use",ar:"القيمة الاستخدامية",def:"القيمة الحالية للتدفقات النقدية المتوقعة من استمرار استخدام الأصل وبيعه في الآخر.",std:"IAS 36",cat:"ifrs"},
+{en:"Corporate Assets",ar:"الأصول المشتركة",def:"أصول بتخدم أكتر من وحدة توليد نقد زي المقر الرئيسي.",std:"IAS 36",cat:"ifrs"},
+{en:"Constructive Obligation",ar:"التزام حكمي",def:"التزام ناتج عن ممارسة أو سياسة معلنة خلّت الغير يتوقع من الشركة تصرف معين.",std:"IAS 37",cat:"ifrs"},
+{en:"Onerous Contract",ar:"عقد محمّل بخسارة",def:"عقد تكاليف تنفيذه الحتمية أكبر من منافعه المتوقعة.",std:"IAS 37",cat:"ifrs"},
+{en:"Decommissioning Provision",ar:"مخصص الإزالة",def:"مخصص لتكلفة فك الأصل وإعادة الموقع لأصله، وبيتضاف لتكلفة الأصل.",std:"IAS 37",cat:"ifrs"},
+{en:"Development Costs",ar:"تكاليف التطوير",def:"بتترسمل كأصل غير ملموس لما الست شروط يتحققوا، غير كده مصروف.",std:"IAS 38",cat:"ifrs"},
+{en:"Indefinite Useful Life",ar:"عمر إنتاجي غير محدد",def:"أصل غير ملموس مفيش حد متوقع لفترة منافعه، مبيتستهلكش وبيتختبر للاضمحلال كل سنة.",std:"IAS 38",cat:"ifrs"},
+{en:"Owner-occupied Property",ar:"عقار يشغله المالك",def:"عقار الشركة بتستخدمه في نشاطها، بيتعالج كأصل ثابت مش استثمار عقاري.",std:"IAS 40",cat:"ifrs"},
+{en:"Biological Asset",ar:"أصل بيولوجي",def:"حيوان أو نبات حي، وبيتقاس بالقيمة العادلة ناقص تكاليف البيع.",std:"IAS 41",cat:"ifrs"},
+{en:"Grant Related to Assets",ar:"منحة مرتبطة بأصول",def:"منحة حكومية شرطها شراء أو إنشاء أصل، وبتتوزع على عمر الأصل.",std:"IAS 20",cat:"ifrs"},
+{en:"Adjusting Event",ar:"حدث يستوجب التعديل",def:"حدث بعد نهاية السنة بيدّي دليل على ظرف كان موجود في تاريخ القوائم.",std:"IAS 10",cat:"ifrs"},
+{en:"Change in Accounting Estimate",ar:"تغيير في تقدير محاسبي",def:"تعديل تقدير بسبب معلومات جديدة، وبيتطبق بأثر مستقبلي.",std:"IAS 8",cat:"ifrs"},
+{en:"Prior Period Error",ar:"خطأ فترة سابقة",def:"خطأ في قوائم سنين فاتت، وبيتصحح بأثر رجعي بتعديل أرقام المقارنة.",std:"IAS 8",cat:"ifrs"},
+{en:"Faithful Representation",ar:"التمثيل الصادق",def:"المعلومة تبقى كاملة ومحايدة وخالية من الأخطاء.",std:"Conceptual Framework",cat:"gen"},
+{en:"Prudence",ar:"الحيطة والحذر",def:"الحذر في التقدير وقت عدم التأكد، من غير تعمد تقليل الأصول أو تضخيم الالتزامات.",std:"Conceptual Framework",cat:"gen"},
+{en:"Substance over Form",ar:"الجوهر فوق الشكل",def:"المعاملة تتسجل حسب حقيقتها الاقتصادية مش شكلها القانوني.",std:"Conceptual Framework",cat:"gen"},
+{en:"Professional Scepticism",ar:"الشك المهني",def:"عقلية متسائلة وتقييم نقدي لأدلة المراجعة.",std:"ISA 200",cat:"isa"},
+{en:"Engagement Letter",ar:"خطاب الارتباط",def:"الاتفاق المكتوب بين المراجع والعميل على شروط المهمة.",std:"ISA 210",cat:"isa"},
+{en:"Performance Materiality",ar:"الأهمية النسبية للتنفيذ",def:"مبلغ أقل من الأهمية النسبية الكلية، عشان يقلل احتمال إن مجموع الأخطاء غير المكتشفة يعديها.",std:"ISA 320",cat:"isa"},
+{en:"Significant Risk",ar:"خطر مهم",def:"خطر تحريف هام محتاج اهتمام خاص في المراجعة.",std:"ISA 315",cat:"isa"},
+{en:"Test of Controls",ar:"اختبار الرقابة",def:"إجراء لتقييم فعالية تشغيل ضوابط الرقابة الداخلية.",std:"ISA 330",cat:"isa"},
+{en:"Substantive Procedures",ar:"الإجراءات الأساسية",def:"اختبارات تفاصيل وإجراءات تحليلية لاكتشاف التحريفات الهامة.",std:"ISA 330",cat:"isa"},
+{en:"External Confirmation",ar:"المصادقة الخارجية",def:"دليل مراجعة بييجي مباشرة للمراجع من طرف تالت كتابةً.",std:"ISA 505",cat:"isa"},
+{en:"Cut-off Testing",ar:"اختبار القطع",def:"التأكد إن المعاملات اتسجلت في الفترة الصح.",std:"ISA 500",cat:"isa"},
+{en:"Management Override of Controls",ar:"تجاوز الإدارة للرقابة",def:"خطر غش موجود في كل مراجعة: الإدارة تتخطى الضوابط.",std:"ISA 240",cat:"isa"},
+{en:"Written Representations",ar:"الإقرارات المكتوبة",def:"خطاب من الإدارة بيأكد أمور معينة للمراجع.",std:"ISA 580",cat:"isa"},
+{en:"Emphasis of Matter",ar:"فقرة لفت الانتباه",def:"فقرة في التقرير بتشاور على أمر معروض صح في القوائم ومهم لفهمها، من غير تعديل الرأي.",std:"ISA 706",cat:"isa"},
+{en:"Component Auditor",ar:"مراجع المكوّن",def:"مراجع بيشتغل على معلومات شركة تابعة أو فرع لأغراض مراجعة المجموعة.",std:"ISA 600",cat:"isa"},
+{en:"Tax Residency",ar:"الإقامة الضريبية",def:"الصفة اللي بتحدد إن الشخص يخضع للضريبة على دخله من مصر والخارج.",std:"قانون 91/2005",cat:"tax"},
+{en:"Thin Capitalisation",ar:"الرسملة الخفيفة",def:"قاعدة بتمنع خصم فوايد الديون الزايدة عن 4 أمثال حقوق الملكية.",std:"قانون 91/2005",cat:"tax"},
+{en:"Transfer Pricing",ar:"تسعير المعاملات",def:"تسعير التعاملات بين الأطراف المرتبطة، ولازم يكون بالسعر المحايد.",std:"قانون 91/2005",cat:"tax"},
+{en:"E-invoice",ar:"الفاتورة الإلكترونية",def:"فاتورة بتتصدر على منظومة مصلحة الضرائب بتوقيع إلكتروني ورقم فريد.",std:"قانون 206/2020",cat:"tax"},
+{en:"Input VAT",ar:"ضريبة المدخلات",def:"ضريبة القيمة المضافة اللي الشركة دفعتها على مشترياتها وبتخصمها من ضريبة المبيعات.",std:"قانون 67/2016",cat:"tax"}
+);
+// ═══════════════════════ v11 — زرار «اسأل Claude» في كل صفحة ═══════════════════════
+let _aiSel='';
+function aiAsk(q){
+  const pg=document.querySelector('.page.active'); const title=pg&&pg.querySelector('.page-title')?pg.querySelector('.page-title').textContent.trim():'';
+  let p='أنت خبير IFRS ومراجعة وضرائب مصرية. اشرح بالعربي المصري البسيط، مع المصطلح الإنجليزي بين قوسين، ومثال عملي من السوق المصري، واذكر رقم المعيار والفقرة لو متأكد منها.\n\n'
+    +'المستخدم: يوسف صلاح — مراجع خارجي مصري، يستعد لامتحان DipIFR '+examLabelAr()+'.\n';
+  if(title) p+='الصفحة المفتوحة في AuditIQ: '+title+'\n';
+  if(_aiSel) p+='\nالنص اللي محدده:\n"""'+_aiSel.slice(0,1500)+'"""\n';
+  p+='\nالمطلوب: '+q;
+  window.open('https://claude.ai/new?q='+encodeURIComponent(p),'_blank','noopener');
+}
+function aiFabToggle(open){
+  const b=document.getElementById('aiFabBox'); if(!b) return;
+  const show=(open===undefined)?(b.style.display!=='block'):open;
+  if(show){ const s=String(window.getSelection?window.getSelection():'').trim(); if(s) _aiSel=s;
+    const pg=document.querySelector('.page.active'); const t=pg&&pg.querySelector('.page-title')?pg.querySelector('.page-title').textContent.trim():'';
+    document.getElementById('aiFabCtx').textContent=(_aiSel?'هيتبعت معاه النص اللي محدده ('+_aiSel.length+' حرف) · ':'')+(t?'الصفحة: '+t:''); }
+  else _aiSel='';
+  b.style.display=show?'block':'none';
+  if(show) setTimeout(function(){ const i=document.getElementById('aiFabQ'); if(i) i.focus(); },50);
+}
+function aiFabSend(q){ const i=document.getElementById('aiFabQ'); const v=(q||i.value||'').trim(); if(!v){ showToast('اكتب سؤالك الأول'); return; } aiAsk(v); i.value=''; aiFabToggle(false); }
+
+// ═══════════════════════ v11 — المحتوى التعليمي (دروس بخطوات + مثال عملي + منظور المراجعة) ═══════════════════════
+const TRACKS=[
+ {id:'ifrs15',std:'IFRS 15',name:'Revenue from Contracts with Customers',ar:'الإيراد من العقود مع العملاء',label:'الخطوات الخمس لـ IFRS 15',steps:[
+  {en:'Identify the Contract with the Customer',ar:'تحديد العقد مع العميل',sub:'الخطوة الأولى من خطوات الاعتراف بالإيراد',
+   q:'ما المقصود بتحديد العقد؟',what:'هو التأكد من وجود اتفاق ملزم بين الشركة والعميل ينشأ عنه حقوق والتزامات واضحة لكل طرف. من غير عقد بالشروط دي مفيش إيراد يتسجل.',
+   points:['لازم الخمس شروط تتحقق: موافقة الطرفين، حقوق واضحة، شروط دفع واضحة، مضمون تجاري، وتحصيل محتمل.','لو شرط ناقص، أي فلوس تتقبض تتسجل التزام (مش إيراد) لحد ما الشروط تكمل.','العقد ممكن يكون مكتوب أو شفهي أو بالعرف التجاري، المهم إنه ملزم قانوناً.'],
+   ex:'شركة مقاولات اتفقت مع عميل على إنشاء مبنى إداري مقابل 20 مليون جنيه، بعقد موقّع فيه جدول سداد ومواعيد تنفيذ، والعميل ملاءته المالية كويسة.',exq:'هل الشروط الخمسة متحققة؟',exa:'أيوه: فيه موافقة وتوقيع، الحقوق والالتزامات محددة، شروط الدفع واضحة، العقد له مضمون تجاري، والتحصيل محتمل. يبقى فيه عقد ونكمل للخطوة التانية.',
+   audit:['فحص العقود الموقّعة وملاحقها','مراجعة شروط الدفع والتسليم','تقييم القدرة الائتمانية للعميل']},
+  {en:'Identify the Performance Obligations',ar:'تحديد التزامات الأداء',sub:'إيه بالظبط اللي الشركة وعدت العميل بيه؟',
+   q:'يعني إيه التزام أداء؟',what:'هو وعد بتسليم سلعة أو خدمة «مميزة» (Distinct). تبقى مميزة لو العميل يقدر يستفيد بيها لوحدها، وكمان الوعد بيها منفصل عن باقي الوعود في العقد.',
+   points:['كل سلعة أو خدمة مميزة = التزام أداء لوحده وله إيراده.','لو البنود مترابطة جداً (زي مواد وعمالة بناء مبنى واحد) تبقى التزام واحد.','الضمان العادي مش التزام منفصل، لكن الضمان الممتد اللي بيتباع لوحده التزام منفصل.'],
+   ex:'شركة برمجيات باعت لعميل برنامج محاسبة ومعاه دعم فني لمدة سنة بسعر واحد 100,000 جنيه. الشركة بتبيع البرنامج لوحده وبتبيع الدعم لوحده لعملاء تانيين.',exq:'كام التزام أداء في العقد؟',exa:'التزامين: (1) رخصة البرنامج، (2) خدمة الدعم الفني. كل واحد العميل يقدر يستفيد بيه لوحده والشركة بتبيعه منفصل.',
+   audit:['قراءة العقد وتحديد كل الوعود حتى الضمنية','التأكد إن الإدارة فصلت الالتزامات صح','فحص الضمانات: عادية ولا ممتدة']},
+  {en:'Determine the Transaction Price',ar:'تحديد سعر المعاملة',sub:'المبلغ اللي الشركة متوقعة تستحقه من العقد',
+   q:'سعر المعاملة بيتحدد إزاي؟',what:'هو المقابل اللي الشركة متوقعة تاخده، وده مش دايماً الرقم المكتوب في العقد. بيتأثر بالمقابل المتغير (خصومات، مكافآت، غرامات)، وعنصر التمويل لو السداد مؤجل بفترة طويلة.',
+   points:['المقابل المتغير يتقدّر بالقيمة المتوقعة أو المبلغ الأكثر احتمالاً.','يدخل في السعر بس لو «مرجّح جداً» إنه مش هيتعكس بعدين (Constraint).','لو فرق التوقيت بين التسليم والدفع أكتر من سنة، فيه عنصر تمويل ولازم يتفصل.'],
+   ex:'عقد المبنى بـ 20 مليون، وفيه مكافأة 1 مليون لو التسليم قبل الميعاد. الشركة خبرتها بتقول إن احتمال التسليم بدري 85%.',exq:'سعر المعاملة كام؟',exa:'21 مليون: المبلغ الأكثر احتمالاً للمكافأة هو 1 مليون، ومرجّح جداً إنه مش هيتعكس. لو الاحتمال كان ضعيف، السعر يفضل 20 مليون.',
+   audit:['مراجعة بنود الخصومات والمكافآت والغرامات في العقد','تقييم معقولية تقديرات الإدارة بالبيانات التاريخية','إعادة حساب عنصر التمويل ومعدل الخصم']},
+  {en:'Allocate the Transaction Price',ar:'توزيع سعر المعاملة',sub:'تقسيم السعر على التزامات الأداء',
+   q:'السعر بيتوزع على أساس إيه؟',what:'بيتوزع بنسبة «سعر البيع المستقل» (Stand-alone selling price) لكل التزام، يعني السعر اللي الشركة بتبيع بيه البند ده لوحده.',
+   points:['الأساس هو نسبة أسعار البيع المستقلة.','لو السعر المستقل مش ظاهر، يتقدّر: سعر السوق المعدل، أو التكلفة + هامش، أو الطريقة المتبقية.','الخصم بيتوزع على كل الالتزامات بالنسبة، إلا لو فيه دليل إنه يخص التزام بعينه.'],
+   ex:'عقد البرنامج والدعم بـ 100,000 جنيه. البرنامج لوحده بيتباع بـ 90,000 والدعم السنوي لوحده بـ 30,000 (المجموع 120,000).',exq:'نصيب كل التزام كام؟',exa:'البرنامج: 100,000 × 90/120 = 75,000. الدعم: 100,000 × 30/120 = 25,000. الخصم (20,000) اتوزع على الاتنين بالنسبة.',
+   audit:['التحقق من أسعار البيع المستقلة من قوائم الأسعار والفواتير','إعادة حساب التوزيع','فحص مبرر تخصيص أي خصم لالتزام واحد']},
+  {en:'Recognise Revenue',ar:'الاعتراف بالإيراد',sub:'الإيراد بيتسجل لما السيطرة تنتقل للعميل',
+   q:'الإيراد بيتسجل إمتى؟',what:'لما الشركة توفي بالالتزام بنقل السيطرة للعميل. ده بيحصل يا «على مدار الوقت» (Over time) يا «عند نقطة زمنية» (Point in time).',
+   points:['على مدار الوقت لو: العميل بيستفيد أول بأول، أو الأصل تحت سيطرة العميل وهو بيتبني، أو الأصل مالوش استخدام بديل والشركة ليها حق تحصيل عن اللي اتنفذ.','غير كده يبقى عند نقطة زمنية: التسليم، انتقال الملكية والمخاطر، قبول العميل.','نسبة الإتمام بتتقاس بطريقة المدخلات (التكاليف) أو المخرجات (المعاينات).'],
+   ex:'عقد المبنى بـ 20 مليون، التكلفة الكلية المتوقعة 15 مليون. لحد آخر السنة اتصرف 6 مليون.',exq:'إيراد السنة كام؟',exa:'نسبة الإتمام = 6 ÷ 15 = 40%. الإيراد = 40% × 20 = 8 مليون، والتكلفة 6 مليون، ومجمل الربح 2 مليون.',
+   audit:['اختبار القطع (Cut-off) حوالين نهاية السنة','فحص تقدير التكلفة الكلية ومقارنته بالفعلي بعد السنة','مطابقة نسبة الإتمام مع شهادات المهندس الاستشاري']}
+ ]},
+ {id:'ifrs16',std:'IFRS 16',name:'Leases',ar:'عقود الإيجار',label:'خطوات المحاسبة عن الإيجار عند المستأجر',steps:[
+  {en:'Identify a Lease',ar:'هل العقد فيه إيجار؟',sub:'أول سؤال قبل أي حسابات',
+   q:'إمتى العقد يبقى إيجار؟',what:'لما يدّي الحق في السيطرة على استخدام «أصل محدد» لفترة مقابل عوض. السيطرة يعني: الحصول على كل المنافع الاقتصادية تقريباً + الحق في توجيه الاستخدام.',
+   points:['لو المورد يقدر يبدّل الأصل بحرية وده في مصلحته، مفيش أصل محدد ومفيش إيجار.','إعفاءين اختياريين: الإيجار قصير الأجل (12 شهر أو أقل) والأصل منخفض القيمة.','لازم تفصل مكوّن الخدمة (صيانة مثلاً) عن مكوّن الإيجار.'],
+   ex:'شركة توزيع أجّرت مخزن بعينه في العبور لمدة 5 سنين وهي اللي بتحدد هتخزن إيه وإمتى. وعندها عقد تاني مع شركة تخزين بتحط بضاعتها في أي مساحة فاضية والشركة تقدر تنقلها.',exq:'أنهي عقد فيه إيجار؟',exa:'الأول إيجار: أصل محدد والشركة بتوجه استخدامه. التاني مش إيجار: المورد عنده حق استبدال حقيقي، يبقى عقد خدمة ومصروفه بيتسجل أول بأول.',
+   audit:['حصر كل العقود اللي ممكن يكون فيها إيجار (حتى عقود الخدمات)','فحص حق الاستبدال ومين بيوجه الاستخدام','مراجعة تطبيق الإعفاءات']},
+  {en:'Determine the Lease Term',ar:'تحديد مدة الإيجار',sub:'المدة بتأثر على كل الأرقام',
+   q:'مدة الإيجار بتتحسب إزاي؟',what:'المدة غير القابلة للإلغاء + فترات خيار التمديد لو الشركة «متأكدة بدرجة معقولة» إنها هتمدد + فترات خيار الإنهاء لو متأكدة إنها مش هتنهي.',
+   points:['الحكم بيتبني على الحوافز الاقتصادية: تجهيزات كبيرة، أهمية الموقع، غرامات الإنهاء.','المدة بتتراجع لو حصل حدث مهم تحت سيطرة المستأجر.','مدة أطول = التزام وأصل أكبر.'],
+   ex:'شركة أجّرت مقر 5 سنين مع خيار تجديد 3 سنين بنفس الشروط. الشركة صرفت 4 مليون تجهيزات عمرها 8 سنين.',exq:'مدة الإيجار كام؟',exa:'8 سنين: التجهيزات الكبيرة حافز اقتصادي قوي يخلي التجديد متأكد منه بدرجة معقولة.',
+   audit:['قراءة بنود التمديد والإنهاء في العقد','مناقشة الإدارة في خططها ومقارنتها بالسلوك السابق','فحص التجهيزات وأعمارها']},
+  {en:'Initial Measurement',ar:'القياس الأولي',sub:'التزام الإيجار وأصل حق الانتفاع',
+   q:'الأرقام الأولية بتتحسب إزاي؟',what:'الالتزام = القيمة الحالية لدفعات الإيجار اللي لسه متدفعتش، مخصومة بالمعدل الضمني في العقد، ولو مش معروف يبقى معدل الاقتراض الإضافي للمستأجر. الأصل = الالتزام + أي دفعات مقدمة + التكاليف المباشرة الأولية + تكلفة الإزالة − حوافز الإيجار.',
+   points:['الدفعات تشمل: الثابتة، والمتغيرة المربوطة بمؤشر، وسعر خيار الشراء لو متأكد من ممارسته.','الدفعات المتغيرة المربوطة بالمبيعات مش بتدخل، بتتسجل مصروف.','معدل الخصم أكتر نقطة فيها تقدير.'],
+   ex:'إيجار 100,000 جنيه سنوياً بيتدفع آخر كل سنة لمدة 5 سنين. معدل الاقتراض الإضافي 10% (معامل القيمة الحالية 3.7908).',exq:'الالتزام والأصل عند البداية كام؟',exa:'الالتزام = 100,000 × 3.7908 = 379,080 جنيه. الأصل = 379,080 (مفيش دفعات مقدمة ولا تكاليف تانية). القيد: من ح/ أصل حق الانتفاع إلى ح/ التزام الإيجار.',
+   audit:['إعادة حساب القيمة الحالية','تقييم معقولية معدل الخصم (عروض بنوك، قروض قائمة)','مطابقة الدفعات مع العقد']},
+  {en:'Subsequent Measurement',ar:'القياس اللاحق',sub:'فايدة على الالتزام وإهلاك على الأصل',
+   q:'إيه اللي بيحصل كل سنة؟',what:'الالتزام بيزيد بالفايدة وبيقل بالدفعة. الأصل بيتهلك قسط ثابت على مدة الإيجار أو العمر الإنتاجي أيهما أقل (إلا لو الملكية هتنتقل).',
+   points:['المصروف الكلي في أول السنين أعلى من الإيجار النقدي وبيقل مع الوقت.','في قائمة الدخل: إهلاك (تشغيلي) + فايدة (تمويلي) بدل مصروف إيجار واحد.','أي تعديل في العقد أو المدة = إعادة قياس الالتزام وتعديل الأصل.'],
+   ex:'من المثال اللي فات: الالتزام 379,080 بمعدل 10% والدفعة 100,000.',exq:'أرقام السنة الأولى كام؟',exa:'الفايدة = 37,908. رصيد الالتزام = 379,080 + 37,908 − 100,000 = 316,988. الإهلاك = 379,080 ÷ 5 = 75,816. إجمالي المصروف = 113,724 مقابل إيجار نقدي 100,000.',
+   audit:['إعادة حساب جدول الاستهلاك والفايدة','فحص تبويب الالتزام متداول وغير متداول','مراجعة الإفصاحات وتحليل الاستحقاقات']}
+ ]},
+ {id:'ifrs9',std:'IFRS 9',name:'Expected Credit Losses',ar:'الخسائر الائتمانية المتوقعة',label:'خطوات حساب ECL',steps:[
+  {en:'The Three Stages',ar:'المراحل الثلاثة',sub:'تصنيف العملاء حسب جودة الائتمان',
+   q:'إيه هي المراحل الثلاثة؟',what:'المرحلة 1: الأصل سليم ← خسارة متوقعة لـ 12 شهر. المرحلة 2: زيادة مهمة في خطر الائتمان ← خسارة على عمر الأصل كله. المرحلة 3: الأصل متعثر فعلاً ← خسارة على العمر كله والفايدة تتحسب على الصافي.',
+   points:['التأخر أكتر من 30 يوم قرينة على الانتقال للمرحلة 2 (قابلة للدحض).','التأخر أكتر من 90 يوم قرينة على التعثر (المرحلة 3).','الانتقال بين المراحل في الاتجاهين حسب تغير الخطر.'],
+   ex:'شركة تمويل متناهي الصغر عندها 3 عملاء: الأول منتظم، التاني متأخر 45 يوم، التالت متأخر 120 يوم.',exq:'كل عميل في أنهي مرحلة؟',exa:'الأول مرحلة 1 (خسارة 12 شهر). التاني مرحلة 2 (خسارة على العمر). التالت مرحلة 3 (متعثر، خسارة على العمر وفايدة على الصافي).',
+   audit:['فحص تقرير أعمار المديونيات ودقته','اختبار معايير الانتقال بين المراحل','فحص العملاء المعاد جدولتهم']},
+  {en:'Measure ECL',ar:'حساب الخسارة المتوقعة',sub:'ECL = PD × LGD × EAD',
+   q:'الخسارة بتتحسب إزاي؟',what:'احتمال التعثر (PD) × نسبة الخسارة عند التعثر (LGD) × الرصيد المعرّض (EAD). ولازم الحساب ياخد في الاعتبار معلومات مستقبلية (توقعات الاقتصاد) وسيناريوهات مرجّحة بالاحتمالات.',
+   points:['PD في المرحلة 1 لـ 12 شهر، وفي 2 و3 على العمر كله.','LGD بياخد الضمانات في الاعتبار.','لازم تعديل للمعلومات المستقبلية (تضخم، سعر صرف، فايدة).'],
+   ex:'محفظة قروض في المرحلة 1 رصيدها 10 مليون جنيه. احتمال التعثر خلال 12 شهر 2%، ونسبة الخسارة عند التعثر 60%.',exq:'المخصص المطلوب كام؟',exa:'ECL = 10,000,000 × 2% × 60% = 120,000 جنيه.',
+   audit:['فحص مصدر بيانات PD و LGD ومدى اكتمالها','تقييم سيناريوهات الاقتصاد الكلي وأوزانها','إعادة حساب عينة والاستعانة بخبير لو النموذج معقد']},
+  {en:'Simplified Approach',ar:'الطريقة المبسطة',sub:'للعملاء التجاريين وأصول العقود',
+   q:'إمتى نستخدم الطريقة المبسطة؟',what:'للمدينين التجاريين وأصول العقود (من غير عنصر تمويل مهم): الشركة بتحسب خسارة على العمر كله من أول يوم، من غير تتبع للمراحل. عملياً بتتعمل بمصفوفة مخصصات حسب أعمار الديون.',
+   points:['نسب الخسارة بتتبني على الخبرة التاريخية.','النسب لازم تتعدل بالتوقعات المستقبلية.','العملاء بيتقسموا لمجموعات متشابهة في المخاطر.'],
+   ex:'أرصدة عملاء: غير مستحق 800,000 (نسبة خسارة 1%)، متأخر 1–90 يوم 150,000 (5%)، أكتر من 90 يوم 50,000 (40%).',exq:'المخصص كام؟',exa:'8,000 + 7,500 + 20,000 = 35,500 جنيه.',
+   audit:['اختبار دقة تقرير الأعمار','فحص حساب النسب التاريخية وتحديثها','فحص التحصيلات اللاحقة بعد نهاية السنة']}
+ ]},
+ {id:'ias36',std:'IAS 36',name:'Impairment of Assets',ar:'اضمحلال قيمة الأصول',label:'خطوات اختبار الاضمحلال',steps:[
+  {en:'Indicators of Impairment',ar:'مؤشرات الاضمحلال',sub:'إمتى نعمل الاختبار؟',
+   q:'إمتى لازم نختبر الأصل؟',what:'لما يظهر مؤشر إن قيمة الأصل نزلت. لكن الشهرة والأصول غير الملموسة اللي عمرها غير محدد أو لسه مش جاهزة للاستخدام بتتختبر كل سنة حتى من غير مؤشر.',
+   points:['مؤشرات خارجية: هبوط سعر السوق، تغيرات سلبية في السوق أو القوانين، ارتفاع أسعار الفايدة.','مؤشرات داخلية: تلف أو تقادم، خطط توقف أو إعادة هيكلة، أداء أقل من المتوقع.','صافي أصول الشركة أكبر من قيمتها السوقية = مؤشر.'],
+   ex:'مصنع عنده خط إنتاج بقاله سنة شغال بـ 30% من طاقته بسبب منتج مستورد أرخص، والإدارة بتفكر توقفه.',exq:'هل فيه مؤشر اضمحلال؟',exa:'أيوه، مؤشرين داخليين: أداء أقل من المتوقع وخطة توقف. يبقى لازم تتحسب القيمة الاستردادية.',
+   audit:['مناقشة الإدارة وقراءة محاضر مجلس الإدارة','مقارنة الأداء الفعلي بالموازنات','معاينة الأصول المتوقفة أو المتقادمة']},
+  {en:'Recoverable Amount',ar:'القيمة الاستردادية',sub:'الأعلى من قيمتين',
+   q:'القيمة الاستردادية هي إيه؟',what:'الأعلى من: (1) القيمة العادلة ناقص تكاليف البيع، (2) القيمة الاستخدامية = القيمة الحالية للتدفقات النقدية المتوقعة من الأصل. لو القيمة الدفترية أعلى من الاستردادية، الفرق خسارة اضمحلال.',
+   points:['الخسارة بتروح قائمة الدخل (إلا لو الأصل معاد تقييمه، تخصم من فائض إعادة التقييم الأول).','التدفقات في القيمة الاستخدامية قبل الضريبة ومن غير تدفقات التمويل.','بعد الخسارة، الإهلاك بيتحسب على القيمة الجديدة.'],
+   ex:'ماكينة قيمتها الدفترية 1,000,000 جنيه. قيمتها العادلة ناقص تكاليف البيع 700,000، وقيمتها الاستخدامية 820,000.',exq:'خسارة الاضمحلال كام؟',exa:'القيمة الاستردادية = الأعلى = 820,000. الخسارة = 1,000,000 − 820,000 = 180,000 جنيه.',
+   audit:['فحص افتراضات التدفقات النقدية ومعدل النمو','تقييم معدل الخصم','اختبار الحساسية ومقارنة التوقعات السابقة بالفعلي']},
+  {en:'CGU and Allocation of Loss',ar:'وحدة توليد النقد وتوزيع الخسارة',sub:'لما الأصل مبيجيبش نقدية لوحده',
+   q:'يعني إيه وحدة توليد النقد؟',what:'أصغر مجموعة أصول بتولد تدفقات نقدية داخلة مستقلة. لو الأصل مبيولدش نقدية لوحده، الاختبار بيتعمل على الوحدة كلها.',
+   points:['الخسارة بتتخصم من الشهرة الأول، وبعدين باقي الأصول بالنسبة.','مفيش أصل ينزل تحت قيمته الاستردادية أو تحت الصفر.','خسارة الشهرة عمرها ما بتتعكس، باقي الأصول ممكن.'],
+   ex:'وحدة قيمتها الدفترية 1,500 ألف (شهرة 300 + أصول أخرى 1,200). القيمة الاستردادية للوحدة 1,000 ألف.',exq:'الخسارة بتتوزع إزاي؟',exa:'الخسارة 500 ألف: 300 تشطب الشهرة كلها، والـ 200 الباقية تتوزع على الأصول الأخرى بنسبة قيمها الدفترية.',
+   audit:['تقييم تحديد الوحدات وهل اتغير عن السنة اللي فاتت','فحص توزيع الشهرة والأصول المشتركة','إعادة حساب توزيع الخسارة']}
+ ]},
+ {id:'ias37',std:'IAS 37',name:'Provisions and Contingencies',ar:'المخصصات والالتزامات المحتملة',label:'خطوات المحاسبة عن المخصصات',steps:[
+  {en:'Recognition Criteria',ar:'شروط الاعتراف',sub:'إمتى المخصص يتسجل؟',
+   q:'إمتى نسجل مخصص؟',what:'لما التلات شروط يتحققوا مع بعض: التزام حالي (قانوني أو حكمي) ناتج عن حدث في الماضي، ومحتمل (أكتر من 50%) إنه يؤدي لخروج منافع اقتصادية، وممكن يتقدّر بشكل موثوق.',
+   points:['الالتزام الحكمي بييجي من ممارسة أو سياسة معلنة خلّت الناس تتوقع من الشركة تصرف معين.','مفيش مخصص لخسائر التشغيل المستقبلية.','نية الإدارة لوحدها مش كفاية، لازم حدث ملزم.'],
+   ex:'شركة عليها قضية عمالية مرفوعة قبل نهاية السنة. المستشار القانوني شايف إن احتمال الخسارة 70% والتعويض المتوقع 500,000 جنيه.',exq:'نسجل مخصص؟',exa:'أيوه: التزام حالي من حدث ماضي، الخروج محتمل (70%)، والتقدير موثوق. يتسجل مخصص 500,000 جنيه.',
+   audit:['الحصول على مصادقة من المستشار القانوني','قراءة محاضر مجلس الإدارة والمراسلات','فحص الأحداث اللاحقة لنهاية السنة']},
+  {en:'Measurement',ar:'القياس',sub:'أفضل تقدير للمبلغ',
+   q:'المخصص بيتقاس بكام؟',what:'بأفضل تقدير للمبلغ المطلوب لتسوية الالتزام في تاريخ القوائم. لو عدد كبير من البنود: القيمة المتوقعة. لو التزام واحد: النتيجة الأكثر احتمالاً. ولو أثر الوقت مهم: القيمة الحالية.',
+   points:['فك الخصم كل سنة بيتسجل تكلفة تمويل.','المخصص بيتراجع كل سنة ويتعدل لأفضل تقدير حالي.','أي تعويض متوقع من طرف تالت (تأمين) بيتسجل أصل منفصل بس لو شبه مؤكد.'],
+   ex:'شركة باعت 1,000 جهاز بضمان سنة. المتوقع: 5% عيوب بسيطة تكلفة إصلاحها 200 جنيه للجهاز، و1% عيوب كبيرة تكلفتها 2,000 جنيه للجهاز.',exq:'مخصص الضمان كام؟',exa:'(1,000 × 5% × 200) + (1,000 × 1% × 2,000) = 10,000 + 20,000 = 30,000 جنيه.',
+   audit:['مقارنة مخصص السنة السابقة بالمنصرف الفعلي','فحص الافتراضات والنسب التاريخية','إعادة الحساب وفحص معدل الخصم']},
+  {en:'Contingencies and Special Cases',ar:'الالتزامات المحتملة والحالات الخاصة',sub:'إفصاح بس ولا تسجيل؟',
+   q:'إمتى نفصح بس من غير تسجيل؟',what:'الالتزام المحتمل (احتمال الخروج ممكن بس مش مرجّح، أو مش ممكن يتقدّر) بيتفصح عنه بس. الأصل المحتمل بيتفصح عنه لو التدفق الداخل مرجّح، ومبيتسجلش إلا لو شبه مؤكد.',
+   points:['العقد المحمّل بخسارة (Onerous): مخصص بأقل تكلفة للخروج منه.','إعادة الهيكلة: مخصص بس لو فيه خطة رسمية مفصلة واتعلنت للمتأثرين.','لو الاحتمال بعيد (Remote): لا تسجيل ولا إفصاح.'],
+   ex:'قضية ضد الشركة بمليون جنيه، والمحامي شايف احتمال الخسارة 30%. وقضية تانية رافعاها الشركة على مورد ومتوقع تكسبها باحتمال 75%.',exq:'المعالجة إيه؟',exa:'الأولى: التزام محتمل، إفصاح بس. التانية: أصل محتمل والتدفق مرجّح، إفصاح بس ومفيش أصل يتسجل.',
+   audit:['فحص اكتمال القضايا من المحامين وبند الأتعاب القانونية','تقييم تصنيف الاحتمالات','مراجعة كفاية الإفصاح']}
+ ]}
+];
+let _lsT={home:0,learn:0}, _lsS={home:0,learn:0};
+try{ const s=JSON.parse(localStorage.getItem('fh_lesson')||'null'); if(s&&TRACKS[s.t]&&TRACKS[s.t].steps[s.s]){ _lsT.home=_lsT.learn=s.t; _lsS.home=_lsS.learn=s.s; } }catch(e){}
+function lsDone(){ try{ return JSON.parse(localStorage.getItem('fh_lessonDone')||'{}'); }catch(e){ return {}; } }
+function lsSet(where,t,s){
+  _lsT[where]=t; _lsS[where]=s;
+  try{ localStorage.setItem('fh_lesson',JSON.stringify({t:t,s:s})); }catch(e){}
+  renderLesson(where);
+}
+function lsMark(where){
+  const d=lsDone(), k=TRACKS[_lsT[where]].id+':'+_lsS[where]; d[k]=!d[k];
+  try{ localStorage.setItem('fh_lessonDone',JSON.stringify(d)); }catch(e){}
+  renderLesson(where);
+}
+function lsNext(where){
+  const tr=TRACKS[_lsT[where]]; let t=_lsT[where], s=_lsS[where]+1;
+  if(s>=tr.steps.length){ t=(t+1)%TRACKS.length; s=0; }
+  lsSet(where,t,s);
+  const el=document.getElementById(where==='home'?'lessonHome':'lessonLearn'); if(el&&el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function lsToggleAns(btn){ const a=btn.parentElement.querySelector('.ls-ans'); const show=a.style.display!=='block'; a.style.display=show?'block':'none'; btn.textContent=show?'إخفاء الإجابة':btn.dataset.q; }
+const LS_ICONS=['<path d="M8 3h9l4 4v14H8z"/><path d="M11 11h7M11 14h7M11 17h4"/><circle cx="7" cy="17" r="4"/><path d="M4 20l-2 2"/>','<circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>','<ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 10v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4M5 14v4c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4"/>','<path d="M12 3a9 9 0 1 0 9 9h-9z"/><path d="M14 2.5V10h7.5A9 9 0 0 0 14 2.5z"/>','<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>'];
+function renderLesson(where){
+  const el=document.getElementById(where==='home'?'lessonHome':'lessonLearn'); if(!el) return;
+  const ti=_lsT[where], tr=TRACKS[ti], si=Math.min(_lsS[where],tr.steps.length-1), L=tr.steps[si], done=lsDone();
+  const isDone=!!done[tr.id+':'+si];
+  const total=TRACKS.reduce((a,t)=>a+t.steps.length,0), doneN=Object.keys(done).filter(k=>done[k]).length;
+  const chips=`<div class="ls-chips">${TRACKS.map((t,i)=>`<button class="ls-chip ${i===ti?'on':''}" onclick="lsSet('${where}',${i},0)"><b>${t.std}</b> ${t.ar}</button>`).join('')}<span class="ls-prog">خلّصت ${doneN} من ${total} درس</span></div>`;
+  el.innerHTML=`
+  ${where==='learn'?chips:''}
+  <div class="ls-hero">
+    <div class="ls-hero-tag"><b>${tr.std}</b><span>${tr.name}</span></div>
+    <div class="ls-hero-body">
+      <span class="ls-badge">${tr.std} · ${si+1}/${tr.steps.length}</span>
+      <div class="ls-hero-en">${L.en}</div>
+      <div class="ls-hero-ar">${L.ar}</div>
+      <div class="ls-hero-sub">${L.sub}</div>
+      <div class="ls-hero-btns">
+        <button class="btn btn-gold" onclick="${where==='home'?`_lsT.learn=${ti};_lsS.learn=${si};goTo('learn',NAVBTN_('learn'))`:`document.getElementById('lsDetail-${where}').scrollIntoView({behavior:'smooth',block:'start'})`}">ابدأ التعلم ▶</button>
+        <button class="hero-ghost" onclick="lsNext('${where}')">الدرس اللي بعده ←</button>
+      </div>
+    </div>
+    <svg class="ls-hero-art" viewBox="0 0 220 180" fill="none" aria-hidden="true">
+      <rect x="46" y="18" width="120" height="150" rx="10" fill="#fff" opacity=".96" transform="rotate(-8 106 93)"/>
+      <g transform="rotate(-8 106 93)" stroke="#9fb3d9" stroke-width="5" stroke-linecap="round"><path d="M64 52h60M64 70h84M64 86h84M64 102h70M64 118h84M64 134h46"/></g>
+      <g transform="rotate(-8 106 93)"><rect x="64" y="34" width="44" height="9" rx="4" fill="#f5b82e"/></g>
+      <path d="M150 150l44-78 12 7-44 78-16 9z" fill="#0e1b3a" stroke="#f5b82e" stroke-width="3" stroke-linejoin="round"/>
+    </svg>
+    <div class="ls-dots">${TRACKS.map((t,i)=>`<button class="${i===ti?'on':''}" title="${t.std}" onclick="lsSet('${where}',${i},0)"></button>`).join('')}</div>
+  </div>
+
+  <div class="ls-row2" id="lsDetail-${where}">
+    <div class="ls-steps">
+      <div class="ls-steps-h">${tr.label}</div>
+      <div class="ls-steps-b" style="grid-template-columns:repeat(${tr.steps.length},1fr)">
+        ${tr.steps.map((s,i)=>`<button class="ls-step ${i===si?'on':''} ${done[tr.id+':'+i]?'done':''}" data-i="${i}">
+          <span class="ls-num">${done[tr.id+':'+i]?'✓':i+1}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${LS_ICONS[i%LS_ICONS.length]}</svg>
+          <span class="ls-step-en">${s.en}</span><span class="ls-step-ar">${s.ar}</span></button>`).join('')}
+      </div>
+    </div>
+    <div class="ls-what">
+      <h4>${L.q}</h4>
+      <p>${L.what}</p>
+    </div>
+  </div>
+
+  <div class="ls-row3">
+    <div class="ls-card ls-audit"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>من منظور المراجعة</h4>
+      <ul>${L.audit.map(a=>`<li>${a}</li>`).join('')}</ul></div>
+    <div class="ls-card ls-ex"><h4>⭐ مثال عملي</h4>
+      <p>${L.ex}</p>
+      <button class="ls-q" data-q="${L.exq}" onclick="lsToggleAns(this)">${L.exq}</button>
+      <div class="ls-ans">${L.exa}</div></div>
+    <div class="ls-card ls-pts"><h4>✅ أهم النقاط</h4>
+      <ul>${L.points.map(a=>`<li>${a}</li>`).join('')}</ul></div>
+  </div>
+  <div class="ls-foot">
+    <button class="btn ${isDone?'btn-outline':'btn-gold'} btn-sm" onclick="lsMark('${where}')">${isDone?'✓ اتذاكر — رجّعه':'علّم إني ذاكرت الدرس ده'}</button>
+    <button class="btn btn-outline btn-sm" onclick="lsNext('${where}')">الدرس اللي بعده ←</button>
+    <button class="btn btn-outline btn-sm" onclick="aiAsk('اشرحلي ببساطة وبأمثلة مصرية: ${tr.std} — ${L.en} (${L.ar}). وبعدها اسألني 3 أسئلة على طريقة امتحان DipIFR.')">✦ اسأل Claude عن الدرس</button>
+  </div>`;
+  // تصحيح: الضغط على خطوة يفتحها في نفس المسار
+  el.querySelectorAll('.ls-step').forEach(b=>{ b.onclick=()=>lsSet(where,ti,+b.dataset.i); });
+}
+function NAVBTN_(id){ return [...document.querySelectorAll('.nav-item')].find(b=>(b.getAttribute('onclick')||'').includes("'"+id+"'"))||null; }
+function renderLearn(){ renderLesson('learn'); }
+
 // ═══════════════════════ v10 — EXAM DATE (قابل للتعديل) ═══════════════════════
 // التاريخ الافتراضي تقريبي: ACCA لسه معلنتش تاريخ دورة يونيو 2027 بالظبط.
 function examDateStr(){
@@ -3098,10 +3599,19 @@ function saveGS(){
 }
 function gDayNum(){ return Math.floor((new Date()-new Date(GS.gStart))/86400000)+1; }
 function gTodayKey(){ return new Date().toISOString().split('T')[0]; }
+(function(){ // شيل أي مصطلح مكرر (بنحتفظ بأول واحد)
+  const seen=new Set(); for(let i=0;i<GLOSSARY.length;i++){ const k=GLOSSARY[i].en.trim().toLowerCase(); if(seen.has(k)){ GLOSSARY.splice(i,1); i--; } else seen.add(k); }
+})();
 function getTodayGloss(){
-  const s=(gDayNum()-1)*10;
-  return GLOSSARY.slice(s % GLOSSARY.length, (s % GLOSSARY.length)+10);
+  // كل يوم 10 مصطلحات جديدة. لما البنك يخلص، الدورة الجديدة بتتلخبط بترتيب مختلف عشان متتكررش نفس المجموعات.
+  const n=GLOSSARY.length, s=(Math.max(1,gDayNum())-1)*10, cycle=Math.floor(s/n);
+  let order=GLOSSARY.map(function(_,i){return i;});
+  if(cycle>0){ let seed=cycle*9973+17; const rnd=function(){ seed=(seed*1103515245+12345)%2147483648; return seed/2147483648; };
+    for(let i=order.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); const t=order[i]; order[i]=order[j]; order[j]=t; } }
+  const out=[]; for(let k=0;k<10;k++) out.push(GLOSSARY[order[(s+k)%n]]);
+  return out;
 }
+
 
 // ── SPEECH — Web Speech API (built-in, no API key needed) ──
 let _speaking = false;
@@ -3325,8 +3835,6 @@ goTo = function(id, btn){
 };
 
 // ── FILES — full content stored as base64 ──
-var _fmeta = JSON.parse(localStorage.getItem('fh_files')||'[]');
-
 function _fIcon(f){
   return f.t&&f.t.includes('pdf')?'📄'
         :f.t&&f.t.includes('image')?'🖼️'
@@ -3336,104 +3844,71 @@ function _fIcon(f){
         :f.n.endsWith('txt')?'📃':'📎';
 }
 
-function _fSaveAll(){
-  try { localStorage.setItem('fh_files', JSON.stringify(_fmeta)); }
-  catch(e){
-    // localStorage quota exceeded — remove data URLs of oldest files to free space
-    while(_fmeta.length && e){
-      _fmeta.shift();
-      try { localStorage.setItem('fh_files', JSON.stringify(_fmeta)); e=null; }
-      catch(e2){ e=e2; }
-    }
-    showToast('⚠️ المساحة امتلأت — حُذفت بعض الملفات القديمة');
-  }
-}
-
+// ═══════════════════════ v11 — ملفاتي على IndexedDB (مساحة كبيرة بدل 5MB) ═══════════════════════
+var _fmeta = [];
+try{ _fmeta = JSON.parse(localStorage.getItem('fh_files')||'[]'); }catch(e){ _fmeta=[]; }
+var _fdb=null, F_MAX=200*1024*1024;
+function _fOpen(){ return new Promise(function(res,rej){ if(_fdb) return res(_fdb); if(!window.indexedDB) return rej(new Error('IndexedDB غير متاح'));
+  var r=indexedDB.open('auditiq_files',1); r.onupgradeneeded=function(){ r.result.createObjectStore('files'); };
+  r.onsuccess=function(){ _fdb=r.result; res(_fdb); }; r.onerror=function(){ rej(r.error); }; }); }
+function _fTx(mode,fn){ return _fOpen().then(function(db){ return new Promise(function(res,rej){ var tx=db.transaction('files',mode), rq=fn(tx.objectStore('files'));
+  tx.oncomplete=function(){ res(rq&&rq.result); }; tx.onerror=function(){ rej(tx.error); }; tx.onabort=function(){ rej(tx.error||new Error('المساحة مش كفاية')); }; }); }); }
+function _fSaveAll(){ try{ localStorage.setItem('fh_files', JSON.stringify(_fmeta.map(function(f){ return f.id?{id:f.id,n:f.n,s:f.s,t:f.t,d:f.d}:f; }))); }catch(e){ showToast('⚠️ تعذر حفظ قائمة الملفات'); } }
+function _fSize(b){ return b>=1048576?(b/1048576).toFixed(1)+' MB':Math.max(1,Math.round(b/1024))+' KB'; }
+(function _fMigrate(){ // نقل الملفات القديمة المحفوظة في localStorage (ده كمان بيفضّي مكان للملاحظات)
+  var old=_fmeta.filter(function(f){ return f.data && !f.id; }); if(!old.length) return;
+  old.reduce(function(p,f){ return p.then(function(){ return fetch(f.data).then(function(r){ return r.blob(); }).then(function(b){ var id='f'+Date.now()+Math.random().toString(36).slice(2,8);
+    return _fTx('readwrite',function(st){ return st.put(b,id); }).then(function(){ f.id=id; delete f.data; }); }); }); }, Promise.resolve())
+  .then(function(){ _fSaveAll(); if(document.getElementById('fList')) renderFList(); }).catch(function(){});
+})();
 function handleFAdd(files){
-  var pending = files.length;
-  Array.from(files).forEach(function(f){
-    if(f.size > 5*1024*1024){ showToast('⚠️ '+f.name+' أكبر من 5MB — تم تخطيه'); pending--; return; }
-    var reader = new FileReader();
-    reader.onload = function(e){
-      _fmeta.push({ n:f.name, s:f.size, t:f.type, d:new Date().toISOString(), data:e.target.result });
-      _fSaveAll();
-      pending--;
-      if(pending <= 0){ renderFList(); showToast('✓ تم رفع '+files.length+' ملف — يمكنك تحميله الآن'); }
-    };
-    reader.readAsDataURL(f);
-  });
+  var list=Array.from(files||[]); if(!list.length) return;
+  try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist(); }catch(e){}
+  var ok=0;
+  list.reduce(function(p,f){ return p.then(function(){
+    if(f.size>F_MAX){ showToast('⚠️ '+f.name+' أكبر من 200MB — اتخطى'); return; }
+    var id='f'+Date.now()+Math.random().toString(36).slice(2,8);
+    return _fTx('readwrite',function(st){ return st.put(f,id); }).then(function(){ _fmeta.push({id:id,n:f.name,s:f.size,t:f.type||'',d:new Date().toISOString()}); ok++; });
+  }); }, Promise.resolve())
+  .then(function(){ _fSaveAll(); renderFList(); if(ok) showToast('✓ اترفع '+ok+' ملف'); })
+  .catch(function(e){ _fSaveAll(); renderFList(); showToast('⚠️ الرفع فشل: '+((e&&e.message)||'المساحة مش كفاية')); });
+  var inp=document.getElementById('fInput'); if(inp) inp.value='';
 }
-
 function handleFDrop(files){ handleFAdd(files); }
-
-function delF(i){
-  _fmeta.splice(i,1);
-  _fSaveAll();
-  renderFList();
-  showToast('تم الحذف');
-}
-
-function downloadF(i){
-  var f = _fmeta[i];
-  if(!f || !f.data){ showToast('⚠️ بيانات الملف غير متوفرة'); return; }
-  var a = document.createElement('a');
-  a.href = f.data;
-  a.download = f.n;
-  a.click();
-}
-
-function previewF(i){
-  var f = _fmeta[i];
-  if(!f || !f.data){ showToast('⚠️ بيانات الملف غير متوفرة'); return; }
-  // images & PDFs can open inline
-  if(f.t.includes('image') || f.t.includes('pdf')){
-    var w = window.open('');
-    if(f.t.includes('image')){
-      w.document.write('<body style="margin:0;background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh"><img src="'+f.data+'" style="max-width:100%;max-height:100vh"></body>');
-    } else {
-      w.document.write('<body style="margin:0"><embed src="'+f.data+'" type="application/pdf" width="100%" height="100%" style="position:fixed;inset:0"></body>');
-    }
-  } else {
-    downloadF(i);
-  }
-}
-
+function _fBlob(i){ var f=_fmeta[i]; if(!f) return Promise.reject(new Error('x'));
+  if(f.id) return _fTx('readonly',function(st){ return st.get(f.id); }).then(function(b){ if(!b) throw new Error('missing'); return b; });
+  if(f.data) return fetch(f.data).then(function(r){ return r.blob(); });
+  return Promise.reject(new Error('missing')); }
+function delF(i){ var f=_fmeta[i]; if(!f) return; _fmeta.splice(i,1); _fSaveAll(); renderFList(); showToast('تم الحذف');
+  if(f.id) _fTx('readwrite',function(st){ return st.delete(f.id); }).catch(function(){}); }
+function clearAllF(){ _fmeta=[]; _fSaveAll(); renderFList(); _fTx('readwrite',function(st){ return st.clear(); }).catch(function(){}); showToast('تم مسح كل الملفات'); }
+function downloadF(i){ var f=_fmeta[i]; _fBlob(i).then(function(b){ var u=URL.createObjectURL(b), a=document.createElement('a'); a.href=u; a.download=f.n; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(u); },60000); })
+  .catch(function(){ showToast('⚠️ بيانات الملف غير متوفرة'); }); }
+function previewF(i){ var f=_fmeta[i]; var w=window.open('about:blank'); _fBlob(i).then(function(b){ var u=URL.createObjectURL(new Blob([b],{type:f.t||b.type})); if(w) w.location.href=u; else window.location.href=u; })
+  .catch(function(){ if(w) w.close(); showToast('⚠️ بيانات الملف غير متوفرة'); }); }
 function renderFList(){
-  var el = document.getElementById('fList'); if(!el) return;
-  if(!_fmeta.length){
-    el.innerHTML = '<div style="color:var(--text3);padding:30px 0;text-align:center;font-size:13px">مفيش ملفات لسه — ارفع أول ملف!</div>';
-    return;
-  }
-  // Storage usage estimate
-  var totalKB = _fmeta.reduce(function(a,f){ return a+(f.s||0); },0)/1024;
-  var storageBar = '<div style="margin-bottom:14px;padding:10px 14px;background:var(--bg3);border-radius:8px;border:1px solid var(--border)">'
-    +'<div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:5px">'
-    +'<span>مساحة مستخدمة</span><span style="font-family:var(--mono)">'+(totalKB>1024?(totalKB/1024).toFixed(1)+' MB':Math.round(totalKB)+' KB')+'</span></div>'
-    +'<div style="height:4px;background:var(--bg4);border-radius:2px;overflow:hidden">'
-    +'<div style="height:100%;border-radius:2px;background:var(--gold);width:'+Math.min(100,totalKB/51200*100).toFixed(1)+'%"></div></div>'
-    +'<div style="font-size:10px;color:var(--text3);margin-top:4px">الملفات محفوظة في المتصفح · الحد الأقصى ~5MB</div>'
-    +'</div>';
-
-  el.innerHTML = storageBar + _fmeta.map(function(f,i){
-    var icon = _fIcon(f);
-    var hasData = !!f.data;
-    var canPreview = hasData && (f.t&&(f.t.includes('image')||f.t.includes('pdf')));
-    return '<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--bg3);border-radius:10px;margin-bottom:8px;border:1px solid var(--border);transition:border-color .15s" onmouseover="this.style.borderColor=\'var(--border2)\'" onmouseout="this.style.borderColor=\'var(--border)\'">'
-      +'<span style="font-size:22px;flex-shrink:0">'+icon+'</span>'
-      +'<div style="flex:1;min-width:0">'
-        +'<div style="font-size:13px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px">'+f.n+'</div>'
-        +'<div style="font-size:11px;color:var(--text3);font-family:var(--mono)">'
-          +Math.round(f.s/1024)+' KB · '
-          +new Date(f.d).toLocaleDateString('ar-EG',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})
-          +(hasData?'':' · <span style="color:var(--red)">⚠ بيانات غير محفوظة</span>')
-        +'</div>'
-      +'</div>'
-      +(canPreview?'<button onclick="previewF('+i+')" style="padding:4px 10px;background:transparent;border:1px solid var(--border2);border-radius:6px;color:var(--text2);cursor:pointer;font-size:11px;font-family:var(--font);white-space:nowrap" title="معاينة">👁 معاينة</button>':'')
-      +(hasData?'<button onclick="downloadF('+i+')" style="padding:4px 10px;background:var(--bg4);border:1px solid var(--border2);border-radius:6px;color:var(--text2);cursor:pointer;font-size:11px;font-family:var(--font);white-space:nowrap" title="تحميل">⬇ تحميل</button>':'')
-      +'<button onclick="delF('+i+')" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0" title="حذف">×</button>'
-    +'</div>';
+  var el=document.getElementById('fList'); if(!el) return;
+  var total=_fmeta.reduce(function(a,f){ return a+(f.s||0); },0);
+  var bar='<div style="margin-bottom:14px;padding:12px 16px;background:var(--bg3);border-radius:10px;border:1px solid var(--border)">'
+    +'<div style="display:flex;justify-content:space-between;font-size:12.5px;color:var(--text2);margin-bottom:6px"><span>'+_fmeta.length+' ملف · '+_fSize(total)+'</span><span id="fQuota" style="font-family:var(--mono);color:var(--text3)"></span></div>'
+    +'<div style="height:6px;background:var(--bg4);border-radius:3px;overflow:hidden"><div id="fQuotaBar" style="height:100%;border-radius:3px;background:var(--gold2);width:0%"></div></div>'
+    +'<div style="font-size:11.5px;color:var(--text3);margin-top:6px;line-height:1.7">الملفات محفوظة على الجهاز ده بس (مش على الإنترنت) · حتى 200MB للملف · مش بتدخل في ملف النسخة الاحتياطية، فخلّي عندك نسخة منها.</div></div>';
+  if(!_fmeta.length){ el.innerHTML=bar+'<div style="color:var(--text3);padding:30px 0;text-align:center;font-size:13px">مفيش ملفات لسه — ارفع أول ملف!</div>'; }
+  else el.innerHTML=bar+_fmeta.map(function(f,i){
+    var canPreview=f.t&&(f.t.indexOf('image')>-1||f.t.indexOf('pdf')>-1||f.t.indexOf('text')>-1);
+    var nm=String(f.n).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+    return '<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--bg3);border-radius:10px;margin-bottom:8px;border:1px solid var(--border)">'
+      +'<span style="font-size:22px;flex-shrink:0">'+_fIcon(f)+'</span>'
+      +'<div style="flex:1;min-width:0"><div style="font-size:13.5px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px">'+nm+'</div>'
+      +'<div style="font-size:11.5px;color:var(--text3);font-family:var(--mono)">'+_fSize(f.s||0)+' · '+new Date(f.d).toLocaleDateString('ar-EG',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+'</div></div>'
+      +(canPreview?'<button onclick="previewF('+i+')" class="btn btn-outline btn-sm">👁 معاينة</button>':'')
+      +'<button onclick="downloadF('+i+')" class="btn btn-outline btn-sm">⬇ تحميل</button>'
+      +'<button onclick="delF('+i+')" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:20px;line-height:1;padding:0 4px;flex-shrink:0" title="حذف">×</button></div>';
   }).join('');
+  try{ if(navigator.storage&&navigator.storage.estimate) navigator.storage.estimate().then(function(e){ var q=document.getElementById('fQuota'), b=document.getElementById('fQuotaBar'); if(!q||!e||!e.quota) return;
+    q.textContent='المتاح على الجهاز: '+(e.quota>=1073741824?(e.quota/1073741824).toFixed(1)+' GB':_fSize(e.quota)); if(b) b.style.width=Math.min(100,(e.usage||0)/e.quota*100).toFixed(2)+'%'; }); }catch(e){}
 }
+
 
 // ── GLOBAL SEARCH ──
 function doGlobalSearch(q){
@@ -10316,11 +10791,13 @@ function renderPomodoroUI(){
         </div>
       </div>
       <div style="flex:1">
-        <div style="font-size:13px;color:var(--text2);margin-bottom:12px">${isBreak?'استرح قليلاً ☕ — الجلسة القادمة هتبدأ تلقائياً':'ركّز 25 دقيقة بدون تشتت 🎯'}</div>
+        <div style="font-size:13px;color:var(--text2);margin-bottom:12px">${isBreak?'استرح قليلاً ☕ — الجلسة القادمة هتبدأ تلقائياً':'ركّز 25 دقيقة بدون تشتت 🎯 — هيجيلك صوت وإشعار لما الوقت يخلص'}</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <button onclick="${isRunning?'pausePom()':'startPom()'}" class="btn btn-gold btn-sm">${isRunning?'⏸ إيقاف':'▶ ابدأ'}</button>
           <button onclick="resetPom()" class="btn btn-outline btn-sm">↺ إعادة</button>
           <button onclick="skipPom()" class="btn btn-outline btn-sm">⏭ تخطي</button>
+          <button onclick="pomToggleSound()" class="btn btn-outline btn-sm">${pomSoundOn()?'🔔 الصوت شغال':'🔕 الصوت مقفول'}</button>
+          <button onclick="pomPrime();setTimeout(()=>pomAlert('🔔 تجربة التنبيه','ده الصوت والإشعار اللي هييجوا لما الوقت يخلص'),150)" class="btn btn-outline btn-sm">جرّب التنبيه</button>
         </div>
         <!-- Sessions dots -->
         <div style="display:flex;gap:6px;margin-top:12px">
@@ -10332,28 +10809,31 @@ function renderPomodoroUI(){
 }
 
 function startPom(){
+  pomPrime();
   if(!_pomState) _pomState = {mode:'focus',remaining:25*60,running:false,session:0};
   _pomState.running = true;
+  _pomState.endAt = Date.now()+_pomState.remaining*1000;   // بالساعة الحقيقية: العدّاد يفضل مظبوط حتى لو التبويب في الخلفية
   if(_pomInterval) clearInterval(_pomInterval);
   _pomInterval = setInterval(()=>{
     if(!_pomState||!_pomState.running) return;
-    _pomState.remaining--;
+    _pomState.remaining = Math.max(0,Math.round((_pomState.endAt-Date.now())/1000));
     if(_pomState.remaining <= 0){
-      // Switch mode
       if(_pomState.mode==='focus'){
         _pomState.session++;
         const isLong = _pomState.session%4===0;
         _pomState.mode='break';
         _pomState.remaining = isLong ? 15*60 : 5*60;
         showToast('🍅 انتهت الجلسة! '+(isLong?'استراحة طويلة 15 دقيقة':'استراحة 5 دقائق'));
-        // Log study session
+        pomAlert('🍅 الجلسة خلصت', isLong?'برافو! خد استراحة طويلة 15 دقيقة':'خد استراحة 5 دقايق');
         S.timerLog.push({date:new Date().toISOString(),dur:25*60,topic:'Pomodoro'});
         save();
       } else {
         _pomState.mode='focus';
         _pomState.remaining=25*60;
         showToast('☕ انتهت الراحة! ابدأ جلسة جديدة');
+        pomAlert('☕ الراحة خلصت','يلا نرجع نركّز 25 دقيقة');
       }
+      _pomState.endAt = Date.now()+_pomState.remaining*1000;
     }
     renderPomodoroUI();
   },1000);
@@ -10365,6 +10845,7 @@ function skipPom(){
   if(!_pomState) return;
   if(_pomState.mode==='focus'){ _pomState.session++; _pomState.mode='break'; _pomState.remaining=(_pomState.session%4===0?15:5)*60; }
   else{ _pomState.mode='focus'; _pomState.remaining=25*60; }
+  _pomState.endAt = Date.now()+_pomState.remaining*1000;
   renderPomodoroUI();
 }
 
@@ -11673,7 +12154,7 @@ function backupStats(){
 }
 function backupExport(){
   const payload = {
-    __app:'AuditIQ', __version:'v10',
+    __app:'AuditIQ', __version:'v11',
     __exported:new Date().toISOString(),
     __user:'يوسف صلاح',
     data: backupCollectAll()
