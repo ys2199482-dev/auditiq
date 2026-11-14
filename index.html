@@ -493,7 +493,7 @@ body.dark #quickNotePopup{background:var(--bg2) !important}
   .sidebar,body.dark .sidebar{width:270px;padding-top:54px}
   #topbar > div:last-of-type button[onclick*="doExportNotes"],#topbar > div:last-of-type button[onclick*="Print"],#topbar > div:last-of-type button[onclick*="print"],#topbar > div:last-of-type button[onclick*="PDF"],#topbar > div:last-of-type button[onclick*="Shortcut"],#topbar > div:last-of-type button[onclick*="shortcut"]{display:none !important}
   #topbar{gap:8px !important}
-  #topbar button:not(#hamburger):not(#darkToggleBtn):not(.topbar-tab):not([onclick*="toggleQuickNote"]){display:none !important}
+  #topbar button:not(#hamburger):not(#darkToggleBtn):not(#syncBtn):not(.topbar-tab):not([onclick*="toggleQuickNote"]){display:none !important}
   .page{overflow-x:auto}
   .stat-val{font-size:24px}
   .hero{padding:20px 18px}.hero .page-title{font-size:21px}.hero-cd{width:100%;padding:12px}
@@ -621,6 +621,12 @@ body.dark .ls-pts{background:rgba(69,200,150,.09);border-color:rgba(69,200,150,.
 body.dark .ls-ans{background:rgba(255,255,255,.06)}
 .ls-foot{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 
+/* ── زرار الحساب والمزامنة ── */
+#topbar #syncBtn{position:relative;width:40px;height:40px;padding:0 !important;border-radius:50% !important;border:none !important;background:none !important;color:var(--text) !important;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#syncBtn svg{width:34px;height:34px}
+.sync-dot{position:absolute;bottom:3px;left:3px;width:11px;height:11px;border-radius:50%;border:2px solid var(--bg2);background:#9aa7bd}
+.sync-dot.ok{background:#15936a}.sync-dot.err{background:#d64545}.sync-dot.busy{background:#f5b82e;animation:syncPulse 1s infinite}
+@keyframes syncPulse{50%{opacity:.35}}
 /* ── شريط الشعار تحت ── */
 .site-tag{margin-top:28px;border-radius:16px;background:linear-gradient(90deg,#0b1733,#17306b);color:#fff;text-align:center;padding:16px;font-size:18px;font-weight:600;border-top:3px solid var(--gold2)}
 .site-tag b{color:var(--gold2)}
@@ -815,6 +821,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
     <button class="nav-item" onclick="goTo('files',this)"><span class="nav-icon">📂</span> ملفاتي</button>
     <button class="nav-item" onclick="goTo('achievements',this)"><span class="nav-icon">★</span> إنجازاتي</button>
     <button class="nav-item" onclick="goTo('backup',this)"><span class="nav-icon">💾</span> النسخ الاحتياطي</button>
+    <button class="nav-item" onclick="goTo('sync',this)"><span class="nav-icon">☁️</span> المزامنة بين الأجهزة</button>
   </div>
 
   <div class="sidebar-footer">
@@ -849,6 +856,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </div>
   <!-- Search + Actions -->
   <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+    <button id="syncBtn" onclick="goTo('sync',NAVBTN_('sync'))" aria-label="الحساب والمزامنة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="9.5" r="3.2"/><path d="M5.5 19c1.4-3 3.8-4.3 6.5-4.3s5.1 1.3 6.5 4.3"/></svg><span id="syncDot" class="sync-dot off"></span></button>
     <div style="position:relative">
       <input id="gSearch" type="text" placeholder="🔍 بحث..." style="width:180px;padding:5px 10px;background:var(--bg);border:0.5px solid var(--border2);border-radius:8px;color:var(--text);font-family:var(--font);font-size:11px;outline:none;direction:rtl" oninput="doGlobalSearch(this.value)" onblur="setTimeout(()=>{var r=document.getElementById('gSR');if(r)r.style.display='none'},200)">
       <div id="gSR" style="position:absolute;top:calc(100%+4px);right:0;left:0;background:#fff;border:0.5px solid var(--border2);border-radius:8px;max-height:260px;overflow-y:auto;z-index:300;display:none;box-shadow:0 4px 16px rgba(0,0,0,.12)"></div>
@@ -864,7 +872,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- PRINT HEADER — مرئي فقط في وضع الطباعة -->
 <div class="print-header" id="printHeader">
-  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v11</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v12</div>
   <div style="flex:1">
     <div id="printHeaderTitle" style="font-size:17px;font-weight:700;color:var(--text)">—</div>
     <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · <span data-exam-label>DipIFR Jun 2027</span></div>
@@ -1144,6 +1152,12 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   <div class="page-header"><div class="page-title">Audit Checklists</div><div class="page-sub">Working Paper Templates — أدوات الشغل</div></div>
   <div class="tabs" id="toolTabs"></div>
   <div class="card" id="toolContent"></div>
+</div>
+
+<!-- SYNC (v12) -->
+<div class="page" id="page-sync">
+  <div class="page-header"><div class="page-title">المزامنة بين الأجهزة ☁️</div><div class="page-sub">Sync — نفس بياناتك على الموبايل واللابتوب</div></div>
+  <div id="syncContent"></div>
 </div>
 
 <!-- LEARN (v11) -->
@@ -1605,6 +1619,12 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 </div>
 
 <script>
+// v12: نسجّل وقت آخر تعديل لكل مفتاح في localStorage عشان المزامنة تعرف مين الأحدث
+(function(){ var P=Storage.prototype,_s=P.setItem,_r=P.removeItem;
+  window.__rawSet=function(k,v){ _s.call(localStorage,k,v); }; window.__rawDel=function(k){ _r.call(localStorage,k); };
+  P.setItem=function(k,v){ var ch=true; try{ ch=(this!==localStorage)||this.getItem(k)!==String(v); }catch(e){} _s.call(this,k,v); if(ch&&this===localStorage&&window.__syncMark){ try{ window.__syncMark(k); }catch(e){} } };
+  P.removeItem=function(k){ var had=true; try{ had=this.getItem(k)!==null; }catch(e){} _r.call(this,k); if(had&&this===localStorage&&window.__syncMark){ try{ window.__syncMark(k); }catch(e){} } };
+})();
 // ═══════════════════════ UNIFIED NUMERIC INPUT ENGINE ═══════════════════════
 // Used by every financial/numeric input across the platform (Tax Calculator, WHT,
 // Tax Reconciliation, VAT Return, Consolidation Worksheet, Cash Flow Builder, Lease
@@ -2252,7 +2272,7 @@ function save(){
 }
 
 // ═══════════════════════ NAV ═══════════════════════
-const _TAB_MAP={learn:'home',examguide:'home',abbr:'train',home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
+const _TAB_MAP={sync:'home',learn:'home',examguide:'home',abbr:'train',home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
 function goTo(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -2263,7 +2283,7 @@ function goTo(id,btn){
   const _pg=document.getElementById('page-'+id); if(!_pg){console.error('Page not found:',id);return;} _pg.classList.add('active');
   if(btn)btn.classList.add('active');
   closeMobileMenu();
-  ({'learn':renderLearn,'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
+  ({'sync':renderSync,'learn':renderLearn,'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
   if(id==='home') setTimeout(injectDailyHome,50);
 }
 
@@ -2985,6 +3005,172 @@ function saveQuickNote(){
 
 
 
+
+// ═══════════════════════ v12 — المزامنة بين الأجهزة (Supabase + تسجيل دخول) ═══════════════════════
+// كل مستخدم له صف واحد في جدول user_data ومحمي بـ Row Level Security: محدش يقرا أو يعدل غير صاحبه.
+// الدمج بيتم لكل مفتاح لوحده: الأحدث يكسب. الملفات المرفوعة بتفضل على الجهاز ومش بتتزامن.
+const SYNC_SKIP={fh_sync:1,fh_kts:1,fh_files:1,fh_lastbackup:1,fh_theme:1,fh_pomSound:1,fh_syncInfo:1};
+let _kts={}; try{ _kts=JSON.parse(localStorage.getItem('fh_kts')||'{}')||{}; }catch(e){ _kts={}; }
+let _ktsT=null,_syncT=null,_syncBusy=false,_syncState='off',_syncMsg='';
+function _ktsSave(){ try{ __rawSet('fh_kts',JSON.stringify(_kts)); }catch(e){} }
+window.__syncMark=function(k){
+  if(SYNC_SKIP[k]) return;
+  _kts[k]=Date.now(); clearTimeout(_ktsT); _ktsT=setTimeout(_ktsSave,400);
+  if(syncSession()){ clearTimeout(_syncT); _syncT=setTimeout(function(){ syncNow(false); },6000); }
+};
+function syncSession(){ try{ const s=JSON.parse(localStorage.getItem('fh_sync')||'null'); return s&&s.access_token?s:null; }catch(e){ return null; } }
+function _syncInfo(){ try{ return JSON.parse(localStorage.getItem('fh_syncInfo')||'{}')||{}; }catch(e){ return {}; } }
+function _syncSetState(st,msg){ _syncState=st; _syncMsg=msg||'';
+  const d=document.getElementById('syncDot'); if(d){ d.className='sync-dot '+st; d.title={off:'المزامنة مقفولة — دوس لتسجيل الدخول',ok:'متزامن',busy:'بيزامن...',err:'مشكلة في المزامنة'}[st]||''; }
+  if(document.getElementById('page-sync')&&document.getElementById('page-sync').classList.contains('active')) renderSync(); }
+async function _sbAuth(path,body){
+  const r=await fetch(SUPABASE_URL+'/auth/v1/'+path,{method:'POST',headers:{'apikey':SUPABASE_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});
+  let j={}; try{ j=await r.json(); }catch(e){}
+  if(!r.ok) throw new Error(j.msg||j.error_description||j.message||j.error||('HTTP '+r.status));
+  return j;
+}
+function _syncStore(j){ if(!j||!j.access_token) return null;
+  const s={access_token:j.access_token,refresh_token:j.refresh_token,expires_at:Date.now()+((j.expires_in||3600)*1000),user:{id:j.user&&j.user.id,email:j.user&&j.user.email}};
+  __rawSet('fh_sync',JSON.stringify(s)); return s; }
+async function _syncToken(){
+  let s=syncSession(); if(!s) throw new Error('مش مسجّل دخول');
+  if(s.expires_at-60000<Date.now()){
+    try{ const j=await _sbAuth('token?grant_type=refresh_token',{refresh_token:s.refresh_token}); if(!j.user) j.user=s.user; s=_syncStore(j); }
+    catch(e){ if(/invalid|expired|not found|revoked/i.test(e.message)){ __rawDel('fh_sync'); _syncSetState('off'); throw new Error('انتهت الجلسة — سجّل دخول تاني'); } throw e; }
+  }
+  return s;
+}
+function _syncErrAr(m){ m=String(m||'');
+  if(/Invalid login credentials/i.test(m)) return 'الإيميل أو كلمة السر غلط';
+  if(/already registered|already been registered|User already/i.test(m)) return 'الإيميل ده متسجل قبل كده — دوس «تسجيل دخول»';
+  if(/Email not confirmed/i.test(m)) return 'افتح إيميلك ودوس على رابط التأكيد الأول، وبعدين سجّل دخول';
+  if(/Password should be/i.test(m)) return 'كلمة السر لازم 6 حروف على الأقل';
+  if(/rate limit|too many/i.test(m)) return 'محاولات كتير — استنى شوية وجرّب تاني';
+  if(/Failed to fetch|NetworkError|Load failed/i.test(m)) return 'مفيش اتصال بالإنترنت أو مشروع Supabase متوقف';
+  if(/user_data|PGRST205|42P01|schema cache/i.test(m)) return 'جدول المزامنة لسه متعملش في Supabase (خطوة الـ SQL)';
+  if(/Signups not allowed/i.test(m)) return 'إنشاء الحسابات مقفول في إعدادات Supabase';
+  return m; }
+async function syncAuth(mode){
+  const em=(document.getElementById('syncEmail').value||'').trim(), pw=document.getElementById('syncPass').value||'';
+  if(!/^\S+@\S+\.\S+$/.test(em)){ showToast('اكتب إيميل صحيح'); return; }
+  if(pw.length<6){ showToast('كلمة السر 6 حروف على الأقل'); return; }
+  _syncSetState('busy','جاري '+(mode==='signup'?'إنشاء الحساب':'تسجيل الدخول')+'...');
+  try{
+    let j=await _sbAuth(mode==='signup'?'signup':'token?grant_type=password',{email:em,password:pw});
+    if(!j.access_token){ _syncSetState('off','اتبعتلك رسالة تأكيد على '+em+'. افتحها ودوس على الرابط، وبعدين ارجع هنا ودوس «تسجيل دخول».'); return; }
+    _syncStore(j); showToast('✓ تم تسجيل الدخول');
+    await syncNow(true,true);
+  }catch(e){ _syncSetState(syncSession()?'err':'off',_syncErrAr(e.message)); }
+}
+function syncSignOut(){ const s=syncSession();
+  if(s){ try{ fetch(SUPABASE_URL+'/auth/v1/logout',{method:'POST',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+s.access_token}}).catch(function(){}); }catch(e){} }
+  __rawDel('fh_sync'); _syncSetState('off','تم تسجيل الخروج. بياناتك لسه موجودة على الجهاز ده وعلى حسابك.'); }
+async function _syncPull(s){
+  const r=await fetch(SUPABASE_URL+'/rest/v1/user_data?select=data,updated_at&user_id=eq.'+encodeURIComponent(s.user.id),{headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+s.access_token}});
+  let j=null; try{ j=await r.json(); }catch(e){}
+  if(!r.ok) throw new Error((j&&(j.message||j.code))||('HTTP '+r.status));
+  return (j&&j[0])?j[0]:null;
+}
+async function _syncPush(s,data){
+  const r=await fetch(SUPABASE_URL+'/rest/v1/user_data?on_conflict=user_id',{method:'POST',
+    headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+s.access_token,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},
+    body:JSON.stringify({user_id:s.user.id,data:data,updated_at:new Date().toISOString()})});
+  if(!r.ok){ let j={}; try{ j=await r.json(); }catch(e){} throw new Error(j.message||j.code||('HTTP '+r.status)); }
+}
+function _syncDownload(name,obj){ try{ const u=URL.createObjectURL(new Blob([JSON.stringify(obj,null,1)],{type:'application/json'})), a=document.createElement('a'); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(u); },30000); }catch(e){} }
+let _syncStale=false;
+function _syncReloadWhenSafe(){
+  // البيانات اتغيرت من جهاز تاني: لازم الصفحة تتحمل تاني عشان اللي في الذاكرة ميكتبش فوق الجديد
+  const typing=document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
+  const pom=(typeof _pomState!=='undefined'&&_pomState&&_pomState.running);
+  const last=+(sessionStorage.getItem('fh_syncReload')||0);
+  if(typing||pom||Date.now()-last<3000){ if(!_syncStale){ _syncStale=true; const iv=setInterval(function(){ if(_syncStale){ _syncReloadWhenSafe(); } else clearInterval(iv); },4000); } _syncSetState('ok','نزلت تحديثات من جهاز تاني — الصفحة هتتحدث لوحدها أول ما تخلص كتابة.'); return; }
+  _ktsSave(); sessionStorage.setItem('fh_syncReload',String(Date.now())); showToast('⬇ نزلت تحديثات من جهاز تاني...'); setTimeout(function(){ location.reload(); },600);
+}
+function _syncLocalKeys(){ const out=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(!SYNC_SKIP[k]) out.push(k); } return out; }
+async function syncNow(manual,firstLogin){
+  if(_syncBusy) return; if(!syncSession()){ if(manual) showToast('سجّل دخول الأول'); return; }
+  _syncBusy=true; _syncSetState('busy','بيزامن...');
+  try{
+    const s=await _syncToken();
+    const row=await _syncPull(s); const remote=(row&&row.data&&typeof row.data==='object')?row.data:{};
+    const now=Date.now(), info=_syncInfo(), localKeys=_syncLocalKeys();
+    // أول مرة على الجهاز ده: لو فيه بيانات على الحساب وبيانات هنا، اسأل مين يكسب
+    if(!info.linked){
+      const hasRemote=Object.keys(remote).some(function(k){ return remote[k]&&remote[k].v!==null; });
+      const hasLocal=localKeys.some(function(k){ if(_kts[k]) return false; const v=localStorage.getItem(k)||''; return v.length>200 || (/^(tp|qh|notes|tlog)$/.test(k) && v!=='{}' && v!=='[]'); });   // بيانات حقيقية مش إعدادات افتراضية
+      if(hasRemote&&hasLocal){
+        const takeCloud=confirm('الحساب عليه بيانات من جهاز تاني، والجهاز ده كمان عليه بيانات.\n\nموافق = استخدم بيانات الحساب على الجهاز ده.\nإلغاء = استخدم بيانات الجهاز ده وارفعها على الحساب.\n\nفي الحالتين هينزل ملف نسخة احتياطية من اللي هيتستبدل.');
+        if(takeCloud){ try{ if(typeof backupExport==='function') backupExport(); }catch(e){} }
+        else { _syncDownload('auditiq-cloud-before-overwrite.json',{exported:new Date().toISOString(),data:remote}); localKeys.forEach(function(k){ _kts[k]=now; }); }
+      }
+    }
+    let changedLocal=false, needPush=false;
+    const all={}; Object.keys(remote).forEach(function(k){ all[k]=1; }); localKeys.forEach(function(k){ all[k]=1; }); Object.keys(_kts).forEach(function(k){ all[k]=1; });
+    Object.keys(all).forEach(function(k){
+      if(SYNC_SKIP[k]) return;
+      const r=remote[k], lt=_kts[k]||0, lv=localStorage.getItem(k);
+      if(r && typeof r==='object' && (r.t||0)>lt){
+        if(r.v===null||r.v===undefined){ if(lv!==null){ __rawDel(k); changedLocal=true; } }
+        else if(lv!==r.v){ __rawSet(k,String(r.v)); changedLocal=true; }
+        _kts[k]=r.t;
+      } else if(!r || lt>(r.t||0)){
+        if(lv===null && !lt) return;
+        const t=lt||now; remote[k]={v:lv,t:t}; _kts[k]=t; needPush=true;
+      }
+    });
+    _ktsSave();
+    if(needPush) await _syncPush(s,remote);
+    info.linked=true; info.last=new Date().toISOString(); info.keys=Object.keys(remote).length; __rawSet('fh_syncInfo',JSON.stringify(info));
+    _syncSetState('ok',''); if(manual) showToast('✓ اتزامن');
+    if(changedLocal) _syncReloadWhenSafe();
+  }catch(e){ _syncSetState(syncSession()?'err':'off',_syncErrAr(e.message)); if(manual) showToast('⚠️ '+_syncErrAr(e.message)); }
+  finally{ _syncBusy=false; }
+}
+function renderSync(){
+  const el=document.getElementById('syncContent'); if(!el) return;
+  const s=syncSession(), info=_syncInfo();
+  const msg=_syncMsg?`<div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:${_syncState==='err'?'rgba(214,69,69,.10)':'var(--accent-soft)'};color:${_syncState==='err'?'var(--red)':'var(--text)'};font-size:13.5px;line-height:1.8">${_syncMsg}</div>`:'';
+  if(s){
+    el.innerHTML=`<div class="card" style="margin-bottom:14px">
+      <div class="sec-title">☁️ المزامنة شغالة</div>
+      <div style="font-size:14px;color:var(--text2);line-height:2">الحساب: <b style="color:var(--text);direction:ltr;display:inline-block">${s.user.email||''}</b><br>
+      آخر مزامنة: <b style="color:var(--text)">${info.last?new Date(info.last).toLocaleString('ar-EG',{dateStyle:'medium',timeStyle:'short'}):'—'}</b>${info.keys?` · ${info.keys} بند`:''}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+        <button class="btn btn-gold btn-sm" onclick="syncNow(true)">🔄 زامن دلوقتي</button>
+        <button class="btn btn-outline btn-sm" onclick="if(confirm('تسجيل الخروج من المزامنة على الجهاز ده؟'))syncSignOut()">خروج</button>
+      </div>${msg}
+    </div>`;
+  } else {
+    el.innerHTML=`<div class="card" style="margin-bottom:14px;max-width:520px">
+      <div class="sec-title">☁️ سجّل دخول عشان بياناتك تبقى على كل أجهزتك</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <input id="syncEmail" class="gloss-search" style="margin:0;direction:ltr;text-align:left" type="email" autocomplete="username" placeholder="email@example.com">
+        <input id="syncPass" class="gloss-search" style="margin:0;direction:ltr;text-align:left" type="password" autocomplete="current-password" placeholder="كلمة السر (6 حروف على الأقل)" onkeydown="if(event.key==='Enter')syncAuth('login')">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-gold" onclick="syncAuth('login')">تسجيل دخول</button>
+          <button class="btn btn-outline" onclick="syncAuth('signup')">أول مرة؟ اعمل حساب</button>
+        </div>
+      </div>${msg}
+    </div>`;
+  }
+  el.innerHTML+=`<div class="card">
+    <div class="sec-title">إزاي بتشتغل؟</div>
+    <div style="font-size:13.5px;color:var(--text2);line-height:2">
+      • اعمل حساب مرة واحدة، وسجّل دخول بنفس الإيميل على الموبايل واللابتوب.<br>
+      • أي تغيير (تقدمك في المواضيع، الملاحظات، سجل المذاكرة، الكويزات، بيانات الأدوات) بيترفع لوحده بعد ثواني، وبينزل على الجهاز التاني أول ما تفتحه.<br>
+      • لو غيّرت على الجهازين، كل بند بياخد آخر نسخة اتعدلت.<br>
+      • <b style="color:var(--text)">الملفات المرفوعة في «ملفاتي» مش بتتزامن</b> — بتفضل على الجهاز اللي اترفعت منه.<br>
+      • بياناتك متشفرة في النقل ومحدش يقدر يقراها غير حسابك.
+    </div></div>`;
+}
+function syncBoot(){
+  _syncSetState(syncSession()?'ok':'off');
+  if(syncSession()) setTimeout(function(){ syncNow(false); },1200);
+  document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='visible') syncNow(false); else { _ktsSave(); } });
+  setInterval(function(){ if(document.visibilityState==='visible') syncNow(false); },5*60*1000);
+}
+
 // ═══════════════════════ v11 — تنبيه البومودورو (صوت + إشعار) ═══════════════════════
 let _pomAudio=null, _pomTitleT=null;
 function pomSoundOn(){ try{ return localStorage.getItem('fh_pomSound')!=='off'; }catch(e){ return true; } }
@@ -3578,7 +3764,7 @@ function renderAbbr(q){
 renderHome();
 setTimeout(injectDailyHome, 50);
 const examDays=Math.max(0,Math.ceil((examDate()-new Date())/86400000));
-document.getElementById('sideCD').textContent=examDays; applyExamLabels();
+document.getElementById('sideCD').textContent=examDays; applyExamLabels(); setTimeout(syncBoot,0);
 setTimeout(updateDailyCounter, 100);
 
 // ══════════════════════════════════════════
@@ -12154,7 +12340,7 @@ function backupStats(){
 }
 function backupExport(){
   const payload = {
-    __app:'AuditIQ', __version:'v11',
+    __app:'AuditIQ', __version:'v12',
     __exported:new Date().toISOString(),
     __user:'يوسف صلاح',
     data: backupCollectAll()
