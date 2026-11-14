@@ -6,13 +6,13 @@
 <title>AuditIQ — يوسف صلاح</title>
 <!-- PWA -->
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#b8860b">
+<meta name="theme-color" content="#0e1b3a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="AuditIQ">
 <link rel="apple-touch-icon" href="icon.svg">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{--bg:#f5f4f0;--bg2:#ffffff;--bg3:#faf9f6;--bg4:#f0ede6;--text:#1a1a1a;--text2:#555555;--text3:#999999;--border:#e8e2d8;--border2:#ddd8cc;--gold:#b8860b;--gold2:#d4a017;--teal:#2a7a4a;--red:#c04020;--green:#2a7a4a;--blue:#1a5a9a;--purple:#5a3a9a;--orange:#c06010;--font:'IBM Plex Sans Arabic',sans-serif;--mono:'IBM Plex Mono',monospace;--r:10px;--r2:7px}
@@ -313,6 +313,199 @@ body.dark .q-opt.selected-wrong,body.dark .risk-h,body.dark .diff-diff{backgroun
 body.dark .tag-isa{background:rgba(168,136,224,.15) !important;border-color:rgba(168,136,224,.35) !important}
 body.dark .tag-tax{background:rgba(224,144,74,.15) !important;border-color:rgba(224,144,74,.35) !important}
 
+
+/* ═══════════════════════════════════════════════════════════
+   AuditIQ v10 — واجهة Focus Hub (كحلي / أزرق / ذهبي)
+   طبقة ألوان وتنسيق فوق التصميم القديم — من غير تغيير في منطق الأدوات
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --bg:#f2f5fb;--bg2:#ffffff;--bg3:#f6f8fc;--bg4:#e8eef7;
+  --text:#0f1b33;--text2:#43506a;--text3:#8191ab;
+  --border:#e1e8f2;--border2:#cbd6e6;
+  --gold:#b7791f;--gold2:#f5b82e;
+  --teal:#0d9488;--red:#d64545;--green:#15936a;--blue:#2563eb;--purple:#6d4fd8;--orange:#d9731a;
+  --navy:#0e1b3a;--navy2:#17306b;--accent:#2563eb;--accent-soft:#e6eefe;
+  --r:14px;--r2:9px;
+  --shadow:0 1px 2px rgba(15,27,51,.04),0 6px 20px rgba(15,27,51,.06);
+}
+body.dark{
+  --bg:#081020;--bg2:#101b33;--bg3:#16233f;--bg4:#1f3054;
+  --text:#e8eefb;--text2:#a9b6d0;--text3:#6f7f9d;
+  --border:rgba(255,255,255,.09);--border2:rgba(255,255,255,.17);
+  --gold:#f0c060;--gold2:#f5b82e;
+  --teal:#3ecfbf;--red:#f0705c;--green:#45c896;--blue:#6ea4ff;--purple:#ae93f5;--orange:#f0a25c;
+  --accent:#4f8cff;--accent-soft:rgba(79,140,255,.16);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.28);
+}
+body{font-size:15px}
+
+/* ── القائمة الجانبية ── */
+.sidebar,body.dark .sidebar{width:236px;background:linear-gradient(180deg,#0e1b3a 0%,#122552 100%) !important;border-left:none;box-shadow:-2px 0 18px rgba(8,16,32,.18)}
+.sidebar::-webkit-scrollbar{width:5px}.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:3px}
+.logo{padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:8px}
+.logo-mark{color:var(--gold2);font-size:10px}
+.logo-name{color:#fff;font-size:20px;letter-spacing:.5px}
+.logo-name span{color:var(--gold2) !important}
+.logo-sub{color:#93a4c8;font-size:11px;margin-top:3px}
+.nav-leader{padding:10px 18px;font-size:12.5px;letter-spacing:0;text-transform:none;color:#aebcda;font-weight:600}
+.nav-leader:hover,body.dark .nav-leader:hover{background:rgba(255,255,255,.05) !important;color:#fff}
+.nav-leader.open{color:var(--gold2)}
+.nav-arrow{color:#6f82ab;font-size:10px}
+.nav-leader.open .nav-arrow{color:var(--gold2)}
+.nav-group.open{max-height:900px}
+.nav-item{padding:8px 22px 8px 14px;font-size:13px;color:#c3cee6;border-right:3px solid transparent;border-radius:0}
+.nav-item:hover,body.dark .nav-item:hover{background:rgba(255,255,255,.06) !important;color:#fff}
+.nav-item.active,body.dark .nav-item.active{background:rgba(255,255,255,.11) !important;color:#fff;border-right-color:var(--gold2);font-weight:600}
+.nav-icon{font-size:14px;min-width:18px}
+.sidebar-footer{padding:14px 16px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.exam-cd,body.dark .exam-cd{background:rgba(245,184,46,.10) !important;border:1px solid rgba(245,184,46,.35) !important;border-radius:12px;padding:12px;cursor:pointer;transition:background .15s}
+.exam-cd:hover{background:rgba(245,184,46,.18) !important}
+.cd-num{color:var(--gold2);font-size:28px}
+.cd-lbl{color:#b9c5e0;font-size:11px;margin-top:4px}
+
+/* ── الشريط العلوي ── */
+#topbar,body.dark #topbar{right:236px;height:58px;padding:0 22px;border-bottom:1px solid var(--border);box-shadow:0 1px 10px rgba(15,27,51,.05)}
+.topbar-logo-text{font-size:17px}
+.topbar-logo-sub{font-size:9px;color:var(--text3)}
+.topbar-tab{padding:7px 14px;border-radius:9px;font-size:13px;color:var(--text2)}
+.topbar-tab:hover{background:var(--bg4);color:var(--text)}
+.topbar-tab.active{background:var(--accent);color:#fff;font-weight:600}
+#gSearch{width:210px !important;padding:8px 12px !important;font-size:13px !important;border-radius:10px !important;border:1px solid var(--border2) !important}
+#gSearch:focus{border-color:var(--accent) !important;box-shadow:0 0 0 3px var(--accent-soft)}
+#topbar > div:last-of-type button{padding:7px 11px !important;font-size:13px !important;border-radius:9px !important;border:1px solid var(--border2) !important;background:var(--bg2) !important;color:var(--text2) !important}
+#topbar > div:last-of-type button:hover{background:var(--bg4) !important;color:var(--text) !important}
+#hamburger{color:var(--text)}
+
+/* ── المساحة الرئيسية ── */
+.main{margin-right:236px;padding:22px 26px 40px !important;padding-top:82px !important;max-width:1500px}
+.page-header{margin-bottom:18px}
+.page-title{font-size:21px;font-weight:700;letter-spacing:-.2px}
+.page-sub{font-size:13px;margin-top:4px}
+.sec-title{font-size:14px;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:14px}
+
+/* ── الكروت ── */
+.card,.stat-card,.daily-card,.tc-card,.ach-card{border:1px solid var(--border);box-shadow:var(--shadow)}
+.card{padding:18px 20px}
+.daily-card{padding:16px 18px}
+.daily-tag{font-size:11px;padding:3px 10px}
+.daily-title{font-size:15px}.daily-card .daily-title{font-size:15px}
+.daily-body{font-size:13.5px;line-height:1.8}.daily-card .daily-body{font-size:13.5px}
+.daily-std{font-size:11.5px;padding:3px 9px;border-radius:6px}
+
+/* ── بطاقات الأرقام ── */
+.stats-grid{gap:14px;margin-bottom:18px}
+.stat-card{padding:16px 18px;border-top:3px solid var(--accent);position:relative;overflow:hidden}
+.stat-label{font-size:12px;letter-spacing:0;text-transform:none;color:var(--text2);margin-bottom:8px;font-weight:500}
+.stat-val{font-size:30px}
+.stat-sub{font-size:11.5px;margin-top:6px}
+.stats-grid .stat-card:nth-child(1){background:#fff7e3;border-top-color:#f5b82e}
+.stats-grid .stat-card:nth-child(2){background:#e6f7f0;border-top-color:#15936a}
+.stats-grid .stat-card:nth-child(3){background:#e8f0fe;border-top-color:#2563eb}
+.stats-grid .stat-card:nth-child(4){background:#f0ebfd;border-top-color:#6d4fd8}
+body.dark .stats-grid .stat-card:nth-child(1){background:rgba(245,184,46,.10) !important}
+body.dark .stats-grid .stat-card:nth-child(2){background:rgba(69,200,150,.10) !important}
+body.dark .stats-grid .stat-card:nth-child(3){background:rgba(110,164,255,.10) !important}
+body.dark .stats-grid .stat-card:nth-child(4){background:rgba(174,147,245,.10) !important}
+
+/* ── الأزرار والتبويبات ── */
+.btn{padding:9px 18px;font-size:13.5px;border-radius:10px;font-weight:600}
+.btn-sm{padding:6px 12px;font-size:12px}
+.btn-gold{background:linear-gradient(180deg,#f8c64a,#eea91a);color:#231700;box-shadow:0 2px 8px rgba(238,169,26,.35)}
+.btn-gold:hover{background:linear-gradient(180deg,#fad063,#f0b02a);filter:none}
+.btn-outline{border:1px solid var(--border2) !important}
+.tab{padding:7px 15px;font-size:13px;border-radius:9px;border:1px solid var(--border)}
+.tab.active,.filter-btn.active,.timer-sub-btn.active,
+body.dark .tab.active,body.dark .filter-btn.active,body.dark .timer-sub-btn.active{background:var(--accent) !important;color:#fff !important;border-color:var(--accent) !important}
+.filter-btn{padding:6px 13px;font-size:12px;border:1px solid var(--border);color:var(--text2)}
+.sug-btn{padding:6px 12px;font-size:12px}
+.timer-sub-btn{padding:7px 14px;font-size:12.5px}
+.pct-btn{font-size:12px;padding:4px 10px;border-radius:7px}
+
+/* ── تكبير النصوص الصغيرة (كانت 9–11px) ── */
+.topic-name-ar{font-size:14.5px}.topic-name-en{font-size:12px}
+.topic-num{font-size:12px !important}.topic-std-badge{font-size:11.5px}
+.progress-pct{font-size:11px}.status-pill{font-size:11.5px;padding:3px 10px}
+.q-num{font-size:12px}.q-text{font-size:16px}.q-en{font-size:12px}
+.q-opt{font-size:14px;padding:12px 16px}.q-explanation{font-size:13.5px}
+.quiz-score{font-size:12px}
+.cl-text{font-size:14px}.cl-risk{font-size:11px}
+.fc-label{font-size:11px}.fc-term{font-size:21px}.fc-sub{font-size:13px}.fc-def{font-size:14.5px}.fc-counter{font-size:13px}
+.gloss-en{font-size:14px}.gloss-ar{font-size:14px}.gloss-def{font-size:13px;line-height:1.7}.gloss-std{font-size:11px}.gloss-letter{font-size:12px}
+.gloss-search,.notes-area,.chat-input{font-size:14px;padding:10px 14px;border:1px solid var(--border2)}
+.gloss-search:focus,.notes-area:focus,.chat-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.compare-header{font-size:12px}.compare-cell{font-size:13.5px}.cc-topic{font-size:13px}.diff-badge{font-size:11px}
+.ach-name{font-size:13px}.ach-desc{font-size:12px}
+.tlog-row{font-size:13px}
+.msg{font-size:14px}
+.plan-month{min-width:150px}.plan-month-name{font-size:14px;font-weight:700}.plan-hours{font-size:12px}
+.plan-focus{font-size:14.5px}.plan-topics{font-size:13px;line-height:1.8}.plan-tip{font-size:12.5px;margin-top:5px}
+.tag{font-size:11px;padding:2px 8px}
+
+/* ── بانر الرئيسية ── */
+.hero{background:linear-gradient(115deg,#0e1b3a 0%,#17306b 55%,#2563eb 100%);border-radius:18px;padding:26px 28px;color:#fff;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(23,48,107,.28)}
+.hero::after{content:"";position:absolute;left:-60px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,184,46,.22),transparent 65%);pointer-events:none}
+.hero-txt{position:relative;z-index:1;flex:1;min-width:240px}
+.hero-kicker{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px}
+.hero .page-title{color:#fff;font-size:26px;margin-bottom:4px}
+.hero .page-sub{color:#c4d2f2;font-size:13.5px}
+.hero-line{color:#dbe5fb;font-size:14px;line-height:1.8;margin-top:10px;max-width:560px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hero-ghost{padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-family:var(--font);font-size:13.5px;font-weight:600;cursor:pointer}
+.hero-ghost:hover{background:rgba(255,255,255,.16)}
+.hero-cd{position:relative;z-index:1;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 26px;text-align:center;min-width:170px;backdrop-filter:blur(4px)}
+.hero-cd-num{font-family:var(--mono);font-size:46px;font-weight:700;color:var(--gold2);line-height:1}
+.hero-cd-lbl{font-size:13px;color:#dbe5fb;margin-top:6px}
+.hero-cd-date{font-size:11.5px;color:#a9bce6;margin-top:3px;font-family:var(--mono)}
+
+/* ── صفحات جديدة: دليل الامتحان + الاختصارات ── */
+.eg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.eg-q{border:1px solid var(--border);border-radius:12px;padding:14px;background:var(--bg3)}
+.eg-q b{display:block;font-family:var(--mono);color:var(--accent);font-size:13px;margin-bottom:6px}
+.eg-q span{font-size:13px;color:var(--text2);line-height:1.7;display:block}
+.eg-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.eg-table th{background:var(--bg4);color:var(--text);text-align:right;padding:9px 12px;font-weight:600;font-size:12.5px}
+.eg-table td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.7}
+.eg-table td:first-child{font-family:var(--mono);color:var(--text);font-weight:600;white-space:nowrap}
+.eg-pill{display:inline-block;font-size:11.5px;padding:2px 10px;border-radius:20px;font-weight:600;white-space:nowrap}
+.eg-ok{background:#e6f7f0;color:#0f7a57}.eg-mid{background:#fff3d6;color:#96650c}.eg-no{background:#fde9e6;color:#b53a2a}.eg-new{background:var(--accent-soft);color:var(--accent)}
+body.dark .eg-ok{background:rgba(69,200,150,.16);color:#45c896}body.dark .eg-mid{background:rgba(245,184,46,.16);color:#f0c060}body.dark .eg-no{background:rgba(240,112,92,.16);color:#f0705c}
+.eg-std{border:1px solid var(--border);border-right:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin-bottom:12px;background:var(--bg2)}
+.eg-std h4{font-size:15px;color:var(--text);margin-bottom:6px}
+.eg-std h4 small{font-family:var(--mono);color:var(--accent);font-size:13px;margin-left:8px}
+.eg-std p,.eg-std li{font-size:13.5px;color:var(--text2);line-height:1.9}
+.eg-std ul{padding-right:20px;margin:6px 0}
+.eg-std .en{direction:ltr;text-align:left;font-family:var(--mono);font-size:12px;color:var(--teal);background:var(--bg3);border-radius:8px;padding:8px 12px;margin-top:8px;line-height:1.7}
+.eg-note{font-size:12.5px;color:var(--text3);line-height:1.8;margin-top:10px}
+.eg-date-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.eg-date-row input{padding:8px 12px;border:1px solid var(--border2);border-radius:9px;background:var(--bg3);color:var(--text);font-family:var(--mono);font-size:14px}
+
+/* ── الوضع الداكن: تكملة ── */
+body.dark .hero{box-shadow:0 10px 30px rgba(0,0,0,.4)}
+body.dark #quickNotePopup{background:var(--bg2) !important}
+
+.page{min-width:0}
+.page table{max-width:100%}
+/* ── موبايل ── */
+@media(max-width:1100px){.eg-grid{grid-template-columns:1fr 1fr}.topbar-tab{padding:6px 9px;font-size:12px}#gSearch{width:150px !important}}
+@media(max-width:768px){
+  #topbar,body.dark #topbar{right:0;padding:0 12px;height:54px}
+  .main{margin-right:0;padding:14px 12px 30px !important;padding-top:68px !important}
+  .sidebar,body.dark .sidebar{width:270px;padding-top:54px}
+  #topbar > div:last-of-type button[onclick*="doExportNotes"],#topbar > div:last-of-type button[onclick*="Print"],#topbar > div:last-of-type button[onclick*="print"],#topbar > div:last-of-type button[onclick*="PDF"],#topbar > div:last-of-type button[onclick*="Shortcut"],#topbar > div:last-of-type button[onclick*="shortcut"]{display:none !important}
+  #topbar{gap:8px !important}
+  #topbar button:not(#hamburger):not(#darkToggleBtn):not(.topbar-tab):not([onclick*="toggleQuickNote"]){display:none !important}
+  .page{overflow-x:auto}
+  .stat-val{font-size:24px}
+  .hero{padding:20px 18px}.hero .page-title{font-size:21px}.hero-cd{width:100%;padding:12px}
+  .hero-cd-num{font-size:36px}
+  .page-title{font-size:18px}
+  #page-home > div[style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr !important}
+  .eg-grid{grid-template-columns:1fr}
+  .eg-table{font-size:12.5px}#examGuideContent .eg-table td:nth-child(2),#examGuideContent .eg-table th:nth-child(2){display:none}
+  #gSearch{width:120px !important}
+  .plan-row{flex-direction:column;gap:4px}
+}
+
 /* ═══ PRINT MODE ═══ */
 .print-header{display:none;align-items:center;gap:16px;padding:10px 0 12px;margin-bottom:14px;border-bottom:0.5px solid var(--border)}
 body.print-mode .sidebar{display:none !important}
@@ -349,9 +542,9 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 <div id="menuOverlay" onclick="toggleMobileMenu()"></div>
 <nav class="sidebar" id="mainSidebar">
   <div class="logo">
-    <div class="logo-mark">AuditIQ v9</div>
+    <div class="logo-mark">AuditIQ v10</div>
     <div class="logo-name">AUDIT<span style="color:var(--gold)">IQ</span></div>
-    <div class="logo-sub">يوسف صلاح · DipIFR Dec 2026</div>
+    <div class="logo-sub">يوسف صلاح · <span data-exam-label>DipIFR Jun 2027</span></div>
   </div>
 
   <!-- الرئيسية -->
@@ -360,6 +553,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </button>
   <div class="nav-group open">
     <button class="nav-item active" onclick="goTo('home',this)"><span class="nav-icon">◈</span> Dashboard</button>
+    <button class="nav-item" onclick="goTo('examguide',this)"><span class="nav-icon">🎯</span> دليل امتحان 2027</button>
     <button class="nav-item" onclick="goTo('planner',this)"><span class="nav-icon">🧠</span> المخطط الذكي</button>
     <button class="nav-item" onclick="goTo('timer',this)"><span class="nav-icon">◷</span> تتبع المذاكرة</button>
     <button class="nav-item" onclick="goTo('heatmap',this)"><span class="nav-icon">🟩</span> Heatmap</button>
@@ -417,6 +611,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
     <button class="nav-item" onclick="goTo('quiz-gloss',this)"><span class="nav-icon">🔤</span> كويز المصطلحات</button>
     <button class="nav-item" onclick="goTo('compare',this)"><span class="nav-icon">⇌</span> EAS vs IFRS</button>
     <button class="nav-item" onclick="goTo('isa',this)"><span class="nav-icon">🔍</span> معايير ISA</button>
+    <button class="nav-item" onclick="goTo('abbr',this)"><span class="nav-icon">🔠</span> الاختصارات</button>
   </div>
 
   <!-- AI Tools -->
@@ -473,9 +668,9 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   </div>
 
   <div class="sidebar-footer">
-    <div class="exam-cd">
+    <div class="exam-cd" onclick="goTo('examguide',document.querySelector('[onclick*=examguide]'))" title="دليل الامتحان وتعديل التاريخ">
       <div class="cd-num" id="sideCD">--</div>
-      <div class="cd-lbl">يوم لحد الامتحان</div>
+      <div class="cd-lbl">يوم لحد الامتحان · <span data-exam-label>DipIFR Jun 2027</span></div>
     </div>
   </div>
 </nav>
@@ -515,10 +710,10 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- PRINT HEADER — مرئي فقط في وضع الطباعة -->
 <div class="print-header" id="printHeader">
-  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v9</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v10</div>
   <div style="flex:1">
     <div id="printHeaderTitle" style="font-size:17px;font-weight:700;color:var(--text)">—</div>
-    <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · DipIFR Dec 2026</div>
+    <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · <span data-exam-label>DipIFR Jun 2027</span></div>
   </div>
   <div style="text-align:left">
     <div id="printHeaderDate" style="font-family:var(--mono);font-size:12px;color:var(--text3)">—</div>
@@ -545,9 +740,23 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- HOME -->
 <div class="page active" id="page-home">
-  <div class="page-header">
-    <div class="page-title" id="greetMsg">مرحباً يا يوسف</div>
-    <div class="page-sub" id="todayDate">—</div>
+  <div class="hero">
+    <div class="hero-txt">
+      <div class="hero-kicker">AUDITIQ · FOCUS HUB</div>
+      <div class="page-title" id="greetMsg">مرحباً يا يوسف</div>
+      <div class="page-sub" id="todayDate">—</div>
+      <div class="hero-line">مذاكرة DipIFR، التحليل المالي، أدوات المراجعة والضرائب — كله في مكان واحد.</div>
+      <div class="hero-actions">
+        <button class="btn btn-gold" onclick="goTo('planner',document.querySelector('[onclick*=planner]'))">ابدأ مذاكرة النهارده</button>
+        <button class="hero-ghost" onclick="goTo('examguide',document.querySelector('[onclick*=examguide]'))">دليل امتحان 2027</button>
+        <button class="hero-ghost" onclick="goTo('fsinput',document.querySelector('[onclick*=fsinput]'))">التحليل المالي</button>
+      </div>
+    </div>
+    <div class="hero-cd">
+      <div class="hero-cd-num" data-exam-days>--</div>
+      <div class="hero-cd-lbl">يوم لحد الامتحان</div>
+      <div class="hero-cd-date"><span data-exam-label>DipIFR Jun 2027</span></div>
+    </div>
   </div>
   <!-- Smart Dashboard Widget -->
   <div id="dashSmart" style="margin-bottom:18px"></div>
@@ -572,10 +781,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
       <div class="daily-std" style="background:rgba(232,145,58,.08);color:var(--orange)" id="dts-tax">—</div>
     </div>
   </div>
-    <div class="daily-title" id="dailyTitle">—</div>
-    <div class="daily-body" id="dailyBody">—</div>
-    <div class="daily-std" id="dailyStd">—</div>
-  </div>
+  <div style="display:none"><div id="dailyTitle"></div><div id="dailyBody"></div><div id="dailyStd"></div></div>
   <!-- word of the day -->
   <div class="card" style="margin-bottom:16px" id="wotdCard">
     <div class="daily-tag">📖 مصطلح اليوم</div>
@@ -587,7 +793,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
     <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--teal)" id="wotdStd">—</div>
   </div>
   <div class="stats-grid">
-    <div class="stat-card"><div class="stat-label">أيام للامتحان</div><div class="stat-val" id="hDays" style="color:var(--gold)">--</div><div class="stat-sub">DipIFR Dec 2026</div></div>
+    <div class="stat-card"><div class="stat-label">أيام للامتحان</div><div class="stat-val" id="hDays" style="color:var(--gold)">--</div><div class="stat-sub" data-exam-label>DipIFR Jun 2027</div></div>
     <div class="stat-card"><div class="stat-label">مواضيع خلصت</div><div class="stat-val" id="hDone" style="color:var(--green)">0/12</div><div class="stat-sub">topics complete</div></div>
     <div class="stat-card"><div class="stat-label">ساعات المذاكرة</div><div class="stat-val" id="hHours" style="color:var(--blue)">0</div><div class="stat-sub">هذا الأسبوع</div></div>
     <div class="stat-card"><div class="stat-label">أسئلة اليوم</div><div class="stat-val" id="dailyQCount" style="color:var(--purple)">0</div><div class="stat-sub">هدف: 10 أسئلة/يوم</div></div>
@@ -799,9 +1005,24 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
   <div class="card" id="toolContent"></div>
 </div>
 
+<!-- EXAM GUIDE (v10) -->
+<div class="page" id="page-examguide">
+  <div class="page-header"><div class="page-title">دليل امتحان DipIFR 🎯</div><div class="page-sub">Exam Guide — <span data-exam-label>DipIFR Jun 2027</span> · التاريخ · شكل الامتحان · المعايير الداخلة</div></div>
+  <div id="examGuideContent"></div>
+</div>
+
+<!-- ABBREVIATIONS (v10) -->
+<div class="page" id="page-abbr">
+  <div class="page-header"><div class="page-title">الاختصارات 🔠</div><div class="page-sub">Abbreviations — كل اختصار مستخدم في الموقع ومعناه</div></div>
+  <div class="card">
+    <input class="gloss-search" type="text" placeholder="ابحث عن اختصار... مثال: ECL" oninput="renderAbbr(this.value)">
+    <div id="abbrContent"></div>
+  </div>
+</div>
+
 <!-- CALENDAR -->
 <div class="page" id="page-calendar">
-  <div class="page-header"><div class="page-title">خطة المذاكرة</div><div class="page-sub">Study Plan — June → December 2026</div></div>
+  <div class="page-header"><div class="page-title">خطة المذاكرة</div><div class="page-sub">Study Plan — November 2026 → June 2027</div></div>
   <div class="card"><div class="sec-title">الخطة المقترحة</div><div id="studyPlan"></div></div>
 </div>
 
@@ -1318,7 +1539,7 @@ function numDisp(v){ return (v===undefined||v===null||v==='') ? '' : numFormat(n
 
 const TOPICS=[
   // ── IFRS ──
-  {id:1, ar:'القوائم المالية الموحدة',       en:'Consolidated Financial Statements', std:'IFRS 10/3/28', note:'Q1 في الامتحان — 40 درجة إلزامي', group:'IFRS'},
+  {id:1, ar:'القوائم المالية الموحدة',       en:'Consolidated Financial Statements', std:'IFRS 10/3/28', note:'Q1 في الامتحان — 25 درجة إلزامي', group:'IFRS'},
   {id:2, ar:'الإيرادات من العقود مع العملاء', en:'Revenue from Contracts with Customers', std:'IFRS 15', note:'الأكثر تكراراً', group:'IFRS'},
   {id:3, ar:'عقود الإيجار',                   en:'Leases',                             std:'IFRS 16', note:'شغلت فيه فعلاً ✓', group:'IFRS'},
   {id:4, ar:'الأدوات المالية',                en:'Financial Instruments',              std:'IFRS 9',  note:'صعب — خد وقتك', group:'IFRS'},
@@ -1329,11 +1550,11 @@ const TOPICS=[
   {id:9, ar:'العمليات المتوقفة والمحتفظ بها للبيع', en:'Non-current Assets Held for Sale', std:'IFRS 5', note:'', group:'IFRS'},
   {id:10, ar:'القطاعات التشغيلية',             en:'Operating Segments',                std:'IFRS 8',  note:'', group:'IFRS'},
   {id:11, ar:'مدفوعات قائمة على الأسهم',       en:'Share-based Payment',               std:'IFRS 2',  note:'', group:'IFRS'},
-  {id:12, ar:'عقود التأمين',                   en:'Insurance Contracts',               std:'IFRS 17', note:'', group:'IFRS'},
+  {id:12, ar:'عقود التأمين',                   en:'Insurance Contracts',               std:'IFRS 17', note:'خارج قائمة امتحان يونيو 2027', group:'IFRS'},
   // ── IAS ──
-  {id:13, ar:'عرض القوائم المالية',            en:'Presentation of Financial Statements', std:'IAS 1', note:'أساسي جداً', group:'IAS'},
+  {id:13, ar:'عرض القوائم المالية',            en:'Presentation of Financial Statements', std:'IAS 1', note:'مستبدل بـ IFRS 18 في الامتحان', group:'IAS'},
   {id:14, ar:'المخزون',                        en:'Inventories',                        std:'IAS 2',  note:'', group:'IAS'},
-  {id:15, ar:'قائمة التدفقات النقدية',          en:'Cash Flow Statements',               std:'IAS 7',  note:'', group:'IAS'},
+  {id:15, ar:'قائمة التدفقات النقدية',          en:'Cash Flow Statements',               std:'IAS 7',  note:'خارج قائمة الامتحان — مهم للشغل', group:'IAS'},
   {id:16, ar:'السياسات والتقديرات المحاسبية',   en:'Accounting Policies & Estimates',    std:'IAS 8',  note:'', group:'IAS'},
   {id:17, ar:'الأحداث بعد فترة التقرير',        en:'Events After Reporting Period',      std:'IAS 10', note:'', group:'IAS'},
   {id:18, ar:'عقود الإنشاء',                   en:'Construction Contracts',             std:'IAS 11', note:'مستبدل بـ IFRS 15', group:'IAS'},
@@ -1347,14 +1568,22 @@ const TOPICS=[
   {id:26, ar:'تكاليف الاقتراض',                 en:'Borrowing Costs',                    std:'IAS 23', note:'', group:'IAS'},
   {id:27, ar:'الأطراف ذات العلاقة',             en:'Related Party Disclosures',          std:'IAS 24', note:'مهم في المراجعة', group:'IAS'},
   {id:28, ar:'الاستثمار في الشركات الزميلة',    en:'Investments in Associates & JVs',    std:'IAS 28', note:'', group:'IAS'},
-  {id:29, ar:'الإفصاح في القوائم المالية للبنوك', en:'Disclosures for Banks',            std:'IAS 30', note:'', group:'IAS'},
+  {id:29, ar:'الإفصاح في القوائم المالية للبنوك', en:'Disclosures for Banks',            std:'IAS 30', note:'قديم — ملغي', group:'IAS'},
   {id:30, ar:'ربحية السهم',                     en:'Earnings Per Share',                 std:'IAS 33', note:'', group:'IAS'},
-  {id:31, ar:'التقارير المالية المرحلية',        en:'Interim Financial Reporting',        std:'IAS 34', note:'', group:'IAS'},
+  {id:31, ar:'التقارير المالية المرحلية',        en:'Interim Financial Reporting',        std:'IAS 34', note:'خارج قائمة الامتحان', group:'IAS'},
   {id:32, ar:'انخفاض قيمة الأصول',              en:'Impairment of Assets',               std:'IAS 36', note:'', group:'IAS'},
   {id:33, ar:'المخصصات والالتزامات المحتملة',   en:'Provisions & Contingencies',         std:'IAS 37', note:'', group:'IAS'},
   {id:34, ar:'الأصول غير الملموسة',             en:'Intangible Assets',                  std:'IAS 38', note:'', group:'IAS'},
   {id:35, ar:'الاستثمار العقاري',               en:'Investment Property',                std:'IAS 40', note:'', group:'IAS'},
   {id:36, ar:'الزراعة',                         en:'Agriculture',                        std:'IAS 41', note:'', group:'IAS'},
+  // ── v10: إضافات قائمة ACCA لدورة Dec 2026 – Jun 2027 ──
+  {id:37, ar:'العرض والإفصاح في القوائم المالية', en:'Presentation and Disclosure in Financial Statements', std:'IFRS 18', note:'جديد — بديل IAS 1', group:'IFRS'},
+  {id:38, ar:'إفصاحات الشركات التابعة بدون مساءلة عامة', en:'Subsidiaries without Public Accountability', std:'IFRS 19', note:'جديد', group:'IFRS'},
+  {id:39, ar:'استكشاف وتقييم الموارد المعدنية', en:'Exploration for and Evaluation of Mineral Resources', std:'IFRS 6', note:'', group:'IFRS'},
+  {id:40, ar:'إفصاحات الاستدامة والمناخ', en:'Sustainability & Climate-related Disclosures', std:'IFRS S1/S2', note:'جديد', group:'IFRS'},
+  {id:41, ar:'معيار المنشآت الصغيرة والمتوسطة', en:'IFRS for SMEs Accounting Standard', std:'IFRS SMEs', note:'', group:'IFRS'},
+  {id:42, ar:'القوائم المالية المستقلة', en:'Separate Financial Statements', std:'IAS 27', note:'', group:'IAS'},
+  {id:43, ar:'الأدوات المالية: العرض', en:'Financial Instruments: Presentation', std:'IAS 32', note:'', group:'IAS'},
 ];
 
 const DAILY_TIPS=[
@@ -1818,7 +2047,7 @@ const ACHIEVEMENTS=[
   {id:'perfect',icon:'💎',name:'إجابة مثالية',desc:'صح 5 أسئلة متتالية',check:()=>{const r=S.quizHistory.slice(-5);return r.length===5&&r.every(x=>x.c)}},
   {id:'topic1',icon:'📚',name:'بداية المذاكرة',desc:'خلّص موضوع واحد 100%',check:()=>TOPICS.some(t=>(S.tp[t.id]||0)>=100)},
   {id:'topic6',icon:'🏆',name:'نص الطريق',desc:'خلّص 6 مواضيع',check:()=>TOPICS.filter(t=>(S.tp[t.id]||0)>=100).length>=6},
-  {id:'allTopics',icon:'🌟',name:'أسطورة DipIFR',desc:'خلّص كل المواضيع',check:()=>TOPICS.every(t=>(S.tp[t.id]||0)>=100)},
+  {id:'allTopics',icon:'🌟',name:'أسطورة DipIFR',desc:'خلّص كل المواضيع',check:()=>TOPICS.filter(t=>!planIsOld(t)).every(t=>(S.tp[t.id]||0)>=100)},
   {id:'study1h',icon:'⏱️',name:'ساعة مذاكرة',desc:'ذاكر ساعة كاملة',check:()=>S.timerLog.reduce((a,l)=>a+l.dur,0)>=3600},
   {id:'study10h',icon:'🎓',name:'10 ساعات',desc:'ذاكر 10 ساعات',check:()=>S.timerLog.reduce((a,l)=>a+l.dur,0)>=36000},
   {id:'flashcard10',icon:'🃏',name:'Flashcards',desc:'راجع 10 Flashcards',check:()=>S.fcSeen>=10},
@@ -1827,10 +2056,12 @@ const ACHIEVEMENTS=[
 ];
 
 const STUDY_PLAN=[
-  {month:'يونيو - يوليو',hours:'2-3 ساعات/يوم',focus:'المبادئ الأساسية',topics:'IFRS 15 · IFRS 16 · IAS 37',tip:'ابدأ بالمواضيع اللي شغلت فيها فعلاً زي IFRS 16'},
-  {month:'أغسطس - سبتمبر',hours:'2-3 ساعات/يوم',focus:'التوحيد والأدوات المالية',topics:'IFRS 10/3/28 · IFRS 9 · IAS 12',tip:'Consolidation = 40 درجة إلزامية — الأهم في الامتحان'},
-  {month:'أكتوبر',hours:'2 ساعة/يوم',focus:'المواضيع المتبقية',topics:'IAS 19 · IAS 36 · IAS 16/38/40 · IAS 21',tip:''},
-  {month:'نوفمبر',hours:'3-4 ساعات/يوم',focus:'Past Papers ومراجعة',topics:'Past Papers آخر 3 سنين · تقنية الإجابة · Time Management',tip:'3.25 ساعة على 100 درجة — 2 دقيقة لكل درجة'},
+  {month:'نوفمبر – ديسمبر 2026',hours:'1.5–2 ساعة/يوم',focus:'الأساس والعرض',topics:'Conceptual Framework · IFRS 18 · IAS 8 · IFRS 15 · IFRS 16 · IAS 37',tip:'ابدأ بـ IFRS 18 لأنه شكل قائمة الدخل في الامتحان، وبعده المواضيع اللي شغلت فيها فعلاً زي IFRS 16'},
+  {month:'يناير – فبراير 2027',hours:'2 ساعة/يوم',focus:'التجميع والأدوات المالية',topics:'IFRS 10 · IFRS 3 · IFRS 11 · IAS 28 · IFRS 9 · IAS 32 · IAS 12',tip:'التجميع = السؤال الأول (25 درجة) في كل امتحان — حل منه سؤال كامل كل أسبوع'},
+  {month:'مارس 2027',hours:'2 ساعة/يوم',focus:'الأصول والالتزامات',topics:'IAS 16 · IAS 38 · IAS 40 · IAS 36 · IAS 19 · IFRS 2 · IAS 21 · IAS 23 · IAS 20',tip:''},
+  {month:'أبريل 2027',hours:'2 ساعة/يوم',focus:'المواضيع الصغيرة والجديدة',topics:'IFRS 5 · IFRS 8 · IFRS 13 · IAS 33 · IAS 24 · IAS 10 · IAS 2 · IAS 41 · IFRS 6 · IFRS 19 · IFRS for SMEs · IFRS S1/S2 · Ethics',tip:'المواضيع دي بتيجي في السؤال الرابع والجزء الأخلاقي من السؤال التاني'},
+  {month:'مايو 2027',hours:'3 ساعات/يوم',focus:'امتحانات سابقة بالوقت',topics:'آخر 4–6 امتحانات · Examiner reports · تقنية الإجابة',tip:'3 ساعات وربع على 100 درجة ≈ دقيقتين للدرجة ≈ 49 دقيقة للسؤال'},
+  {month:'أول يونيو 2027',hours:'3–4 ساعات/يوم',focus:'مراجعة نهائية',topics:'نقط الضعف من Weakness Tracker · Formula Sheet · امتحان تجريبي كامل',tip:'آخر يومين مراجعة خفيفة ونوم كويس'},
 ];
 
 // ═══════════════════════ STATE ═══════════════════════
@@ -1859,7 +2090,7 @@ function save(){
 }
 
 // ═══════════════════════ NAV ═══════════════════════
-const _TAB_MAP={home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
+const _TAB_MAP={examguide:'home',abbr:'train',home:'home',heatmap:'home',timer:'home',favorites:'home',ifrsupdate:'home',study:'train',weakness:'train',notes:'train',standards:'train',formulas:'train',ratios:'train',journals:'train',disclosure:'train',casestudies:'train',flashcards:'train','glossary-today':'train',glossary:'train','quiz-gloss':'train',compare:'train',isa:'train',quiz:'train',exam:'train',pastpapers:'train',fsinput:'finance',ratioanalyzer:'finance',commonsize:'finance',dupont:'finance',altman:'finance',beneish:'finance',ecl:'finance',consolwb:'finance',cfbuilder:'finance',leasecalc:'finance',workpapers:'audit',riskmatrix:'audit',planrisk:'audit',tools:'audit',goingconcern:'audit',subsequentevents:'audit',relatedparties:'audit',groupaudit:'audit',taxrecon:'tax',wht:'tax',vatreturn:'tax',taxcalendar:'tax',tax:'tax',taxcalc:'tax',ai:'ai',aiaudit:'ai',aitax:'ai',aicoach:'ai',reports:'train',mockexam:'train',interview:'train',encyclopedia:'train',dailylog:'home',examtech:'train',calendar:'home',files:'home',achievements:'home',backup:'home',planner:'home'};
 function goTo(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -1870,19 +2101,21 @@ function goTo(id,btn){
   const _pg=document.getElementById('page-'+id); if(!_pg){console.error('Page not found:',id);return;} _pg.classList.add('active');
   if(btn)btn.classList.add('active');
   closeMobileMenu();
-  ({'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
+  ({'examguide':renderExamGuide,'abbr':renderAbbr,'home':renderHome,'study':renderStudy,'quiz':renderQuiz,'tools':renderTools,'calendar':renderCalendar,'achievements':renderAch,'flashcards':renderFC,'glossary':renderGloss,'compare':renderCompare,'timer':renderTimer,'ai':renderAI,'glossary-today':renderGlossToday,'quiz-gloss':renderQuizGloss,'tax':renderTax,'isa':renderIsa,'taxcalc':renderTaxCalc,'notes':renderNotesPage,'standards':renderStandards,'heatmap':renderHeatmap,'weakness':renderWeakness,'formulas':renderFormulas,'ratios':renderRatios,'journals':renderJournals,'files':renderFiles,'exam':renderExam,'pastpapers':renderPastPapers,'disclosure':renderDisclosure,'casestudies':renderCaseStudies,'consolwb':renderConsolWB,'cfbuilder':renderCFBuilder,'leasecalc':renderLeaseCalc,'fsinput':renderFSInput,'ratioanalyzer':renderRatioAnalyzer,'commonsize':renderCommonSize,'dupont':renderDuPont,'altman':renderAltman,'beneish':renderBeneish,'ecl':renderECL,'goingconcern':renderGoingConcern,'subsequentevents':renderSubsequentEvents,'relatedparties':renderRelatedParties,'groupaudit':renderGroupAudit,'workpapers':renderWorkPapers,'riskmatrix':renderRiskMatrix,'planrisk':renderPlanRisk,'taxrecon':renderTaxRecon,'wht':renderWHT,'vatreturn':renderVATReturn,'taxcalendar':renderTaxCalendar,'aiaudit':renderAIAudit,'aitax':renderAITax,'aicoach':renderAICoach,'favorites':renderFavorites,'ifrsupdate':renderIFRSUpdates,'interview':renderInterview,'encyclopedia':renderEncyclopedia,'dailylog':renderDailyLog,'examtech':renderExamTech,'reports':renderReports,'mockexam':renderMockExam,'planner':renderPlanner,'backup':renderBackup})[id]?.();
   if(id==='home') setTimeout(injectDailyHome,50);
 }
 
 // ═══════════════════════ HOME ═══════════════════════
 function renderHome(){
+  applyExamLabels();
   const now=new Date();
-  const exam=new Date('2026-12-07');
+  const exam=examDate();
   const days=Math.max(0,Math.ceil((exam-now)/86400000));
   document.getElementById('sideCD').textContent=days;
   document.getElementById('hDays').textContent=days;
-  const done=TOPICS.filter(t=>(S.tp[t.id]||0)>=100).length;
-  document.getElementById('hDone').textContent=done+'/12';
+  const _exT=TOPICS.filter(t=>!planIsOld(t));
+  const done=_exT.filter(t=>(S.tp[t.id]||0)>=100).length;
+  document.getElementById('hDone').textContent=done+'/'+_exT.length;
   const thisWeek=S.timerLog.filter(l=>{const d=new Date(l.date);return (now-d)<7*86400000;}).reduce((a,l)=>a+l.dur,0);
   document.getElementById('hHours').textContent=(thisWeek/3600).toFixed(1)+'h';
   updateDailyCounter();
@@ -2359,7 +2592,7 @@ async function sendChat(){
     general: 'أنت خبير محاسبة ومراجعة مصري. أجب بشكل مهني ومبسط بالعربية.'
   };
 
-  const fullPrompt = systemCtx[_aiMode] + '\n\nالمستخدم: يوسف صلاح — مراجع خارجي مصري، يستعد لامتحان DipIFR ديسمبر 2026.\n\nالسؤال: ' + msg;
+  const fullPrompt = systemCtx[_aiMode] + '\n\nالمستخدم: يوسف صلاح — مراجع خارجي مصري، يستعد لامتحان DipIFR '+examLabelAr()+'.\n\nالسؤال: ' + msg;
 
   // Open Claude.ai in new tab with the full context
   const url = 'https://claude.ai/new?q=' + encodeURIComponent(fullPrompt);
@@ -2589,11 +2822,262 @@ function saveQuickNote(){
 }
 
 
+
+// ═══════════════════════ v10 — EXAM DATE (قابل للتعديل) ═══════════════════════
+// التاريخ الافتراضي تقريبي: ACCA لسه معلنتش تاريخ دورة يونيو 2027 بالظبط.
+function examDateStr(){
+  var v=null; try{ v=localStorage.getItem('fh_examDate'); }catch(e){}
+  return (/^\d{4}-\d{2}-\d{2}$/.test(v||'')) ? v : '2027-06-10';
+}
+function examDate(){ return new Date(examDateStr()+'T09:00:00'); }
+function examDaysLeft(){ return Math.max(0,Math.ceil((examDate()-new Date())/86400000)); }
+function examLabelEn(){ var d=examDate(); return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getFullYear(); }
+function examLabelAr(){ var d=examDate(); return ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'][d.getMonth()]+' '+d.getFullYear(); }
+function applyExamLabels(){
+  var days=examDaysLeft();
+  document.querySelectorAll('[data-exam-label]').forEach(function(el){ el.textContent='DipIFR '+examLabelEn(); });
+  document.querySelectorAll('[data-exam-days]').forEach(function(el){ el.textContent=days; });
+  ['sideCD','hDays'].forEach(function(id){ var e=document.getElementById(id); if(e) e.textContent=days; });
+  document.querySelectorAll('[data-exam-date]').forEach(function(el){ el.textContent=examDateStr(); });
+}
+function setExamDate(v){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(v||'')){ showToast('اكتب تاريخ صحيح'); return; }
+  try{ localStorage.setItem('fh_examDate',v); }catch(e){}
+  applyExamLabels();
+  if(document.getElementById('page-examguide').classList.contains('active')) renderExamGuide();
+  showToast('✓ اتحفظ تاريخ الامتحان: '+v);
+}
+
+// ═══════════════════════ v10 — دليل امتحان DipIFR ═══════════════════════
+// المصدر: ACCA — DipIFR Syllabus and study guide + Examinable documents (December 2026 to June 2027)
+const EXAM_DOCS=[
+  // [المعيار, الاسم, حالة التغطية في الموقع: ok / mid / no / new]
+  ['IFRS 18','Presentation and Disclosure in Financial Statements','new'],
+  ['IFRS 19','Subsidiaries without Public Accountability: Disclosures','new'],
+  ['IFRS 10','Consolidated Financial Statements','ok'],
+  ['IFRS 3','Business Combinations','ok'],
+  ['IFRS 11','Joint Arrangements','mid'],
+  ['IFRS 12','Disclosure of Interests in Other Entities','no'],
+  ['IAS 27','Separate Financial Statements','no'],
+  ['IAS 28','Investments in Associates and Joint Ventures','mid'],
+  ['IFRS 15','Revenue from Contracts with Customers','ok'],
+  ['IFRS 16','Leases','ok'],
+  ['IFRS 9','Financial Instruments','ok'],
+  ['IAS 32','Financial Instruments: Presentation','mid'],
+  ['IFRS 13','Fair Value Measurement','ok'],
+  ['IFRS 2','Share-based Payment','no'],
+  ['IFRS 5','Non-current Assets Held for Sale and Discontinued Operations','mid'],
+  ['IFRS 6','Exploration for and Evaluation of Mineral Resources','no'],
+  ['IFRS 8','Operating Segments','mid'],
+  ['IAS 2','Inventories','ok'],
+  ['IAS 8','Basis of Preparation of Financial Statements','ok'],
+  ['IAS 10','Events after the Reporting Period','ok'],
+  ['IAS 12','Income Taxes','ok'],
+  ['IAS 16','Property, Plant and Equipment','ok'],
+  ['IAS 19','Employee Benefits','ok'],
+  ['IAS 20','Government Grants','no'],
+  ['IAS 21','The Effects of Changes in Foreign Exchange Rates','ok'],
+  ['IAS 23','Borrowing Costs','mid'],
+  ['IAS 24','Related Party Disclosures','ok'],
+  ['IAS 33','Earnings per Share','mid'],
+  ['IAS 36','Impairment of Assets','ok'],
+  ['IAS 37','Provisions, Contingent Liabilities and Contingent Assets','ok'],
+  ['IAS 38','Intangible Assets','mid'],
+  ['IAS 40','Investment Property','mid'],
+  ['IAS 41','Agriculture','no'],
+  ['IFRS for SMEs','IFRS for SMEs Accounting Standard','new'],
+  ['IFRS S1','General Requirements for Disclosure of Sustainability-related Financial Information','new'],
+  ['IFRS S2','Climate-related Disclosures','new'],
+  ['CF','Conceptual Framework for Financial Reporting','mid'],
+  ['Ethics','International Code of Ethics for Professional Accountants — Part 1','no'],
+];
+function renderExamGuide(){
+  const el=document.getElementById('examGuideContent'); if(!el) return;
+  const pill={ok:'<span class="eg-pill eg-ok">متغطي كويس</span>',mid:'<span class="eg-pill eg-mid">تغطية خفيفة</span>',no:'<span class="eg-pill eg-no">ناقص</span>',new:'<span class="eg-pill eg-new">جديد — ملخص تحت</span>'};
+  const cnt=k=>EXAM_DOCS.filter(d=>d[2]===k).length;
+  el.innerHTML=`
+  <div class="card" style="margin-bottom:14px">
+    <div class="sec-title">📅 تاريخ الامتحان</div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <div><div style="font-family:var(--mono);font-size:40px;font-weight:700;color:var(--gold);line-height:1">${examDaysLeft()}</div><div style="font-size:13px;color:var(--text3);margin-top:4px">يوم فاضل · DipIFR ${examLabelEn()}</div></div>
+      <div style="flex:1;min-width:260px">
+        <div style="font-size:13.5px;color:var(--text2);line-height:1.9">الامتحان بيتعمل مرتين في السنة: <b style="color:var(--text)">يونيو وديسمبر</b>. لحد دلوقتي ACCA <b style="color:var(--text)">معلنتش</b> اليوم بالظبط لدورة يونيو 2027، فالموقع حاطط تاريخ تقريبي (10 يونيو 2027). أول ما التاريخ يتعلن غيّره من هنا والعدّاد كله هيتظبط.</div>
+        <div class="eg-date-row">
+          <input type="date" id="egDateInput" value="${examDateStr()}">
+          <button class="btn btn-gold btn-sm" onclick="setExamDate(document.getElementById('egDateInput').value)">حفظ التاريخ</button>
+          <a href="https://www.accaglobal.com/gb/en/student/exam-entry-and-administration/important-dates.html" target="_blank" rel="noopener" style="font-size:12.5px;color:var(--accent)">مواعيد ACCA الرسمية ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="sec-title">🧭 شكل الامتحان (Exam Format)</div>
+    <div style="font-size:13.5px;color:var(--text2);line-height:1.9;margin-bottom:12px">
+      امتحان واحد على الكمبيوتر · <b style="color:var(--text)">3 ساعات وربع</b> · <b style="color:var(--text)">4 أسئلة × 25 درجة</b> · كلها إجبارية · النجاح من <b style="color:var(--text)">50%</b>.
+      <br>الوقت: 195 دقيقة ÷ 100 درجة ≈ <b style="color:var(--text)">1.95 دقيقة للدرجة</b> ≈ 49 دقيقة للسؤال. لما وقت السؤال يخلص، سيبه وروح للي بعده.
+    </div>
+    <div class="eg-grid">
+      <div class="eg-q"><b>Q1 · 25</b><span>قوائم مالية مجمعة (Consolidation). غالباً فيه تسويات لازم تتعمل في قوائم الشركة الأم قبل التجميع.</span></div>
+      <div class="eg-q"><b>Q2 · 25</b><span>حالة عملية: المعالجة المحاسبية والإفصاح. فيها جزء عن أخلاقيات المهنة (Ethics) بحد أقصى 5 درجات.</span></div>
+      <div class="eg-q"><b>Q3 · 25</b><span>غالباً معيار واحد بعينه: شرح المبادئ وبعدين تطبيقها على حالة.</span></div>
+      <div class="eg-q"><b>Q4 · 25</b><span>أسئلة متفرقة من «زميل في الشغل» عن معالجات مختلفة. كلام أكتر من أرقام.</span></div>
+    </div>
+    <div class="eg-note">المنهج (Syllabus) لدورتي ديسمبر 2026 ويونيو 2027 واحد — ACCA كاتبة إن مفيش إضافات ولا حذف ولا تعديل. الأقسام: A مصادر المعايير · B عناصر القوائم المالية · C العرض والإفصاحات الإضافية · D القوائم المجمعة والشركات الشقيقة والترتيبات المشتركة.</div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;border-right:4px solid var(--red)">
+    <div class="sec-title" style="color:var(--red)">⚠️ أهم حاجة تاخد بالك منها</div>
+    <div style="font-size:13.5px;color:var(--text2);line-height:2">
+      • <b style="color:var(--text)">IFRS 18 داخل الامتحان</b> ومكان IAS 1 في القائمة — يعني شكل قائمة الدخل اللي هتتسأل فيه هو شكل IFRS 18.<br>
+      • <b style="color:var(--text)">IAS 8 اسمه اتغير</b> لـ Basis of Preparation of Financial Statements (خد جزء من أحكام IAS 1 القديم).<br>
+      • داخل القائمة كمان: <b style="color:var(--text)">IFRS 19</b>، <b style="color:var(--text)">IFRS for SMEs</b>، <b style="color:var(--text)">IFRS S1 و S2</b> (الاستدامة والمناخ).<br>
+      • القاعدة: أي معيار صدر قبل 31 أغسطس بيدخل امتحانات السنة اللي بعدها — حتى لو تاريخ سريانه لسه مجاش.<br>
+      • <b style="color:var(--text)">IAS 7 و IFRS 17 و IAS 34</b> مش ظاهرين في القائمة اللي اتنقلت هنا — مذاكرتهم مفيدة للشغل مش للامتحان.
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="sec-title">📚 المعايير الداخلة في الامتحان — وحالتها في الموقع</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-size:12.5px;color:var(--text2)">
+      <span class="eg-pill eg-ok">متغطي كويس: ${cnt('ok')}</span><span class="eg-pill eg-mid">تغطية خفيفة: ${cnt('mid')}</span><span class="eg-pill eg-no">ناقص: ${cnt('no')}</span><span class="eg-pill eg-new">جديد: ${cnt('new')}</span>
+    </div>
+    <div style="overflow-x:auto"><table class="eg-table">
+      <thead><tr><th>المعيار</th><th>الاسم</th><th>حالته في الموقع</th></tr></thead>
+      <tbody>${EXAM_DOCS.map(d=>`<tr><td>${d[0]}</td><td style="direction:ltr;text-align:left">${d[1]}</td><td>${pill[d[2]]}</td></tr>`).join('')}</tbody>
+    </table></div>
+    <div class="eg-note">القائمة منقولة من ملف ACCA «Examinable documents — December 2026 to June 2027». قبل الامتحان راجع الملف الرسمي نفسه: <a href="https://www.accaglobal.com/gb/en/student/exam-support-resources/dipifr-study-resources/dipifr-examinable-documents.html" target="_blank" rel="noopener" style="color:var(--accent)">صفحة ACCA ↗</a><br>«حالته في الموقع» معناها حجم الشرح والأسئلة الموجودة هنا في AuditIQ، مش أهمية المعيار في الامتحان.</div>
+  </div>
+
+  <div class="sec-title" style="margin-top:22px">🆕 ملخص المعايير الجديدة على الموقع</div>
+
+  <div class="eg-std">
+    <h4><small>IFRS 18</small>العرض والإفصاح في القوائم المالية</h4>
+    <p><b>الفكرة:</b> المعيار ده جه مكان IAS 1. الهدف إن قائمة الدخل تبقى بشكل واحد عند كل الشركات عشان المقارنة تبقى سهلة. بيسري على الفترات اللي تبدأ من 1 يناير 2027، وبيتطبق بأثر رجعي (يعني أرقام المقارنة بتتعدل).</p>
+    <ul>
+      <li><b>5 فئات في قائمة الدخل:</b> تشغيلي (Operating) · استثماري (Investing) · تمويلي (Financing) · ضرائب الدخل · عمليات غير مستمرة. التشغيلي هو «الباقي»: أي بند مش داخل في فئة تانية يبقى تشغيلي.</li>
+      <li><b>مجاميع فرعية إجبارية:</b> ربح التشغيل (Operating profit) ← الربح قبل التمويل وضرائب الدخل ← صافي الربح أو الخسارة.</li>
+      <li><b>الاستثماري:</b> نصيب الشركة في أرباح الشركات الشقيقة والمشروعات المشتركة، عوائد النقدية وما في حكمها، وعوائد الأصول اللي بتجيب دخل لوحدها (إيجار استثمار عقاري، توزيعات أسهم).</li>
+      <li><b>التمويلي:</b> فوايد القروض والسندات، وكمان الفوايد على التزامات تانية زي التزام عقد الإيجار وفك خصم المخصصات.</li>
+      <li><b>مقاييس الأداء اللي بتحددها الإدارة (MPMs):</b> أي رقم ربح «معدّل» الشركة بتعلنه برّه القوائم لازم يتفصح عنه في إيضاح واحد، مع تسوية بينه وبين أقرب مجموع فرعي في المعيار، وأثر الضريبة والحقوق غير المسيطرة لكل بند في التسوية.</li>
+      <li><b>التجميع والتفصيل:</b> البنود تتجمع على أساس الصفات المشتركة. لو المصروفات معروضة حسب الوظيفة، لازم إيضاح بمبالغ الإهلاك والاستهلاك ومزايا العاملين والاضمحلال وتخفيض المخزون.</li>
+      <li><b>أثره على معايير تانية:</b> في IAS 7 الطريقة غير المباشرة بتبدأ من ربح التشغيل، والفوايد والتوزيعات المدفوعة بقت تمويلية والمقبوضة استثمارية (للشركات العادية).</li>
+    </ul>
+    <p><b>مثال مصري:</b> شركة مقاولات عندها إيراد عقود، وفوايد على قرض بنكي، وعائد أذون خزانة، ونصيبها في أرباح شركة شقيقة. إيراد العقود وتكلفتها ← تشغيلي. عائد الأذون ونصيب الشقيقة ← استثماري. فوايد القرض ← تمويلي. لو الشركة دي كانت بنك أو شركة تأجير تمويلي، عوائد التمويل تبقى تشغيلي لأن ده نشاطها الأساسي.</p>
+    <div class="en">Operating profit or loss · Profit or loss before financing and income taxes · Management-defined performance measures (MPMs) · Aggregation and disaggregation · Specified main business activities</div>
+  </div>
+
+  <div class="eg-std" style="border-right-color:var(--orange)">
+    <h4><small>IFRS 19</small>الشركات التابعة اللي مفيش عليها مساءلة عامة: الإفصاحات</h4>
+    <p>معيار <b>اختياري</b>. الشركة التابعة بتطبق نفس قواعد الاعتراف والقياس والعرض في المعايير الكاملة، بس <b>بإفصاحات أقل</b>. الشروط: تكون شركة تابعة، مفيش عليها مساءلة عامة (مش مقيدة في البورصة ومش بنك أو شركة تأمين)، والشركة الأم بتنشر قوائم مجمعة متاحة للجمهور ومعدّة بالمعايير الدولية. بيسري من 1 يناير 2027.</p>
+    <div class="en">Subsidiary · No public accountability · Reduced disclosure requirements · Parent produces consolidated financial statements available for public use</div>
+  </div>
+
+  <div class="eg-std" style="border-right-color:var(--purple)">
+    <h4><small>IFRS for SMEs</small>المعيار الدولي للمنشآت الصغيرة والمتوسطة</h4>
+    <p>معيار واحد مستقل ومبسّط للشركات اللي مفيش عليها مساءلة عامة. المطلوب في الامتحان غالباً: مين يطبقه، وأهم الفروق عن المعايير الكاملة. أمثلة على الفروق: الشهرة بتتستهلك (ولو العمر مش معروف بثقة يبقى بحد أقصى 10 سنين) بدل اختبار الاضمحلال السنوي · تكاليف الاقتراض كلها مصروف · تكاليف التطوير مصروف. الإصدار التالت صدر في 2025 وبيسري من 1 يناير 2027.</p>
+    <div class="en">Small and medium-sized entities · Public accountability · Simplifications · Goodwill amortisation</div>
+  </div>
+
+  <div class="eg-std" style="border-right-color:var(--green)">
+    <h4><small>IFRS S1 / S2</small>إفصاحات الاستدامة والمناخ</h4>
+    <p>صادرين عن ISSB (مش IASB). <b>S1</b> بيطلب الإفصاح عن مخاطر وفرص الاستدامة اللي ممكن تأثر على التدفقات النقدية للشركة وتكلفة تمويلها. <b>S2</b> متخصص في المناخ: المخاطر المادية (سيول، حرارة) ومخاطر التحول (قوانين، تكنولوجيا)، وانبعاثات الغازات بنطاقاتها التلاتة (Scope 1, 2, 3).</p>
+    <ul><li><b>الأربع محاور في الاتنين:</b> الحوكمة (Governance) · الاستراتيجية (Strategy) · إدارة المخاطر (Risk management) · المقاييس والأهداف (Metrics and targets).</li></ul>
+    <div class="en">Sustainability-related risks and opportunities · Physical risks · Transition risks · Greenhouse gas (GHG) emissions — Scope 1, 2, 3 · Climate resilience</div>
+  </div>
+
+  <div class="card" style="margin-top:6px">
+    <div class="sec-title">➕ تذاكر إيه كمان جنب الموقع</div>
+    <div style="font-size:13.5px;color:var(--text2);line-height:2">
+      • Syllabus and study guide الرسمي من ACCA — فيه كل نقطة ممكن تتسأل فيها.<br>
+      • آخر 4–6 امتحانات سابقة مع Examiner's report — دي اللي بتوريك الممتحن بيدي الدرجة على إيه.<br>
+      • المقالات الفنية (Technical articles) على صفحة DipIFR في موقع ACCA، خصوصاً عن IFRS 18.<br>
+      • المعايير الناقصة في الجدول فوق (IFRS 2، IAS 20، IAS 41، IFRS 6، IFRS 12، IAS 27، Ethics) — ذاكرها من الملازم لحد ما تتضاف هنا.
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════ v10 — الاختصارات ═══════════════════════
+const ABBR=[
+  ['ACCA','Association of Chartered Certified Accountants','جمعية المحاسبين القانونيين المعتمدين'],
+  ['DipIFR','Diploma in International Financial Reporting','دبلومة التقارير المالية الدولية'],
+  ['IFRS','International Financial Reporting Standards','المعايير الدولية للتقارير المالية'],
+  ['IAS','International Accounting Standards','معايير المحاسبة الدولية'],
+  ['IASB','International Accounting Standards Board','مجلس معايير المحاسبة الدولية'],
+  ['ISSB','International Sustainability Standards Board','مجلس معايير الاستدامة الدولية'],
+  ['EAS','Egyptian Accounting Standards','معايير المحاسبة المصرية'],
+  ['ISA','International Standards on Auditing','معايير المراجعة الدولية'],
+  ['FRA','Financial Regulatory Authority','الهيئة العامة للرقابة المالية'],
+  ['ETA','Egyptian Tax Authority','مصلحة الضرائب المصرية'],
+  ['CF','Conceptual Framework','الإطار المفاهيمي'],
+  ['SME','Small and Medium-sized Entity','منشأة صغيرة أو متوسطة'],
+  ['FS','Financial Statements','القوائم المالية'],
+  ['SOFP','Statement of Financial Position','قائمة المركز المالي'],
+  ['P&L','Profit or Loss','الأرباح أو الخسائر'],
+  ['OCI','Other Comprehensive Income','الدخل الشامل الآخر'],
+  ['SOCE','Statement of Changes in Equity','قائمة التغير في حقوق الملكية'],
+  ['CFO','Cash Flow from Operations','التدفقات النقدية من التشغيل'],
+  ['TB','Trial Balance','ميزان المراجعة'],
+  ['MPM','Management-defined Performance Measure','مقياس أداء تحدده الإدارة'],
+  ['NCI','Non-controlling Interest','الحقوق غير المسيطرة'],
+  ['PUP','Provision for Unrealised Profit','مخصص الأرباح غير المحققة'],
+  ['JV','Joint Venture','مشروع مشترك'],
+  ['PPE','Property, Plant and Equipment','الأصول الثابتة'],
+  ['ROU','Right-of-use Asset','أصل حق الانتفاع'],
+  ['CGU','Cash-generating Unit','وحدة توليد النقد'],
+  ['VIU','Value in Use','القيمة الاستخدامية'],
+  ['FVLCD','Fair Value Less Costs of Disposal','القيمة العادلة ناقص تكاليف البيع'],
+  ['NRV','Net Realisable Value','صافي القيمة البيعية'],
+  ['FV','Fair Value','القيمة العادلة'],
+  ['PV','Present Value','القيمة الحالية'],
+  ['NPV','Net Present Value','صافي القيمة الحالية'],
+  ['AC','Amortised Cost','التكلفة المستهلكة'],
+  ['FVTPL','Fair Value Through Profit or Loss','القيمة العادلة من خلال الأرباح أو الخسائر'],
+  ['FVOCI','Fair Value Through Other Comprehensive Income','القيمة العادلة من خلال الدخل الشامل الآخر'],
+  ['SPPI','Solely Payments of Principal and Interest','مدفوعات أصل وفائدة فقط'],
+  ['ECL','Expected Credit Loss','الخسائر الائتمانية المتوقعة'],
+  ['PD','Probability of Default','احتمال التعثر'],
+  ['LGD','Loss Given Default','الخسارة عند التعثر'],
+  ['EAD','Exposure at Default','الرصيد المعرّض عند التعثر'],
+  ['DTA','Deferred Tax Asset','أصل ضريبي مؤجل'],
+  ['DTL','Deferred Tax Liability','التزام ضريبي مؤجل'],
+  ['EPS','Earnings per Share','نصيب السهم في الأرباح'],
+  ['GHG','Greenhouse Gas','غازات الاحتباس الحراري'],
+  ['WHT','Withholding Tax','ضريبة الخصم والتحصيل تحت حساب الضريبة'],
+  ['VAT','Value Added Tax','ضريبة القيمة المضافة'],
+  ['WP','Working Paper','ورقة عمل'],
+  ['GC','Going Concern','الاستمرارية'],
+  ['RP','Related Party','طرف ذو علاقة'],
+  ['KAM','Key Audit Matter','أمر مراجعة رئيسي'],
+  ['RMM','Risk of Material Misstatement','خطر التحريف الهام'],
+  ['IR','Inherent Risk','الخطر الحتمي'],
+  ['CR','Control Risk','خطر الرقابة'],
+  ['DR','Detection Risk','خطر الاكتشاف'],
+  ['AR','Audit Risk','خطر المراجعة'],
+  ['PM','Performance Materiality','الأهمية النسبية للتنفيذ'],
+  ['EBIT','Earnings Before Interest and Tax','الربح قبل الفوائد والضرائب'],
+  ['EBITDA','Earnings Before Interest, Tax, Depreciation and Amortisation','الربح قبل الفوائد والضرائب والإهلاك والاستهلاك'],
+  ['ROA','Return on Assets','العائد على الأصول'],
+  ['ROE','Return on Equity','العائد على حقوق الملكية'],
+  ['ROCE','Return on Capital Employed','العائد على رأس المال المستخدم'],
+  ['CBE','Computer-based Exam','امتحان على الكمبيوتر'],
+  ['PWA','Progressive Web App','تطبيق ويب بيشتغل من غير إنترنت'],
+];
+function renderAbbr(q){
+  const el=document.getElementById('abbrContent'); if(!el) return;
+  const s=(q||'').trim().toLowerCase();
+  const rows=ABBR.filter(a=>!s||a[0].toLowerCase().indexOf(s)>-1||a[1].toLowerCase().indexOf(s)>-1||a[2].indexOf(q.trim())>-1)
+    .sort((a,b)=>a[0].localeCompare(b[0]));
+  el.innerHTML=`<div style="font-size:12.5px;color:var(--text3);margin-bottom:8px">${rows.length} اختصار</div>
+  <div style="overflow-x:auto"><table class="eg-table"><thead><tr><th>الاختصار</th><th>بالإنجليزي</th><th>بالعربي</th></tr></thead>
+  <tbody>${rows.map(a=>`<tr><td>${a[0]}</td><td style="direction:ltr;text-align:left">${a[1]}</td><td>${a[2]}</td></tr>`).join('')||'<tr><td colspan="3">مفيش نتيجة</td></tr>'}</tbody></table></div>`;
+}
+
 // ═══════════════════════ INIT ═══════════════════════
 renderHome();
 setTimeout(injectDailyHome, 50);
-const examDays=Math.max(0,Math.ceil((new Date('2026-12-07')-new Date())/86400000));
-document.getElementById('sideCD').textContent=examDays;
+const examDays=Math.max(0,Math.ceil((examDate()-new Date())/86400000));
+document.getElementById('sideCD').textContent=examDays; applyExamLabels();
 setTimeout(updateDailyCounter, 100);
 
 // ══════════════════════════════════════════
@@ -9154,7 +9638,7 @@ async function callClaudeAI(systemPrompt, userPrompt, outputId, loadingMsg){
     ${loadingMsg||'جاري التحليل...'}
   </div>`;
 
-  const fullPrompt = systemPrompt+'\n\nالمستخدم: يوسف صلاح — مراجع خارجي مصري، DipIFR Dec 2026.\n\n'+userPrompt;
+  const fullPrompt = systemPrompt+'\n\nالمستخدم: يوسف صلاح — مراجع خارجي مصري، DipIFR '+examLabelEn()+'.\n\n'+userPrompt;
   const url = 'https://claude.ai/new?q=' + encodeURIComponent(fullPrompt);
   window.open(url, '_blank');
 
@@ -9389,7 +9873,7 @@ function getCoachAdvice(){
   });
   const papers = JSON.parse(localStorage.getItem('fh_papers')||'[]');
   const avgPaper = papers.length ? Math.round(papers.reduce((a,p)=>a+(p.score||0),0)/papers.length) : null;
-  const daysLeft = Math.max(0,Math.ceil((new Date('2026-12-07')-new Date())/86400000));
+  const daysLeft = Math.max(0,Math.ceil((examDate()-new Date())/86400000));
 
   const sys = 'أنت مدرب امتحانات متخصص في ACCA DipIFR وخبير في طرق المذاكرة الفعالة. تحدث بالعربية. كن محددًا وعملياً في نصائحك.';
   const user = `حلل أداء الطالب وقدم خطة مذاكرة مفصلة:\n\n📊 بيانات الأداء:\n- أسئلة الكويز: ${total} سؤال | نسبة الصح: ${pct}%\n- Past Papers: ${papers.length} ورقة | المتوسط: ${avgPaper?avgPaper+'%':'لا يوجد'}\n- أيام متبقية للامتحان: ${daysLeft} يوم\n\n📈 تحليل المواضيع:\n${Object.entries(topicStats).map(([k,v])=>`- ${k}: ${Math.round(v.correct/v.total*100)}% (${v.correct}/${v.total})`).join('\n')}\n\nالمطلوب:\n1. تحليل نقاط القوة والضعف\n2. خطة مذاكرة أسبوعية للـ ${Math.min(daysLeft,8)} أسابيع القادمة\n3. أولويات المواضيع\n4. استراتيجية الامتحان\n5. توصيات عملية للتحسين`;
@@ -9886,8 +10370,8 @@ function skipPom(){
 
 // ═══════════════════════ IFRS UPDATES TRACKER ═══════════════════════
 const IFRS_UPDATES = [
-  {date:'2024-11', std:'IFRS 18', title:'Presentation and Disclosure in Financial Statements', status:'جديد', color:'var(--red)', desc:'يحل محل IAS 1 اعتباراً من 2027. يُعيد تصنيف قائمة الدخل إلى 5 فئات ويُضيف متطلبات إفصاح جديدة عن Management-defined Performance Measures (MPMs).', impact:'عالي — يؤثر على هيكل قائمة الدخل بالكامل', effective:'2027', dipifr:'محتمل في امتحانات 2026-2027'},
-  {date:'2024-08', std:'IFRS 19', title:'Subsidiaries without Public Accountability', status:'جديد', color:'var(--orange)', desc:'يسمح للشركات التابعة غير المدرجة باستخدام معايير مبسطة. اختياري ويتطلب موافقة الشركة الأم.', impact:'متوسط — يخص الشركات التابعة', effective:'2027', dipifr:'منخفض الأهمية لـ DipIFR'},
+  {date:'2024-11', std:'IFRS 18', title:'Presentation and Disclosure in Financial Statements', status:'جديد', color:'var(--red)', desc:'يحل محل IAS 1 اعتباراً من 2027. يُعيد تصنيف قائمة الدخل إلى 5 فئات ويُضيف متطلبات إفصاح جديدة عن Management-defined Performance Measures (MPMs).', impact:'عالي — يؤثر على هيكل قائمة الدخل بالكامل', effective:'2027', dipifr:'داخل قائمة امتحان Dec 2026 – Jun 2027 (بديل IAS 1)'},
+  {date:'2024-08', std:'IFRS 19', title:'Subsidiaries without Public Accountability', status:'جديد', color:'var(--orange)', desc:'يسمح للشركات التابعة غير المدرجة باستخدام معايير مبسطة. اختياري ويتطلب موافقة الشركة الأم.', impact:'متوسط — يخص الشركات التابعة', effective:'2027', dipifr:'داخل قائمة امتحان Dec 2026 – Jun 2027'},
   {date:'2024-05', std:'IAS 21', title:'Lack of Exchangeability — تعديل', status:'تعديل', color:'var(--orange)', desc:'يُعالج حالة عدم قابلية العملة للتحويل — كيف تحدد ما إذا كانت العملة قابلة للتحويل وما معدل الصرف المستخدم في حالة عدم القابلية.', impact:'متوسط — مهم للشركات ذات العمليات في أسواق مقيدة', effective:'2025', dipifr:'محتمل في DipIFR'},
   {date:'2023-08', std:'IAS 7 / IFRS 7', title:'تعديل — Supplier Finance Arrangements', status:'تعديل', color:'var(--blue)', desc:'يُضيف متطلبات إفصاح جديدة عن ترتيبات تمويل الموردين Supply Chain Finance. يجب الإفصاح عن الشروط والمبالغ وتأثيرها على السيولة.', impact:'متوسط — يؤثر على شركات تستخدم Supply Chain Finance', effective:'2024', dipifr:'منخفض لـ DipIFR'},
   {date:'2023-05', std:'IAS 12', title:'تعديل — Top-up Taxes (Pillar 2)', status:'تعديل', color:'var(--purple)', desc:'استثناء مؤقت من متطلبات IAS 12 لـ Deferred Tax المتعلق بـ OECD Pillar Two Global Minimum Tax. الشركات لا تعترف بـ DTA/DTL لضريبة Pillar 2.', impact:'عالي للشركات المتعددة الجنسيات', effective:'2023', dipifr:'منخفض لـ DipIFR'},
@@ -9936,13 +10420,14 @@ function renderIFRSUpdates(){
     </div>`).join('')}
 
   <div class="card" style="margin-top:4px;border-color:rgba(46,196,182,.2)">
-    <div class="sec-title" style="color:var(--teal)">🎯 للـ DipIFR December 2026</div>
+    <div class="sec-title" style="color:var(--teal)">🎯 للـ DipIFR ${examLabelEn()}</div>
     <div style="font-size:13px;color:var(--text2);line-height:1.8">
       أهم ما يجب معرفته للامتحان:<br>
-      <strong style="color:var(--text)">IFRS 18</strong> — معرفة أساسية بالتغييرات الرئيسية على IAS 1<br>
+      <strong style="color:var(--text)">IFRS 18</strong> — داخل قائمة الامتحان مكان IAS 1: الفئات الخمسة، المجاميع الفرعية، و MPMs<br>
+      <strong style="color:var(--text)">IFRS 19</strong> — داخل القائمة: مين يطبقه وإيه اللي بيخففه<br>
       <strong style="color:var(--text)">IAS 21 تعديل</strong> — فهم مفهوم عدم قابلية التحويل<br>
       <strong style="color:var(--text)">باقي التعديلات</strong> — فهم عام بدون تفاصيل عميقة<br>
-      <span style="font-size:11px;color:var(--text3)">💡 تحقق من ACCA Study Guide قبل الامتحان لأي إضافات</span>
+      <span style="font-size:11px;color:var(--text3)">💡 التفاصيل في صفحة «دليل امتحان 2027» — وراجع ملف ACCA الرسمي قبل الامتحان</span>
     </div>
   </div>`;
 }
@@ -10131,7 +10616,7 @@ const INTERVIEW_DATA = {
 
 خلال فترة عملي اكتسبت خبرة عملية في مراجعة القوائم المالية وفقاً للمعايير المصرية للمحاسبة والمراجعة، مع التطبيق الفعلي لمعايير ISA في تخطيط وتنفيذ عمليات المراجعة.
 
-أسعى حالياً للحصول على شهادة DipIFR من ACCA في ديسمبر 2026 لتعزيز خبرتي في المعايير الدولية للتقارير المالية، وأطمح للانضمام لمكتب بيج فور للعمل على ملفات أكبر وأكثر تنوعاً.`,
+أسعى حالياً للحصول على شهادة DipIFR من ACCA في يونيو 2027 لتعزيز خبرتي في المعايير الدولية للتقارير المالية، وأطمح للانضمام لمكتب بيج فور للعمل على ملفات أكبر وأكثر تنوعاً.`,
       tips: ['كن واثقاً ومحدداً — أرقام وفترات زمنية','اذكر إنجازاً واحداً بارزاً في الشغل','اربط إجابتك بالوظيفة المتقدم عليها','لا تزيد عن 90 ثانية']
     },
     english: {
@@ -10140,7 +10625,7 @@ const INTERVIEW_DATA = {
 
 During this time, I've gained hands-on experience in auditing financial statements in accordance with Egyptian Accounting Standards and ISA, including risk assessment, substantive testing, and audit documentation.
 
-I'm currently pursuing the ACCA DipIFR qualification, scheduled for December 2026, to strengthen my IFRS expertise. I'm looking to join a Big Four firm to work on more complex, diverse engagements and continue developing my professional skills.`,
+I'm currently pursuing the ACCA DipIFR qualification, scheduled for June 2027, to strengthen my IFRS expertise. I'm looking to join a Big Four firm to work on more complex, diverse engagements and continue developing my professional skills.`,
       tips: ['Speak clearly and confidently — no filler words','Mention a specific achievement or client type','Connect your answer to why you want THIS firm','Keep it under 90 seconds']
     }
   },
@@ -11032,8 +11517,8 @@ function renderDashWidget(){
 }
 
 // ═══════════════════════ SMART REVISION PLANNER ═══════════════════════
-function planDaysLeft(){ return Math.max(0,Math.ceil((new Date('2026-12-07')-new Date())/86400000)); }
-function planIsOld(t){ return /superseded|قديم|مستبدل/i.test(((t.note||'')+' '+(t.en||'')+' '+(t.ar||''))); }
+function planDaysLeft(){ return Math.max(0,Math.ceil((examDate()-new Date())/86400000)); }
+function planIsOld(t){ return /superseded|قديم|مستبدل|خارج/i.test(((t.note||'')+' '+(t.en||'')+' '+(t.ar||''))); }
 function planWeakTopics(){
   const stats={};
   S.quizHistory.forEach(h=>{
@@ -11188,7 +11673,7 @@ function backupStats(){
 }
 function backupExport(){
   const payload = {
-    __app:'AuditIQ', __version:'v9',
+    __app:'AuditIQ', __version:'v10',
     __exported:new Date().toISOString(),
     __user:'يوسف صلاح',
     data: backupCollectAll()
