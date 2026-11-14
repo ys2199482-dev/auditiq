@@ -511,6 +511,7 @@ body.dark #quickNotePopup{background:var(--bg2) !important}
    AuditIQ v11 — تصميم الصورة: سايدبار شمال، أزرار كبيرة، دروس بخطوات
    ═══════════════════════════════════════════════════════════ */
 /* ── السايدبار على الشمال ── */
+.sidebar > *{flex-shrink:0}   /* من غيرها الأقسام بتتضغط بدل ما القائمة تتسحب */
 .sidebar,body.dark .sidebar{right:auto;left:0;width:228px;background:linear-gradient(180deg,#0b1733 0%,#10224a 60%,#0b1733 100%) !important;box-shadow:2px 0 18px rgba(8,16,32,.2);padding:0 12px}
 .main{margin-right:0;margin-left:228px}
 #topbar,body.dark #topbar{right:0;left:228px;height:64px;gap:18px}
@@ -12129,6 +12130,10 @@ function toggleNavGroup(leader){
   const group = leader.nextElementSibling;
   const isOpen = group.classList.toggle('open');
   leader.classList.toggle('open', isOpen);
+  if(isOpen){ // قسم واحد مفتوح في المرة عشان القائمة متطولش
+    document.querySelectorAll('.nav-leader.open').forEach(function(l){ if(l!==leader){ l.classList.remove('open'); if(l.nextElementSibling) l.nextElementSibling.classList.remove('open'); } });
+    setTimeout(function(){ try{ leader.scrollIntoView({block:'nearest',behavior:'smooth'}); }catch(e){} },260);
+  }
 }
 
 // ═══════════════════════ STREAK TRACKER ═══════════════════════
