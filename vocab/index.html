@@ -68,7 +68,8 @@ main{padding:0 14px calc(96px + env(safe-area-inset-bottom))}
 .wd.ok i{background:var(--g);color:#fff}
 .wd.now i{border-color:var(--g)}
 /* term of day */
-.tod{background:linear-gradient(150deg,#1f7a55,#2c9b6c);color:#fff;border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(31,122,85,.28);margin-bottom:14px}
+.tod{background:#0d4a57;color:#fff;border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(13,74,87,.3);margin-bottom:14px}
+.tod .lb{color:#f2c25c}
 .tod .lb{opacity:.85;font-size:.85rem;display:flex;align-items:center;gap:6px}
 .tod .w{font-size:1.65rem;font-weight:800;margin:4px 0 0;line-height:1.25;text-align:left}
 .tod .ar{font-weight:700;font-size:1.1rem;margin-top:2px}
@@ -77,7 +78,7 @@ main{padding:0 14px calc(96px + env(safe-area-inset-bottom))}
 .ib{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-width:44px;height:44px;border-radius:13px;border:1px solid var(--line);background:var(--gs);color:var(--gt);padding:0 11px;font-weight:600;font-size:.88rem}
 .tod .ib{background:rgba(255,255,255,.17);border-color:transparent;color:#fff}
 .ib.on{background:var(--g);color:#fff;border-color:var(--g)}
-.tod .ib.on{background:#fff;color:var(--g)}
+.tod .ib.on{background:#fff;color:#0d4a57}
 .ib.star.fav{background:#f2a33a;border-color:#f2a33a;color:#fff}
 .ib.rec{background:var(--red);border-color:var(--red);color:#fff;animation:pulse 1s infinite}
 @keyframes pulse{50%{opacity:.6}}
@@ -292,7 +293,7 @@ D.forEach(w=>{if(w.ka)KEYOF.set(w.e,[w.ka,w.b]);if(w.ks)KEYOF.set(w.s,[w.ks,w.b]
 ABBR.forEach(a=>{if(a[3])KEYOF.set(a[0]+'. '+a[1],[a[3],XB])});
 IV.forEach(x=>{if(x[2])KEYOF.set(x[0],[x[2],XB])});
 const BUN={};
-function bundle(n){if(!BUN[n])BUN[n]=fetch('a/'+n+'.json?v=1794778912').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>{delete BUN[n];return null});return BUN[n]}
+function bundle(n){if(!BUN[n])BUN[n]=fetch('a/'+n+'.json?v=1794779081').then(r=>{if(!r.ok)throw 0;return r.json()}).catch(()=>{delete BUN[n];return null});return BUN[n]}
 const AU=new Audio();AU.preload='auto';let auDone=null,spTok=0;
 function recSay(b64,rate){return new Promise(res=>{
   try{if(auDone)auDone(false);AU.pause();
