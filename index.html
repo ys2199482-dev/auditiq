@@ -4361,7 +4361,7 @@ const FA_TOTALS=[
   [/اجمالي الالتزامات المتداوله|total current liabilities/,'CL'],[/اجمالي الالتزامات غير المتداوله|total non ?current liabilities/,'NCL'],
   [/اجمالي حقوق الملكيه والالتزامات|اجمالي الالتزامات وحقوق الملكيه|total equity and liabilities|total liabilities and equity/,'totalEqLiab'],
   [/^(اجمالي|مجموع) الالتزامات$|^total liabilities$/,'totalLiabilities'],[/اجمالي حقوق الملكيه|total equity/,'totalEquity'],
-  [/^مجمل (ال)?(ربح|خساره)|gross (profit|loss)/,'grossProfit'],[/قبل (ال)?(ضرائب|ضريبه)|before (income )?tax/,'pbt'],
+  [/^مجمل (ال)?(ربح|خساره)|gross (profit|loss)/,'grossProfit'],[/(ربح|خساره|ارباح|خسائر|نتائج|نتيجه)( (ال)?(ربح|خساره|ارباح|خسائر))? (ال)?(نشاط|تشغيل|انشطه التشغيل)$|operating (profit|loss)|(profit|loss) from operations/,'ebit'],[/قبل (ال)?(ضرائب|ضريبه)|before (income )?tax/,'pbt'],
 ];
 const FA_RULES=[
   // تدفقات نقدية
@@ -4386,7 +4386,7 @@ const FA_RULES=[
   [/راس (ال)?مال (ال)?(مدفوع|مصدر|المرخص)|^راس (ال)?مال$|share capital|paid ?up capital|issued capital/,'shareCapital',['EQ','UNK']],
   [/احتياطي|فائض (ال)?اعاده (ال)?تقييم|reserve|revaluation surplus/,'reserves',['EQ','UNK']],
   [/ارباح مرحله|خسائر مرحله|ارباح (ال)?محتجزه|ارباح \(?خسائر\)? مرحله|retained|accumulated (loss|deficit)/,'retainedEarnings',['EQ','UNK']],
-  [/صافي (ال)?(ربح|خساره|ارباح|خسائر)|ارباح (ال)?(عام|سنه|فتره)|profit for the (year|period)|net (profit|loss)/,'retainedEarnings',['EQ']],
+  [/صافي (ال)?(ربح|خساره|ارباح|خسائر)|(ربح|ارباح|خساره|خسائر)( (ال)?(ربح|ارباح|خساره|خسائر))? (ال)?(عام|سنه|فتره)|(نتيجه|نتائج) (ال)?(عام|سنه|فتره)|(profit|loss)( (profit|loss))? for the (year|period)|net (profit|loss)/,'retainedEarnings',['EQ']],
   // أصول
   [/حق (ال)?انتفاع|حق (ال)?استخدام|right ?of ?use/,'rouAssets',['NCA','UNK']],
   [/استثمار(ات)? عقاري|investment propert/,'invProp',['NCA','UNK']],
@@ -4492,7 +4492,7 @@ function faAnalyzeAOA(aoa,fileName,initSec){
     if(sec==='OCI') { rows.push({label,sec,key:'',vals,total:false,head:false}); continue; }
     let key=faMatchRule(n,sec);
     // صافي ربح العام داخل قائمة الدخل = مراجعة مش بند
-    if(sec==='PL'&&/^ربح التشغيل|ارباح التشغيل|operating profit|^مجمل/.test(n)) { rows.push({label,sec,key:'',vals,total:true,check:/مجمل|gross/.test(n)?'grossProfit':'ebit',head:false}); continue; }
+    if(sec==='PL'&&/^ربح التشغيل|ارباح التشغيل|operating profit|^مجمل|^(نتائج|نتيجه) (ال)?(نشاط|انشطه التشغيل)|^(ربح|خساره|ارباح|خسائر)( (ربح|خساره|ارباح|خسائر))? (ال)?(نشاط|تشغيل)$/.test(n)) { rows.push({label,sec,key:'',vals,total:true,check:/مجمل|gross/.test(n)?'grossProfit':'ebit',head:false}); continue; }
     rows.push({label,sec,key,vals,total:false,head:false});
   }
   // اصطلاح الإشارة في قائمة الدخل: لو أغلب المصروفات سالبة يبقى المصروفات بتتكتب بالسالب
@@ -4502,6 +4502,12 @@ function faAnalyzeAOA(aoa,fileName,initSec){
   return {years:yearCols.map(f=>f.y),guessedYears:guessed,unit,rows,expNeg,anyHead,keyMode:keyCol>=0};
 }
 // يحوّل التحليل لقيم سنوية: {year:{key:value}} + فحوص المجاميع
+// «ربح/خسارة النشاط» في القوائم المصرية ساعات بيبقى قبل الإيرادات الأخرى أو بعد فروق العملة — بنقبل أقرب تعريف
+function faChkCalc(x,check,file){
+  if(check!=='ebit') return x[check];
+  const alts=[x.ebit,x.ebit-x.otherIncome,x.ebit+x.fxGainLoss,x.ebit-x.otherIncome+x.fxGainLoss,x.ebit+x.fxGainLoss+x.financeIncome];
+  return alts.reduce((b,v)=>Math.abs(Math.abs(v)-Math.abs(file))<Math.abs(Math.abs(b)-Math.abs(file))?v:b,alts[0]);
+}
 function faBuildFromImport(an,map){
   const out={}; an.years.forEach(y=>out[y]={});
   const add=(y,k,v)=>{ out[y][k]=(out[y][k]||0)+v; };
@@ -4956,7 +4962,7 @@ function faApplyImport(){
   }
   ys.forEach(y=>{ co.years[y]=Object.assign(co.years[y]||{},allData[y]); });
   // إعادة حساب المطابقة بعد الدمج
-  _faChecks=allChecks.map(c=>{ const calc=faCalc(co.years[c.y])[c.check]; const conv=(I.target!=='new'&&+co.unit!==I.unit)?I.unit/(+co.unit||1):1; const file=c.file*conv; return Object.assign(c,{file,calc,ok:Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005)}); });
+  _faChecks=allChecks.map(c=>{ const conv=(I.target!=='new'&&+co.unit!==I.unit)?I.unit/(+co.unit||1):1; const file=c.file*conv; const calc=faChkCalc(faCalc(co.years[c.y]),c.check,file); return Object.assign(c,{file,calc,ok:Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005)}); });
   co.updated=Date.now(); _faImp=null; FA.ui.tab='fs'; faSave();
   if(typeof goTo==='function'&&!document.getElementById(_faHost)) goTo('fsinput',NAVBTN_('fsinput'));
   faRender(); faModals();
@@ -5792,7 +5798,7 @@ function faImpRecon(){
   const I=_faImp; if(!I) return '';
   const data={}, checks=[];
   I.parts.forEach((p,pi)=>{ const r=faImpPartData(I,pi); Object.keys(r.data).forEach(y=>{ data[y]=data[y]||{}; Object.keys(r.data[y]).forEach(k=>data[y][k]=(data[y][k]||0)+r.data[y][k]); }); r.checks.forEach(c=>checks.push(Object.assign({},c,{part:p.name}))); });
-  const res=checks.map(c=>{ const calc=faCalc(data[c.y]||{})[c.check]; return Object.assign(c,{calc,ok:calc!=null&&Math.abs(Math.abs(calc)-Math.abs(c.file))<=Math.max(1,Math.abs(c.file)*0.0005)}); });
+  const res=checks.map(c=>{ const calc=faChkCalc(faCalc(data[c.y]||{}),c.check,c.file); return Object.assign(c,{calc,ok:calc!=null&&Math.abs(Math.abs(calc)-Math.abs(c.file))<=Math.max(1,Math.abs(c.file)*0.0005)}); });
   const bal=I.years.map(y=>{ const c=faCalc(data[y]||{}); return c.hasSFP?{y,d:c.balanceDiff}:null; }).filter(Boolean);
   const bad=res.filter(c=>!c.ok), badBal=bal.filter(b=>Math.abs(b.d)>=1);
   const status=!res.length&&!bal.length?'<span class="fa-muted">مفيش مجاميع في الملف أطابق عليها</span>':(bad.length||badBal.length?'<span class="fa-bad">⚠️ '+(bad.length+badBal.length)+' اختلاف — صلّح التبويب قبل الإضافة</span>':'<span class="fa-ok">✓ كل المجاميع مطابقة ('+res.length+')'+(bal.length?' والمركز المالي متوازن':'')+'</span>');
