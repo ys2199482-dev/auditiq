@@ -890,6 +890,7 @@ html[dir=rtl] .fa-ov:not(.fa-ov-c){justify-content:flex-start}
 .pg-g b{color:var(--text);font-size:13px}.pg-g p{margin:4px 0 0}.pg-g ol{margin:4px 0 0;padding-right:18px}
 .fa-recon{border-radius:10px;padding:8px 12px;font-size:12.8px;margin:8px 0;border:1px solid var(--border)}
 .fa-recon.ok{background:rgba(21,147,106,.07)}.fa-recon.bad{background:rgba(214,69,69,.07);border-color:rgba(214,69,69,.35)}
+.fa-hint{font-size:12px;color:var(--accent);margin:2px 0 4px}
 .fa-recon ul{margin:4px 0 0;padding-right:18px;max-height:120px;overflow:auto}
 .fa-lg{border:0;background:transparent;cursor:pointer;font-family:var(--font);padding:2px 4px;border-radius:6px}
 button.fa-lg:hover{background:var(--bg3)}.fa-lg.off{opacity:.38;text-decoration:line-through}
@@ -5797,12 +5798,20 @@ function faImpPartData(I,pi){
 function faImpRecon(){
   const I=_faImp; if(!I) return '';
   const data={}, checks=[];
-  I.parts.forEach((p,pi)=>{ const r=faImpPartData(I,pi); Object.keys(r.data).forEach(y=>{ data[y]=data[y]||{}; Object.keys(r.data[y]).forEach(k=>data[y][k]=(data[y][k]||0)+r.data[y][k]); }); r.checks.forEach(c=>checks.push(Object.assign({},c,{part:p.name}))); });
+  I.parts.forEach((p,pi)=>{ const r=faImpPartData(I,pi); Object.keys(r.data).forEach(y=>{ data[y]=data[y]||{}; Object.keys(r.data[y]).forEach(k=>data[y][k]=(data[y][k]||0)+r.data[y][k]); }); r.checks.forEach(c=>checks.push(Object.assign({},c,{part:p.name,pi}))); });
   const res=checks.map(c=>{ const calc=faChkCalc(faCalc(data[c.y]||{}),c.check,c.file); return Object.assign(c,{calc,ok:calc!=null&&Math.abs(Math.abs(calc)-Math.abs(c.file))<=Math.max(1,Math.abs(c.file)*0.0005)}); });
   const bal=I.years.map(y=>{ const c=faCalc(data[y]||{}); return c.hasSFP?{y,d:c.balanceDiff}:null; }).filter(Boolean);
   const bad=res.filter(c=>!c.ok), badBal=bal.filter(b=>Math.abs(b.d)>=1);
   const status=!res.length&&!bal.length?'<span class="fa-muted">مفيش مجاميع في الملف أطابق عليها</span>':(bad.length||badBal.length?'<span class="fa-bad">⚠️ '+(bad.length+badBal.length)+' اختلاف — صلّح التبويب قبل الإضافة</span>':'<span class="fa-ok">✓ كل المجاميع مطابقة ('+res.length+')'+(bal.length?' والمركز المالي متوازن':'')+'</span>');
-  const lst=bad.map(c=>'<li><b>'+faEsc(c.label)+'</b> '+c.y+': الملف <bdi dir="ltr">'+faN(c.file)+'</bdi> · المحسوب من التبويب <bdi dir="ltr">'+faN(c.calc)+'</bdi> · الفرق <bdi dir="ltr">'+faN(Math.abs(c.calc)-Math.abs(c.file))+'</bdi></li>').join('')+badBal.map(b=>'<li><b>المركز المالي '+b.y+'</b> مش متوازن بفرق <bdi dir="ltr">'+faN(b.d)+'</bdi> — غالباً بند متبوب في القسم الغلط أو متجاهل.</li>').join('');
+  // دوّر على البند اللي مش متبوب وقيمته = الفرق (أو مجموع اللي مش متبوب)
+  const hint=c=>{ const d=Math.abs(Math.abs(c.calc)-Math.abs(c.file)); if(d<1) return ''; const f=(+(I.parts[c.pi]||{}).unit||I.unit)/I.unit;
+    const un=I.rows.filter(r=>r.part===c.pi&&!r.head&&!r.total&&(!r.on||!r.key)&&r.vals[c.y]!=null&&r.vals[c.y]!==0);
+    const hit=un.find(r=>Math.abs(Math.abs(r.vals[c.y]*f)-d)<=Math.max(1,d*0.0005));
+    if(hit) return '<div class="fa-hint">💡 الفرق = قيمة «<b>'+faEsc(hit.label)+'</b>» اللي متعلّم «تجاهل» — علّمه ✓ واختار تبويبه.</div>';
+    const sum=un.reduce((a,r)=>a+Math.abs(r.vals[c.y]*f),0);
+    if(un.length&&Math.abs(sum-d)<=Math.max(1,d*0.0005)) return '<div class="fa-hint">💡 الفرق = مجموع البنود المتجاهلة: '+un.map(r=>'«'+faEsc(r.label)+'»').join('، ')+'.</div>';
+    return ''; };
+  const lst=bad.map(c=>'<li><b>'+faEsc(c.label)+'</b> '+c.y+': الملف <bdi dir="ltr">'+faN(c.file)+'</bdi> · المحسوب من التبويب <bdi dir="ltr">'+faN(c.calc)+'</bdi> · الفرق <bdi dir="ltr">'+faN(Math.abs(c.calc)-Math.abs(c.file))+'</bdi>'+hint(c)+'</li>').join('')+badBal.map(b=>'<li><b>المركز المالي '+b.y+'</b> مش متوازن بفرق <bdi dir="ltr">'+faN(b.d)+'</bdi> — غالباً بند متبوب في القسم الغلط أو متجاهل.</li>').join('');
   return '<div class="fa-recon '+(bad.length||badBal.length?'bad':'ok')+'"><div><b>المطابقة اللايف:</b> '+status+'</div>'+(lst?'<ul>'+lst+'</ul>':'')+(I.src==='pdf'?'<div class="fa-muted">الأرقام اتقرت من PDF — اتأكد من المطابقة دي ومن أعمدة السنين قبل ما تضيف.</div>':'')+'</div>';
 }
 
