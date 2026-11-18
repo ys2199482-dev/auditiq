@@ -4504,16 +4504,17 @@ function faAnalyzeAOA(aoa,fileName,initSec){
 }
 // يحوّل التحليل لقيم سنوية: {year:{key:value}} + فحوص المجاميع
 // «ربح/خسارة النشاط» في القوائم المصرية ساعات بيبقى قبل الإيرادات الأخرى أو بعد فروق العملة — بنقبل أقرب تعريف
-function faChkCalc(x,check,file){
+function faChkCalc(x,check,file,pos){
   if(check!=='ebit') return x[check];
-  const alts=[x.ebit,x.ebit-x.otherIncome,x.ebit+x.fxGainLoss,x.ebit-x.otherIncome+x.fxGainLoss,x.ebit+x.fxGainLoss+x.financeIncome];
+  const alts=[x.ebit,x.ebit-x.otherIncome,x.ebit+x.fxGainLoss,x.ebit-x.otherIncome+x.fxGainLoss,x.ebit+x.fxGainLoss+x.financeIncome,x.ebit+x.impairment,x.ebit+x.impairment-x.otherIncome]; if(pos!=null&&isFinite(pos)) alts.push(pos);
   return alts.reduce((b,v)=>Math.abs(Math.abs(v)-Math.abs(file))<Math.abs(Math.abs(b)-Math.abs(file))?v:b,alts[0]);
 }
 function faBuildFromImport(an,map){
   const out={}; an.years.forEach(y=>out[y]={});
-  const add=(y,k,v)=>{ out[y][k]=(out[y][k]||0)+v; };
   let cfDep=false; an.rows.forEach((r,i)=>{ if((map[i]||r.key)==='depAmort'&&r.sec==='CF') cfDep=true; });
+  const acc=(out,lim)=>{ const add=(y,k,v)=>{ out[y][k]=(out[y][k]||0)+v; };
   an.rows.forEach((r,i)=>{
+    if(lim!=null&&i>=lim) return;
     const k=map[i]!=null?map[i]:r.key; if(!k||r.head) return;
     an.years.forEach(y=>{
       let v=r.vals[y]; if(v==null) return;
@@ -4522,9 +4523,13 @@ function faBuildFromImport(an,map){
       else if(['capex','dividendsPaid','depAmort'].indexOf(k)>=0) v=Math.abs(v);
       add(y,k,v);
     });
-  });
+  }); };
+  acc(out);
   const checks=[];
-  an.rows.forEach(r=>{ if(r.total&&r.check) an.years.forEach(y=>{ if(r.vals[y]==null) return; const c=faCalc(out[y]); let calc=c[r.check]; if(calc==null) return; const file=r.vals[y]; const ok=Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005); checks.push({y,label:r.label,check:r.check,file,calc,ok}); }); });
+  an.rows.forEach((r,ri)=>{ if(r.total&&r.check){
+    // «نتيجة النشاط» بتتقارن كمان بمجموع البنود اللي فوقها في الملف (كل شركة بتحط البنود في ترتيب مختلف)
+    let part=null; if(r.check==='ebit'){ part={}; an.years.forEach(y=>part[y]={}); acc(part,ri); }
+    an.years.forEach(y=>{ if(r.vals[y]==null) return; const file=r.vals[y]; const pos=part?faCalc(part[y]).netProfit:null; const calc=faChkCalc(faCalc(out[y]),r.check,file,pos); if(calc==null) return; const ok=Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005); checks.push({y,label:r.label,check:r.check,file,calc,ok,pos}); }); } });
   return {data:out,checks};
 }
 
@@ -4963,7 +4968,7 @@ function faApplyImport(){
   }
   ys.forEach(y=>{ co.years[y]=Object.assign(co.years[y]||{},allData[y]); });
   // إعادة حساب المطابقة بعد الدمج
-  _faChecks=allChecks.map(c=>{ const conv=(I.target!=='new'&&+co.unit!==I.unit)?I.unit/(+co.unit||1):1; const file=c.file*conv; const calc=faChkCalc(faCalc(co.years[c.y]),c.check,file); return Object.assign(c,{file,calc,ok:Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005)}); });
+  _faChecks=allChecks.map(c=>{ const conv=(I.target!=='new'&&+co.unit!==I.unit)?I.unit/(+co.unit||1):1; const file=c.file*conv; const calc=faChkCalc(faCalc(co.years[c.y]),c.check,file,c.pos!=null?c.pos*conv:null); return Object.assign(c,{file,calc,ok:Math.abs(Math.abs(calc)-Math.abs(file))<=Math.max(1,Math.abs(file)*0.0005)}); });
   co.updated=Date.now(); _faImp=null; FA.ui.tab='fs'; faSave();
   if(typeof goTo==='function'&&!document.getElementById(_faHost)) goTo('fsinput',NAVBTN_('fsinput'));
   faRender(); faModals();
@@ -5792,14 +5797,14 @@ function faImpPartData(I,pi){
   const p=I.parts[pi]; const an=Object.assign({},p.an,{rows:[]}); const map={};
   I.rows.forEach(r=>{ if(r.part!==pi) return; const idx=an.rows.length; an.rows.push(r); map[idx]=(r.on&&!r.total)?(r.key||''):''; });
   const res=faBuildFromImport(an,map); const f=(+p.unit||I.unit)/I.unit;
-  if(f!==1){ Object.keys(res.data).forEach(y=>Object.keys(res.data[y]).forEach(k=>{ if(!FA_NOUNIT[k]) res.data[y][k]*=f; })); res.checks.forEach(c=>{ c.file*=f; c.calc=null; }); }
+  if(f!==1){ Object.keys(res.data).forEach(y=>Object.keys(res.data[y]).forEach(k=>{ if(!FA_NOUNIT[k]) res.data[y][k]*=f; })); res.checks.forEach(c=>{ c.file*=f; if(c.pos!=null) c.pos*=f; c.calc=null; }); }
   return res;
 }
 function faImpRecon(){
   const I=_faImp; if(!I) return '';
   const data={}, checks=[];
   I.parts.forEach((p,pi)=>{ const r=faImpPartData(I,pi); Object.keys(r.data).forEach(y=>{ data[y]=data[y]||{}; Object.keys(r.data[y]).forEach(k=>data[y][k]=(data[y][k]||0)+r.data[y][k]); }); r.checks.forEach(c=>checks.push(Object.assign({},c,{part:p.name,pi}))); });
-  const res=checks.map(c=>{ const calc=faChkCalc(faCalc(data[c.y]||{}),c.check,c.file); return Object.assign(c,{calc,ok:calc!=null&&Math.abs(Math.abs(calc)-Math.abs(c.file))<=Math.max(1,Math.abs(c.file)*0.0005)}); });
+  const res=checks.map(c=>{ const calc=faChkCalc(faCalc(data[c.y]||{}),c.check,c.file,c.pos); return Object.assign(c,{calc,ok:calc!=null&&Math.abs(Math.abs(calc)-Math.abs(c.file))<=Math.max(1,Math.abs(c.file)*0.0005)}); });
   const bal=I.years.map(y=>{ const c=faCalc(data[y]||{}); return c.hasSFP?{y,d:c.balanceDiff}:null; }).filter(Boolean);
   const bad=res.filter(c=>!c.ok), badBal=bal.filter(b=>Math.abs(b.d)>=1);
   const status=!res.length&&!bal.length?'<span class="fa-muted">مفيش مجاميع في الملف أطابق عليها</span>':(bad.length||badBal.length?'<span class="fa-bad">⚠️ '+(bad.length+badBal.length)+' اختلاف — صلّح التبويب قبل الإضافة</span>':'<span class="fa-ok">✓ كل المجاميع مطابقة ('+res.length+')'+(bal.length?' والمركز المالي متوازن':'')+'</span>');
