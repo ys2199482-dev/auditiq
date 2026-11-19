@@ -4600,7 +4600,7 @@ function faRender(){
         <button class="btn btn-gold btn-sm" onclick="faNewCompany()">＋ شركة جديدة</button>
         <label class="btn btn-outline btn-sm fa-filebtn">⬆ استيراد Excel/Word/PDF<input type="file" accept=".xlsx,.xls,.xlsm,.csv,.docx,.pdf" onchange="faImportFile(this.files[0]);this.value=''"></label>
         <button class="btn btn-outline btn-sm" onclick="faOpenPaste()">📋 لصق من Excel</button>
-        <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ تصدير Excel</button>
+        <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ Excel</button><button class="btn btn-outline btn-sm" onclick="faExportPDF()">⬇ PDF</button><button class="btn btn-outline btn-sm" onclick="faExportWord()">⬇ Word</button>
       </div>
     </div>
     <div class="fa-years">
@@ -4837,7 +4837,7 @@ function faReviewHtml(co,ys){
   return `<div class="fa-toolbar">
     <label class="fa-inline">حد التغير <input type="number" min="1" max="500" value="${thr}" onchange="FA.ui.thr=+this.value||20;faSaveUi();faRender()"> %</label>
     <label class="fa-inline">وأكبر من مبلغ <input type="text" inputmode="decimal" style="width:120px" value="${mat?faN(mat):''}" placeholder="مثلاً الأهمية النسبية للتنفيذ" onchange="FA.ui.mat=numVal(numClean(this.value));faSaveUi();faRender()"></label>
-    <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ تصدير Excel</button>
+    <button class="btn btn-outline btn-sm" onclick="faExportExcel()">⬇ Excel</button><button class="btn btn-outline btn-sm" onclick="faExportPDF()">⬇ PDF</button><button class="btn btn-outline btn-sm" onclick="faExportWord()">⬇ Word</button>
   </div>
   <div class="fa-note-bar">مقارنة ${ys[0]}${ys[1]?' بـ '+ys[1]:''} حسب ISA 520: التغيرات الكبيرة والعلاقات غير المتوقعة محتاجة تفسير من الإدارة وأدلة بتأيده. المؤشرات دي نقطة بداية للحكم المهني مش نتيجة.</div>
   <div class="fa-kpis">
@@ -5389,7 +5389,7 @@ function faProgHtml(co,ys){
         <button class="fa-kpi ${filt==='open'?'on':''}" onclick="FA.ui.apf=FA.ui.apf==='open'?'':'open';faSaveUi();faRender()"><span>الإجراءات اللي اتعملت</span><strong>${done}/${tot}</strong></button>
       </div>
       <div class="card ap-start"><div class="sec-title">🚦 ابدأ بدول</div>${top.length?'<ol>'+top.map(t=>'<li><b>'+t[0]+':</b> '+t[1]+'</li>').join('')+'</ol>':'<p class="fa-muted">مفيش إجراءات عالية الخطر مفتوحة.</p>'}
-      <div class="fa-actions"><button class="btn btn-gold btn-sm" onclick="apPBC()">📋 قائمة المستندات المطلوبة من العميل</button><button class="btn btn-outline btn-sm" onclick="apExport()">⬇ تصدير البرنامج Excel</button></div></div>
+      <div class="fa-actions"><button class="btn btn-gold btn-sm" onclick="apPBC()">📋 قائمة المستندات المطلوبة من العميل</button><button class="btn btn-outline btn-sm" onclick="apExport()">⬇ Excel</button><button class="btn btn-outline btn-sm" onclick="apExportPDF()">⬇ PDF</button><button class="btn btn-outline btn-sm" onclick="apExportWord()">⬇ Word</button></div></div>
     </div></div>
   <div class="fa-note-bar">البرنامج اتبنى من بنود الشركة دي بس، ومستوى الخطر لكل بند محسوب من حجمه مقارنة بالأهمية النسبية للتنفيذ + طبيعة البند + المؤشرات التحليلية. الإجراءات «الاختيارية» مش مطلوبة للمستوى ده بس ممكن تعملها لو حكمك المهني شايف كده.</div>
   ${cards||'<div class="card fa-empty-c">مفيش بنود بالفلتر ده.</div>'}
@@ -5408,7 +5408,7 @@ function faModals2(){ let h=document.getElementById('apModalHost'); if(!h){ h=do
   const co=faCo(); h.innerHTML=(_apPBC&&co)?`<div class="fa-ov fa-ov-c" onclick="if(event.target===this){_apPBC=false;faModals2()}"><div class="fa-modal"><div class="fa-dr-h"><h3>📋 المستندات المطلوبة من العميل (PBC)</h3><button class="btn btn-outline btn-sm" onclick="_apPBC=false;faModals2()">✕</button></div>
     <p class="fa-muted">القائمة مبنية على البنود الموجودة في قوائم الشركة. انسخها وابعتها للعميل في أول الزيارة.</p>
     <textarea id="apPbcTxt" class="notes-area" style="min-height:340px">${faEsc(apPBCText(co))}</textarea>
-    <div class="fa-actions"><button class="btn btn-gold" onclick="const t=document.getElementById('apPbcTxt');t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}showToast('✓ اتنسخت')">نسخ</button></div></div></div>`:''; }
+    <div class="fa-actions"><button class="btn btn-gold" onclick="const t=document.getElementById('apPbcTxt');t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}showToast('✓ اتنسخت')">نسخ</button><button class="btn btn-outline" onclick="apPBCPdf()">⬇ PDF</button></div></div></div>`:''; }
 function apExport(){
   const co=faCo(); if(!co) return; if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل'); return; }
   const A=apAnalyze(co), st=apState(co), ys=faYears(co), u=faUnit(co);
@@ -5819,6 +5819,127 @@ function faImpRecon(){
   const lst=bad.map(c=>'<li><b>'+faEsc(c.label)+'</b> '+c.y+': الملف <bdi dir="ltr">'+faN(c.file)+'</bdi> · المحسوب من التبويب <bdi dir="ltr">'+faN(c.calc)+'</bdi> · الفرق <bdi dir="ltr">'+faN(Math.abs(c.calc)-Math.abs(c.file))+'</bdi>'+hint(c)+'</li>').join('')+badBal.map(b=>'<li><b>المركز المالي '+b.y+'</b> مش متوازن بفرق <bdi dir="ltr">'+faN(b.d)+'</bdi> — غالباً بند متبوب في القسم الغلط أو متجاهل.</li>').join('');
   return '<div class="fa-recon '+(bad.length||badBal.length?'bad':'ok')+'"><div><b>المطابقة اللايف:</b> '+status+'</div>'+(lst?'<ul>'+lst+'</ul>':'')+(I.src==='pdf'?'<div class="fa-muted">الأرقام اتقرت من PDF — اتأكد من المطابقة دي ومن أعمدة السنين قبل ما تضيف.</div>':'')+'</div>';
 }
+
+// ── v14.1: تصدير PDF و Word (جنب Excel) للاستوديو وبرنامج المراجعة ──
+const FA_DOC_CSS=`@page{size:A4;margin:14mm 12mm}
+*{box-sizing:border-box}body{font-family:'Cairo','Segoe UI',Tahoma,Arial,sans-serif;direction:rtl;color:#1a2233;font-size:10.5pt;line-height:1.7;margin:0}
+h1{font-size:18pt;margin:0 0 2pt;color:#0f2a4a}h2{font-size:13.5pt;color:#0f2a4a;border-bottom:2px solid #c9a227;padding-bottom:3pt;margin:16pt 0 8pt;page-break-after:avoid}
+h3{font-size:11.5pt;margin:10pt 0 4pt;color:#0f2a4a;page-break-after:avoid}h4{font-size:10.5pt;margin:8pt 0 3pt}
+.sub{color:#5a6577;font-size:9.5pt}.cover{border:1px solid #d9dee7;border-right:6px solid #c9a227;border-radius:8px;padding:12pt 14pt;margin-bottom:10pt}
+table{width:100%;border-collapse:collapse;margin:4pt 0 8pt;font-size:9.5pt;page-break-inside:auto}tr{page-break-inside:avoid}
+th{background:#0f2a4a;color:#fff;font-weight:700;padding:4pt 6pt;text-align:right}td{border-bottom:1px solid #e3e7ee;padding:3pt 6pt;vertical-align:top}
+td.n,th.n{text-align:left;direction:ltr;font-family:Consolas,'Courier New',monospace;white-space:nowrap}
+tr.sec td{background:#eef2f8;font-weight:700;color:#0f2a4a}tr.tot td{font-weight:700;border-top:1.5px solid #0f2a4a}
+.pill{display:inline-block;border-radius:10pt;padding:0 7pt;font-size:8.5pt;font-weight:700;color:#fff}.H{background:#d64545}.M{background:#e08a1e}.L{background:#15936a}
+.item{border:1px solid #d9dee7;border-right:5px solid #15936a;border-radius:6px;padding:8pt 10pt;margin:0 0 10pt;page-break-inside:avoid}
+.item.H{border-right-color:#d64545;background:#fff}.item.M{border-right-color:#e08a1e;background:#fff}.item.L{background:#fff}
+.why{background:#f3f6fb;border-radius:4px;padding:3pt 6pt;font-size:9pt}.cols{display:flex;gap:12pt}.cols>div{flex:1}
+ul,ol{margin:2pt 0;padding-right:16pt}.ex{background:#fffaf0;border:1px dashed #e3c66b;border-radius:4px;padding:4pt 7pt;font-size:9.5pt}
+.st{font-size:9pt;white-space:nowrap}.done{color:#15936a;font-weight:700}.na{color:#8a93a3}.open{color:#b26b00}
+.note{color:#5a6577;font-size:9pt}.pb{page-break-before:always}.flag{border-right:4px solid #e08a1e;padding:4pt 8pt;margin:0 0 6pt;background:#fafbfd;page-break-inside:avoid}.flag.H{border-right-color:#d64545}.flag.L{border-right-color:#15936a}
+.charts{display:flex;flex-wrap:wrap;gap:8pt}.chart{width:calc(50% - 4pt);border:1px solid #e3e7ee;border-radius:6px;padding:4pt 6pt;page-break-inside:avoid}.chart h4{margin:0}
+.chart svg{width:100%;height:auto}.chart .fa-lgs{font-size:8.5pt}.chart .fa-lg{margin-left:8pt}.chart .fa-lg i{display:inline-block;width:9pt;height:6pt;border-radius:1pt;margin-left:3pt}
+.chart .fa-chx{font-size:8.5pt;line-height:1.55;color:#3a4558}.chart .fa-chx ul{padding-right:12pt}
+.fa-lg i.s0,.s0{background:#2563eb}.fa-lg i.s1{background:#f5b82e}.fa-lg i.s2{background:#15936a}.fa-lg i.s3{background:#d64545}
+svg .g{stroke:#e3e7ee;stroke-width:1}svg .g.z{stroke:#8a93a3}svg .ax{fill:#5a6577;font-size:11px}svg .vl{fill:#3a4558;font-size:10px}
+svg rect.s0{fill:#2563eb}svg rect.s1{fill:#f5b82e}svg rect.s2{fill:#15936a}svg rect.s3{fill:#d64545}svg .fa-hl,svg .fa-hit{display:none}
+svg path.ln{fill:none;stroke-width:2.5}svg path.s0{stroke:#2563eb}svg path.s1{stroke:#f5b82e}svg path.s2{stroke:#15936a}svg path.s3{stroke:#d64545}
+svg circle.dot{fill:#fff;stroke-width:2.5}svg circle.s0{stroke:#2563eb}svg circle.s1{stroke:#f5b82e}svg circle.s2{stroke:#15936a}svg circle.s3{stroke:#d64545}
+.foot{margin-top:14pt;color:#8a93a3;font-size:8.5pt;border-top:1px solid #e3e7ee;padding-top:4pt}
+@media screen{body{max-width:900px;margin:20px auto;padding:0 16px}}`;
+function faDocWrap(title,body){ return '<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>'+faEsc(title)+'</title><style>'+FA_DOC_CSS+'</style></head><body>'+body+'<div class="foot">'+faEsc(title)+' · AuditIQ · '+new Date().toLocaleDateString('ar-EG')+'</div></body></html>'; }
+function faDocFile(name){ return String(name||'تقرير').replace(/[\\/:*?"<>|]/g,''); }
+// PDF: بيفتح نافذة الطباعة من صفحة جاهزة — اختار «حفظ كـ PDF / Save as PDF»
+function faPrintPDF(title,body){
+  const html=faDocWrap(title,body); let fr=document.getElementById('faPrintFrame'); if(fr) fr.remove();
+  fr=document.createElement('iframe'); fr.id='faPrintFrame'; fr.setAttribute('aria-hidden','true'); fr.style.cssText='position:fixed;width:0;height:0;border:0;right:-9999px;bottom:0'; document.body.appendChild(fr);
+  const d=fr.contentWindow.document; d.open(); d.write(html); d.close();
+  window.__faLastDoc=html;
+  setTimeout(()=>{ try{ fr.contentWindow.document.title=faDocFile(title); fr.contentWindow.focus(); fr.contentWindow.print(); }catch(e){ const w=window.open('','_blank'); if(w){ w.document.write(html); w.document.close(); w.focus(); w.print(); } } },450);
+  showToast('🖨️ اختار «حفظ كـ PDF» (Save as PDF) من نافذة الطباعة');
+}
+// Word: ملف .doc بيتفتح في Word ويتعدل عادي
+function faSaveWord(title,body){
+  const html=faDocWrap(title,body).replace('<html lang="ar" dir="rtl">','<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40" lang="ar" dir="rtl">').replace('<head>','<head><!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->');
+  window.__faLastDoc=html;
+  const blob=new Blob(['﻿'+html],{type:'application/msword'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=faDocFile(title)+'.doc'; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500);
+  showToast('✓ اتصدر ملف Word');
+}
+function faAbbrTable(used,extra){
+  extra=extra||{};
+  const rows=used.map(a=>{ const r=(typeof ABBR!=='undefined'?ABBR.find(x=>x[0]===a):null)||(extra[a]?[a].concat(extra[a]):null); return r?[a,r[1],r[2]]:null; }).filter(Boolean);
+  return '<h2 class="pb">الاختصارات المستخدمة</h2><table><tr><th>الاختصار</th><th>بالإنجليزي</th><th>بالعربي</th></tr>'+rows.map(r=>'<tr><td class="n" style="text-align:right">'+faEsc(r[0])+'</td><td style="direction:ltr;text-align:left">'+faEsc(r[1])+'</td><td>'+faEsc(r[2])+'</td></tr>').join('')+'</table>';
+}
+const FA_ABBR_EXTRA={PBT:['Profit Before Tax','الربح قبل الضريبة'],FCF:['Free Cash Flow','التدفق النقدي الحر'],ROCE:['Return on Capital Employed','العائد على رأس المال المستخدم'],ETR:['Effective Tax Rate','سعر الضريبة الفعلي'],DSO:['Days Sales Outstanding','فترة التحصيل'],DIO:['Days Inventory Outstanding','فترة التخزين'],DPO:['Days Payables Outstanding','فترة السداد للموردين'],CCC:['Cash Conversion Cycle','دورة التحويل النقدي'],IS:['Income Statement','قائمة الدخل'],SFP:['Statement of Financial Position','قائمة المركز المالي'],EGP:['Egyptian Pound','الجنيه المصري'],EAS:['Egyptian Accounting Standards','معايير المحاسبة المصرية'],NRV:['Net Realisable Value','صافي القيمة البيعية'],PM:['Performance Materiality','الأهمية النسبية للتنفيذ'],OM:['Overall Materiality','الأهمية النسبية الإجمالية'],PBC:['Prepared by Client','المستندات اللي العميل بيجهزها'],SPPI:['Solely Payments of Principal and Interest','مدفوعات أصل وفائدة فقط'],IFRIC:['IFRS Interpretations Committee','لجنة تفسيرات المعايير الدولية'],ISA:['International Standards on Auditing','معايير المراجعة الدولية'],IFRS:['International Financial Reporting Standards','المعايير الدولية للتقارير المالية'],IAS:['International Accounting Standards','معايير المحاسبة الدولية'],ECL:['Expected Credit Loss','الخسائر الائتمانية المتوقعة'],EBIT:['Earnings Before Interest and Tax','الربح قبل الفوائد والضرائب'],EBITDA:['Earnings Before Interest, Tax, Depreciation and Amortisation','الربح قبل الفوائد والضرائب والإهلاك'],CFO:['Cash Flow from Operations','التدفق النقدي من التشغيل'],ROA:['Return on Assets','العائد على الأصول'],ROE:['Return on Equity','العائد على حقوق الملكية'],EPS:['Earnings per Share','ربحية السهم'],NCI:['Non-controlling Interests','الحقوق غير المسيطرة']};
+
+// ── تقرير الاستوديو: القوائم + النسب + الرسوم + المراجعة التحليلية ──
+function faStudioDoc(){
+  const co=faCo(); if(!co||!faYears(co).length){ showToast('مفيش شركة فيها أرقام'); return null; }
+  const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
+  const sector=(typeof SECTORS!=='undefined'&&co.sector)?((SECTORS.find(s=>s.id===co.sector)||{}).label||''):'';
+  let h='<div class="cover"><h1>'+faEsc(co.name)+'</h1><div class="sub">تحليل القوائم المالية'+(sector?' · '+faEsc(sector):'')+' · السنين: '+ys.join('، ')+' · المبالغ بـ '+u.ar+'</div></div>';
+  const TOT={CA:1,NCA:1,totalAssets:1,totalEquity:1,NCL:1,CL:1,totalLiabilities:1,totalEqLiab:1,grossProfit:1,ebit:1,pbt:1,netProfit:1,fcf:1,ebitda:1};
+  let t='<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
+  const sec=x=>{ t+='<tr class="sec"><td colspan="'+(ys.length+1)+'">'+x+'</td></tr>'; };
+  const line=k=>{ if(!TOT[k]&&C.every(c=>!c[k])) return; t+='<tr class="'+(TOT[k]?'tot':'')+'"><td>'+faEsc(faAnyLbl(k))+'</td>'+C.map(c=>'<td class="n">'+faN(c[k])+'</td>').join('')+'</tr>'; };
+  sec('الأصول غير المتداولة'); FA_SECTIONS[1].keys.forEach(line); line('NCA');
+  sec('الأصول المتداولة'); FA_SECTIONS[0].keys.forEach(line); line('CA'); line('totalAssets');
+  sec('حقوق الملكية'); FA_SECTIONS[4].keys.forEach(line); line('totalEquity');
+  sec('الالتزامات غير المتداولة'); FA_SECTIONS[3].keys.forEach(line); line('NCL');
+  sec('الالتزامات المتداولة'); FA_SECTIONS[2].keys.forEach(line); line('CL'); line('totalEqLiab');
+  t+='</table>';
+  const bal=C.map((c,i)=>c.hasSFP&&Math.abs(c.balanceDiff)>=1?ys[i]+': فرق '+faN(c.balanceDiff):null).filter(Boolean);
+  h+='<h2>قائمة المركز المالي</h2>'+t+(bal.length?'<p class="note">⚠️ المركز المالي مش متوازن — '+bal.join(' · ')+'</p>':'');
+  t='<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
+  ['revenue','cogs','grossProfit','opex','impairment','otherIncome','ebit','financeCost','financeIncome','fxGainLoss','assocShare','pbt','tax','netProfit'].forEach(line);
+  if(C.some(c=>c.cfo||c.capex)){ sec('التدفقات النقدية'); ['cfo','capex','fcf','dividendsPaid'].forEach(line); }
+  t+='</table>'; h+='<h2>قائمة الدخل</h2>'+t;
+  // النسب
+  h+='<h2 class="pb">النسب المالية</h2><p class="note">'+(b.avg?'الأرصدة محسوبة كمتوسط أول وآخر المدة لما السنة السابقة موجودة.':'النسب محسوبة على أرصدة آخر المدة.')+'</p><table><tr><th>النسبة</th><th>المعادلة</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
+  FA_GROUPS.forEach(g=>{ const rows=FA_RATIOS.filter(r=>r.g===g.id).map(r=>({r,s:faRatioSeries(co,r.id,b)})).filter(o=>o.s.some(x=>x.val!=null)); if(!rows.length) return;
+    h+='<tr class="sec"><td colspan="'+(ys.length+2)+'">'+g.ar+'</td></tr>'+rows.map(o=>'<tr><td>'+o.r.ar+'</td><td class="note">'+faEsc(o.r.f)+'</td>'+o.s.map(x=>'<td class="n">'+(x.val==null?'—':faFmt(x.val,o.r.kind))+'</td>').join('')+'</tr>').join(''); });
+  h+='</table>';
+  // الرسوم
+  if(ys.length>=1){ const ch=faChartsHtml(co,ys); const m=ch.match(/<div class="fa-chart card">[\s\S]*?<\/svg>[\s\S]*?<\/div><\/div>/g)||[];
+    if(m.length) h+='<h2 class="pb">الرسوم البيانية وقراءتها</h2><div class="charts">'+m.map(x=>x.replace('class="fa-chart card"','class="chart"').replace(/<button type="button" class="fa-lg[^"]*"[^>]*>/g,'<span class="fa-lg">').replace(/<\/button>/g,'</span>')).join('')+'</div>'; }
+  // المراجعة التحليلية
+  const fl=faReview(co,{thr:+FA.ui.thr||20,mat:+FA.ui.mat||0}); const SV={H:'عالي',M:'متوسط',L:'منخفض'};
+  h+='<h2 class="pb">المراجعة التحليلية (ISA 520)</h2><p class="note">مقارنة '+ys[0]+(ys[1]?' بـ '+ys[1]:'')+'. التغيرات الكبيرة والعلاقات غير المتوقعة محتاجة تفسير من الإدارة وأدلة بتأيده.</p>';
+  h+=fl.length?fl.map(f=>'<div class="flag '+f.sev+'"><span class="pill '+f.sev+'">'+SV[f.sev]+'</span> <b>'+faEsc(f.title)+'</b><div>'+faEsc(f.detail)+'</div><div class="note"><b>ليه مهم:</b> '+faEsc(f.why)+'</div><div><b>الإجراء:</b> '+f.proc.map(faEsc).join(' · ')+'</div><div class="note">'+faEsc(f.std||'')+'</div></div>').join(''):'<p>مفيش مؤشرات بالحدود الحالية.</p>';
+  h+=faAbbrTable(['SFP','IS','EBIT','EBITDA','PBT','CFO','FCF','ROA','ROE','ROCE','ETR','DSO','DIO','DPO','CCC','EPS','NCI','ISA','IFRS','IAS','EAS','ECL','NRV','EGP'],FA_ABBR_EXTRA);
+  return {title:co.name+' — تحليل القوائم المالية',body:h};
+}
+function faExportPDF(){ const d=faStudioDoc(); if(d) faPrintPDF(d.title,d.body); }
+function faExportWord(){ const d=faStudioDoc(); if(d) faSaveWord(d.title,d.body); }
+
+// ── برنامج المراجعة كتقرير ──
+function apDoc(){
+  const co=faCo(); if(!co||!faYears(co).length){ showToast('مفيش شركة فيها أرقام'); return null; }
+  const A=apAnalyze(co), st=apState(co), ys=faYears(co), u=faUnit(co), M=A.mat; const LV={H:'عالي',M:'متوسط',L:'منخفض'};
+  let tot=0,dn=0; A.items.forEach(it=>it.p.proc.forEach((pr,i)=>{ if(apProcActive(it.lvl,pr[0])){ tot++; if(st.done[it.p.id+':'+i]) dn++; } }));
+  let h='<div class="cover"><h1>'+faEsc(co.name)+'</h1><div class="sub">برنامج المراجعة لبنود القوائم المالية · السنة المالية '+ys[0]+' · المبالغ بـ '+u.ar+'</div>'
+   +'<table style="margin-top:6pt"><tr><th>الأهمية النسبية الإجمالية (OM)</th><th>للتنفيذ (PM)</th><th>التافه الواضح</th><th>الأساس</th><th>التقدم</th></tr><tr><td class="n">'+faN(M.om)+'</td><td class="n">'+faN(M.pm)+'</td><td class="n">'+faN(M.triv)+'</td><td>'+M.benchAr+' × '+M.pct+'% · PM '+M.pmPct+'%</td><td>'+dn+' من '+tot+' إجراء</td></tr></table>'
+   +'<p class="note">مستوى الخطر لكل بند محسوب من حجمه مقارنة بالأهمية النسبية للتنفيذ وطبيعته والمؤشرات التحليلية — نقطة بداية للحكم المهني (ISA 315 و ISA 330).</p></div>';
+  h+='<h2>ملخص البنود</h2><table><tr><th>البند</th><th class="n">الرصيد</th><th>الخطر</th><th>الإجراءات المطلوبة</th><th>اتعمل</th></tr>'+A.items.map(it=>{ const a=it.p.proc.filter(pr=>apProcActive(it.lvl,pr[0])).length, d=it.p.proc.filter((pr,i)=>apProcActive(it.lvl,pr[0])&&st.done[it.p.id+':'+i]).length; return '<tr><td>'+it.p.ar+'</td><td class="n">'+faN(it.bal)+'</td><td><span class="pill '+it.lvl+'">'+LV[it.lvl]+'</span></td><td>'+a+'</td><td>'+d+'</td></tr>'; }).join('')+'</table>';
+  h+='<h2 class="pb">الإجراءات لكل بند</h2>';
+  A.items.forEach(it=>{ const p=it.p;
+    h+='<div class="item '+it.lvl+'"><h3>'+p.ar+' <span class="note" style="direction:ltr">'+p.en+'</span> <span class="pill '+it.lvl+'">'+LV[it.lvl]+'</span></h3>'
+     +'<div>الرصيد '+ys[0]+': <b dir="ltr">'+faN(it.bal)+'</b>'+(it.pbal?' · '+(ys[1]||'')+': <span dir="ltr">'+faN(it.pbal)+'</span>':'')+(it.ch!=null?' · التغير <span dir="ltr">'+(it.ch>0?'+':'')+(it.ch*100).toFixed(1)+'%</span>':'')+' · '+p.std+'</div>'
+     +'<div class="why"><b>ليه المستوى ده:</b> '+it.why.map(faEsc).join(' · ')+'</div>'
+     +'<div class="cols"><div><h4>المخاطر المحتملة</h4><ul>'+p.risks.map(r=>'<li>'+r+'</li>').join('')+'</ul></div><div><h4>الإقرارات الأهم</h4>'+p.assert.map(a=>AP_ASSERT[a]).join('، ')+'</div></div>'
+     +'<h4>الإجراءات</h4><table><tr><th>#</th><th>الإجراء</th><th>الإقرارات</th><th>مطلوب؟</th><th>الحالة</th></tr>'+p.proc.map((pr,i)=>{ const s=st.done[p.id+':'+i]; const on=apProcActive(it.lvl,pr[0]); return '<tr><td>'+(i+1)+'</td><td>'+pr[1]+'</td><td class="note">'+pr[2].map(a=>AP_ASSERT[a]).join('، ')+'</td><td class="st">'+(on?'نعم':'اختياري')+'</td><td class="st '+(s==='done'?'done':s==='na'?'na':'open')+'">'+(s==='done'?'✓ اتعمل':s==='na'?'لا ينطبق':'لسه')+'</td></tr>'; }).join('')+'</table>'
+     +'<div class="cols"><div><h4>المستندات المطلوبة</h4><ul>'+p.docs.map(d=>'<li>'+d+'</li>').join('')+'</ul></div><div><h4>إمتى تبقى ملاحظة</h4><ul>'+p.find.map(d=>'<li>'+d+'</li>').join('')+'</ul></div></div>'
+     +'<h4>مثال عملي</h4><div class="ex">'+p.ex+'</div>'
+     +(it.flags.length?'<h4>مؤشرات تحليلية</h4><ul>'+it.flags.map(f=>'<li><b>'+faEsc(f.title)+':</b> '+faEsc(f.detail)+'</li>').join('')+'</ul>':'')
+     +(st.notes[p.id]?'<h4>ملاحظات المراجع</h4><div style="white-space:pre-wrap">'+faEsc(st.notes[p.id])+'</div>':'')+'</div>'; });
+  h+='<h2 class="pb">مجالات عامة في كل مراجعة</h2>'+AP_GENERAL.map(g=>'<h3>'+g.ar+' <span class="note">'+g.std+'</span></h3><ul>'+g.proc.map(x=>'<li>'+x+'</li>').join('')+'</ul>').join('');
+  h+='<h2 class="pb">قائمة المستندات المطلوبة من العميل (PBC)</h2><div style="white-space:pre-wrap">'+faEsc(apPBCText(co))+'</div>';
+  h+=faAbbrTable(['OM','PM','PBC','ISA','IFRS','IAS','EAS','IFRIC','ECL','NRV','SPPI','EBITDA'],FA_ABBR_EXTRA);
+  return {title:co.name+' — برنامج المراجعة '+ys[0],body:h};
+}
+function apExportPDF(){ const d=apDoc(); if(d) faPrintPDF(d.title,d.body); }
+function apExportWord(){ const d=apDoc(); if(d) faSaveWord(d.title,d.body); }
+function apPBCPdf(){ const co=faCo(); if(!co) return; faPrintPDF(co.name+' — المستندات المطلوبة (PBC)','<h1>'+faEsc(co.name)+'</h1><div class="sub">المستندات المطلوبة من العميل</div><div style="white-space:pre-wrap;margin-top:10pt">'+faEsc(apPBCText(co))+'</div>'+faAbbrTable(['PBC','ISA'],FA_ABBR_EXTRA)); }
 
 // ═══════════════════════ INIT ═══════════════════════
 renderHome();
