@@ -755,6 +755,7 @@ body.print-mode .site-tag,body.print-mode #aiFab,body.print-mode #aiFabBox{displ
 .fa-grp{margin-bottom:18px}
 .fa-grp-h{font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
 .fa-grp-h small{font-size:12px;color:var(--text3);font-weight:500;margin-right:6px}
+.fa-tbl .fa-chg{border-right:2px solid var(--border2);white-space:nowrap}.fa-tbl td.fa-chg small{display:block;font-size:11px;color:var(--text3);line-height:1.3}
 .fa-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 .fa-rt-q,.fa-rt-r{display:block;width:100%;font-size:11.8px;line-height:1.65;color:var(--text2);margin-top:5px;font-weight:400}.fa-rt-q{border-top:1px dashed var(--border);padding-top:6px}.fa-rt-q b,.fa-rt-r b{color:var(--text);font-weight:700}
 .fa-use{background:var(--accent-soft);border-radius:10px;padding:4px 12px 8px;margin-bottom:6px}
@@ -4718,8 +4719,12 @@ function faFsHtml(co,ys){
     if(view==='horiz'){ if(i===ys.length-1) return '—'; const p=C[i+1][k]; const ch=faPct(v,p); if(ch==null) return (v&&!p)?'<span class="fa-new">جديد</span>':'—'; const cls=Math.abs(ch)>=thr?(ch>0?'fa-up':'fa-dn'):''; return '<span class="'+cls+'" title="'+faN(p)+' ← '+faN(v)+'">'+(ch>0?'+':'')+(ch*100).toFixed(1)+'%</span>'; }
     return faN(v);
   };
-  const row=(k,base,cls)=>{ if(!cls&&C.every(c=>!c[k])) return ''; return '<tr class="'+(cls||'')+'"><td>'+faAnyLbl(k)+'</td>'+ys.map((y,i)=>'<td class="num">'+cell(k,i,base)+'</td>').join('')+'</tr>'; };
-  const hd=t=>'<tr class="fa-tr-h"><td colspan="'+(ys.length+1)+'">'+t+'</td></tr>';
+  // عمود التغير (آخر سنة مقابل اللي قبلها) في عرض الأرقام بس
+  const chCol=view==='amt'&&ys.length>=2;
+  const chCell=k=>{ const v=C[0][k]||0, p=C[1][k]||0, d=v-p; if(!v&&!p) return '<td class="num fa-chg">—</td>'; const pc=faPct(v,p); const big=pc!=null&&Math.abs(pc)>=thr;
+    return '<td class="num fa-chg" title="'+faN(p)+' ← '+faN(v)+'"><span class="'+(big?(d>0?'fa-up':'fa-dn'):'')+'">'+(d===0?'0':(d>0?'+':'')+faN(d))+'</span><small>'+(pc==null?(v&&!p?'جديد':'—'):(pc>0?'+':'')+(pc*100).toFixed(1)+'%')+'</small></td>'; };
+  const row=(k,base,cls)=>{ if(!cls&&C.every(c=>!c[k])) return ''; return '<tr class="'+(cls||'')+'"><td>'+faAnyLbl(k)+'</td>'+ys.map((y,i)=>'<td class="num">'+cell(k,i,base)+'</td>').join('')+(chCol?chCell(k):'')+'</tr>'; };
+  const hd=t=>'<tr class="fa-tr-h"><td colspan="'+(ys.length+1+(chCol?1:0))+'">'+t+'</td></tr>';
   let sfp=hd('الأصول');
   FA_SECTIONS[0].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('CA','totalAssets','sub');
   FA_SECTIONS[1].keys.forEach(k=>sfp+=row(k,'totalAssets')); sfp+=row('NCA','totalAssets','sub'); sfp+=row('totalAssets','totalAssets','tot');
@@ -4734,7 +4739,7 @@ function faFsHtml(co,ys){
   ['financeCost','financeIncome','fxGainLoss','assocShare'].forEach(k=>is+=row(k,'revenue')); is+=row('pbt','revenue','sub'); is+=row('tax','revenue'); is+=row('netProfit','revenue','tot');
   let cf='';
   ['cfo','capex'].forEach(k=>cf+=row(k,'revenue')); cf+=row('fcf','revenue','sub'); ['depAmort','dividendsPaid'].forEach(k=>cf+=row(k,'revenue')); cf+=row('ebitda','revenue','sub');
-  const th='<tr><th>البند</th>'+ys.map((y,i)=>'<th class="num">'+y+(view==='horiz'&&i<ys.length-1?' مقابل '+ys[i+1]:'')+'</th>').join('')+'</tr>';
+  const th='<tr><th>البند</th>'+ys.map((y,i)=>'<th class="num">'+y+(view==='horiz'&&i<ys.length-1?' مقابل '+ys[i+1]:'')+'</th>').join('')+(chCol?'<th class="num fa-chg">التغير '+ys[0]+'/'+ys[1]+'</th>':'')+'</tr>';
   const balRow='<div class="fa-balrow">'+ys.map((y,i)=>'<span>'+y+': '+faBalBadge(C[i])+'</span>').join('')+'</div>';
   const chRow=c=>'<tr><td>'+faEsc(c.label)+'</td><td>'+c.y+'</td><td class="num">'+faN(c.file)+'</td><td class="num">'+faN(c.calc)+'</td><td>'+(c.ok?'<span class="fa-ok">✓</span>':'<span class="fa-bad">فرق '+faN(Math.abs(c.calc)-Math.abs(c.file))+'</span>')+'</td></tr>';
   const chHead='<thead><tr><th>المجموع في الملف</th><th>السنة</th><th class="num">في الملف</th><th class="num">محسوب</th><th></th></tr></thead>';
@@ -4746,7 +4751,7 @@ function faFsHtml(co,ys){
   return `${checks}
   <div class="fa-toolbar">
     <div class="fa-seg">${[['amt','الأرقام'],['vert','تحليل رأسي %'],['horiz','تحليل أفقي (التغير)']].map(v=>'<button class="'+(view===v[0]?'on':'')+'" onclick="FA.ui.view=\''+v[0]+'\';faSaveUi();faRender()">'+v[1]+'</button>').join('')}</div>
-    ${view==='horiz'?'<label class="fa-inline">تلوين التغير أكبر من <input type="number" min="1" max="500" value="'+(+FA.ui.thr||20)+'" onchange="FA.ui.thr=+this.value||20;faSaveUi();faRender()"> %</label>':''}
+    ${view!=='vert'?'<label class="fa-inline">تلوين التغير أكبر من <input type="number" min="1" max="500" value="'+(+FA.ui.thr||20)+'" onchange="FA.ui.thr=+this.value||20;faSaveUi();faRender()"> %</label>':''}
     <span class="fa-muted">الأرقام بـ ${u.ar}${view==='vert'?' · المركز المالي ÷ إجمالي الأصول · الدخل والتدفقات ÷ الإيرادات':''}</span>
   </div>
   ${balRow}
@@ -4986,9 +4991,9 @@ function faExportExcel(){
   const co=faCo(); if(!co){ showToast('مفيش شركة'); return; }
   if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل أو مفيش إنترنت'); return; }
   const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
-  const fs=[[co.name+' — القوائم المالية ('+u.ar+')'],[],['البند','Line'].concat(ys)];
+  const XCH=ys.length>=2; const fs=[[co.name+' — القوائم المالية ('+u.ar+')'],[],['البند','Line'].concat(ys).concat(XCH?['التغير '+ys[0]+'/'+ys[1],'التغير %']:[])];
   const sec=(t)=>fs.push([t]);
-  const line=(k)=>fs.push([faAnyLbl(k),(FA_LABEL[k]||[])[1]||k].concat(C.map(c=>Math.round(c[k]*100)/100)));
+  const line=(k)=>fs.push([faAnyLbl(k),(FA_LABEL[k]||[])[1]||k].concat(C.map(c=>Math.round(c[k]*100)/100)).concat(XCH?[Math.round(((C[0][k]||0)-(C[1][k]||0))*100)/100,(()=>{ const pc=faPct(C[0][k]||0,C[1][k]||0); return pc==null?'':Math.round(pc*1000)/10; })()]:[]));
   sec('الأصول المتداولة'); FA_SECTIONS[0].keys.forEach(line); line('CA');
   sec('الأصول غير المتداولة'); FA_SECTIONS[1].keys.forEach(line); line('NCA'); line('totalAssets');
   sec('حقوق الملكية'); FA_SECTIONS[4].keys.forEach(line); line('totalEquity');
@@ -5006,7 +5011,7 @@ function faExportExcel(){
   const ab=[['الاختصار','بالإنجليزي','بالعربي']].concat(used.map(a=>{ const r=(typeof ABBR!=='undefined'?ABBR.find(x=>x[0]===a):null)||(extra[a]?[a].concat(extra[a]):null); return r?[a,r[1],r[2]]:[a,'','']; }));
   const wb=XLSX.utils.book_new(); wb.Workbook={Views:[{RTL:true}]};
   const add=(aoa,name,w)=>{ const ws=XLSX.utils.aoa_to_sheet(aoa); ws['!cols']=w.map(x=>({wch:x})); XLSX.utils.book_append_sheet(wb,ws,name); };
-  add(fs,'القوائم',[42,34].concat(ys.map(()=>16)));
+  add(fs,'القوائم',[42,34].concat(ys.map(()=>16)).concat(XCH?[18,12]:[]));
   add(rt,'النسب',[36,30,50].concat(ys.map(()=>14)).concat([60,70,60]));
   add(rv,'المراجعة التحليلية',[10,40,46,50,70,16]);
   add(ab,'الاختصارات',[12,40,40]);
@@ -5884,9 +5889,11 @@ function faStudioDoc(){
   const sector=(typeof SECTORS!=='undefined'&&co.sector)?((SECTORS.find(s=>s.id===co.sector)||{}).label||''):'';
   let h='<div class="cover"><h1>'+faEsc(co.name)+'</h1><div class="sub">تحليل القوائم المالية'+(sector?' · '+faEsc(sector):'')+' · السنين: '+ys.join('، ')+' · المبالغ بـ '+u.ar+'</div></div>';
   const TOT={CA:1,NCA:1,totalAssets:1,totalEquity:1,NCL:1,CL:1,totalLiabilities:1,totalEqLiab:1,grossProfit:1,ebit:1,pbt:1,netProfit:1,fcf:1,ebitda:1};
-  let t='<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
-  const sec=x=>{ t+='<tr class="sec"><td colspan="'+(ys.length+1)+'">'+x+'</td></tr>'; };
-  const line=k=>{ if(!TOT[k]&&C.every(c=>!c[k])) return; t+='<tr class="'+(TOT[k]?'tot':'')+'"><td>'+faEsc(faAnyLbl(k))+'</td>'+C.map(c=>'<td class="n">'+faN(c[k])+'</td>').join('')+'</tr>'; };
+  const CH=ys.length>=2, thh=()=>'<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+(CH?'<th class="n">التغير '+ys[0]+'/'+ys[1]+'</th><th class="n">%</th>':'')+'</tr>';
+  let t=thh();
+  const sec=x=>{ t+='<tr class="sec"><td colspan="'+(ys.length+1+(CH?2:0))+'">'+x+'</td></tr>'; };
+  const chg=k=>{ if(!CH) return ''; const v=C[0][k]||0,p=C[1][k]||0,pc=faPct(v,p); return '<td class="n">'+(v-p>0?'+':'')+faN(v-p)+'</td><td class="n">'+(pc==null?'—':(pc>0?'+':'')+(pc*100).toFixed(1)+'%')+'</td>'; };
+  const line=k=>{ if(!TOT[k]&&C.every(c=>!c[k])) return; t+='<tr class="'+(TOT[k]?'tot':'')+'"><td>'+faEsc(faAnyLbl(k))+'</td>'+C.map(c=>'<td class="n">'+faN(c[k])+'</td>').join('')+chg(k)+'</tr>'; };
   sec('الأصول غير المتداولة'); FA_SECTIONS[1].keys.forEach(line); line('NCA');
   sec('الأصول المتداولة'); FA_SECTIONS[0].keys.forEach(line); line('CA'); line('totalAssets');
   sec('حقوق الملكية'); FA_SECTIONS[4].keys.forEach(line); line('totalEquity');
@@ -5895,7 +5902,7 @@ function faStudioDoc(){
   t+='</table>';
   const bal=C.map((c,i)=>c.hasSFP&&Math.abs(c.balanceDiff)>=1?ys[i]+': فرق '+faN(c.balanceDiff):null).filter(Boolean);
   h+='<h2>قائمة المركز المالي</h2>'+t+(bal.length?'<p class="note">⚠️ المركز المالي مش متوازن — '+bal.join(' · ')+'</p>':'');
-  t='<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
+  t=thh();
   ['revenue','cogs','grossProfit','opex','impairment','otherIncome','ebit','financeCost','financeIncome','fxGainLoss','assocShare','pbt','tax','netProfit'].forEach(line);
   if(C.some(c=>c.cfo||c.capex)){ sec('التدفقات النقدية'); ['cfo','capex','fcf','dividendsPaid'].forEach(line); }
   t+='</table>'; h+='<h2>قائمة الدخل</h2>'+t;
