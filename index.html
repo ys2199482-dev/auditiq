@@ -756,6 +756,8 @@ body.print-mode .site-tag,body.print-mode #aiFab,body.print-mode #aiFabBox{displ
 .fa-grp-h{font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px}
 .fa-grp-h small{font-size:12px;color:var(--text3);font-weight:500;margin-right:6px}
 .fa-tbl .fa-chg{border-right:2px solid var(--border2);white-space:nowrap}.fa-tbl td.fa-chg small{display:block;font-size:11px;color:var(--text3);line-height:1.3}
+.fa-chip{display:inline-block;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:1px 9px;font-size:12px;margin:2px}
+.fa-deep{border-top:1px dashed var(--border);margin-top:8px;padding-top:4px}
 .fa-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 .fa-rt-q,.fa-rt-r{display:block;width:100%;font-size:11.8px;line-height:1.65;color:var(--text2);margin-top:5px;font-weight:400}.fa-rt-q{border-top:1px dashed var(--border);padding-top:6px}.fa-rt-q b,.fa-rt-r b{color:var(--text);font-weight:700}
 .fa-use{background:var(--accent-soft);border-radius:10px;padding:4px 12px 8px;margin-bottom:6px}
@@ -907,6 +909,23 @@ button.fa-lg:hover{background:var(--bg3)}.fa-lg.off{opacity:.38;text-decoration:
 @media(max-width:900px){.ap-top,.ap-cols,.ap-mat-row{grid-template-columns:1fr}.pg-g{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.pg-g{grid-template-columns:1fr}.ap-mat-v{grid-template-columns:1fr}.fa-cobar-m select{max-width:100%}}
 
+/* v15 home learn */
+.home-learn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.hl-card{display:flex;flex-direction:column;gap:8px}
+.hl-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.hl-t{font-weight:800;color:var(--text);font-size:14px}
+.hl-tag{font-family:var(--mono);font-size:10.5px;background:var(--bg3);border-radius:6px;padding:1px 8px;color:var(--text2)}.hl-n{margin-right:auto;font-size:11px;color:var(--text3)}
+.hl-q{font-size:14px;line-height:1.8;color:var(--text);font-weight:600}
+.hl-opts{display:flex;flex-direction:column;gap:6px}
+.hq-opt{text-align:right;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text2);cursor:pointer;font-family:var(--font);font-size:13px;line-height:1.6}
+.hq-opt:hover:not(:disabled){border-color:var(--accent)}.hq-opt b{font-family:var(--mono);color:var(--text3);margin-left:6px}
+.hq-opt.ok{background:rgba(21,147,106,.12);border-color:var(--green);color:var(--green)}.hq-opt.bad{background:rgba(214,69,69,.1);border-color:var(--red);color:var(--red)}
+.hq-ex{background:var(--accent-soft);border-radius:10px;padding:9px 12px;font-size:12.8px;line-height:1.8;color:var(--text2)}
+.hl-f{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.hl-ct{font-weight:800;font-size:14px;color:var(--text)}.hl-ctx{font-size:13px;line-height:1.85;color:var(--text2);background:var(--bg3);border-radius:10px;padding:9px 12px;border-right:3px solid var(--gold2)}
+.hl-cq{font-size:13px;line-height:1.8}.hl-hint{font-size:11.5px;color:var(--text3);margin:2px 0 4px}.hl-ans{background:rgba(21,147,106,.08);border-radius:8px;padding:7px 10px;color:var(--text2);font-size:12.8px}
+.hl-learn{font-size:12px;color:var(--text3);line-height:1.7}
+.hl-next{font-size:10.5px;border:1px solid var(--border2);background:var(--bg2);border-radius:6px;padding:1px 8px;cursor:pointer;color:var(--text2);font-family:var(--font);margin-right:6px}
+@media(max-width:900px){.home-learn{grid-template-columns:1fr}}
 /* ═══ PRINT MODE ═══ */
 .print-header{display:none;align-items:center;gap:16px;padding:10px 0 12px;margin-bottom:14px;border-bottom:0.5px solid var(--border)}
 body.print-mode .sidebar{display:none !important}
@@ -1118,7 +1137,7 @@ body.print-mode input[type="text"],body.print-mode input[type="number"],body.pri
 
 <!-- PRINT HEADER — مرئي فقط في وضع الطباعة -->
 <div class="print-header" id="printHeader">
-  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v14</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700">AUDIT<span style="color:var(--text)">IQ</span> v15</div>
   <div style="flex:1">
     <div id="printHeaderTitle" style="font-size:17px;font-weight:700;color:var(--text)">—</div>
     <div style="font-size:11px;color:var(--text3)">يوسف صلاح · Kreston Egypt · <span data-exam-label>DipIFR Jun 2027</span></div>
@@ -2563,7 +2582,7 @@ function renderHome(){
   const ifrs_tips=DAILY_TIPS.filter(t=>t.cat==='ifrs');
   const audit_tips=DAILY_TIPS.filter(t=>t.cat==='audit');
   const tax_tips=DAILY_TIPS.filter(t=>t.cat==='tax');
-  const di=now.getDate();
+  const di=Math.floor((now-new Date('2025-01-01'))/86400000);
   const tipIFRS=ifrs_tips[di%ifrs_tips.length];
   const tipAudit=audit_tips[di%audit_tips.length];
   const tipTax=tax_tips[di%tax_tips.length];
@@ -2903,7 +2922,7 @@ function getFilteredQ(){
   return QUESTIONS.filter(q=>String(q.topicId)===f||q.topic===f);
 }
 function renderQuiz(){
-  const topics=[{label:'الكل',val:'all'},{label:'IFRS 16',val:'3'},{label:'IFRS 15',val:'2'},{label:'IFRS 10/3',val:'1'},{label:'IFRS 9',val:'4'},{label:'IAS 12',val:'8'},{label:'IAS 2',val:'14'},{label:'IAS 36',val:'10'},{label:'IAS 38',val:'11'},{label:'ISA',val:'ISA'},{label:'ضرائب',val:'TAX'}];
+  const topics=[{label:'الكل',val:'all'},{label:'IFRS 16',val:'3'},{label:'IFRS 15',val:'2'},{label:'IFRS 10/3',val:'1'},{label:'IFRS 9',val:'4'},{label:'IAS 12',val:'8'},{label:'IAS 2',val:'14'},{label:'IAS 36',val:'10'},{label:'IAS 38',val:'11'},{label:'ISA',val:'ISA'},{label:'تحليل القوائم',val:'36'},{label:'أطراف ذات علاقة',val:'30'},{label:'ضرائب',val:'TAX'}];
   document.getElementById('quizFilters').innerHTML=topics.map(f=>`<button class="filter-btn ${S.quizSession.filter===f.val?'active':''}" onclick="setQFilter('${f.val}')">${f.label}</button>`).join('');
   const qs=getFilteredQ();
   if(!qs.length){document.getElementById('quizBox').innerHTML='<p style="color:var(--text3)">مفيش أسئلة في هذا الموضوع.</p>';return;}
@@ -4045,13 +4064,13 @@ function faUnit(co){ return FA_UNITS.find(u=>u.v===+((co||{}).unit||1))||FA_UNIT
 
 // ── البنود: نفس مفاتيح مدخلات القوائم القديمة (عشان التوافق) ──
 const FA_SECTIONS=[
-  {id:'CA', st:'SFP', ar:'الأصول المتداولة', en:'Current assets', color:'var(--teal)', keys:['cash','recv','inv','contractAssets','prepaid']},
-  {id:'NCA',st:'SFP', ar:'الأصول غير المتداولة', en:'Non-current assets', color:'var(--purple)', keys:['ppe','rouAssets','intangibles','invProp','assocInv','deferredTaxAsset','otherNCA']},
-  {id:'CL', st:'SFP', ar:'الالتزامات المتداولة', en:'Current liabilities', color:'var(--orange)', keys:['payables','contractLiab','stBorrow','taxPayable','provisionsCL','otherCL']},
-  {id:'NCL',st:'SFP', ar:'الالتزامات غير المتداولة', en:'Non-current liabilities', color:'var(--red)', keys:['ltBorrow','leaseLiabNC','deferredTaxLiab','provisionsNCL','otherNCL']},
-  {id:'EQ', st:'SFP', ar:'حقوق الملكية', en:'Equity', color:'var(--gold)', keys:['shareCapital','reserves','retainedEarnings','nci']},
-  {id:'PL', st:'IS',  ar:'قائمة الدخل', en:'Income statement', color:'var(--blue)', keys:['revenue','cogs','opex','impairment','otherIncome','financeCost','financeIncome','fxGainLoss','assocShare','tax']},
-  {id:'CF', st:'CF',  ar:'التدفقات النقدية وبيانات إضافية', en:'Cash flow & other data', color:'var(--green)', keys:['cfo','capex','depAmort','dividendsPaid','sharesOutstanding','marketPrice','preferredDiv']},
+  {id:'CA', st:'SFP', ar:'الأصول المتداولة', en:'Current assets', color:'var(--teal)', keys:['cash','stInvest','recv','dueFromRP','inv','contractAssets','prepaid','taxAsset','heldForSale']},
+  {id:'NCA',st:'SFP', ar:'الأصول غير المتداولة', en:'Non-current assets', color:'var(--purple)', keys:['ppe','cwip','rouAssets','intangibles','invProp','subsInv','assocInv','finInvNC','ltRecv','deferredTaxAsset','otherNCA']},
+  {id:'CL', st:'SFP', ar:'الالتزامات المتداولة', en:'Current liabilities', color:'var(--orange)', keys:['stBorrow','currLTD','leaseLiabC','payables','contractLiab','dueToRP','dividendsPayable','taxPayable','provisionsCL','otherCL']},
+  {id:'NCL',st:'SFP', ar:'الالتزامات غير المتداولة', en:'Non-current liabilities', color:'var(--red)', keys:['ltBorrow','leaseLiabNC','shareholderLoans','empBenefits','deferredTaxLiab','provisionsNCL','otherNCL']},
+  {id:'EQ', st:'SFP', ar:'حقوق الملكية', en:'Equity', color:'var(--gold)', keys:['shareCapital','capIncrease','treasuryShares','legalReserve','reserves','ociReserve','retainedEarnings','profitYear','nci']},
+  {id:'PL', st:'IS',  ar:'قائمة الدخل', en:'Income statement', color:'var(--blue)', keys:['revenue','cogs','sellingExp','adminExp','opex','otherExp','impairment','otherIncome','financeCost','financeIncome','fxGainLoss','assocShare','tax','taxDeferred','oci']},
+  {id:'CF', st:'CF',  ar:'التدفقات النقدية وبيانات إضافية', en:'Cash flow & other data', color:'var(--green)', keys:['cfo','cfi','cff','capex','depAmort','dividendsPaid','rpSales','rpPurchases','sharesOutstanding','marketPrice','preferredDiv']},
 ];
 const FA_LABEL={
   cash:['النقدية وما في حكمها','Cash and cash equivalents'], recv:['العملاء وأوراق القبض','Trade receivables'], inv:['المخزون','Inventories'],
@@ -4073,32 +4092,70 @@ const FA_LABEL={
   depAmort:['الإهلاك والاستهلاك (من التدفقات النقدية)','Depreciation and amortisation'], dividendsPaid:['توزيعات أرباح مدفوعة','Dividends paid'],
   sharesOutstanding:['عدد الأسهم (عدد — مش بالوحدة)','Number of shares'], marketPrice:['سعر السهم (جنيه — مش بالوحدة)','Share price (EGP)'], preferredDiv:['توزيعات الأسهم الممتازة','Preference dividends'],
 };
+Object.assign(FA_LABEL,{
+  stInvest:['استثمارات مالية قصيرة الأجل (أذون خزانة / صناديق / بالقيمة العادلة)','Short-term investments (T-bills, funds, FVTPL)'],
+  dueFromRP:['مستحق من أطراف ذات علاقة','Due from related parties'],
+  taxAsset:['ضرائب مدينة / خصم تحت حساب الضريبة','Current tax assets / withholding tax'],
+  heldForSale:['أصول محتفظ بها لغرض البيع','Assets held for sale'],
+  cwip:['مشروعات تحت التنفيذ','Capital work in progress'],
+  subsInv:['استثمارات في شركات تابعة (القوائم المستقلة)','Investments in subsidiaries (separate FS)'],
+  finInvNC:['استثمارات مالية طويلة الأجل (FVOCI / تكلفة مستهلكة)','Long-term financial investments (FVOCI / amortised cost)'],
+  ltRecv:['عملاء وأوراق قبض طويلة الأجل','Long-term receivables'],
+  currLTD:['الجزء المتداول من القروض طويلة الأجل','Current portion of long-term loans'],
+  leaseLiabC:['الجزء المتداول من التزامات التأجير','Current portion of lease liabilities'],
+  dueToRP:['مستحق لأطراف ذات علاقة','Due to related parties'],
+  dividendsPayable:['توزيعات أرباح مستحقة','Dividends payable'],
+  shareholderLoans:['قروض من المساهمين / أطراف ذات علاقة (طويلة الأجل)','Shareholder / related-party loans (non-current)'],
+  empBenefits:['التزامات مزايا العاملين ومكافأة نهاية الخدمة','Employee benefit obligations'],
+  capIncrease:['مبالغ مسددة تحت حساب زيادة رأس المال','Amounts paid for capital increase'],
+  treasuryShares:['أسهم خزينة (بالسالب)','Treasury shares (negative)'],
+  legalReserve:['احتياطي قانوني','Legal reserve'],
+  ociReserve:['احتياطي القيمة العادلة / فروق الترجمة / إعادة التقييم','Fair value / translation / revaluation reserve'],
+  profitYear:['صافي ربح (خسارة) العام — في حقوق الملكية','Profit (loss) for the year — in equity'],
+  sellingExp:['مصروفات بيع وتوزيع','Selling and distribution expenses'],
+  adminExp:['مصروفات عمومية وإدارية','General and administrative expenses'],
+  otherExp:['مصروفات وخسائر أخرى','Other expenses and losses'],
+  taxDeferred:['الضريبة المؤجلة (المصروف بالموجب)','Deferred tax expense'],
+  oci:['بنود الدخل الشامل الآخر (بعد الضريبة)','Other comprehensive income (net of tax)'],
+  cfi:['صافي التدفقات النقدية من أنشطة الاستثمار','Net cash from investing activities'],
+  cff:['صافي التدفقات النقدية من أنشطة التمويل','Net cash from financing activities'],
+  rpSales:['مبيعات / إيرادات من أطراف ذات علاقة (من الإيضاحات)','Sales to related parties (from notes)'],
+  rpPurchases:['مشتريات / خدمات من أطراف ذات علاقة (من الإيضاحات)','Purchases from related parties (from notes)'],
+});
+FA_LABEL.opex=['مصروفات بيعية وعمومية وإدارية (مجمعة)','Selling, general and administrative expenses (combined)'];
+FA_LABEL.tax=['ضريبة الدخل الجارية','Current income tax expense'];
+FA_LABEL.reserves=['احتياطيات أخرى','Other reserves'];
+FA_LABEL.retainedEarnings=['أرباح مرحلة / (خسائر مرحلة)','Retained earnings / (accumulated losses)'];
 const FA_NOUNIT={sharesOutstanding:1,marketPrice:1};
-const FA_EXPENSE={cogs:1,opex:1,impairment:1,financeCost:1,tax:1};
+const FA_EXPENSE={cogs:1,opex:1,impairment:1,financeCost:1,tax:1,sellingExp:1,adminExp:1,otherExp:1,taxDeferred:1};
 const FA_ALLKEYS=FA_SECTIONS.reduce((a,s)=>a.concat(s.keys),[]);
 function faLbl(k){ return (FA_LABEL[k]||[k])[0]; }
 
 function faCalc(d){
   const g=k=>{ const v=+((d||{})[k]); return isFinite(v)?v:0; };
   const x={}; FA_ALLKEYS.forEach(k=>x[k]=g(k));
-  x.CA=x.cash+x.recv+x.inv+x.contractAssets+x.prepaid;
-  x.NCA=x.ppe+x.rouAssets+x.intangibles+x.invProp+x.assocInv+x.deferredTaxAsset+x.otherNCA;
+  const sum=i=>FA_SECTIONS[i].keys.reduce((a,k)=>a+x[k],0);
+  x.CA=sum(0); x.NCA=sum(1);
   x.totalAssets=x.CA+x.NCA;
-  x.CL=x.payables+x.contractLiab+x.stBorrow+x.taxPayable+x.provisionsCL+x.otherCL;
-  x.NCL=x.ltBorrow+x.leaseLiabNC+x.deferredTaxLiab+x.provisionsNCL+x.otherNCL;
+  x.CL=sum(2); x.NCL=sum(3);
   x.totalLiabilities=x.CL+x.NCL;
-  x.totalEquity=x.shareCapital+x.reserves+x.retainedEarnings+x.nci;
+  x.totalEquity=sum(4);
+  x.retainedAll=x.retainedEarnings+x.profitYear;
+  x.rpNet=x.dueFromRP-x.dueToRP-x.shareholderLoans;
   x.ownersEquity=x.totalEquity-x.nci;
   x.totalEqLiab=x.totalEquity+x.totalLiabilities;
   x.balanceDiff=x.totalAssets-x.totalEqLiab;
   x.workingCapital=x.CA-x.CL;
-  x.debt=x.stBorrow+x.ltBorrow+x.leaseLiabNC;
+  x.debt=x.stBorrow+x.currLTD+x.ltBorrow+x.leaseLiabC+x.leaseLiabNC;
   x.netDebt=x.debt-x.cash;
   x.grossProfit=x.revenue-x.cogs;
-  x.ebit=x.grossProfit-x.opex-x.impairment+x.otherIncome;
+  x.opexAll=x.opex+x.sellingExp+x.adminExp+x.otherExp;
+  x.ebit=x.grossProfit-x.opexAll-x.impairment+x.otherIncome;
   x.ebitda=x.ebit+x.depAmort+x.impairment;
   x.pbt=x.ebit-x.financeCost+x.financeIncome+x.fxGainLoss+x.assocShare;
-  x.netProfit=x.pbt-x.tax;
+  x.taxAll=x.tax+x.taxDeferred;
+  x.netProfit=x.pbt-x.taxAll;
+  x.totalCI=x.netProfit+x.oci;
   x.profitNCI=(x.nci&&x.totalEquity)?x.netProfit*(x.nci/x.totalEquity):0;
   x.profitOwners=x.netProfit-x.profitNCI;
   x.fcf=x.cfo-x.capex;
@@ -4109,7 +4166,7 @@ function faCalc(d){
 const FA_DERIVED_LBL={CA:'إجمالي الأصول المتداولة',NCA:'إجمالي الأصول غير المتداولة',totalAssets:'إجمالي الأصول',CL:'إجمالي الالتزامات المتداولة',NCL:'إجمالي الالتزامات غير المتداولة',
   totalLiabilities:'إجمالي الالتزامات',totalEquity:'إجمالي حقوق الملكية',ownersEquity:'حقوق ملكية مساهمي الشركة الأم',totalEqLiab:'إجمالي حقوق الملكية والالتزامات',workingCapital:'رأس المال العامل',
   debt:'إجمالي القروض والتزامات التأجير',netDebt:'صافي الدين (القروض − النقدية)',grossProfit:'مجمل الربح',ebit:'ربح التشغيل (EBIT)',ebitda:'EBITDA',pbt:'الربح قبل الضريبة',netProfit:'صافي الربح',
-  profitOwners:'صافي الربح الخاص بمساهمي الأم (تقديري)',fcf:'التدفق النقدي الحر (CFO − Capex)'};
+  profitOwners:'صافي الربح الخاص بمساهمي الأم (تقديري)',opexAll:'إجمالي المصروفات التشغيلية',taxAll:'إجمالي ضريبة الدخل (جارية + مؤجلة)',totalCI:'إجمالي الدخل الشامل',retainedAll:'الأرباح المرحلة شاملة ربح العام',rpNet:'صافي أرصدة الأطراف ذات العلاقة (مدين − دائن)',fcf:'التدفق النقدي الحر (CFO − Capex)'};
 function faAnyLbl(k){ return FA_LABEL[k]?FA_LABEL[k][0]:(FA_DERIVED_LBL[k]||k); }
 
 // ── التوافق مع الأدوات القديمة (_FS) ──
@@ -4119,7 +4176,13 @@ function faSyncLegacy(){
     const ys=faYears(co); if(!ys.length) return;
     const c=co.years[ys[0]]||{}, p=ys[1]?(co.years[ys[1]]||{}):{};
     Object.keys(_FS).forEach(k=>delete _FS[k]);
-    FA_ALLKEYS.forEach(k=>{ if(c[k]!=null&&c[k]!=='') _FS[k+'_c']=c[k]; if(p[k]!=null&&p[k]!=='') _FS[k+'_p']=p[k]; });
+    const fold=d=>{ const o=Object.assign({},d), n=k=>+o[k]||0, mv=(to,from)=>{ const v=from.reduce((a,k)=>a+n(k),0); if(v){ o[to]=n(to)+v; } from.forEach(k=>delete o[k]); };
+      mv('prepaid',['stInvest','dueFromRP','taxAsset','heldForSale']); mv('ppe',['cwip']); mv('otherNCA',['subsInv','finInvNC','ltRecv']);
+      mv('stBorrow',['currLTD','leaseLiabC']); mv('otherCL',['dueToRP','dividendsPayable']); mv('otherNCL',['shareholderLoans','empBenefits']);
+      mv('reserves',['capIncrease','treasuryShares','legalReserve','ociReserve']); mv('retainedEarnings',['profitYear']);
+      mv('opex',['sellingExp','adminExp','otherExp']); mv('tax',['taxDeferred']); ['oci','cfi','cff','rpSales','rpPurchases'].forEach(k=>delete o[k]); return o; };
+    const fc=fold(c), fp=fold(p);
+    Object.keys(fc).forEach(k=>{ if(fc[k]!=null&&fc[k]!=='') _FS[k+'_c']=fc[k]; }); Object.keys(fp).forEach(k=>{ if(fp[k]!=null&&fp[k]!=='') _FS[k+'_p']=fp[k]; });
     _FS.company=co.name||''; _FS.sector=co.sector||''; _FS.labelC=ys[0]; _FS.labelP=ys[1]||'';
     saveFS();
   }catch(e){}
@@ -4228,7 +4291,7 @@ const FA_RATIOS=[
   read:x=>x<0?'سالب.':'موجب.',
   audit:['قارنه بتكلفة الاقتراض: لو أقل منها، الاقتراض بيقلل العائد على المساهمين.']},
  {id:'etr',g:'prof',kind:'%',dir:null,ar:'سعر الضريبة الفعلي',en:'Effective tax rate',f:'ضريبة الدخل ÷ الربح قبل الضريبة',need:['tax','pbt'],
-  calc:v=>v.pbt>0?faDiv(v.tax,v.pbt):null,
+  calc:v=>v.pbt>0?faDiv(v.taxAll,v.pbt):null,
   about:'العبء الضريبي الفعلي مقارنة بالسعر القانوني لضريبة شركات الأموال في مصر (22.5%).',
   read:x=>Math.abs(x-0.225)>0.075?'بعيد عن 22.5%: لازم تفسير (مصروفات غير قابلة للخصم، إعفاءات، أصل ضريبي مؤجل مش متسجل، ضرائب سنين سابقة).':'قريب من السعر القانوني.',
   audit:['اطلب تسوية السعر الفعلي بالسعر القانوني (IAS 12 / المعيار المصري 24).','راجع الضريبة المؤجلة والفروق المؤقتة.']},
@@ -4361,6 +4424,7 @@ const FA_HEAD=[
   [/التدفقات النقديه|cash flows?/,'CF'],
 ];
 const FA_TOTALS=[
+  [/^((اجمالي|مجموع) )?(ال)?دخل (ال)?شامل( (عن |لل|ل)?(ال)?(عام|سنه|فتره))?$|total comprehensive/,'totalCI'],
   [/اجمالي الاصول المتداوله|total current assets/,'CA'],[/اجمالي الاصول غير المتداوله|total non ?current assets/,'NCA'],[/^(اجمالي|مجموع) الاصول$|^total assets$/,'totalAssets'],
   [/اجمالي الالتزامات المتداوله|total current liabilities/,'CL'],[/اجمالي الالتزامات غير المتداوله|total non ?current liabilities/,'NCL'],
   [/اجمالي حقوق الملكيه والالتزامات|اجمالي الالتزامات وحقوق الملكيه|total equity and liabilities|total liabilities and equity/,'totalEqLiab'],
@@ -4390,7 +4454,7 @@ const FA_RULES=[
   [/راس (ال)?مال (ال)?(مدفوع|مصدر|المرخص)|^راس (ال)?مال$|share capital|paid ?up capital|issued capital/,'shareCapital',['EQ','UNK']],
   [/احتياطي|فائض (ال)?اعاده (ال)?تقييم|reserve|revaluation surplus/,'reserves',['EQ','UNK']],
   [/ارباح مرحله|خسائر مرحله|ارباح (ال)?محتجزه|ارباح \(?خسائر\)? مرحله|retained|accumulated (loss|deficit)/,'retainedEarnings',['EQ','UNK']],
-  [/صافي (ال)?(ربح|خساره|ارباح|خسائر)|(ربح|ارباح|خساره|خسائر)( (ال)?(ربح|ارباح|خساره|خسائر))? (ال)?(عام|سنه|فتره)|(نتيجه|نتائج) (ال)?(عام|سنه|فتره)|(profit|loss)( (profit|loss))? for the (year|period)|net (profit|loss)/,'retainedEarnings',['EQ']],
+  [/صافي (ال)?(ربح|خساره|ارباح|خسائر)|(ربح|ارباح|خساره|خسائر)( (ال)?(ربح|ارباح|خساره|خسائر))? (ال)?(عام|سنه|فتره)|(نتيجه|نتائج) (ال)?(عام|سنه|فتره)|(profit|loss)( (profit|loss))? for the (year|period)|net (profit|loss)/,'profitYear',['EQ']],
   // أصول
   [/حق (ال)?انتفاع|حق (ال)?استخدام|right ?of ?use/,'rouAssets',['NCA','UNK']],
   [/استثمار(ات)? عقاري|investment propert/,'invProp',['NCA','UNK']],
@@ -4421,6 +4485,36 @@ const FA_RULES=[
   [/موردين|موردون|اوراق دفع|ذمم دائنه|دائنون|payable|creditors/,'payables',['CL','UNK']],
   [/.*/,'otherNCA',['NCA']],[/.*/,'otherCL',['CL']],[/.*/,'otherNCL',['NCL']],
 ];
+FA_RULES.unshift(
+  [/صافي (ال)?(تدفقات|التدفق) .*(انشطه|نشاط) (ال)?استثمار|net cash .*investing/,'cfi',['CF','UNK']],
+  [/صافي (ال)?(تدفقات|التدفق) .*(انشطه|نشاط) (ال)?تمويل|net cash .*financing/,'cff',['CF','UNK']],
+  [/(ال)?ضريب(ه)? (ال)?(دخل )?(ال)?مؤجله|deferred tax/,'taxDeferred',['PL']],
+  [/(بنود )?(ال)?دخل (ال)?شامل (ال)?اخر|other comprehensive income/,'oci',['PL']],
+  [/بيعيه و(ال)?عموميه|بيع(يه)? و(ال)?(عموميه|اداريه)|selling,? general|sg ?(and|&) ?a/,'opex',['PL','UNK']],
+  [/(مصروفات|مصاريف|تكاليف) (ال)?(بيع|بيعيه|تسويق|تسويقيه|توزيع)|selling|distribution cost|marketing expense/,'sellingExp',['PL','UNK']],
+  [/(مصروفات|مصاريف) (ال)?(عموميه|اداريه)|عموميه و(ال)?اداريه|general and admin|administrative expense/,'adminExp',['PL','UNK']],
+  [/(مصروفات|مصاريف|خسائر) (تشغيل )?(اخري|متنوعه)|other (operating )?expense|other losses/,'otherExp',['PL','UNK']],
+  [/اذون (ال)?خزانه|treasury bill|وثائق (صناديق|صندوق)|صناديق (ال)?استثمار|investment fund|(ارباح|الارباح) و(ال)?خسائر|fair value through profit|fvtpl|استثمارات (ماليه )?(قصيره|متداوله)|short term investment|استثمارات (ماليه|بغرض المتاجره)|trading/,'stInvest',['CA']],
+  [/محتفظ بها (لغرض|بغرض|ل)(ال)? ?بيع|held for sale/,'heldForSale',['CA','UNK']],
+  [/ضرائب (مدينه|مستحقه (ال)?استرداد|مسدده مقدما)|مصلحه (ال)?ضرائب (-|–)? ?(مدين|خصم)|خصم (تحت|من) (ال)?(حساب|منبع)|current tax asset|tax recoverable|withholding tax/,'taxAsset',['CA']],
+  [/قرض (من )?(ال)?(مساهم|شركاء|شريك)|قروض (ال)?(مساهمين|شركاء)|قرض مساند|shareholder loan|loan from shareholder/,'shareholderLoans',['NCL','UNK']],
+  [/(اطراف|طرف|جهات) (ذات|ذو|ذوي) (ال)?علاق|related part|شركات (ال)?مجموعه|group compan|جاري (ال)?(شركاء|مساهمين|شريك)|current account.*(shareholder|partner)/,'dueFromRP',['CA']],
+  [/(اطراف|طرف|جهات) (ذات|ذو|ذوي) (ال)?علاق|related part|شركات (ال)?مجموعه|group compan|جاري (ال)?(شركاء|مساهمين|شريك)|قرض (من )?(ال)?(مساهم|شركاء)/,'dueToRP',['CL']],
+  [/(اطراف|طرف|جهات) (ذات|ذو|ذوي) (ال)?علاق|related part|شركات (ال)?مجموعه|group compan|جاري (ال)?(شركاء|مساهمين|شريك)/,'shareholderLoans',['NCL']],
+  [/مشروعات (تحت|قيد) (ال)?تنفيذ|اعمال (راسماليه )?(تحت|قيد) (ال)?تنفيذ|capital work|construction in progress|cwip/,'cwip',['NCA','UNK']],
+  [/شركات تابعه|شركه تابعه|subsidiar/,'subsInv',['NCA','UNK']],
+  [/(قيمه عادله).*(شامل)|fvoci|بالتكلفه المستهلكه|amortised cost|amortized cost|سندات|استثمارات ماليه|financial (assets|investments)|(حتي|لتاريخ) (ال)?استحقاق|held to maturity|متاحه للبيع|available for sale/,'finInvNC',['NCA']],
+  [/عملاء|اوراق قبض|مدينون|receivable/,'ltRecv',['NCA']],
+  [/(ال)?(جزء|اقساط) (ال)?(متداول|مستحق(ه)?).*(تاجير|ايجار)|(تاجير|ايجار).*(متداول|قصير)|current portion of lease/,'leaseLiabC',['CL']],
+  [/التزام(ات)? (عقود )?(ال)?(تاجير|ايجار)|lease liabilit/,'leaseLiabC',['CL']],
+  [/(ال)?(جزء|اقساط) (ال)?(متداول|مستحق(ه)?).*(قرض|قروض)|(قرض|قروض).*(ال)?(جزء|اقساط) (ال)?(متداول|مستحق)|current portion of (long|loan|borrow)|current maturit/,'currLTD',['CL']],
+  [/توزيعات (ال)?ارباح (ال)?(مستحقه|دائنه)|كوبونات مستحقه|dividends? payable/,'dividendsPayable',['CL','UNK']],
+  [/مزايا (ال)?عاملين|مكافا(ه|ة) (نهايه|ترك) (ال)?خدمه|employee benefit|end of service|retirement benefit|defined benefit/,'empBenefits',['NCL','UNK']],
+  [/اسهم (ال)?خزينه|treasury shares/,'treasuryShares',['EQ','UNK']],
+  [/(مسدده|مدفوعه|مجنبه|مبالغ) (تحت|لحساب) (ال)?حساب زياده|تحت حساب زياده|زياده (ال)?راس (ال)?مال|advances? for (share )?capital|capital increase/,'capIncrease',['EQ','UNK']],
+  [/احتياطي (ال)?قانوني|legal reserve|statutory reserve/,'legalReserve',['EQ','UNK']],
+  [/احتياطي (ال)?قيمه (ال)?عادله|احتياطي (فروق )?(ال)?ترجمه|فروق ترجمه|فائض (ال)?اعاده (ال)?تقييم|fair value reserve|translation reserve|revaluation (surplus|reserve)/,'ociReserve',['EQ']]
+);
 function faMatchRule(n,sec){
   for(const r of FA_RULES){ if(r[2]&&r[2].indexOf(sec)<0) continue; if(r[0].test(n)) return r[1]; }
   return '';
@@ -4547,11 +4641,11 @@ function faReview(co,opt){
   ys.forEach(y=>{ const c=faCalc(co.years[y]); if(c.hasSFP&&Math.abs(c.balanceDiff)>=1) push('H','قائمة المركز المالي مش متوازنة — '+y,'الأصول '+faN(c.totalAssets)+' مقابل الالتزامات وحقوق الملكية '+faN(c.totalEqLiab)+' — الفرق '+faN(c.balanceDiff),'بند ناقص أو متبوب غلط في الإدخال أو في المسودة نفسها.',['راجع الإدخال مع المسودة بند بند.','لو المسودة نفسها مش متوازنة: ارجع لميزان المراجعة.'],'—'); });
   if(v.hasSFP&&v.CA&&v.CL&&v.CA/v.CL<1) push('H','نسبة التداول أقل من 1','نسبة التداول '+(v.CA/v.CL).toFixed(2)+'× — عجز رأس مال عامل '+faN(v.CA-v.CL),'الالتزامات اللي هتستحق خلال سنة أكبر من الأصول اللي هتتحول لنقدية خلال سنة.',['قيّم الاستمرارية وخطط الإدارة لمدة 12 شهر على الأقل.','راجع التسهيلات البنكية المتاحة وتواريخ تجديدها.','راجع الأحداث اللاحقة والتدفقات الفعلية بعد نهاية السنة.'],'ISA 570');
   if(v.hasSFP&&v.totalEquity<0) push('H','حقوق الملكية بالسالب','إجمالي حقوق الملكية '+faN(v.totalEquity),'الالتزامات أكبر من الأصول.',['إجراءات الاستمرارية والدعم المالي من المساهمين (خطاب دعم).','راجع متطلبات قانون الشركات.'],'ISA 570');
-  else if(v.shareCapital>0&&v.retainedEarnings<0&&Math.abs(v.retainedEarnings)>=v.shareCapital/2) push('H','الخسائر المتراكمة وصلت نص رأس المال أو أكتر','الخسائر المرحلة '+faN(v.retainedEarnings)+' مقابل رأس مال '+faN(v.shareCapital)+' ('+P(Math.abs(v.retainedEarnings)/v.shareCapital)+')','حالة بتستلزم إجراء من الجمعية العامة حسب قانون الشركات، ومؤشر على الاستمرارية.',['اتأكد من دعوة الجمعية العامة غير العادية وقرارها.','إجراءات الاستمرارية.'],'ISA 570');
+  else if(v.shareCapital>0&&v.retainedAll<0&&Math.abs(v.retainedAll)>=v.shareCapital/2) push('H','الخسائر المتراكمة وصلت نص رأس المال أو أكتر','الخسائر المرحلة شاملة نتيجة العام '+faN(v.retainedAll)+' مقابل رأس مال '+faN(v.shareCapital)+' ('+P(Math.abs(v.retainedEarnings)/v.shareCapital)+')','حالة بتستلزم إجراء من الجمعية العامة حسب قانون الشركات، ومؤشر على الاستمرارية.',['اتأكد من دعوة الجمعية العامة غير العادية وقرارها.','إجراءات الاستمرارية.'],'ISA 570');
   if(v.financeCost&&v.ebit/v.financeCost<1.5) push(v.ebit/v.financeCost<1?'H':'M','تغطية الفوائد ضعيفة','ربح التشغيل ÷ الفوائد = '+(v.ebit/v.financeCost).toFixed(2)+'×','ربح التشغيل بالكاد مغطي (أو مش مغطي) تكلفة الاقتراض.',['راجع تعهدات عقود القروض وأي إخلال بيها وأثره على التبويب.','راجع رسملة الفوائد على الأصول المؤهلة.'],'ISA 570 · IAS 23');
   if(v.cfo&&v.netProfit>0&&v.cfo<0) push('H','ربح محاسبي مع تدفق تشغيلي سالب','صافي الربح '+faN(v.netProfit)+' والتدفق من التشغيل '+faN(v.cfo),'الربح مش بيتحول لنقدية — ممكن يكون من زيادة العملاء أو المخزون أو إيرادات مسجلة قبل وقتها.',['حلّل حركة رأس المال العامل في قائمة التدفقات.','اختبر الإيرادات قرب نهاية السنة والتحصيلات اللاحقة.'],'ISA 240 · ISA 520');
   else if(v.cfo&&v.netProfit>0&&v.cfo/v.netProfit<0.5) push('M','جودة الأرباح: أقل من نص الربح اتحول لنقدية','التدفق من التشغيل ÷ صافي الربح = '+(v.cfo/v.netProfit).toFixed(2)+'×','جزء كبير من الربح لسه في أرصدة مدينة أو مخزون.',['حلّل الزيادة في العملاء والمخزون.'],'ISA 520');
-  if(v.pbt>0&&Math.abs(v.tax/v.pbt-0.225)>0.075) push('M','سعر الضريبة الفعلي بعيد عن 22.5%','سعر الضريبة الفعلي '+P(v.tax/v.pbt)+' على ربح قبل الضريبة '+faN(v.pbt),'لازم يتفسر بتسوية: مصروفات غير قابلة للخصم، إعفاءات، أصل ضريبي مؤجل مش متسجل، أو ضرائب سنين سابقة.',['اطلب تسوية السعر الفعلي بالسعر القانوني.','راجع حساب الضريبة المؤجلة.'],'IAS 12');
+  if(v.pbt>0&&Math.abs(v.taxAll/v.pbt-0.225)>0.075) push('M','سعر الضريبة الفعلي بعيد عن 22.5%','سعر الضريبة الفعلي '+P(v.taxAll/v.pbt)+' على ربح قبل الضريبة '+faN(v.pbt),'لازم يتفسر بتسوية: مصروفات غير قابلة للخصم، إعفاءات، أصل ضريبي مؤجل مش متسجل، أو ضرائب سنين سابقة.',['اطلب تسوية السعر الفعلي بالسعر القانوني.','راجع حساب الضريبة المؤجلة.'],'IAS 12');
   if(pv){
     const g=(a,b)=>faPct(a,b);
     const gr=g(v.revenue,pv.revenue), grc=g(v.recv,pv.recv), gi=g(v.inv,pv.inv), gc=g(v.cogs,pv.cogs), gca=g(v.contractAssets,pv.contractAssets);
@@ -4567,12 +4661,21 @@ function faReview(co,opt){
     if(v.dividendsPaid&&v.netProfit>0&&v.dividendsPaid>v.netProfit) push('M','التوزيعات أكبر من ربح السنة','توزيعات '+faN(v.dividendsPaid)+' مقابل صافي ربح '+faN(v.netProfit),'التوزيع من أرباح مرحلة — اتأكد إنها متاحة قانونياً.',['محضر الجمعية العامة والاحتياطي القانوني.'],'—');
     // تغييرات البنود
     const lines=[];
-    FA_ALLKEYS.forEach(k=>{ if(FA_NOUNIT[k]) return; const c=v[k],p=pv[k]; if(!c&&!p) return; const d=c-p, ch=p?d/Math.abs(p):null; if((ch==null||Math.abs(ch)>=thr)&&Math.abs(d)>=mat&&Math.abs(d)>0) lines.push({k,c,p,d,ch}); });
+    FA_ALLKEYS.forEach(k=>{ if(FA_NOUNIT[k]||{profitYear:1,oci:1,cfo:1,cfi:1,cff:1,capex:1,depAmort:1,dividendsPaid:1,preferredDiv:1}[k]) return; const c=v[k],p=pv[k]; if(!c&&!p) return; const d=c-p, ch=p?d/Math.abs(p):null; if((ch==null||Math.abs(ch)>=thr)&&Math.abs(d)>=mat&&Math.abs(d)>0) lines.push({k,c,p,d,ch}); });
     lines.sort((a,b)=>Math.abs(b.d)-Math.abs(a.d));
     lines.slice(0,15).forEach(l=>{ const big=(l.ch==null||Math.abs(l.ch)>=thr*2)&&(!mat||Math.abs(l.d)>=mat*2);
       out.__k=l.k; push(big?'M':'L','تغير كبير: '+faLbl(l.k),faN(l.p)+' ← '+faN(l.c)+' ('+(l.ch==null?'بند جديد':(l.ch>0?'+':'')+(l.ch*100).toFixed(1)+'%')+')','تغير أكبر من الحد اللي حددته ('+(thr*100).toFixed(0)+'%'+(mat?' و '+faN(mat):'')+').',['اطلب تفسير الإدارة واحصل على أدلة بتأيده (ISA 520 فقرة 7).','لو التفسير مش مقنع: زوّد اختبارات التفاصيل على البند.'],'ISA 520'); });
   }
   const rank={H:0,M:1,L:2}; out.sort((a,b)=>rank[a.sev]-rank[b.sev]);
+  // v15: البنود الجديدة — صافي ربح العام، الأطراف ذات العلاقة، الأصول المحتفظ بها للبيع
+  if(v.profitYear&&v.hasIS&&Math.abs(v.profitYear-v.netProfit)>=Math.max(1,Math.abs(v.netProfit)*0.001)) push('H','صافي ربح العام في حقوق الملكية مش مطابق لقائمة الدخل','حقوق الملكية '+faN(v.profitYear)+' مقابل قائمة الدخل '+faN(v.netProfit)+' — الفرق '+faN(v.profitYear-v.netProfit),'الرقمين لازم يبقوا واحد. الفرق معناه قيد اتسجل في قائمة ومش في التانية، أو خطأ في المسودة.',['طابق قائمة التغير في حقوق الملكية مع قائمة الدخل','راجع أي قيود مباشرة على حقوق الملكية'],'IAS 1');
+  const rpAbs=v.dueFromRP+v.dueToRP+v.shareholderLoans;
+  if(v.hasSFP&&v.totalAssets&&rpAbs/v.totalAssets>=0.1){ out.__k='dueFromRP'; push('M','أرصدة الأطراف ذات العلاقة كبيرة','مدين '+faN(v.dueFromRP)+' · دائن '+faN(v.dueToRP+v.shareholderLoans)+' = '+P(rpAbs/v.totalAssets)+' من إجمالي الأصول','الأرصدة الكبيرة مع أطراف ذات علاقة ممكن تخبي معاملات مش بشروط السوق، أو تمويل لشركات شقيقة مش هيتحصّل.',['اطلب حصر الأطراف ذات العلاقة ومصادقات بالأرصدة','قيّم قابلية تحصيل المستحق منهم (ECL)','راجع الإفصاح (IAS 24 / المعيار المصري 15)'],'ISA 550 · IAS 24'); }
+  if(pv&&v.dueFromRP&&pv.dueFromRP&&(v.dueFromRP-pv.dueFromRP)/Math.abs(pv.dueFromRP)>=thr){ out.__k='dueFromRP'; push('M','المستحق من الأطراف ذات العلاقة زاد '+P((v.dueFromRP-pv.dueFromRP)/Math.abs(pv.dueFromRP)),faN(pv.dueFromRP)+' ← '+faN(v.dueFromRP),'زيادة المديونية على أطراف ذات علاقة ممكن تكون تمويل غير معلن أو تحويل أموال.',['افحص الحركة خلال السنة والمستندات','راجع التحصيل بعد نهاية السنة'],'ISA 550'); }
+  if(v.revenue&&v.rpSales&&v.rpSales/v.revenue>=0.2){ out.__k='dueFromRP'; push('M','جزء كبير من الإيرادات من أطراف ذات علاقة',P(v.rpSales/v.revenue)+' من الإيرادات','لو الأسعار مش بشروط السوق الإيراد ممكن يكون مضخم أو مش حقيقي.',['قارن الأسعار بأسعار البيع لعملاء مستقلين','اختبر التحصيل الفعلي'],'ISA 550 · ISA 240'); }
+  if(v.heldForSale){ out.__k='heldForSale'; push('M','فيه أصول محتفظ بها لغرض البيع','الرصيد '+faN(v.heldForSale),'التبويب ده ليه شروط (متاح للبيع فوراً والبيع مرجح جداً خلال سنة) وقياس بالأقل من القيمة الدفترية والقيمة العادلة ناقص تكاليف البيع.',['راجع قرار الإدارة وخطة البيع','اختبر القياس ووقف الإهلاك'],'IFRS 5 · المعيار المصري 32'); }
+  if(v.treasuryShares>0) push('L','أسهم الخزينة بالموجب','الرصيد '+faN(v.treasuryShares),'أسهم الخزينة بتتطرح من حقوق الملكية، فالمفروض تتسجل بالسالب.',['صحح الإشارة في الإدخال أو راجع المسودة'],'IAS 32');
+  if(v.capIncrease) push('L','مبالغ تحت حساب زيادة رأس المال','الرصيد '+faN(v.capIncrease),'اتأكد إنها مستوفية شروط التبويب في حقوق الملكية (مش قابلة للرد) وإن إجراءات الزيادة ماشية.',['راجع قرار الجمعية والإيداع البنكي وموقف التأشير في السجل التجاري'],'IAS 32');
   return out;
 }
 
@@ -4735,10 +4838,11 @@ function faFsHtml(co,ys){
   sfp+=row('totalLiabilities','totalAssets','sub'); sfp+=row('totalEqLiab','totalAssets','tot');
   let is='';
   ['revenue','cogs'].forEach(k=>is+=row(k,'revenue')); is+=row('grossProfit','revenue','sub');
-  ['opex','impairment','otherIncome'].forEach(k=>is+=row(k,'revenue')); is+=row('ebit','revenue','sub');
-  ['financeCost','financeIncome','fxGainLoss','assocShare'].forEach(k=>is+=row(k,'revenue')); is+=row('pbt','revenue','sub'); is+=row('tax','revenue'); is+=row('netProfit','revenue','tot');
+  ['sellingExp','adminExp','opex','otherExp','impairment','otherIncome'].forEach(k=>is+=row(k,'revenue')); is+=row('ebit','revenue','sub');
+  ['financeCost','financeIncome','fxGainLoss','assocShare'].forEach(k=>is+=row(k,'revenue')); is+=row('pbt','revenue','sub'); ['tax','taxDeferred'].forEach(k=>is+=row(k,'revenue')); is+=row('netProfit','revenue','tot');
+  if(C.some(c=>c.oci)){ is+=row('oci','revenue'); is+=row('totalCI','revenue','tot'); }
   let cf='';
-  ['cfo','capex'].forEach(k=>cf+=row(k,'revenue')); cf+=row('fcf','revenue','sub'); ['depAmort','dividendsPaid'].forEach(k=>cf+=row(k,'revenue')); cf+=row('ebitda','revenue','sub');
+  ['cfo','cfi','cff','capex'].forEach(k=>cf+=row(k,'revenue')); cf+=row('fcf','revenue','sub'); ['depAmort','dividendsPaid','rpSales','rpPurchases'].forEach(k=>cf+=row(k,'revenue')); cf+=row('ebitda','revenue','sub');
   const th='<tr><th>البند</th>'+ys.map((y,i)=>'<th class="num">'+y+(view==='horiz'&&i<ys.length-1?' مقابل '+ys[i+1]:'')+'</th>').join('')+(chCol?'<th class="num fa-chg">التغير '+ys[0]+'/'+ys[1]+'</th>':'')+'</tr>';
   const balRow='<div class="fa-balrow">'+ys.map((y,i)=>'<span>'+y+': '+faBalBadge(C[i])+'</span>').join('')+'</div>';
   const chRow=c=>'<tr><td>'+faEsc(c.label)+'</td><td>'+c.y+'</td><td class="num">'+faN(c.file)+'</td><td class="num">'+faN(c.calc)+'</td><td>'+(c.ok?'<span class="fa-ok">✓</span>':'<span class="fa-bad">فرق '+faN(Math.abs(c.calc)-Math.abs(c.file))+'</span>')+'</td></tr>';
@@ -4758,7 +4862,7 @@ function faFsHtml(co,ys){
   <div class="fa-fs-grid">
     <div class="card"><div class="sec-title">قائمة المركز المالي <small class="fa-muted">Statement of financial position</small></div><div class="fa-tw"><table class="fa-tbl">${th}${sfp}</table></div></div>
     <div><div class="card"><div class="sec-title">قائمة الدخل <small class="fa-muted">Income statement</small></div><div class="fa-tw"><table class="fa-tbl">${th}${is}</table></div></div>
-    ${C.some(c=>c.cfo||c.capex||c.depAmort||c.dividendsPaid)?'<div class="card"><div class="sec-title">التدفقات النقدية وبيانات إضافية</div><div class="fa-tw"><table class="fa-tbl">'+th+cf+'</table></div></div>':''}
+    ${C.some(c=>c.cfo||c.capex||c.depAmort||c.dividendsPaid||c.cfi||c.cff||c.rpSales||c.rpPurchases)?'<div class="card"><div class="sec-title">التدفقات النقدية وبيانات إضافية</div><div class="fa-tw"><table class="fa-tbl">'+th+cf+'</table></div></div>':''}
     </div>
   </div>`;
 }
@@ -4824,6 +4928,7 @@ function faDrawerHtml(){
     <h4>خطوات الحساب — ${ys[0]}</h4>${cur==null?'<p class="fa-muted">مش محسوبة: رقم ناقص أو المقام صفر أو سالب.</p>':steps}
     ${ser.length>1?'<h4>المقارنة بالسنين</h4>'+chart+'<div class="fa-tw">'+hist+'</div>':''}
     <h4>قراءة النتيجة</h4><p>${cur==null?'—':r.read(cur)}</p>
+    ${typeof faRatioDeepHtml==='function'?faRatioDeepHtml(r):''}
     ${bTxt}
     ${r.audit&&r.audit.length?'<h4>ملاحظات للمراجع</h4><ul class="fa-bul">'+r.audit.map(a=>'<li>'+a+'</li>').join('')+'</ul>':''}
     <p class="fa-note">النسبة مؤشر تحليلي من الأرقام كما اتدخلت، مش بديل عن الحكم المهني.</p>
@@ -4987,7 +5092,7 @@ function faApplyImport(){
 }
 
 // ── تصدير Excel (مع شيت الاختصارات) ──
-function faExportExcel(){
+function faExportExcelPlain(){
   const co=faCo(); if(!co){ showToast('مفيش شركة'); return; }
   if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل أو مفيش إنترنت'); return; }
   const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
@@ -5054,7 +5159,7 @@ const AP_LIB=[
   docs:['كشوف الحسابات البنكية لشهر نهاية السنة والشهر اللي بعده','مذكرات التسوية البنكية','ردود المصادقات من البنوك','محضر جرد الخزينة','شهادات الودائع وعقود الرهن'],
   find:['فرق بين رد المصادقة والدفاتر من غير تفسير.','شيكات قديمة متصرفتش أكتر من 6 شهور ولسه في التسوية.','وديعة مرهونة متصنفة نقدية حرة.'],
   ex:'رد مصادقة بنك مصر بيقول رصيد 2,450,000 والدفاتر 2,650,000. التسوية فيها شيك 200,000 «في الطريق» من غير تاريخ صرف بعد السنة. ده مش بند تسوية سليم إلا لما تشوف الإيداع في كشف يناير — لو مش موجود يبقى رصيد مضخم.'},
- {id:'recv',keys:['recv','contractAssets'],ar:'العملاء وأوراق القبض وأصول العقود',en:'Trade receivables and contract assets',ir:2,std:'ISA 505 · IFRS 9 / المعيار المصري 47 · IFRS 15',assert:['E','R','V','CO'],
+ {id:'recv',keys:['recv','contractAssets','ltRecv'],ar:'العملاء وأوراق القبض وأصول العقود',en:'Trade receivables and contract assets',ir:2,std:'ISA 505 · IFRS 9 / المعيار المصري 47 · IFRS 15',assert:['E','R','V','CO'],
   risks:['مديونيات وهمية أو إيرادات مسجلة قبل وقتها (مرتبطة بخطر الغش في الإيراد ISA 240).','مخصص خسائر ائتمانية أقل من اللازم.','أصول عقود مبنية على نسب إتمام مبالغ فيها.'],
   proc:[['L','طابق تقرير أعمار الديون مع الأستاذ العام وميزان المراجعة.',['V']],
         ['L','ابعت مصادقات لعينة من العملاء (الكبار + عينة عشوائية) وتابع اللي ماردوش.',['E','R']],
@@ -5080,7 +5185,7 @@ const AP_LIB=[
   docs:['تعليمات الجرد وقوائم الجرد الموقعة','بطاقات الصنف وتقرير الأعمار','فواتير شراء لعينة الأصناف','قوائم أسعار البيع بعد نهاية السنة','آخر إذونات استلام وصرف قبل الجرد'],
   find:['فروق جرد مهمة من غير تسوية.','أصناف تكلفتها أعلى من سعر بيعها بعد السنة.','مخزون راكد أكتر من سنة من غير مخصص.'],
   ex:'مصنع عنده خامة تكلفتها 450 جنيه للكيلو، وسعر بيع المنتج اللي بتدخل فيه نزل لدرجة إن صافي القيمة البيعية للخامة بقى 380. الفرق 70 × الكمية لازم يتسجل كتخفيض للمخزون.'},
- {id:'prepaid',keys:['prepaid'],ar:'مدينون وأرصدة مدينة أخرى',en:'Prepayments and other receivables',ir:1,std:'ISA 500 · ISA 550',assert:['E','V','P'],
+ {id:'prepaid',keys:['prepaid','taxAsset'],ar:'مدينون وأرصدة مدينة أخرى',en:'Prepayments and other receivables',ir:1,std:'ISA 500 · ISA 550',assert:['E','V','P'],
   risks:['أرصدة قديمة مش قابلة للتحصيل.','مصروفات مدفوعة مقدماً متحملتش على السنة.','سلف وعهد لأطراف ذات علاقة أو موظفين.'],
   proc:[['L','اطلب تحليل البند بالمكونات وطابقه مع الأستاذ.',['V']],
         ['M','افحص المستندات المؤيدة لعينة من الأرصدة الكبيرة.',['E']],
@@ -5090,7 +5195,7 @@ const AP_LIB=[
   docs:['تحليل الرصيد بالمكونات','وثائق التأمين وعقود الإيجار','كشوف حسابات السلف والعهد'],
   find:['رصيد من سنين من غير حركة ولا مخصص.','مصروف سنة كاملة متسجل مقدم.'],
   ex:'وثيقة تأمين بـ 120,000 تبدأ أول أكتوبر لمدة سنة. المفروض المقدم آخر السنة = 90,000 (9 شهور). لو الشركة سايبة 120,000 كلها مقدم، المصروف ناقص 30,000.'},
- {id:'fininv',keys:['otherNCA'],ar:'الاستثمارات المالية وأصول أخرى',en:'Financial investments and other assets',ir:2,std:'IFRS 9 / المعيار المصري 47 · IFRS 13 / المعيار المصري 45 · ISA 540',assert:['E','R','V','P'],
+ {id:'fininv',keys:['stInvest','finInvNC','otherNCA'],ar:'الاستثمارات المالية وأصول أخرى',en:'Financial investments and other assets',ir:2,std:'IFRS 9 / المعيار المصري 47 · IFRS 13 / المعيار المصري 45 · ISA 540',assert:['E','R','V','P'],
   risks:['تبويب غلط (تكلفة مستهلكة / قيمة عادلة) فالقياس غلط.','قيمة عادلة مش مدعومة، خصوصاً للمستوى الثالث.','عوائد أذون الخزانة مش محسوبة بطريقة الفائدة الفعلية.'],
   proc:[['L','طابق كشف الاستثمارات مع شهادات أمين الحفظ أو مصادقات البنوك وشركات السمسرة.',['E','R']],
         ['L','راجع تبويب كل استثمار: نموذج الأعمال واختبار مدفوعات الأصل والفائدة (SPPI).',['P','V']],
@@ -5102,7 +5207,7 @@ const AP_LIB=[
   docs:['كشف الاستثمارات بالتكلفة والقيمة','شهادات أمين الحفظ / مصادقات','أسعار الإقفال وقيمة الوثيقة في تاريخ القوائم','قرار الإدارة بتصنيف الاستثمارات (نموذج الأعمال)'],
   find:['صندوق استثمار مقيم بالتكلفة بدل القيمة العادلة.','عائد أذون خزانة متسجل كله في سنة الشراء.'],
   ex:'أذن خزانة 364 يوم قيمته الاسمية 1,000,000 اتشرى بـ 800,000 في أول يوليو. آخر ديسمبر (نص المدة) التكلفة المستهلكة بالفائدة الفعلية ≈ 894,400، يعني عائد ≈ 94,400 في السنة دي — مش الـ 200,000 كلها.'},
- {id:'ppe',keys:['ppe'],ar:'الأصول الثابتة',en:'Property, plant and equipment',ir:2,std:'IAS 16 / المعيار المصري 10 · IAS 36 / المعيار المصري 31',assert:['E','C','V','R','P'],
+ {id:'ppe',keys:['ppe','cwip'],ar:'الأصول الثابتة',en:'Property, plant and equipment',ir:2,std:'IAS 16 / المعيار المصري 10 · IAS 36 / المعيار المصري 31',assert:['E','C','V','R','P'],
   risks:['إضافات هي في الحقيقة مصروفات صيانة (أو العكس).','إهلاك غلط أو أعمار غير منطقية.','مؤشرات اضمحلال مش متقيمة.','أصول مرهونة مش مفصح عنها.'],
   proc:[['L','طابق سجل الأصول مع الأستاذ، وجدول الحركة (أول المدة + إضافات − استبعادات = آخر المدة).',['V']],
         ['L','افحص عينة من الإضافات: فاتورة، أمر شراء، محضر استلام، وتاريخ بدء الاستخدام.',['E','R','V']],
@@ -5116,7 +5221,7 @@ const AP_LIB=[
   docs:['سجل الأصول الثابتة','جدول الحركة','فواتير ومحاضر استلام الإضافات','عقود الملكية','محاضر البيع والتكهين'],
   find:['مشروع خلص من شهور ولسه تحت التنفيذ من غير إهلاك.','عمرات أساسية متحملة مصروف.','أرض أو مبنى مرهون من غير إفصاح.'],
   ex:'ماكينة 2,400,000 اتركبت في مارس، والشركة بدأت تهلكها من يناير اللي بعده. الإهلاك ناقص 9 شهور: 2,400,000 ÷ 10 سنين × 9/12 = 180,000.'},
- {id:'lease',keys:['rouAssets','leaseLiabNC'],ar:'عقود التأجير (حق الانتفاع والالتزام)',en:'Leases',ir:2,std:'IFRS 16 / المعيار المصري 49',assert:['C','V','P'],
+ {id:'lease',keys:['rouAssets','leaseLiabC','leaseLiabNC'],ar:'عقود التأجير (حق الانتفاع والالتزام)',en:'Leases',ir:2,std:'IFRS 16 / المعيار المصري 49',assert:['C','V','P'],
   risks:['عقود إيجار مش متسجلة (اكتمال).','معدل خصم أو مدة إيجار غير منطقية.','فصل غير سليم بين المتداول وغير المتداول.'],
   proc:[['L','اطلب حصر كل عقود الإيجار وطابقه مع مصروف الإيجار في الأستاذ.',['C']],
         ['M','أعد حساب القياس الأولي لعينة: القيمة الحالية للدفعات بمعدل الاقتراض الإضافي.',['V']],
@@ -5144,7 +5249,7 @@ const AP_LIB=[
   docs:['عقود الملكية','عقود الإيجار','تقرير التقييم'],
   find:['مبنى إداري للشركة متبوب استثمار عقاري.'],
   ex:'عمارة 6 أدوار، الشركة شاغلة دورين ومؤجرة 4. لو الأجزاء مينفعش تتباع لوحدها والجزء المستخدم مش صغير، تتعالج كلها كأصل ثابت.'},
- {id:'assoc',keys:['assocInv'],ar:'الاستثمارات في شركات تابعة وشقيقة ومشروعات مشتركة',en:'Investments in subsidiaries, associates and JVs',ir:2,std:'IAS 28 / المعيار المصري 18 · IFRS 10 / المعيار المصري 42 · IAS 27 · IAS 36',assert:['E','R','V','P'],
+ {id:'assoc',keys:['assocInv','subsInv'],ar:'الاستثمارات في شركات تابعة وشقيقة ومشروعات مشتركة',en:'Investments in subsidiaries, associates and JVs',ir:2,std:'IAS 28 / المعيار المصري 18 · IFRS 10 / المعيار المصري 42 · IAS 27 · IAS 36',assert:['E','R','V','P'],
   risks:['تقدير غلط للسيطرة أو النفوذ المؤثر.','طريقة حقوق الملكية متطبقة على قوائم قديمة أو غير مراجعة.','مؤشرات اضمحلال في الاستثمار.'],
   proc:[['L','طابق نسب الملكية مع السجل التجاري وعقود التأسيس ومحاضر الجمعيات.',['E','R']],
         ['L','راجع تقدير السيطرة / النفوذ المؤثر (حقوق التصويت، التمثيل في المجلس، الاتفاقيات).',['P']],
@@ -5183,7 +5288,7 @@ const AP_LIB=[
   docs:['عقود العملاء','كشف الدفعات المقدمة','محاضر التسليم'],
   find:['دفعة مقدمة اتسجلت إيراد والبضاعة لسه ماتسلمتش.'],
   ex:'عميل دفع 500,000 في ديسمبر لتوريد في فبراير، والشركة سجلتهم مبيعات. المعالجة: التزام عقد 500,000 والإيراد في فبراير.'},
- {id:'borrow',keys:['stBorrow','ltBorrow','financeCost'],ar:'القروض والتسهيلات البنكية وتكاليفها',en:'Borrowings and finance costs',ir:2,std:'IFRS 9 / المعيار المصري 47 · IAS 23 · IAS 1',assert:['C','V','R','P'],
+ {id:'borrow',keys:['stBorrow','currLTD','ltBorrow','financeCost'],ar:'القروض والتسهيلات البنكية وتكاليفها',en:'Borrowings and finance costs',ir:2,std:'IFRS 9 / المعيار المصري 47 · IAS 23 · IAS 1',assert:['C','V','R','P'],
   risks:['قروض مش متسجلة أو ضمانات مش مفصح عنها.','إخلال بتعهدات القرض يخلي القرض كله متداول.','فوائد ناقصة أو مرسملة غلط.'],
   proc:[['L','طابق أرصدة القروض مع مصادقات البنوك وعقود القروض.',['C','E','R']],
         ['L','افصل الجزء المستحق خلال 12 شهر كمتداول.',['P']],
@@ -5194,7 +5299,7 @@ const AP_LIB=[
   docs:['عقود القروض والتسهيلات','مصادقات البنوك','جدول السداد','حساب الفوائد','خطابات الإعفاء من التعهدات'],
   find:['قرض قيمته الاسمية متبوب طويل الأجل وفيه أقساط مستحقة خلال السنة.','إخلال بتعهد نسبة المديونية من غير إعفاء.'],
   ex:'عقد قرض بيشترط صافي الدين ÷ EBITDA أقل من 3. الشركة طلعت 3.6 والبنك مابعتش إعفاء قبل 31 ديسمبر. القرض طويل الأجل 20,000,000 كله يتبوب متداول.'},
- {id:'taxpay',keys:['taxPayable','tax'],ar:'ضريبة الدخل (المستحقة والمصروف)',en:'Income tax',ir:2,std:'IAS 12 / المعيار المصري 24 · قانون الضريبة على الدخل 91 لسنة 2005',assert:['V','C','P'],
+ {id:'taxpay',keys:['taxPayable','tax','taxDeferred'],ar:'ضريبة الدخل (المستحقة والمصروف)',en:'Income tax',ir:2,std:'IAS 12 / المعيار المصري 24 · قانون الضريبة على الدخل 91 لسنة 2005',assert:['V','C','P'],
   risks:['حساب ضريبة غلط (مصروفات غير قابلة للخصم، إعفاءات).','نزاعات ضريبية عن سنين سابقة مش متقدر لها مخصص.'],
   proc:[['L','أعد حساب ضريبة السنة من الربح المحاسبي مع التعديلات الضريبية.',['V']],
         ['L','طابق الضريبة المستحقة مع الإقرار والمدفوعات (بما فيها الخصم تحت حساب الضريبة).',['V','C']],
@@ -5215,7 +5320,7 @@ const AP_LIB=[
   docs:['حركة المخصصات','ردود المستشار القانوني','محاضر مجلس الإدارة','دراسة كل مخصص'],
   find:['قضية عمالية خاسرة بنسبة كبيرة حسب المحامي من غير مخصص.','رد مخصص كبير من غير تغير في الظروف.'],
   ex:'المحامي رد إن احتمال خسارة قضية مورد 70% والتعويض المتوقع 1,800,000، والشركة مكونة 500,000 بس. المخصص ناقص 1,300,000.'},
- {id:'otherCL',keys:['otherCL','otherNCL'],ar:'دائنون وأرصدة دائنة أخرى ومصروفات مستحقة',en:'Other payables and accruals',ir:1,std:'ISA 500',assert:['C','V','CO'],
+ {id:'otherCL',keys:['otherCL','otherNCL','dividendsPayable'],ar:'دائنون وأرصدة دائنة أخرى ومصروفات مستحقة',en:'Other payables and accruals',ir:1,std:'ISA 500',assert:['C','V','CO'],
   risks:['مصروفات مستحقة ناقصة (مرتبات، مرافق، أتعاب).','تأمينات اجتماعية وضرائب مرتبات غير مسددة.'],
   proc:[['L','حلّل الرصيد بالمكونات.',['V']],
         ['M','اختبر المصروفات المستحقة بالمدفوعات بعد نهاية السنة.',['C','CO']],
@@ -5223,7 +5328,7 @@ const AP_LIB=[
   docs:['تحليل الرصيد','المدفوعات بعد نهاية السنة','إيصالات التأمينات والضرائب'],
   find:['مرتبات ديسمبر المدفوعة في يناير مش متحملة على السنة.'],
   ex:'مكافأة سنوية للموظفين 900,000 اتقررت في ديسمبر واتصرفت في فبراير — لازم تتسجل مصروف والتزام في السنة.'},
- {id:'equity',keys:['shareCapital','reserves','retainedEarnings','nci'],ar:'حقوق الملكية',en:'Equity',ir:1,std:'IAS 1 · قانون الشركات 159 لسنة 1981',assert:['E','V','P'],
+ {id:'equity',keys:['shareCapital','capIncrease','treasuryShares','legalReserve','reserves','ociReserve','retainedEarnings','profitYear','nci'],ar:'حقوق الملكية',en:'Equity',ir:1,std:'IAS 1 · قانون الشركات 159 لسنة 1981',assert:['E','V','P'],
   risks:['زيادة رأس مال مش مستوفية الإجراءات.','توزيعات من غير أرباح قابلة للتوزيع أو من غير احتياطي قانوني.'],
   proc:[['L','طابق رأس المال مع السجل التجاري وعقد الشركة.',['E']],
         ['L','راجع قرارات الجمعية العامة: التوزيعات، الاحتياطي القانوني، زيادة رأس المال.',['E','V']],
@@ -5255,7 +5360,7 @@ const AP_LIB=[
   docs:['قائمة التكاليف','تحليل المشتريات','أسس توزيع التكاليف غير المباشرة'],
   find:['هامش مجمل الربح اتغير أكتر من 5 نقاط من غير تفسير.'],
   ex:'مصنع شغال بـ 50% من طاقته وحمّل كل التكاليف الثابتة على الإنتاج. الجزء الخاص بالطاقة العاطلة لازم يتحمل مصروف مباشرة مش يتحمل على المخزون.'},
- {id:'opex',keys:['opex'],ar:'المصروفات التشغيلية',en:'Operating expenses',ir:1,std:'ISA 520 · ISA 500',assert:['O','C','CO','P'],
+ {id:'opex',keys:['opex','sellingExp','adminExp','otherExp'],ar:'المصروفات التشغيلية',en:'Operating expenses',ir:1,std:'ISA 520 · ISA 500',assert:['O','C','CO','P'],
   risks:['مصروفات شخصية أو غير متعلقة بالنشاط.','مصروفات مستحقة ناقصة.'],
   proc:[['L','حلّل المصروفات حسب الطبيعة وقارنها بالسنة اللي فاتت.',['O','C']],
         ['M','اختبر عينة من المصروفات الكبيرة بالمستندات والاعتماد.',['O']],
@@ -5281,7 +5386,7 @@ const AP_LIB=[
   docs:['كشف الودائع والأذون','أسعار الصرف في تاريخ القوائم'],
   find:['فرق عملة على أرصدة مقيمة بسعر أول السنة.'],
   ex:'مورد خارجي رصيده 100,000 دولار متقيم بـ 30.9 بدل سعر الإقفال 48.6. الفرق 1,770,000 خسارة فرق عملة ناقصة.'},
- {id:'cfs',keys:['cfo','capex','dividendsPaid'],ar:'قائمة التدفقات النقدية',en:'Statement of cash flows',ir:1,std:'IAS 7 / المعيار المصري 4',assert:['V','P'],
+ {id:'cfs',keys:['cfo','cfi','cff','capex','dividendsPaid'],ar:'قائمة التدفقات النقدية',en:'Statement of cash flows',ir:1,std:'IAS 7 / المعيار المصري 4',assert:['V','P'],
   risks:['تبويب غلط بين الأنشطة.','أرقام مش متطابقة مع حركة الأرصدة.'],
   proc:[['L','طابق النقدية في آخر القائمة مع المركز المالي.',['V']],
         ['L','أعد بناء التدفقات من حركة الأرصدة واختبر البنود الكبيرة.',['V']],
@@ -5304,7 +5409,7 @@ const AP_GENERAL=[
 function apMat(co){
   const ys=faYears(co); if(!ys.length) return null;
   const v=faCalc(co.years[ys[0]]); const m=co.mat||{};
-  const BEN={pbt:['الربح قبل الضريبة',v.pbt,5],revenue:['الإيرادات',v.revenue,0.75],assets:['إجمالي الأصول',v.totalAssets,1.5],equity:['حقوق الملكية',v.totalEquity,3],expenses:['إجمالي المصروفات',v.cogs+v.opex+v.impairment+v.financeCost,1]};
+  const BEN={pbt:['الربح قبل الضريبة',v.pbt,5],revenue:['الإيرادات',v.revenue,0.75],assets:['إجمالي الأصول',v.totalAssets,1.5],equity:['حقوق الملكية',v.totalEquity,3],expenses:['إجمالي المصروفات',v.cogs+v.opexAll+v.impairment+v.financeCost,1]};
   let bench=m.bench;
   if(!bench||!BEN[bench]){ bench=(v.pbt>0&&v.revenue&&v.pbt/v.revenue>=0.02)?'pbt':v.revenue>0?'revenue':'assets'; }
   const base=BEN[bench][1]; const pct=(m.pct!=null&&m.pct!=='')?+m.pct:BEN[bench][2]; const pmPct=(m.pmPct!=null&&m.pmPct!=='')?+m.pmPct:75;
@@ -5419,7 +5524,7 @@ function faModals2(){ let h=document.getElementById('apModalHost'); if(!h){ h=do
     <p class="fa-muted">القائمة مبنية على البنود الموجودة في قوائم الشركة. انسخها وابعتها للعميل في أول الزيارة.</p>
     <textarea id="apPbcTxt" class="notes-area" style="min-height:340px">${faEsc(apPBCText(co))}</textarea>
     <div class="fa-actions"><button class="btn btn-gold" onclick="const t=document.getElementById('apPbcTxt');t.select();try{navigator.clipboard.writeText(t.value);}catch(e){document.execCommand('copy');}showToast('✓ اتنسخت')">نسخ</button><button class="btn btn-outline" onclick="apPBCPdf()">⬇ PDF</button></div></div></div>`:''; }
-function apExport(){
+function apExportPlain(){
   const co=faCo(); if(!co) return; if(typeof XLSX==='undefined'){ showToast('⚠️ مكتبة Excel لسه بتحمّل'); return; }
   const A=apAnalyze(co), st=apState(co), ys=faYears(co), u=faUnit(co);
   const LV={H:'عالي',M:'متوسط',L:'منخفض'};
@@ -5448,7 +5553,7 @@ function faGcDetect(co){
   if(v.hasIS&&v.netProfit<0) out.push(['gc_f1','صافي خسارة '+faN(v.netProfit)+(pv&&pv.netProfit<0?' للسنة التانية على التوالي':'')]);
   if(v.financeCost&&v.ebit/v.financeCost<1.5) out.push(['gc_f2','تغطية الفوائد '+(v.ebit/v.financeCost).toFixed(2)+'×']);
   if(v.hasSFP&&v.CL&&v.CA<v.CL) out.push(['gc_f3','نسبة التداول '+(v.CA/v.CL).toFixed(2)+'× ورأس مال عامل '+faN(v.CA-v.CL)]);
-  if(v.shareCapital>0&&v.retainedEarnings<0&&Math.abs(v.retainedEarnings)>=v.shareCapital/2) out.push(['gc_f4','خسائر مرحلة '+faN(v.retainedEarnings)+' مقابل رأس مال '+faN(v.shareCapital)]);
+  if(v.shareCapital>0&&v.retainedAll<0&&Math.abs(v.retainedAll)>=v.shareCapital/2) out.push(['gc_f4','خسائر مرحلة شاملة نتيجة العام '+faN(v.retainedAll)+' مقابل رأس مال '+faN(v.shareCapital)]);
   if(v.cfo<0&&pv&&pv.cfo<0) out.push(['gc_f5','تدفق تشغيلي سالب سنتين: '+faN(v.cfo)+' و'+faN(pv.cfo)]);
   return out;
 }
@@ -5465,7 +5570,7 @@ function faCoBarHtml(id){
   let extra='';
   if(id==='planrisk') extra=`<button class="btn btn-gold btn-sm" onclick="apSendMat()">املا الأهمية النسبية من الشركة</button>`;
   if(id==='goingconcern'){ const d=faGcDetect(co); extra=`<button class="btn btn-gold btn-sm" onclick="faApplyGc()">علّم المؤشرات من أرقام الشركة</button>`+(d.length?'<div class="fa-cobar-d">'+d.map(x=>'<span>⚠️ '+x[1]+'</span>').join('')+'</div>':'<div class="fa-cobar-d"><span class="fa-ok">مفيش مؤشرات مالية من الأرقام</span></div>'); }
-  if(id==='taxrecon'&&v.pbt) extra=`<span class="fa-cobar-d"><span>الربح قبل الضريبة ${faN(v.pbt*(+co.unit||1))} جنيه · ضريبة الدخل ${faN(v.tax*(+co.unit||1))} · السعر الفعلي ${v.pbt>0?(v.tax/v.pbt*100).toFixed(1)+'%':'—'}</span></span>`;
+  if(id==='taxrecon'&&v.pbt) extra=`<span class="fa-cobar-d"><span>الربح قبل الضريبة ${faN(v.pbt*(+co.unit||1))} جنيه · ضريبة الدخل ${faN(v.taxAll*(+co.unit||1))} · السعر الفعلي ${v.pbt>0?(v.taxAll/v.pbt*100).toFixed(1)+'%':'—'}</span></span>`;
   return `<div class="fa-cobar"><div class="fa-cobar-m"><span class="fa-cobar-l">🏢 الشركة المفتوحة</span>
     <select onchange="faSwitch(this.value);goTo('${id}',NAVBTN_('${id}'))">${FA.companies.map(c=>'<option value="'+c.id+'" '+(c.id===co.id?'selected':'')+'>'+faEsc(c.name)+'</option>').join('')}</select>
     <span class="fa-cobar-k"><small>${ys[0]}</small> الإيرادات <b><bdi dir="ltr">${faN(v.revenue)}</bdi></b></span><span class="fa-cobar-k">صافي الربح <b><bdi dir="ltr">${faN(v.netProfit)}</bdi></b></span><span class="fa-cobar-k">الأصول <b><bdi dir="ltr">${faN(v.totalAssets)}</bdi></b></span>${M?'<span class="fa-cobar-k">PM <b><bdi dir="ltr">'+faN(M.pm)+'</bdi></b></span>':''}<span class="fa-muted">${u.ar}</span></div>
@@ -5888,7 +5993,7 @@ function faStudioDoc(){
   const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
   const sector=(typeof SECTORS!=='undefined'&&co.sector)?((SECTORS.find(s=>s.id===co.sector)||{}).label||''):'';
   let h='<div class="cover"><h1>'+faEsc(co.name)+'</h1><div class="sub">تحليل القوائم المالية'+(sector?' · '+faEsc(sector):'')+' · السنين: '+ys.join('، ')+' · المبالغ بـ '+u.ar+'</div></div>';
-  const TOT={CA:1,NCA:1,totalAssets:1,totalEquity:1,NCL:1,CL:1,totalLiabilities:1,totalEqLiab:1,grossProfit:1,ebit:1,pbt:1,netProfit:1,fcf:1,ebitda:1};
+  const TOT={CA:1,NCA:1,totalAssets:1,totalEquity:1,NCL:1,CL:1,totalLiabilities:1,totalEqLiab:1,grossProfit:1,ebit:1,pbt:1,netProfit:1,fcf:1,ebitda:1,totalCI:1};
   const CH=ys.length>=2, thh=()=>'<table><tr><th>البند</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+(CH?'<th class="n">التغير '+ys[0]+'/'+ys[1]+'</th><th class="n">%</th>':'')+'</tr>';
   let t=thh();
   const sec=x=>{ t+='<tr class="sec"><td colspan="'+(ys.length+1+(CH?2:0))+'">'+x+'</td></tr>'; };
@@ -5903,8 +6008,9 @@ function faStudioDoc(){
   const bal=C.map((c,i)=>c.hasSFP&&Math.abs(c.balanceDiff)>=1?ys[i]+': فرق '+faN(c.balanceDiff):null).filter(Boolean);
   h+='<h2>قائمة المركز المالي</h2>'+t+(bal.length?'<p class="note">⚠️ المركز المالي مش متوازن — '+bal.join(' · ')+'</p>':'');
   t=thh();
-  ['revenue','cogs','grossProfit','opex','impairment','otherIncome','ebit','financeCost','financeIncome','fxGainLoss','assocShare','pbt','tax','netProfit'].forEach(line);
-  if(C.some(c=>c.cfo||c.capex)){ sec('التدفقات النقدية'); ['cfo','capex','fcf','dividendsPaid'].forEach(line); }
+  ['revenue','cogs','grossProfit','sellingExp','adminExp','opex','otherExp','impairment','otherIncome','ebit','financeCost','financeIncome','fxGainLoss','assocShare','pbt','tax','taxDeferred','netProfit'].forEach(line);
+  if(C.some(c=>c.oci)){ line('oci'); line('totalCI'); }
+  if(C.some(c=>c.cfo||c.capex||c.cfi||c.cff)){ sec('التدفقات النقدية'); ['cfo','cfi','cff','capex','fcf','dividendsPaid'].forEach(line); }
   t+='</table>'; h+='<h2>قائمة الدخل</h2>'+t;
   // النسب
   h+='<h2 class="pb">النسب المالية</h2><p class="note">'+(b.avg?'الأرصدة محسوبة كمتوسط أول وآخر المدة لما السنة السابقة موجودة.':'النسب محسوبة على أرصدة آخر المدة.')+'</p><table><tr><th>النسبة</th><th>المعادلة</th>'+ys.map(y=>'<th class="n">'+y+'</th>').join('')+'</tr>';
@@ -6028,6 +6134,304 @@ const FA_RATIO_READ={
  dy:x=>'التوزيعات بتمثل عائد '+_p(x)+' على سعر السهم. '+(x>0.15?'عائد عالي جداً — ممكن السعر نازل أو التوزيع مش مستدام.':'قارنه بعائد الودائع وأذون الخزانة.'),
 };
 (function(){ FA_RATIOS.forEach(r=>{ const f=FA_RATIO_READ[r.id]; if(f){ const old=r.read; r.read=x=>{ try{ return (x==null||!isFinite(x))?'—':f(x); }catch(e){ return old?old(x):'—'; } }; } }); })();
+
+// ── v15: برامج مراجعة للبنود الجديدة ──
+AP_LIB.push(
+ {id:'rp',keys:['dueFromRP','dueToRP','shareholderLoans','rpSales','rpPurchases'],ar:'الأطراف ذات العلاقة (الأرصدة والمعاملات)',en:'Related parties',ir:3,std:'ISA 550 · IAS 24 / المعيار المصري 15 · قانون الشركات 159',assert:['E','C','V','P'],
+  risks:['أطراف ذات علاقة مش متحصرة، فمعاملاتهم مش مفصح عنها (اكتمال).','معاملات مش بشروط السوق (أسعار أو آجال أو فوائد مختلفة) بتأثر على الربح.','مستحق من شركات شقيقة أو شركاء مش هيتحصّل وشايل خسارة ائتمانية.','تمويل الشركاء من فلوس الشركة من غير موافقات (مخالفة قانون الشركات).'],
+  proc:[['L','اطلب من الإدارة حصر مكتوب بالأطراف ذات العلاقة (المساهمين، أعضاء المجلس، الإدارة العليا وأقاربهم، الشركات اللي بيملكوها).',['C']],
+        ['L','طابق الحصر مع السجل التجاري، محاضر الجمعيات والمجلس، إقرارات أعضاء المجلس، وسجل المساهمين.',['C']],
+        ['L','طابق أرصدة الأطراف ذات العلاقة في الدفاتر مع ردود مصادقات منهم.',['E','V']],
+        ['M','افحص المعاملات الكبيرة: العقد، الموافقات (مجلس الإدارة / الجمعية العامة)، والشروط مقارنة بالسوق.',['O','P']],
+        ['M','قيّم قابلية تحصيل المستحق من الأطراف ذات العلاقة واحتياجه لمخصص خسائر ائتمانية.',['V']],
+        ['M','ابحث عن أطراف ذات علاقة مش متحصرة: مدفوعات غير معتادة، معاملات قرب نهاية السنة، ضمانات لصالح الغير.',['C']],
+        ['H','افحص الحركة على حسابات جاري الشركاء خلال السنة (سحب في السنة ورد قبل نهايتها لتجميل الرصيد).',['E','P']],
+        ['H','راجع الإفصاح في الإيضاحات: طبيعة العلاقة، المعاملات، الأرصدة، المكافآت للإدارة العليا.',['P']]],
+  docs:['حصر الأطراف ذات العلاقة الموقع من الإدارة','كشوف حسابات الأطراف ذات العلاقة','ردود المصادقات','العقود وقرارات الموافقة','محاضر مجلس الإدارة والجمعية العامة'],
+  find:['شركة شقيقة مدينة بمبلغ كبير من سنتين من غير سداد ولا مخصص.','مبيعات لشركة شقيقة بأسعار أعلى من باقي العملاء قبل نهاية السنة.','معاملة كبيرة مع شركة مملوكة لعضو مجلس من غير إفصاح.'],
+  ex:'الشركة باعت لشركة شقيقة بـ 6,000,000 في ديسمبر بخصم 0% وآجل 360 يوم، في حين إن باقي العملاء بآجل 60 يوم. البيعة دي بتزود الإيراد بس تحصيلها مشكوك فيه، ولازم تتقيّم كمعاملة غير عادية وتتفصح في الإيضاحات.'},
+ {id:'hfs',keys:['heldForSale'],ar:'الأصول المحتفظ بها لغرض البيع',en:'Assets held for sale',ir:3,std:'IFRS 5 / المعيار المصري 32 · ISA 540',assert:['E','V','P'],
+  risks:['تبويب أصل كمحتفظ بيه للبيع من غير ما الشروط تتحقق.','الاستمرار في إهلاكه أو قياسه بأكتر من القيمة العادلة ناقص تكاليف البيع.'],
+  proc:[['L','راجع قرار الإدارة بالبيع وخطة التسويق والسعر المعروض.',['E','P']],
+        ['M','اتأكد إن الشروط متحققة: متاح للبيع فوراً بحالته، والبيع مرجح جداً خلال 12 شهر.',['P']],
+        ['M','اختبر القياس: الأقل من القيمة الدفترية والقيمة العادلة ناقص تكاليف البيع، ووقف الإهلاك من تاريخ التبويب.',['V']],
+        ['H','راجع الأحداث اللاحقة: هل البيع تم فعلاً أو فيه مفاوضات جادة؟',['V','P']]],
+  docs:['قرار مجلس الإدارة بالبيع','عروض الشراء أو عقد البيع','تقرير التقييم'],
+  find:['أرض متبوبة محتفظ بها للبيع بقالها 3 سنين من غير مشتري.'],
+  ex:'مخزن قيمته الدفترية 4,000,000 والمعروض فيه 3,600,000 وتكاليف البيع 100,000. يتقاس بـ 3,500,000 وخسارة 500,000 في قائمة الدخل، ويقف إهلاكه.'},
+ {id:'emp',keys:['empBenefits'],ar:'التزامات مزايا العاملين ومكافأة نهاية الخدمة',en:'Employee benefit obligations',ir:2,std:'IAS 19 / المعيار المصري 38 · ISA 540 · ISA 620',assert:['C','V','P'],
+  risks:['التزام مش متحسب أو متحسب بافتراضات غير معقولة (معدل خصم، زيادة مرتبات، معدل ترك).','الفروق الاكتوارية متسجلة في قائمة الدخل بدل الدخل الشامل الآخر.'],
+  proc:[['L','افهم نظام المزايا: لائحة الشركة، عقود العمل، والنظام الخاص بمكافأة نهاية الخدمة.',['C']],
+        ['M','طابق بيانات العاملين المستخدمة في الحساب (أعداد، مرتبات، مدد خدمة) مع كشوف المرتبات.',['C','V']],
+        ['M','قيّم الافتراضات الاكتوارية مقارنة بالسوق، واعتمد على شغل الخبير الاكتواري بعد تقييمه (ISA 620).',['V']],
+        ['H','راجع العرض: تكلفة الخدمة والفائدة في الدخل، والفروق الاكتوارية في الدخل الشامل الآخر.',['P']]],
+  docs:['تقرير الخبير الاكتواري','لائحة المزايا','بيانات العاملين وكشوف المرتبات'],
+  find:['حساب مكافأة نهاية الخدمة مبني على مرتبات من 3 سنين.'],
+  ex:'لائحة بتدي شهر عن كل سنة خدمة. موظف مرتبه 20,000 وخدمته 10 سنين ⇐ التزام غير مخصوم 200,000 لازم يتحسب بقيمته الحالية حسب IAS 19، مش يتسجل وقت الصرف بس.'}
+);
+
+// ═══ v15: تصدير Excel بشكل القوائم المالية الحقيقية (ExcelJS) ═══
+FA_LIBS.exceljs='https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js';
+const XC={navy:'FF0F2A4A',gold:'FFC9A227',band:'FFEEF2F8',grey:'FF6B7587',line:'FFD9DEE7',white:'FFFFFFFF',H:'FFFDE2E2',M:'FFFFF1DA',L:'FFE3F5EC',Hd:'FFB42318',Md:'FFB25E00',Ld:'FF0E7A55',ok:'FFE3F5EC',na:'FFEDEFF3'};
+const XNUM='#,##0;(#,##0);"-"', XPCT='0.0%;(0.0%);"-"';
+const xF=o=>Object.assign({name:'Arial',size:10.5},o||{});
+const xFill=c=>({type:'pattern',pattern:'solid',fgColor:{argb:c}});
+const xB=(top,bottom)=>{ const b={}; if(top) b.top={style:top,color:{argb:XC.navy}}; if(bottom) b.bottom={style:bottom,color:{argb:XC.navy}}; return b; };
+async function xlLoad(){ return await faLoadLib(FA_LIBS.exceljs,'ExcelJS'); }
+async function xlSave(wb,name){
+  const buf=await wb.xlsx.writeBuffer();
+  const blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=faDocFile(name)+'.xlsx'; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },2000);
+}
+function xlSheet(wb,name,cols,frozen){
+  const ws=wb.addWorksheet(name,{views:[{rightToLeft:true,showGridLines:false,state:frozen?'frozen':'normal',ySplit:frozen||0}],
+    pageSetup:{paperSize:9,orientation:'portrait',fitToPage:true,fitToWidth:1,fitToHeight:0,horizontalCentered:true,margins:{left:0.45,right:0.45,top:0.6,bottom:0.6,header:0.3,footer:0.3}}});
+  ws.columns=cols.map(w=>({width:w}));
+  ws.headerFooter.oddFooter='&L&8AuditIQ&C&8صفحة &P من &N&R&8&D';
+  return ws;
+}
+// ارتفاع تقريبي للصف حسب طول النص في الأعمدة الملفوفة
+function xlFit(row,ws,cols){ let lines=1; cols.forEach(ci=>{ const v=row.getCell(ci).value; const t=v==null?'':String(v.richText?v.richText.map(r=>r.text).join(''):v); const w=(ws.getColumn(ci).width||10)*1.15; t.split('\n').forEach((p,i)=>{}); const n=t.split('\n').reduce((a,p)=>a+Math.max(1,Math.ceil(p.length/w)),0); lines=Math.max(lines,n); }); row.height=Math.max(16,lines*14.5+3); }
+function xlTitle(ws,lastCol,lines){
+  lines.forEach((t,i)=>{ const r=ws.getRow(i+1); r.getCell(1).value=t; ws.mergeCells(i+1,1,i+1,lastCol);
+    r.getCell(1).font=xF(i===0?{size:15,bold:true,color:{argb:XC.navy}}:i===1?{size:12.5,bold:true,color:{argb:XC.navy}}:{size:10,color:{argb:XC.grey}});
+    r.getCell(1).alignment={horizontal:'center',vertical:'middle'}; r.height=i===0?24:i===1?20:16; });
+}
+function xlHeader(ws,rowNo,vals,fillC){
+  const r=ws.getRow(rowNo); vals.forEach((v,i)=>{ const c=r.getCell(i+1); c.value=v; c.font=xF({bold:true,color:{argb:XC.white}}); c.fill=xFill(fillC||XC.navy); c.alignment={horizontal:i<2?'right':'center',vertical:'middle',wrapText:true}; c.border={bottom:{style:'medium',color:{argb:XC.gold}}}; });
+  r.height=22;
+}
+const XL_COL=i=>{ let s='',n=i; while(n>0){ const m=(n-1)%26; s=String.fromCharCode(65+m)+s; n=Math.floor((n-1)/26); } return s; };
+
+// ── بناء قائمة مالية: سطور + مجاميع بمعادلات (والقيمة محسوبة جاهزة) ──
+function xlStatement(ws,co,ys,C,layout,startRow){
+  const yc=ys.map((y,i)=>3+i), chC=ys.length>=2?3+ys.length:0, pcC=chC?chC+1:0, lastC=pcC||(2+ys.length);
+  const pos={}, has=k=>C.some(c=>Math.abs(c[k]||0)>=0.005);
+  let r=startRow;
+  const setNum=(row,col,v,f)=>{ const c=row.getCell(col); c.value=f?{formula:f,result:v}:v; c.numFmt=XNUM; c.alignment={horizontal:'right'}; c.font=xF({name:'Consolas'}); return c; };
+  const chg=(row,rn)=>{ if(!chC) return; const a=XL_COL(yc[0])+rn, b=XL_COL(yc[1])+rn;
+    const v0=row.getCell(yc[0]).value, v1=row.getCell(yc[1]).value; const n0=typeof v0==='object'&&v0?v0.result:v0, n1=typeof v1==='object'&&v1?v1.result:v1;
+    setNum(row,chC,(n0||0)-(n1||0),a+'-'+b).font=xF({name:'Consolas',color:{argb:XC.grey}});
+    const pc=row.getCell(pcC); pc.value={formula:'IF('+b+'=0,"",('+a+'-'+b+')/ABS('+b+'))',result:(n1?((n0||0)-n1)/Math.abs(n1):'')}; pc.numFmt=XPCT; pc.alignment={horizontal:'right'}; pc.font=xF({name:'Consolas',size:9.5,color:{argb:XC.grey}}); };
+  layout.forEach(it=>{
+    if(it.t==='head'||it.t==='head2'){ if(it.need&&!it.need.some(has)) return; const row=ws.getRow(r); row.getCell(1).value=it.label; row.getCell(1).font=xF({bold:true,size:it.t==='head'?11.5:10.5,color:{argb:XC.navy},underline:it.t==='head2'});
+      if(it.t==='head'){ for(let c=1;c<=lastC;c++) row.getCell(c).fill=xFill(XC.band); } row.height=18; r++; return; }
+    if(it.t==='line'){ if(!has(it.k)&&!it.always) return; const row=ws.getRow(r); row.getCell(1).value=faAnyLbl(it.k); row.getCell(1).font=xF(); row.getCell(1).alignment={indent:1,vertical:'middle'};
+      yc.forEach((col,i)=>setNum(row,col,(C[i][it.k]||0)*(it.sign||1))); chg(row,r); pos[it.id||it.k]=r; r++; return; }
+    if(it.t==='sum'){ const parts=(it.of||[]).filter(id=>pos[id]); const rng=it.range?it.range.filter(id=>pos[id]):[];
+      if(!parts.length&&!rng.length&&!it.always) return;
+      const row=ws.getRow(r); row.getCell(1).value=it.label; row.getCell(1).font=xF({bold:true});
+      yc.forEach((col,i)=>{ const L=XL_COL(col); let f=[];
+        if(rng.length){ const rs=rng.map(id=>pos[id]); f.push('SUM('+L+Math.min(...rs)+':'+L+Math.max(...rs)+')'); }
+        parts.forEach(id=>f.push(L+pos[id]));
+        const v=it.val(C[i]); const c=setNum(row,col,v,f.length?f.join('+'):null); c.font=xF({name:'Consolas',bold:true});
+        c.border=it.style==='grand'?xB('thin','double'):xB('thin',null); });
+      if(it.style==='grand') row.getCell(1).font=xF({bold:true,size:11,color:{argb:XC.navy}});
+      chg(row,r); if(chC){ row.getCell(chC).font=xF({name:'Consolas',bold:true,color:{argb:XC.grey}}); }
+      pos[it.id]=r; row.height=it.style==='grand'?19:17; r++; if(it.gap) r++; return; }
+    if(it.t==='check'){ if(!pos[it.a]||!pos[it.b]) return; const row=ws.getRow(r); row.getCell(1).value=it.label; row.getCell(1).font=xF({italic:true,size:9,color:{argb:XC.grey}});
+      yc.forEach((col,i)=>{ const L=XL_COL(col); const c=setNum(row,col,it.val(C[i]),L+pos[it.a]+'-'+L+pos[it.b]); c.font=xF({name:'Consolas',italic:true,size:9,color:{argb:XC.grey}}); }); r++; return; }
+    if(it.t==='gap'){ r++; }
+  });
+  return r;
+}
+function xlStmtSheet(wb,name,co,ys,C,title,dateLine,layout){
+  const u=faUnit(co), chC=ys.length>=2; const cols=[50,8].concat(ys.map(()=>16)).concat(chC?[16,10]:[]); const lastC=cols.length;
+  const ws=xlSheet(wb,name,cols,6);
+  xlTitle(ws,lastC,[co.name,title,dateLine,'(جميع المبالغ بـ '+u.ar+')']);
+  xlHeader(ws,6,['البيان','إيضاح'].concat(ys.map(y=>'31/12/'+y)).concat(chC?['التغير','%']:[]));
+  ws.pageSetup.printTitlesRow='6:6';
+  const end=xlStatement(ws,co,ys,C,layout,7);
+  const n=ws.getRow(end+1); n.getCell(1).value='الإيضاحات المرفقة جزء لا يتجزأ من القوائم المالية. الأرقام بين الأقواس سالبة. المجاميع معادلات Excel.'; n.getCell(1).font=xF({size:8.5,italic:true,color:{argb:XC.grey}}); ws.mergeCells(end+1,1,end+1,lastC);
+  return ws;
+}
+const XL_SFP=[
+  {t:'head',label:'الأصول'},
+  {t:'head2',label:'الأصول غير المتداولة',need:FA_SECTIONS[1].keys}].concat(FA_SECTIONS[1].keys.map(k=>({t:'line',k})))
+  .concat([{t:'sum',id:'NCA',label:'إجمالي الأصول غير المتداولة',range:FA_SECTIONS[1].keys,val:c=>c.NCA},
+  {t:'head2',label:'الأصول المتداولة',need:FA_SECTIONS[0].keys}]).concat(FA_SECTIONS[0].keys.map(k=>({t:'line',k})))
+  .concat([{t:'sum',id:'CA',label:'إجمالي الأصول المتداولة',range:FA_SECTIONS[0].keys,val:c=>c.CA},
+  {t:'sum',id:'TA',label:'إجمالي الأصول',of:['NCA','CA'],style:'grand',val:c=>c.totalAssets,gap:1},
+  {t:'head',label:'حقوق الملكية والالتزامات'},
+  {t:'head2',label:'حقوق الملكية',need:FA_SECTIONS[4].keys}]).concat(FA_SECTIONS[4].keys.map(k=>({t:'line',k})))
+  .concat([{t:'sum',id:'EQ',label:'إجمالي حقوق الملكية',range:FA_SECTIONS[4].keys,val:c=>c.totalEquity},
+  {t:'head2',label:'الالتزامات غير المتداولة',need:FA_SECTIONS[3].keys}]).concat(FA_SECTIONS[3].keys.map(k=>({t:'line',k})))
+  .concat([{t:'sum',id:'NCL',label:'إجمالي الالتزامات غير المتداولة',range:FA_SECTIONS[3].keys,val:c=>c.NCL},
+  {t:'head2',label:'الالتزامات المتداولة',need:FA_SECTIONS[2].keys}]).concat(FA_SECTIONS[2].keys.map(k=>({t:'line',k})))
+  .concat([{t:'sum',id:'CL',label:'إجمالي الالتزامات المتداولة',range:FA_SECTIONS[2].keys,val:c=>c.CL},
+  {t:'sum',id:'TL',label:'إجمالي الالتزامات',of:['NCL','CL'],val:c=>c.totalLiabilities},
+  {t:'sum',id:'TEL',label:'إجمالي حقوق الملكية والالتزامات',of:['EQ','TL'],style:'grand',val:c=>c.totalEqLiab},
+  {t:'check',label:'مراجعة: الأصول − (حقوق الملكية والالتزامات) — لازم تبقى صفر',a:'TA',b:'TEL',val:c=>c.balanceDiff}]);
+const XL_IS=[
+  {t:'line',k:'revenue'},{t:'line',k:'cogs',sign:-1},
+  {t:'sum',id:'GP',label:'مجمل الربح / (الخسارة)',range:['revenue','cogs'],val:c=>c.grossProfit,always:1},
+  {t:'line',k:'sellingExp',sign:-1},{t:'line',k:'adminExp',sign:-1},{t:'line',k:'opex',sign:-1},{t:'line',k:'otherExp',sign:-1},{t:'line',k:'impairment',sign:-1},{t:'line',k:'otherIncome'},
+  {t:'sum',id:'EBIT',label:'ربح / (خسارة) التشغيل',of:['GP'],range:['sellingExp','adminExp','opex','otherExp','impairment','otherIncome'],val:c=>c.ebit,always:1},
+  {t:'line',k:'financeIncome'},{t:'line',k:'financeCost',sign:-1},{t:'line',k:'fxGainLoss'},{t:'line',k:'assocShare'},
+  {t:'sum',id:'PBT',label:'صافي الربح / (الخسارة) قبل ضريبة الدخل',of:['EBIT'],range:['financeIncome','financeCost','fxGainLoss','assocShare'],val:c=>c.pbt,always:1},
+  {t:'line',k:'tax',sign:-1},{t:'line',k:'taxDeferred',sign:-1},
+  {t:'sum',id:'NP',label:'صافي ربح / (خسارة) العام',of:['PBT'],range:['tax','taxDeferred'],style:'grand',val:c=>c.netProfit,always:1,gap:1},
+  {t:'head2',label:'الدخل الشامل الآخر',need:['oci']},{t:'line',k:'oci'},
+  {t:'sum',id:'TCI',label:'إجمالي الدخل الشامل عن العام',of:['NP','oci'],style:'grand',val:c=>c.totalCI}];
+// قيمة الـ SUM لازم تساوي faCalc — بنتأكد قبل الكتابة، ولو فيه اختلاف بنكتب القيم من غير معادلات
+function xlCheckLayout(layout,C){
+  const bad=[]; C.forEach((c,i)=>{ const v={}; layout.forEach(it=>{ if(it.t==='line') v[it.k]=(c[it.k]||0)*(it.sign||1); if(it.t==='sum'){ const s=(it.range||[]).reduce((a,k)=>a+(v[k]||0),0)+(it.of||[]).reduce((a,k)=>a+(v[k]||0),0); v[it.id]=s; if(Math.abs(s-it.val(c))>0.01) bad.push(it.id); } }); });
+  return bad;
+}
+async function faExportExcel(){
+  const co=faCo(); if(!co||!faYears(co).length){ showToast('مفيش شركة فيها أرقام'); return; }
+  let EJ; try{ showToast('⏳ بجهز ملف Excel…'); EJ=await xlLoad(); }catch(e){ showToast('⚠️ مكتبة التنسيق مش متاحة — هصدّر نسخة بسيطة'); return faExportExcelPlain(); }
+  const ys=faYears(co), C=ys.map(y=>faCalc(co.years[y])), b=faB(), u=faUnit(co);
+  const bad=xlCheckLayout(XL_SFP,C).concat(xlCheckLayout(XL_IS,C)); if(bad.length) console.warn('layout mismatch',bad);
+  const wb=new EJ.Workbook(); wb.creator='AuditIQ'; wb.created=new Date();
+  xlStmtSheet(wb,'المركز المالي',co,ys,C,'قائمة المركز المالي','في 31 ديسمبر '+ys[0],XL_SFP);
+  xlStmtSheet(wb,'قائمة الدخل',co,ys,C,'قائمة الدخل (الأرباح أو الخسائر والدخل الشامل)','عن السنة المالية المنتهية في 31 ديسمبر '+ys[0],XL_IS);
+  if(C.some(c=>c.cfo||c.cfi||c.cff||c.capex||c.depAmort||c.dividendsPaid||c.rpSales||c.rpPurchases)){
+    const L=[{t:'line',k:'cfo'},{t:'line',k:'cfi'},{t:'line',k:'cff'},{t:'sum',id:'NET',label:'صافي التغير في النقدية خلال العام',range:['cfo','cfi','cff'],style:'grand',val:c=>c.cfo+c.cfi+c.cff,gap:1},
+      {t:'head2',label:'بيانات إضافية من القوائم والإيضاحات',need:['capex','depAmort','dividendsPaid','rpSales','rpPurchases']},{t:'line',k:'capex'},{t:'line',k:'depAmort'},{t:'line',k:'dividendsPaid'},{t:'line',k:'rpSales'},{t:'line',k:'rpPurchases'}];
+    xlStmtSheet(wb,'التدفقات النقدية',co,ys,C,'ملخص قائمة التدفقات النقدية','عن السنة المالية المنتهية في 31 ديسمبر '+ys[0],L);
+  }
+  // النسب
+  const yN=ys.length, rc=[30,34].concat(ys.map(()=>13)).concat([44,52]);
+  const wr=xlSheet(wb,'النسب المالية',rc,6); xlTitle(wr,rc.length,[co.name,'النسب المالية','السنين: '+ys.join(' · '),b.avg?'الأرصدة محسوبة كمتوسط أول وآخر المدة':'محسوبة على أرصدة آخر المدة']);
+  xlHeader(wr,6,['النسبة','المعادلة'].concat(ys).concat(['هنعرف منها إيه','الرقم بيقول ('+ys[0]+')']));
+  let rr=7; const KF={'%':XPCT,x:'0.00"×";(0.00"×");"-"',d:'0 "يوم";(0) "يوم";"-"',m:XNUM,n:'#,##0.00;(#,##0.00);"-"'};
+  FA_GROUPS.forEach(g=>{ const rows=FA_RATIOS.filter(r=>r.g===g.id).map(r=>({r,s:faRatioSeries(co,r.id,b)})).filter(o=>o.s.some(x=>x.val!=null)); if(!rows.length) return;
+    const hr=wr.getRow(rr); hr.getCell(1).value=g.ar; for(let c=1;c<=rc.length;c++) hr.getCell(c).fill=xFill(XC.band); hr.getCell(1).font=xF({bold:true,color:{argb:XC.navy}}); rr++;
+    rows.forEach(o=>{ const row=wr.getRow(rr); row.getCell(1).value=o.r.ar; row.getCell(1).font=xF({bold:true}); row.getCell(2).value=o.r.f; row.getCell(2).font=xF({size:9,color:{argb:XC.grey}});
+      o.s.forEach((x,i)=>{ const c=row.getCell(3+i); c.value=x.val==null?'—':x.val; c.numFmt=KF[o.r.kind]||'0.00'; c.alignment={horizontal:'right',vertical:'top'}; c.font=xF({name:'Consolas'}); });
+      row.getCell(3+yN).value=faRatioUse(o.r).q; row.getCell(4+yN).value=o.s[0]&&o.s[0].val!=null?o.r.read(o.s[0].val):'—';
+      [1,2,3+yN,4+yN].forEach(ci=>{ row.getCell(ci).alignment={wrapText:true,vertical:'top'}; }); [3+yN,4+yN].forEach(ci=>row.getCell(ci).font=xF({size:9.5}));
+      for(let c=1;c<=rc.length;c++) row.getCell(c).border={bottom:{style:'hair',color:{argb:XC.line}}};
+      xlFit(row,wr,[1,2,3+yN,4+yN]); rr++; }); });
+  // المراجعة التحليلية
+  const fl=faReview(co,{thr:+FA.ui.thr||20,mat:+FA.ui.mat||0}); const SV={H:'عالي',M:'متوسط',L:'منخفض'};
+  const wa=xlSheet(wb,'المراجعة التحليلية',[10,34,40,44,48,18],6); xlTitle(wa,6,[co.name,'المراجعة التحليلية (ISA 520)','مقارنة '+ys[0]+(ys[1]?' بـ '+ys[1]:''),'كل مؤشر محتاج تفسير من الإدارة وأدلة بتأيده']);
+  xlHeader(wa,6,['الخطورة','المؤشر','التفاصيل','ليه مهم','الإجراء المقترح','المرجع']); let ar=7;
+  (fl.length?fl:[{sev:'L',title:'مفيش مؤشرات بالحدود الحالية',detail:'',why:'',proc:[],std:''}]).forEach(f=>{ const row=wa.getRow(ar); [SV[f.sev],f.title,f.detail,f.why,(f.proc||[]).map((x,i)=>(i+1)+'. '+x).join('\n'),f.std||''].forEach((v,i)=>{ const c=row.getCell(i+1); c.value=v; c.alignment={wrapText:true,vertical:'top',horizontal:i===0?'center':'right'}; c.font=xF({size:9.5,bold:i<2}); c.border={bottom:{style:'hair',color:{argb:XC.line}}}; });
+    row.getCell(1).fill=xFill(XC[f.sev]); row.getCell(1).font=xF({bold:true,color:{argb:XC[f.sev+'d']}}); xlFit(row,wa,[2,3,4,5]); ar++; });
+  xlAbbrSheet(wb,['SFP','IS','EBIT','EBITDA','PBT','CFO','FCF','ROA','ROE','ROCE','ETR','DSO','DIO','DPO','CCC','EPS','NCI','OCI','ISA','IFRS','IAS','EAS','ECL','NRV','EGP']);
+  await xlSave(wb,co.name+' — القوائم المالية '+ys[0]); showToast('✓ اتصدر ملف Excel بشكل القوائم');
+}
+const XL_ABBR_MORE={OCI:['Other Comprehensive Income','الدخل الشامل الآخر'],WP:['Working Paper','ورقة العمل']};
+function xlAbbrSheet(wb,used){
+  const ws=xlSheet(wb,'الاختصارات',[14,54,46],2); xlHeader(ws,1,['الاختصار','بالإنجليزي','بالعربي']); ws.views=[{rightToLeft:true,showGridLines:false,state:'frozen',ySplit:1}];
+  let r=2; used.forEach(a=>{ const x=(typeof ABBR!=='undefined'?ABBR.find(z=>z[0]===a):null)||(FA_ABBR_EXTRA[a]?[a].concat(FA_ABBR_EXTRA[a]):null)||(XL_ABBR_MORE[a]?[a].concat(XL_ABBR_MORE[a]):null); if(!x) return;
+    const row=ws.getRow(r++); row.getCell(1).value=a; row.getCell(1).font=xF({bold:true,name:'Consolas'}); row.getCell(2).value=x[1]; row.getCell(3).value=x[2];
+    for(let c=1;c<=3;c++){ row.getCell(c).border={bottom:{style:'hair',color:{argb:XC.line}}}; if(c>1) row.getCell(c).font=xF(); } });
+}
+
+// ═══ برنامج المراجعة كورقة عمل منسقة ═══
+async function apExport(){
+  const co=faCo(); if(!co||!faYears(co).length){ showToast('مفيش شركة فيها أرقام'); return; }
+  let EJ; try{ showToast('⏳ بجهز برنامج المراجعة…'); EJ=await xlLoad(); }catch(e){ showToast('⚠️ مكتبة التنسيق مش متاحة — هصدّر نسخة بسيطة'); return apExportPlain(); }
+  const A=apAnalyze(co), st=apState(co), ys=faYears(co), u=faUnit(co), M=A.mat; const LV={H:'عالي',M:'متوسط',L:'منخفض'};
+  const wb=new EJ.Workbook(); wb.creator='AuditIQ';
+  const PS='برنامج المراجعة';
+  // 1) الملخص
+  const ws=xlSheet(wb,'الملخص',[40,16,11,52,12,10,12],0);
+  xlTitle(ws,7,[co.name,'برنامج المراجعة لبنود القوائم المالية','السنة المالية المنتهية في 31 ديسمبر '+ys[0],'(المبالغ بـ '+u.ar+')']);
+  xlHeader(ws,6,['الأهمية النسبية','المبلغ','','الأساس','','','']); ws.mergeCells(6,2,6,3); ws.mergeCells(6,4,6,7);
+  [['الأهمية النسبية الإجمالية (OM)',M.om,M.benchAr+' × '+M.pct+'%'],['الأهمية النسبية للتنفيذ (PM)',M.pm,M.pmPct+'% من الإجمالية'],['حد الأخطاء التافهة الواضحة',M.triv,'5% من الإجمالية']].forEach((x,i)=>{ const r=ws.getRow(7+i); r.getCell(1).value=x[0]; r.getCell(1).font=xF({bold:true}); r.getCell(2).value=Math.round(x[1]); r.getCell(2).numFmt=XNUM; r.getCell(2).font=xF({name:'Consolas',bold:true}); r.getCell(4).value=x[2]; ws.mergeCells(7+i,2,7+i,3); ws.mergeCells(7+i,4,7+i,7); });
+  xlHeader(ws,11,['البند','الرصيد','الخطر','ليه المستوى ده','مطلوب','اتعمل','الإنجاز']);
+  let sr=12; const first=sr;
+  A.items.forEach(it=>{ const r=ws.getRow(sr); const req=it.p.proc.filter(pr=>apProcActive(it.lvl,pr[0])).length, dn=it.p.proc.filter((pr,i)=>apProcActive(it.lvl,pr[0])&&st.done[it.p.id+':'+i]==='done').length;
+    r.getCell(1).value=it.p.ar; r.getCell(1).font=xF({bold:true}); r.getCell(2).value=Math.round(it.bal); r.getCell(2).numFmt=XNUM; r.getCell(2).font=xF({name:'Consolas'}); r.getCell(2).alignment={horizontal:'right',vertical:'top'};
+    r.getCell(3).value=LV[it.lvl]; r.getCell(3).fill=xFill(XC[it.lvl]); r.getCell(3).font=xF({bold:true,color:{argb:XC[it.lvl+'d']}}); r.getCell(3).alignment={horizontal:'center',vertical:'top'};
+    r.getCell(4).value=it.why.join(' · '); r.getCell(4).font=xF({size:9});
+    const nm='"'+it.p.ar.replace(/"/g,'""')+'"';
+    r.getCell(5).value={formula:"COUNTIFS('"+PS+"'!A:A,"+nm+",'"+PS+"'!F:F,\"نعم\")",result:req};
+    r.getCell(6).value={formula:"COUNTIFS('"+PS+"'!A:A,"+nm+",'"+PS+"'!F:F,\"نعم\",'"+PS+"'!H:H,\"اتعمل\")",result:dn};
+    r.getCell(7).value={formula:'IF(E'+sr+'=0,"",F'+sr+'/E'+sr+')',result:req?dn/req:''}; r.getCell(7).numFmt='0%';
+    [1,4].forEach(c=>r.getCell(c).alignment={wrapText:true,vertical:'top'}); [5,6,7].forEach(c=>r.getCell(c).alignment={horizontal:'center',vertical:'top'});
+    for(let c=1;c<=7;c++) r.getCell(c).border={bottom:{style:'hair',color:{argb:XC.line}}}; xlFit(r,ws,[1,4]); sr++; });
+  const tr=ws.getRow(sr); tr.getCell(1).value='الإجمالي'; tr.getCell(1).font=xF({bold:true});
+  tr.getCell(5).value={formula:'SUM(E'+first+':E'+(sr-1)+')'}; tr.getCell(6).value={formula:'SUM(F'+first+':F'+(sr-1)+')'}; tr.getCell(7).value={formula:'IF(E'+sr+'=0,"",F'+sr+'/E'+sr+')'}; tr.getCell(7).numFmt='0%';
+  for(let c=1;c<=7;c++){ tr.getCell(c).border=xB('thin','double'); if(c>=5){ tr.getCell(c).font=xF({bold:true}); tr.getCell(c).alignment={horizontal:'center'}; } }
+  const nt=ws.getRow(sr+2); nt.getCell(1).value='مستوى الخطر نقطة بداية للحكم المهني (ISA 315 و ISA 330): محسوب من حجم البند مقارنة بالأهمية النسبية للتنفيذ وطبيعته والمؤشرات التحليلية. عمود «اتعمل» بيتحدث لوحده من ورقة البرنامج.'; ws.mergeCells(sr+2,1,sr+2,7); nt.getCell(1).font=xF({size:9,italic:true,color:{argb:XC.grey}}); nt.getCell(1).alignment={wrapText:true}; nt.height=30;
+  // 2) البرنامج
+  const wp=xlSheet(wb,PS,[22,5,58,22,9,9,20,12,11,13,11,34],5);
+  wp.pageSetup.orientation='landscape';
+  xlTitle(wp,12,[co.name+' — برنامج المراجعة '+ys[0],'غيّر عمود «الحالة» من القائمة (اتعمل / لا ينطبق / لسه) — والملخص بيتحدث لوحده','PM = '+faN(M.pm)+' '+u.ar]);
+  wp.getRow(1).height=22;
+  xlHeader(wp,5,['البند','#','الإجراء','الإقرارات','الخطر','مطلوب؟','المرجع','الحالة','ورقة العمل','بواسطة','التاريخ','النتيجة / الملاحظات']);
+  wp.pageSetup.printTitlesRow='5:5';
+  let pr=6;
+  A.items.forEach(it=>{ const p=it.p;
+    const br=wp.getRow(pr); br.getCell(1).value=p.ar; br.getCell(3).value=p.ar+'  —  '+p.en+'   |   الرصيد '+faN(it.bal)+'   |   الخطر: '+LV[it.lvl]+'   |   '+p.std;
+    wp.mergeCells(pr,3,pr,12); for(let c=1;c<=12;c++){ br.getCell(c).fill=xFill(it.lvl==='H'?'FFFBE3E3':it.lvl==='M'?'FFFFF3E0':'FFE8F5EE'); br.getCell(c).border={top:{style:'thin',color:{argb:XC[it.lvl+'d']}}}; }
+    br.getCell(1).font=xF({bold:true,size:9,color:{argb:XC.grey}}); br.getCell(3).font=xF({bold:true,size:11,color:{argb:XC.navy}}); br.height=20; pr++;
+    const wy=wp.getRow(pr); wy.getCell(1).value=p.ar; wy.getCell(3).value='ليه المستوى ده: '+it.why.join(' · ')+'\nالمخاطر: '+p.risks.join(' · '); wp.mergeCells(pr,3,pr,12); wy.getCell(3).font=xF({size:9,color:{argb:XC.grey}}); wy.getCell(3).alignment={wrapText:true,vertical:'top'}; wy.getCell(1).font=xF({size:8,color:{argb:'FFB0B6C2'}});
+    wy.height=Math.max(30,Math.ceil(wy.getCell(3).value.length/150)*13+6); pr++;
+    p.proc.forEach((q,i)=>{ const s=st.done[p.id+':'+i]; const on=apProcActive(it.lvl,q[0]); const r=wp.getRow(pr);
+      const vals=[p.ar,i+1,q[1],q[2].map(a=>AP_ASSERT[a]).join('، '),{L:'أساسي',M:'متوسط',H:'عالي'}[q[0]],on?'نعم':'اختياري',i===0?p.std:'',s==='done'?'اتعمل':s==='na'?'لا ينطبق':'لسه','','','',i===0?(st.notes[p.id]||''):''];
+      vals.forEach((v,ci)=>{ const c=r.getCell(ci+1); c.value=v; c.alignment={wrapText:true,vertical:'top',horizontal:[1,4,5,7].indexOf(ci)>=0?'center':'right'}; c.font=xF({size:9.5}); c.border={bottom:{style:'hair',color:{argb:XC.line}}}; });
+      r.getCell(1).font=xF({size:8,color:{argb:'FFB0B6C2'}}); if(!on) r.getCell(3).font=xF({size:9.5,color:{argb:XC.grey}});
+      r.getCell(8).dataValidation={type:'list',allowBlank:true,formulae:['"لسه,اتعمل,لا ينطبق"']}; r.getCell(8).font=xF({size:9.5,bold:true});
+      r.getCell(11).numFmt='dd/mm/yyyy'; xlFit(r,wp,[3,4,7,12]); pr++; });
+    const dr=wp.getRow(pr); dr.getCell(1).value=p.ar; dr.getCell(3).value='المستندات: '+p.docs.join(' · ')+'\nإمتى تبقى ملاحظة: '+p.find.join(' · ')+'\nمثال: '+p.ex; wp.mergeCells(pr,3,pr,12);
+    dr.getCell(3).font=xF({size:9,color:{argb:'FF3A4558'}}); dr.getCell(3).alignment={wrapText:true,vertical:'top'}; dr.getCell(3).fill=xFill('FFFAFBFD'); dr.getCell(1).font=xF({size:8,color:{argb:'FFB0B6C2'}});
+    dr.height=Math.max(44,Math.ceil(dr.getCell(3).value.length/150)*13+10); pr+=2; });
+  wp.addConditionalFormatting({ref:'H6:H'+pr,rules:[
+    {type:'cellIs',operator:'equal',formulae:['"اتعمل"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:XC.ok}},font:{color:{argb:XC.Ld}}}},
+    {type:'cellIs',operator:'equal',formulae:['"لا ينطبق"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:XC.na}},font:{color:{argb:XC.grey}}}},
+    {type:'cellIs',operator:'equal',formulae:['"لسه"'],style:{font:{color:{argb:XC.Md}}}}]});
+  // 3) مجالات عامة
+  const wg=xlSheet(wb,'مجالات عامة',[34,70,16,12,30],2); xlHeader(wg,1,['المجال','الإجراء','المرجع','الحالة','ملاحظات']); wg.views=[{rightToLeft:true,showGridLines:false,state:'frozen',ySplit:1}];
+  let gr=2; AP_GENERAL.forEach(g=>g.proc.forEach((x,i)=>{ const r=wg.getRow(gr); [i===0?g.ar:'',x,i===0?g.std:'','لسه',''].forEach((v,ci)=>{ const c=r.getCell(ci+1); c.value=v; c.alignment={wrapText:true,vertical:'top'}; c.font=xF({size:9.5,bold:ci===0}); c.border={bottom:{style:'hair',color:{argb:XC.line}}}; });
+    r.getCell(4).dataValidation={type:'list',allowBlank:true,formulae:['"لسه,اتعمل,لا ينطبق"']}; xlFit(r,wg,[1,2]); gr++; }));
+  // 4) المستندات المطلوبة
+  const wd=xlSheet(wb,'المستندات المطلوبة PBC',[6,60,34,14,14,13,30],1); xlHeader(wd,1,['#','المستند','البند','تاريخ الطلب','تاريخ الاستلام','الحالة','ملاحظات']); wd.views=[{rightToLeft:true,showGridLines:false,state:'frozen',ySplit:1}];
+  let dn=2,k=1; const addDoc=(d,item)=>{ const r=wd.getRow(dn++); [k++,d,item,'','','مطلوب',''].forEach((v,ci)=>{ const c=r.getCell(ci+1); c.value=v; c.alignment={wrapText:true,vertical:'top',horizontal:ci===0?'center':'right'}; c.font=xF({size:9.5}); c.border={bottom:{style:'hair',color:{argb:XC.line}}}; });
+    [4,5].forEach(ci=>r.getCell(ci).numFmt='dd/mm/yyyy'); r.getCell(6).dataValidation={type:'list',allowBlank:true,formulae:['"مطلوب,اتسلم,ناقص,مش مطلوب"']}; xlFit(r,wd,[2,3]); };
+  A.items.forEach(it=>it.p.docs.forEach(d=>addDoc(d,it.p.ar)));
+  ['ميزان المراجعة في '+ys[0]+'/12/31','محاضر مجلس الإدارة والجمعيات العامة للسنة','حصر الأطراف ذات العلاقة والمعاملات معاهم','خطاب الإقرارات من الإدارة (ISA 580)'].forEach(d=>addDoc(d,'عام'));
+  wd.addConditionalFormatting({ref:'F2:F'+dn,rules:[{type:'cellIs',operator:'equal',formulae:['"اتسلم"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:XC.ok}}}},{type:'cellIs',operator:'equal',formulae:['"ناقص"'],style:{fill:{type:'pattern',pattern:'solid',bgColor:{argb:XC.H}}}}]});
+  xlAbbrSheet(wb,['OM','PM','PBC','WP','ISA','IFRS','IAS','EAS','IFRIC','ECL','NRV','SPPI','EBITDA']);
+  await xlSave(wb,co.name+' — برنامج المراجعة '+ys[0]); showToast('✓ اتصدر برنامج المراجعة');
+}
+
+// ── v15: شرح أعمق لكل نسبة: مثال مصري محسوب، إيه اللي بيحركها، أخطاء شائعة ──
+const FA_RATIO_DEEP={
+ current:{ex:'شركة توزيع أدوية: أصول متداولة 48 مليون (نقدية 6، عملاء 22، مخزون 20) والتزامات متداولة 40 مليون ⇐ 48 ÷ 40 = 1.2×. لو 8 ملايين من المخزون منتهي الصلاحية، النسبة الحقيقية 40 ÷ 40 = 1×.',drive:['زيادة العملاء أو المخزون بترفعها (حتى لو مش هيتحصلوا أو يتباعوا).','تحويل قرض طويل لقصير (أو استحقاق أقساط) بيخفضها فجأة.','سداد موردين من النقدية بيغيرها حسب مستواها: لو فوق 1 بترفعها.'],trap:['تبويب قرض بنكي مستحق خلال سنة كطويل الأجل بيضخم النسبة.','النسبة العالية مش دايماً كويسة: ممكن تكون مخزون راكد.','مقارنة شركة مقاولات بشركة تجزئة من غير مراعاة طبيعة النشاط.']},
+ quick:{ex:'نفس شركة الأدوية: (48 − 20 مخزون) ÷ 40 = 0.7×. يعني من غير بيع المخزون الشركة تقدر تغطي 70% بس من التزاماتها القصيرة.',drive:['حجم المخزون مقارنة بباقي الأصول المتداولة.','سرعة تحصيل العملاء.'],trap:['نسيان طرح المدفوعات المقدمة (مش بتتحول نقدية) — بعض المحللين بيطرحوها كمان.','اعتبار العملاء المتأخرين جداً أصل سريع.']},
+ cashR:{ex:'نقدية 6 مليون ÷ التزامات متداولة 40 مليون = 0.15× ⇐ النقدية الموجودة بتغطي 15% بس.',drive:['توقيت التحصيل والسداد قرب نهاية السنة.','الودائع والأذون أقل من 3 شهور بتدخل في النقدية.'],trap:['احتساب ودائع مرهونة أو محجوزة كنقدية حرة.','الشركات بتجمّل النقدية آخر يوم في السنة (تأجيل سداد الموردين).']},
+ ocfR:{ex:'تدفق تشغيلي 10 ملايين ÷ التزامات متداولة 40 مليون = 0.25× ⇐ التشغيل في سنة بيغطي ربع الالتزامات القصيرة.',drive:['جودة التحصيل وحركة رأس المال العامل.','الربح النقدي (قبل الإهلاك).'],trap:['تبويب فوائد أو توزيعات في أنشطة غير التشغيل بيغير الرقم بين الشركات.','سنة واحدة سلبية ممكن تكون استثمار في مخزون — بص على اتجاه 3 سنين.']},
+ wc:{ex:'أصول متداولة 48 مليون − التزامات متداولة 40 مليون = 8 ملايين رأس مال عامل.',drive:['نمو المبيعات بيحتاج رأس مال عامل أكبر (مخزون وعملاء).','شروط الائتمان مع العملاء والموردين.'],trap:['رقم بالجنيه مش نسبة — مينفعش تقارنه بين شركات مختلفة الحجم.','رأس مال عامل سالب مش دايماً كارثة (السوبر ماركت بيبيع كاش وبيدفع آجل).']},
+ gm:{ex:'مصنع بلاستيك: مبيعات 120 مليون، تكلفة 96 مليون ⇐ مجمل ربح 24 مليون = 20%. لو سعر البوليمر زاد 10% والسعر مزادش، الهامش ينزل لـ 12%.',drive:['أسعار البيع والخصومات.','تكلفة الخامات وسعر الصرف (للمستورد).','نسبة استغلال الطاقة (التكاليف الثابتة في التكلفة).'],trap:['تبويب مصروفات بين التكلفة والمصروفات الإدارية بيغير الهامش من غير ما الأداء يتغير.','مخزون آخر المدة المضخم بيقلل التكلفة ويرفع الهامش بشكل وهمي.']},
+ ebitM:{ex:'مجمل ربح 24 مليون − مصروفات بيع وإدارية 15 مليون = ربح تشغيل 9 ملايين ÷ مبيعات 120 = 7.5%.',drive:['حجم المصروفات الثابتة مقارنة بالمبيعات (الرافعة التشغيلية).','المخصصات والاضمحلال.'],trap:['إدخال إيرادات غير متكررة (ربح بيع أصل) في التشغيل بيضخمه.','اختلاف مكان فروق العملة بين الشركات.']},
+ ebitdaM:{ex:'ربح تشغيل 9 ملايين + إهلاك 6 ملايين = EBITDA 15 مليون ÷ 120 = 12.5%.',drive:['نفس محركات ربح التشغيل + حجم الإهلاك.'],trap:['EBITDA مش تدفق نقدي: بيتجاهل رأس المال العامل والضرايب والإنفاق الرأسمالي.','بعد IFRS 16 الإيجار بقى إهلاك وفوائد فالـ EBITDA زاد من غير تحسن حقيقي.']},
+ nm:{ex:'صافي ربح 4.2 مليون ÷ مبيعات 120 مليون = 3.5%.',drive:['كل محركات الهوامش اللي فوق + الفوائد + الضرايب.'],trap:['ربح غير متكرر أو فروق عملة كبيرة بتشوه المقارنة — افصلها.']},
+ roa:{ex:'صافي ربح 4.2 مليون ÷ إجمالي أصول 70 مليون = 6%.',drive:['هامش الربح × دوران الأصول (DuPont).'],trap:['أصول قديمة مهلكة بالكامل بتطلع العائد عالي بشكل مضلل.','لو فيه إعادة تقييم للأصول بيقل العائد من غير ما الأداء يتغير.']},
+ roe:{ex:'صافي ربح 4.2 مليون ÷ حقوق ملكية 30 مليون = 14%. لو عائد أذون الخزانة 25%، المساهم ممكن يكسب أكتر من غير مخاطرة.',drive:['الهامش × دوران الأصول × الرافعة (الأصول ÷ حقوق الملكية).'],trap:['حقوق ملكية صغيرة جداً أو سالبة بتطلع عائد ضخم أو بلا معنى.','إعادة شراء أسهم (أسهم خزينة) بتقلل حقوق الملكية وترفع العائد.']},
+ roce:{ex:'ربح تشغيل 9 ملايين ÷ (حقوق ملكية 30 + قروض طويلة 15) = 20%. لو فايدة القروض 27%، الاقتراض بيقلل العائد على المساهمين.',drive:['ربحية التشغيل وحجم رأس المال طويل الأجل.'],trap:['اختلاف تعريف رأس المال المستخدم بين المصادر (إجمالي الأصول − الالتزامات المتداولة).']},
+ etr:{ex:'ربح قبل الضريبة 10 ملايين، ضريبة 2.9 مليون ⇐ 29%. التسوية: 22.5% × 10 = 2.25 مليون + غرامات وتبرعات غير قابلة للخصم 0.65 مليون = 2.9 مليون.',drive:['المصروفات غير القابلة للخصم.','الإعفاءات والإيرادات الخاضعة لضريبة منفصلة (زي توزيعات أو أذون).','الضريبة المؤجلة وأصل ضريبي مش متسجل.'],trap:['نسيان الضريبة المؤجلة في البسط.','مقارنة بـ 22.5% في شركات ليها أسعار أو نظم خاصة (مناطق حرة مثلاً).']},
+ liabEq:{ex:'التزامات 40 مليون ÷ حقوق ملكية 30 مليون = 1.33×.',drive:['التمويل بالديون والموردين مقابل الأرباح المحتجزة وزيادات رأس المال.'],trap:['الالتزامات فيها موردين ودفعات مقدمة من عملاء (مش ديون بفوائد) — بص على نسبة القروض كمان.']},
+ debtEq:{ex:'قروض 18 مليون (قصيرة 8 + طويلة 10) ÷ حقوق ملكية 30 مليون = 0.6×.',drive:['الاقتراض الجديد والسداد، والأرباح المحتجزة.'],trap:['نسيان الجزء المتداول من القروض أو التزامات التأجير.','قروض المساهمين بدون فوايد بتتعامل أحياناً كأنها ملكية — وضّح المعالجة.']},
+ liabAs:{ex:'التزامات 40 مليون ÷ أصول 70 مليون = 57%.',drive:['نفس محركات الرافعة.'],trap:['أصول متقيمة بأقل من قيمتها العادلة بتطلع النسبة أسوأ من الواقع.']},
+ eqR:{ex:'حقوق ملكية 30 مليون ÷ أصول 70 مليون = 43%.',drive:['الأرباح المحتجزة والتوزيعات وزيادات رأس المال.'],trap:['الخسائر المتراكمة بتنزلها بسرعة — اربطها بشرط قانون الشركات لو الخسائر وصلت نص رأس المال.']},
+ icov:{ex:'ربح تشغيل 9 ملايين ÷ فوائد 3.6 مليون = 2.5×. لو سعر الفايدة زاد 5 نقط على قرض 18 مليون، الفوايد تزيد 0.9 مليون والتغطية تنزل لـ 2×.',drive:['ربح التشغيل، وحجم الدين، وسعر الفايدة (مرتبط بالبنك المركزي).'],trap:['الفوائد المرسملة على أصول تحت الإنشاء مش ظاهرة في المصروفات فبتضخم التغطية.']},
+ ndE:{ex:'(قروض 18 مليون − نقدية 6) = 12 مليون ÷ EBITDA 15 مليون = 0.8×.',drive:['الدين والنقدية وربحية التشغيل.'],trap:['النقدية المرهونة مينفعش تتطرح من الدين.','تعريف البنك في التعهدات ممكن يختلف — استخدم تعريف عقد القرض.']},
+ at:{ex:'مبيعات 120 مليون ÷ أصول 70 مليون = 1.7×.',drive:['استغلال الطاقة، والاستثمارات الجديدة اللي لسه مبتنتجش.'],trap:['مشروعات تحت التنفيذ كبيرة بتقلل الدوران مؤقتاً.']},
+ dso:{ex:'عملاء 22 مليون ÷ مبيعات 120 مليون × 365 = 67 يوم. لو شروط البيع 45 يوم، فيه تأخير 22 يوم في المتوسط.',drive:['سياسة الائتمان، وكفاءة التحصيل، وحجم مبيعات آخر السنة.'],trap:['مبيعات كبيرة في ديسمبر بتضخم الأيام من غير تأخير حقيقي — استخدم المتوسط أو مبيعات آخر ربع.','المبيعات النقدية في المقام بتقلل الأيام — الأدق تستخدم المبيعات الآجلة.']},
+ dio:{ex:'مخزون 20 مليون ÷ تكلفة مبيعات 96 مليون × 365 = 76 يوم.',drive:['حجم المشتريات، وسرعة البيع، والمخزون الاستراتيجي (قبل زيادة الأسعار).'],trap:['قسمة المخزون على المبيعات بدل التكلفة بتطلع أيام أقل من الحقيقة.']},
+ dpo:{ex:'موردين 14 مليون ÷ تكلفة مبيعات 96 مليون × 365 = 53 يوم.',drive:['شروط الموردين، والضغط على السيولة.'],trap:['الأدق تقسم على المشتريات مش التكلفة — الفرق كبير لو المخزون اتغير.']},
+ ccc:{ex:'67 يوم تحصيل + 76 يوم تخزين − 53 يوم سداد = 90 يوم الفلوس محبوسة. مبيعات يومية 330 ألف × 90 = حوالي 30 مليون محتاجة تمويل.',drive:['الثلاث مكونات اللي فوق.'],trap:['المقارنة بين نشاطين مختلفين (مقاولات مقابل تجزئة) مالهاش معنى.']},
+ cfoNp:{ex:'تدفق تشغيلي 3 ملايين ÷ صافي ربح 4.2 مليون = 0.7×. الربح زاد بس العملاء زادوا 6 ملايين — جزء من الربح لسه على الورق.',drive:['حركة العملاء والمخزون والموردين.','البنود غير النقدية (إهلاك، مخصصات، أرباح تقييم).'],trap:['سنة نمو قوي طبيعي إن النسبة تقل — المهم الاتجاه على كذا سنة.']},
+ fcf:{ex:'تدفق تشغيلي 10 ملايين − شراء أصول 7 ملايين = 3 ملايين تدفق حر.',drive:['التدفق التشغيلي وخطط التوسع.'],trap:['شراء أصول بالآجل مش ظاهر في التدفقات فبيحسن الرقم مؤقتاً.']},
+ capexDep:{ex:'إنفاق على الأصول 7 ملايين ÷ إهلاك 6 ملايين = 1.17×.',drive:['خطط التوسع والإحلال.'],trap:['الإهلاك على التكلفة التاريخية أقل من تكلفة الإحلال الحالية بعد التعويم.']},
+ payout:{ex:'توزيعات 2 مليون ÷ صافي ربح 4.2 مليون = 48%.',drive:['سياسة التوزيع واحتياج الشركة للسيولة.'],trap:['التوزيعات المدفوعة في السنة ممكن تكون عن أرباح السنة اللي فاتت.']},
+ eps:{ex:'صافي ربح لمساهمي الأم 4.2 مليون ÷ 10 مليون سهم = 0.42 جنيه للسهم.',drive:['الربح وعدد الأسهم (زيادات رأس المال وأسهم الخزينة).'],trap:['استخدام عدد الأسهم آخر السنة بدل المتوسط المرجح (IAS 33).','نسيان طرح نصيب الحقوق غير المسيطرة وتوزيعات الأسهم الممتازة.']},
+ bvps:{ex:'حقوق ملكية 30 مليون ÷ 10 مليون سهم = 3 جنيه للسهم.',drive:['حقوق الملكية وعدد الأسهم.'],trap:['تضمين الحقوق غير المسيطرة في البسط.']},
+ pe:{ex:'سعر السهم 6.3 جنيه ÷ ربحية 0.42 = 15×.',drive:['توقعات النمو، وأسعار الفايدة، والمخاطر.'],trap:['ربح سنة استثنائي بيطلع مضاعف مضلل.']},
+ pbv:{ex:'سعر 6.3 ÷ قيمة دفترية 3 = 2.1×.',drive:['العائد على حقوق الملكية المتوقع.'],trap:['أقل من 1× لفترة طويلة = مؤشر اضمحلال لازم يتقيم في الشركات المقيدة.']},
+ dy:{ex:'توزيع 0.2 جنيه للسهم ÷ سعر 6.3 = 3.2%.',drive:['التوزيعات وسعر السهم.'],trap:['سعر نازل بقوة بيطلع العائد عالي بشكل مضلل.']},
+};
+function faRatioDeepHtml(r){ const d=FA_RATIO_DEEP[r.id]; if(!d) return '';
+  return '<div class="fa-deep"><h4>🧮 مثال مصري محسوب</h4><p class="fa-ex">'+d.ex+'</p>'
+   +(d.drive&&d.drive.length?'<h4>⚙️ إيه اللي بيحرّك النسبة</h4><ul class="fa-bul">'+d.drive.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'')
+   +(d.trap&&d.trap.length?'<h4>⚠️ أخطاء شائعة في الحساب أو القراءة</h4><ul class="fa-bul">'+d.trap.map(x=>'<li>'+x+'</li>').join('')+'</ul>':'')
+   +'<h4>🔗 البنود اللي بتدخل فيها</h4><p>'+r.need.map(k=>'<span class="fa-chip">'+faAnyLbl(k)+'</span>').join(' ')+'</p></div>'; }
 
 // ═══════════════════════ INIT ═══════════════════════
 renderHome();
@@ -8511,8 +8915,9 @@ window.renderJournals = function(){
 
 // Inject daily cards into home after renderHome runs
 function injectDailyHome(){
-  const f = getTodayFormula();
-  const j = getTodayJournal();
+  const _fa=getAllFormulas(), _ja=getAllJournalEntries();
+  const f = _fa[(getDayIndex()+(_hfOff||0))%_fa.length];
+  const j = _ja[(getDayIndex()+(_hjOff||0))%_ja.length];
   if(f){
     const el = document.getElementById('dfDay'); if(el) el.textContent = 'يوم '+(getDayIndex()+1);
     const t = document.getElementById('dfTitle'); if(t) t.textContent = f.title;
@@ -8530,6 +8935,7 @@ function injectDailyHome(){
         <span style="color:var(--text3)">${e.amount}</span>
       </div>`).join('');
   }
+  if(typeof renderHomeLearn==='function') try{ renderHomeLearn(); }catch(e){}
 }
 
 // ═══════════════════════ WORKING PAPERS ═══════════════════════
@@ -13371,8 +13777,10 @@ function renderIFRSUpdates(){
 // ═══════════════════════ DAILY QUESTION ═══════════════════════
 const _qSeenDays = new Set(JSON.parse(localStorage.getItem('fh_qSeen')||'[]'));
 
+let _dqOff=0, _csOff=0;
+// كل يوم 5 أسئلة مختلفة (زرار «سؤال تاني») — بخطوة أولية عشان الأسئلة المتتالية تيجي من مواضيع مختلفة
 function getTodayQuestion(){
-  return QUESTIONS[getDayIndex() % QUESTIONS.length];
+  const n=QUESTIONS.length, step=37%n?37:1; return QUESTIONS[((getDayIndex()*5+_dqOff)*step)%n];
 }
 function getSeenQuestions(){
   return [..._qSeenDays].sort((a,b)=>a-b).map(d=>QUESTIONS[d%QUESTIONS.length]);
@@ -13403,6 +13811,7 @@ function renderDailyQuestion(){
           </button>`).join('')}
       </div>
       <div id="dqExplain" style="display:none;margin-top:10px;padding:10px 12px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--text2);line-height:1.7;border-right:3px solid var(--purple)"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:11px;color:var(--text3)"><span>سؤال ${(_dqOff%5)+1} من 5 النهارده · البنك فيه ${QUESTIONS.length} سؤال</span><button onclick="_dqOff++;renderDailyQuestion()" style="padding:6px 14px;background:transparent;border:1px solid var(--purple);border-radius:6px;color:var(--purple);cursor:pointer;font-size:12px;font-family:var(--font)">سؤال تاني ←</button></div>
     </div>`;
 
   const seen = getSeenQuestions();
@@ -13428,7 +13837,7 @@ function answerDailyQ(chosen, correct, explain){
 const _csSeenDays = new Set(JSON.parse(localStorage.getItem('fh_csSeen')||'[]'));
 
 function getTodayCaseStudy(){
-  return CASE_STUDIES[getDayIndex() % CASE_STUDIES.length];
+  return CASE_STUDIES[(getDayIndex()+_csOff) % CASE_STUDIES.length];
 }
 function getSeenCaseStudies(){
   return [..._csSeenDays].sort((a,b)=>a-b).map(d=>CASE_STUDIES[d%CASE_STUDIES.length]);
@@ -13467,6 +13876,7 @@ function renderDailyCaseStudy(){
         style="font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;font-family:var(--font);margin-top:4px">
         مشاهدة الحالة كاملة في Case Studies ←
       </button>
+      <button onclick="_csOff++;renderDailyCaseStudy()" style="font-size:11px;color:var(--green);background:none;border:1px solid var(--green);border-radius:6px;padding:4px 12px;cursor:pointer;font-family:var(--font);margin:4px 8px 0 0">حالة تانية ← (${CASE_STUDIES.length} حالة)</button>
     </div>`;
 
   const seen = getSeenCaseStudies();
@@ -14613,7 +15023,7 @@ function backupStats(){
 }
 function backupExport(){
   const payload = {
-    __app:'AuditIQ', __version:'v14',
+    __app:'AuditIQ', __version:'v15',
     __exported:new Date().toISOString(),
     __user:'يوسف صلاح',
     data: backupCollectAll()
@@ -14810,6 +15220,331 @@ function toggleMock(id){
   if(arrow) arrow.style.transform = _mockOpen[id]?'rotate(180deg)':'';
 }
 
+// ── v15: بنك أسئلة إضافي (مراجعة، تحليل قوائم، أطراف ذات علاقة) ──
+(function(){
+const Q=(topic,topicId,ar,opts,correct,explain)=>({topic,topicId,ar,opts,correct,explain});
+const add=[
+// ═══ المراجعة: إجراءات البنود ═══
+Q('ISA 505',16,'العميل مردّش على مصادقة رصيد مدين كبير (2,000,000). إيه أنسب إجراء بديل؟',['تعتبر الرصيد سليم','تختبر التحصيلات بعد نهاية السنة والفواتير وإذونات التسليم','تطلب من الإدارة خطاب بالرصيد','تستبعد العميل من العينة'],1,'ISA 505 بيطلب إجراءات بديلة لما المصادقة متتردش: التحصيل اللاحق أقوى دليل على الوجود، ولو مفيش تحصيل تشوف الفاتورة وإذن التسليم والعقد. خطاب من الإدارة دليل داخلي ضعيف.'),
+Q('ISA 505',16,'مين اللي لازم يتحكم في إرسال واستلام المصادقات؟',['محاسب العميل','المراجع نفسه','المدير المالي للعميل','أي حد في الشركة'],1,'المراجع لازم يتحكم في العملية كلها (الإرسال والاستلام) عشان يقلل خطر التلاعب في الرد. لو الرد جه عن طريق العميل، الدليل بيضعف.'),
+Q('ISA 501',16,'المراجع حاضر جرد المخزون. إيه اللي بيختبر «الاكتمال»؟',['يختار أصناف من قوائم الجرد ويعدها في المخزن','يختار أصناف من على الرفوف ويتأكد إنها في قوائم الجرد','يراجع أسعار الشراء','يحسب صافي القيمة البيعية'],1,'من المخزن للقوائم = اكتمال (اللي موجود متسجل). من القوائم للمخزن = وجود (اللي متسجل موجود فعلاً).'),
+Q('ISA 501',16,'إمتى المراجع يقدر يعتمد على حضور جرد في تاريخ غير تاريخ القوائم؟',['دايماً','لو الرقابة على حركة المخزون فعالة ويختبر الحركة بين التاريخين','لو الإدارة طلبت كده','عمره ما يقدر'],1,'ISA 501 بيسمح بكده لو الرقابة على السجلات فعالة، بشرط إجراءات على الحركة بين تاريخ الجرد وتاريخ القوائم (roll-forward أو roll-back).'),
+Q('IAS 2',14,'خامة تكلفتها 500 جنيه للكيلو، وبعد السنة اتباع المنتج اللي بتدخل فيه بسعر يخلي صافي القيمة البيعية للخامة 430. المخزون 1,000 كيلو. التخفيض؟',['صفر','70,000','430,000','500,000'],1,'المخزون بالتكلفة أو صافي القيمة البيعية أيهما أقل: (500 − 430) × 1,000 = 70,000 تخفيض بيتحمل على قائمة الدخل.'),
+Q('ISA 500',16,'أنهي دليل أقوى عموماً؟',['إقرار شفهي من مدير المبيعات','فاتورة صادرة من العميل نفسه محفوظة عنده','مصادقة مستلمة مباشرة من طرف خارجي مستقل','صورة من عقد مرسلة بالواتساب'],2,'الأدلة من مصادر خارجية مستقلة ومستلمة مباشرة للمراجع أقوى من الداخلية، والمستندية أقوى من الشفهية، والأصول أقوى من الصور (ISA 500 فقرة A31).'),
+Q('ISA 500',16,'اختبار «الوجود» للأصول الثابتة المناسب أكتر:',['من سجل الأصول للأصل على الطبيعة','من الأصل على الطبيعة للسجل','مراجعة حساب الإهلاك','مقارنة بالسنة اللي فاتت'],0,'من السجل للطبيعة بيأكد إن الأصل المتسجل موجود. العكس (من الطبيعة للسجل) بيختبر الاكتمال.'),
+Q('ISA 500',16,'البحث عن «الالتزامات غير المسجلة» بيتعمل إزاي أساساً؟',['مصادقة الموردين اللي رصيدهم كبير بس','فحص المدفوعات والفواتير اللي وصلت بعد نهاية السنة','مراجعة ميزان المراجعة','حساب نسبة التداول'],1,'الالتزام اللي مش متسجل مش هيظهر في الدفاتر، فبتدوّر عليه في المدفوعات والفواتير اللاحقة اللي تخص السنة. ده أهم اختبار اكتمال للالتزامات.'),
+Q('ISA 505',16,'لما تختار موردين للمصادقة، الأفضل:',['الموردين اللي رصيدهم كبير بس','الموردين المهمين في التعامل حتى لو رصيدهم صغير أو صفر','الموردين اللي رصيدهم صفر بس','أي عينة عشوائية'],1,'الخطر في الموردين هو الاكتمال (رصيد أقل من الحقيقي)، فالمورد الكبير في التعامل ورصيده صفر ممكن يكون رصيده الحقيقي مش متسجل.'),
+Q('ISA 240',16,'إيه الخطر المفترض في كل مراجعة حسب ISA 240؟',['الاحتيال في المخزون','الغش في الاعتراف بالإيراد وتجاوز الإدارة للرقابة','أخطاء الإهلاك','أخطاء الترجمة'],1,'ISA 240: خطر الغش في الإيراد مفترض (ممكن يتدحض بتوثيق)، وتجاوز الإدارة للرقابة خطر مش ممكن يتدحض ولازم إجراءات ليه في كل مراجعة (قيود اليومية، التقديرات، المعاملات غير العادية).'),
+Q('ISA 240',16,'من إجراءات الرد على خطر تجاوز الإدارة للرقابة:',['جرد الخزينة','اختبار قيود اليومية اليدوية وقيود آخر السنة','مصادقة البنوك','حساب الأهمية النسبية'],1,'ISA 240 فقرة 32: اختبار قيود اليومية والتسويات، مراجعة التقديرات للتحيز، وتقييم المبرر التجاري للمعاملات الكبيرة غير العادية.'),
+Q('ISA 320',16,'الأهمية النسبية للتنفيذ (PM) بتكون عادة:',['أكبر من الإجمالية','50% إلى 75% من الإجمالية','5% من الإجمالية','مساوية للإجمالية'],1,'PM أقل من الإجمالية عشان تقلل احتمال إن مجموع التحريفات غير المكتشفة يعدي الإجمالية. 50–75% حسب الخطر وخبرة السنين اللي فاتت.'),
+Q('ISA 320',16,'شركة ربحها قبل الضريبة متذبذب جداً وقريب من الصفر. الأساس الأنسب للأهمية النسبية:',['الربح قبل الضريبة','الإيرادات أو إجمالي الأصول','صافي الربح','التوزيعات'],1,'لما الربح مش مستقر أو قريب من الصفر، الأساس ده بيطلع رقم صغير جداً أو غير منطقي، فالأفضل الإيرادات أو الأصول أو المصروفات.'),
+Q('ISA 450',16,'تحريف 40,000 اكتشفته والحد التافه الواضح 25,000. تعمل إيه؟',['تتجاهله','تسجله في قائمة التحريفات وتطلب من الإدارة تصلحه','تعدّل الرأي فوراً','تمسحه من أوراق العمل'],1,'أي تحريف فوق الحد التافه بيتجمع في قائمة التحريفات ويتبلغ للإدارة ويتطلب تصحيحه (ISA 450). التقييم النهائي بيتم على المجموع مقابل الأهمية النسبية.'),
+Q('ISA 520',16,'هامش مجمل الربح نزل من 28% لـ 19% والإدارة قالت «المنافسة». إيه المطلوب؟',['تقبل التفسير','تطلب أدلة تأيده (قوائم أسعار، تحليل حسب المنتج) وتختبر التكلفة والمخزون','تتجاهل الموضوع','تعدّل الأرقام'],1,'ISA 520 فقرة 7: الفروق الكبيرة لازم تتحقق منها بالاستفسار وبأدلة تأيد الرد. التفسير الشفهي لوحده مش كفاية.'),
+Q('ISA 530',16,'في العينة الإحصائية، زيادة الخطر المقبول للاكتشاف بتعمل إيه لحجم العينة؟',['بتزوده','بتقلله','مالهاش علاقة','بتخليه صفر'],1,'كل ما الخطر اللي أنت قابله أعلى، محتاج ثقة أقل، فالعينة بتصغر. والعكس: خطر عالي في البند = خطر اكتشاف مقبول أقل = عينة أكبر.'),
+Q('ISA 530',16,'عينة 40 فاتورة لقيت فيها تحريف 12,000 وقيمة العينة 800,000 من مجتمع 10,000,000. التحريف المتوقع بطريقة النسبة:',['12,000','150,000','120,000','800,000'],1,'نسبة التحريف 12,000 ÷ 800,000 = 1.5% × 10,000,000 = 150,000. ده التحريف المتوقع اللي بتقارنه بالأهمية النسبية للتنفيذ.'),
+Q('ISA 560',16,'حكم صدر بعد نهاية السنة في قضية كانت قائمة في تاريخ القوائم. ده:',['حدث مش محتاج تسوية','حدث محتاج تسوية للمخصص','مش مهم','بيتفصح عنه بس'],1,'الحكم بيوضح حالة كانت موجودة في تاريخ القوائم، فهو حدث محتاج تسوية (IAS 10 / المعيار المصري 7).'),
+Q('ISA 560',16,'حريق دمّر المخزن في فبراير بعد سنة منتهية في ديسمبر:',['تسوية القوائم','إفصاح بس لو جوهري','ولا حاجة','تعديل رأس المال'],1,'الحالة دي اتعملت بعد تاريخ القوائم فمش بتتسوى، لكن لو جوهرية لازم إفصاح، وتقيّم تأثيرها على الاستمرارية.'),
+Q('ISA 570',16,'لو فيه شك جوهري في الاستمرارية والإفصاح كافي، التقرير بيبقى:',['رأي معارض','رأي غير معدل مع فقرة «عدم تأكد جوهري متعلق بالاستمرارية»','امتناع عن الرأي دايماً','رأي متحفظ دايماً'],1,'ISA 570 فقرة 22: الإفصاح الكافي = رأي غير معدل + قسم منفصل عن عدم التأكد الجوهري. لو الإفصاح مش كافي = رأي متحفظ أو معارض.'),
+Q('ISA 570',16,'الفترة اللي المراجع بيقيّم فيها تقييم الإدارة للاستمرارية لا تقل عن:',['3 شهور','6 شهور','12 شهر من تاريخ القوائم','5 سنين'],2,'ISA 570 فقرة 13: لو تقييم الإدارة أقل من 12 شهر من تاريخ القوائم، المراجع بيطلب مده.'),
+Q('ISA 580',16,'خطاب الإقرارات من الإدارة:',['بديل عن الأدلة الأخرى','دليل مكمل ومطلوب، بس مش كفاية لوحده','اختياري','بيتكتب بعد التقرير بشهر'],1,'ISA 580: الإقرارات المكتوبة دليل ضروري بس مش بديل عن الإجراءات. وتاريخه قريب قدر الإمكان من تاريخ التقرير ومش بعده.'),
+Q('ISA 330',16,'خطر الإيراد عالي. أنسب رد:',['تحليل إجمالي بس','اختبارات تفاصيل موجهة (قطع، مصادقات، مستندات) وتوسيع العينة','تقليل العينة','الاعتماد على الرقابة بس'],1,'ISA 330 فقرة 21: الخطر المهم لازم يكون ليه إجراءات جوهرية مخصصة، ولو هتعتمد على التحليل بس لازم يكون معاه اختبار تفاصيل.'),
+Q('ISA 315',16,'الخطر الكامن بيعبّر عن:',['احتمال إن الرقابة متكتشفش التحريف','قابلية البند للتحريف قبل أي رقابة','احتمال إن المراجع ميكتشفش التحريف','خطر الغش بس'],1,'الخطر الكامن = قابلية الإقرار للتحريف قبل الرقابة (تقديرات، تعقيد، معاملات غير روتينية). خطر الرقابة = إن الرقابة متمنعش أو تكتشف. خطر الاكتشاف = إن المراجع ميكتشفش.'),
+Q('ISA 230',16,'ورقة العمل لازم تكون كافية بحيث:',['المدير بس يفهمها','مراجع خبير مش مشارك في المهمة يفهم الشغل والأدلة والاستنتاج','العميل يوقع عليها','تبقى أقل من صفحة'],1,'ISA 230 فقرة 8: معيار «المراجع الخبير» — يفهم طبيعة وتوقيت ومدى الإجراءات ونتايجها والاستنتاجات المهمة.'),
+Q('ISA 700',16,'إيه اللي بيحدد إن التحريف «جوهري ومنتشر»؟',['أي تحريف فوق الأهمية النسبية','تحريف بيأثر على عناصر كتير أو بيمثل جزء كبير من القوائم أو أساسي لفهمها','أي تحريف في الإيراد','تحريف أقل من الحد التافه'],1,'الانتشار (Pervasive) معناه إن التأثير مش محصور في بند واحد. جوهري بس مش منتشر = متحفظ. جوهري ومنتشر = معارض (أو امتناع لو بسبب نقص الأدلة).'),
+Q('ISA 705',16,'المراجع مقدرش يحضر الجرد ومفيش إجراءات بديلة، والمخزون جوهري بس مش منتشر:',['رأي غير معدل','رأي متحفظ بسبب عدم القدرة على الحصول على أدلة','رأي معارض','امتناع'],1,'قيد على النطاق في بند واحد جوهري مش منتشر = رأي متحفظ. لو منتشر = امتناع عن إبداء الرأي.'),
+Q('ISA 701',16,'أمور المراجعة الرئيسية (KAM) مطلوبة إلزامياً في:',['كل الشركات','الشركات المقيدة في البورصة','الشركات الصغيرة بس','شركات الأشخاص'],1,'ISA 701 إلزامي للشركات المقيدة، واختياري لغيرها لو المراجع قرر أو القانون طلب.'),
+Q('ISA 600',16,'في مراجعة المجموعات، المكون «المهم»:',['أي شركة تابعة','مكون بيمثل جزء كبير من القوائم أو فيه خطر جوهري خاص','الشركة الأم بس','أصغر تابعة'],1,'المكونات المهمة بتحتاج شغل أكتر (مراجعة كاملة أو إجراءات على بنود معينة)، وده بيتحدد بالحجم أو الخطر.'),
+Q('ISA 620',16,'المراجع استعان بخبير تقييم عقاري. المسؤولية عن الرأي:',['على الخبير','على المراجع بالكامل','مشتركة بالنص','على الإدارة'],1,'ISA 620: المراجع مسؤول وحده عن الرأي، ومش بيشير للخبير في تقرير غير معدل. لازم يقيّم كفاءة الخبير وموضوعيته ويقيّم شغله.'),
+Q('ISA 540',16,'«المراجعة بأثر رجعي» للتقديرات معناها:',['تعديل تقديرات السنة اللي فاتت','مقارنة تقديرات السنة اللي فاتت بالنتيجة الفعلية لتقييم أسلوب الإدارة','تجاهل التقديرات','إعادة حساب الإهلاك'],1,'ISA 540 فقرة 14: بتقارن مخصص السنة اللي فاتت باللي حصل فعلاً عشان تعرف دقة الإدارة وتحيزها، مش عشان تعدّل السنة اللي فاتت.'),
+Q('ISA 550',30,'من أهم إجراءات اكتشاف أطراف ذات علاقة مش مفصح عنها:',['حساب الإهلاك','قراءة المحاضر وفحص المعاملات الكبيرة غير المعتادة والمستندات القانونية','جرد الخزينة','مصادقة البنوك عن الأرصدة بس'],1,'ISA 550 فقرة 15: قراءة محاضر المجلس والجمعيات، مصادقات البنوك والمحامين (الضمانات)، والمعاملات الكبيرة غير المعتادة بتكشف علاقات مش متحصرة.'),
+Q('IAS 24',30,'أنهي من دول طرف ذو علاقة؟',['بنك الشركة اللي بتتعامل معاه','عضو مجلس إدارة وزوجته','مورد كبير بيمثل 40% من المشتريات','نقابة العاملين'],1,'أعضاء الإدارة العليا وأفراد أسرهم المقربين أطراف ذات علاقة. البنك أو المورد الكبير مش طرف ذو علاقة لمجرد حجم التعامل (IAS 24 فقرة 11).'),
+Q('IAS 24',30,'مكافآت الإدارة العليا لازم:',['متتفصحش','يتفصح عنها بإجماليها ومكوناتها (قصيرة الأجل، ما بعد الخدمة، إنهاء خدمة...)','يتفصح عنها لو أكبر من مليون بس','تتسجل في حقوق الملكية'],1,'IAS 24 فقرة 17: الإفصاح عن إجمالي مكافآت موظفي الإدارة العليا وتقسيمها حسب الفئات.'),
+Q('IAS 24',30,'شركة باعت لشركة شقيقة بأسعار أقل 30% من السوق. الإفصاح المطلوب:',['ولا حاجة لأنها معاملة عادية','طبيعة العلاقة والمعاملة والمبالغ والأرصدة وشروطها','بس اسم الشركة','الإفصاح في تقرير المراجع بس'],1,'IAS 24 فقرة 18: طبيعة العلاقة والمعلومات عن المعاملات والأرصدة (بما فيها الشروط والضمانات). والجملة «بشروط السوق» متتقالش إلا لو تتثبت.'),
+Q('IAS 24',30,'الإفصاح بإن المعاملات مع الأطراف ذات العلاقة «بنفس شروط التعامل مع الغير»:',['مسموح دايماً','مسموح بس لو الشروط دي ممكن تتثبت','ممنوع','إلزامي'],1,'IAS 24 فقرة 23: الإدارة ماتقولش كده إلا لو تقدر تثبته. المراجع بيقيّم الادعاء ده (ISA 550 فقرة 24).'),
+// ═══ تحليل القوائم والنسب ═══
+Q('تحليل القوائم',36,'نسبة التداول 2.5× بس 70% من الأصول المتداولة مخزون بطيء الحركة. الاستنتاج:',['السيولة ممتازة','السيولة الحقيقية أضعف — بص على السريعة وأيام التخزين','الشركة مفلسة','مفيش علاقة'],1,'نسبة التداول بتعامل كل الأصول المتداولة كأنها سيولة. لو جزء كبير مخزون راكد، النسبة السريعة وأيام التخزين بيوضحوا الصورة الحقيقية.'),
+Q('تحليل القوائم',36,'عملاء 30 مليون، مبيعات 180 مليون. فترة التحصيل تقريباً:',['30 يوم','61 يوم','6 أيام','180 يوم'],1,'30 ÷ 180 × 365 = 60.8 يوم.'),
+Q('تحليل القوائم',36,'مخزون 24 مليون، تكلفة مبيعات 146 مليون. فترة التخزين:',['60 يوم','24 يوم','146 يوم','6 أيام'],0,'24 ÷ 146 × 365 = 60 يوم. التخزين بيتقسم على التكلفة مش المبيعات لأن المخزون متقيم بالتكلفة.'),
+Q('تحليل القوائم',36,'تحصيل 61 يوم، تخزين 60 يوم، سداد 45 يوم. دورة التحويل النقدي:',['166 يوم','76 يوم','16 يوم','45 يوم'],1,'61 + 60 − 45 = 76 يوم الفلوس محبوسة في التشغيل.'),
+Q('تحليل القوائم',36,'صافي ربح 10 مليون والتدفق التشغيلي 2 مليون للسنة التالتة. أهم استنتاج للمراجع:',['أداء ممتاز','خطر في جودة الأرباح — راجع العملاء والمخزون والإيرادات','مفيش مشكلة','الضريبة عالية'],1,'فجوة مستمرة بين الربح والنقدية مؤشر قوي إن الإيراد أو الأصول متضخمة أو إن التحصيل ضعيف (ISA 240).'),
+Q('تحليل القوائم',36,'العائد على حقوق الملكية 30%، وهامش الربح 3%، ودوران الأصول 2×. الرافعة (الأصول ÷ حقوق الملكية):',['5×','10×','3×','0.5×'],0,'DuPont: 30% = 3% × 2 × الرافعة ⇐ الرافعة = 30% ÷ 6% = 5×. يعني العائد العالي جاي من ديون كتير.'),
+Q('تحليل القوائم',36,'ربح تشغيل 12 مليون والفوائد 10 مليون. تغطية الفوائد:',['1.2× — ضعيفة جداً','12×','0.83×','10×'],0,'12 ÷ 10 = 1.2× — أقل من 1.5× وده مؤشر ضغط على خدمة الدين واستمرارية.'),
+Q('تحليل القوائم',36,'صافي الدين 45 مليون والـ EBITDA 10 مليون، وتعهد القرض «أقل من 4×». الوضع:',['ملتزمة','مخالفة للتعهد (4.5×) — راجع التبويب والإفصاح والاستمرارية','مفيش علاقة','الشركة رابحة جداً'],1,'45 ÷ 10 = 4.5× أكبر من 4×. لو مفيش إعفاء قبل تاريخ القوائم القرض ممكن يتبوب متداول كله (IAS 1 فقرة 74).'),
+Q('تحليل القوائم',36,'التحليل الرأسي لقائمة الدخل بيقسم كل بند على:',['إجمالي الأصول','الإيرادات','صافي الربح','حقوق الملكية'],1,'قائمة الدخل رأسياً كنسبة من الإيرادات، والمركز المالي كنسبة من إجمالي الأصول.'),
+Q('تحليل القوائم',36,'التحليل الأفقي بيوضح:',['هيكل القائمة في سنة واحدة','التغير في كل بند بين السنين','النسب المالية بس','التدفقات النقدية بس'],1,'الأفقي = التغير بالمبلغ والنسبة من سنة لسنة، وده أساس المراجعة التحليلية في التخطيط.'),
+Q('تحليل القوائم',36,'سعر الضريبة الفعلي 8% وسعر القانون 22.5%. أول حاجة تدوّر عليها:',['خطأ في الإيرادات','إعفاءات أو أصل ضريبي مؤجل اتسجل أو ضريبة ناقصة','زيادة رأس المال','مخصص ديون'],1,'سعر فعلي منخفض جداً محتاج تسوية بند بند: إعفاءات، خسائر مرحلة، أصل ضريبي مؤجل جديد، أو ضريبة السنة متحسبتش صح.'),
+Q('تحليل القوائم',36,'العملاء زادوا 45% والمبيعات زادت 10%. ده مؤشر على:',['تحسن التحصيل','احتمال إيرادات مسجلة قبل وقتها أو تحصيل ضعيف','زيادة المخزون','قروض جديدة'],1,'نمو العملاء أسرع بكتير من المبيعات من مؤشرات Beneish (DSRI) ومن أسباب توسيع المصادقات واختبار القطع.'),
+Q('تحليل القوائم',36,'Altman Z-Score لشركة صناعية مقيدة 1.4. المنطقة:',['آمنة','رمادية','خطر تعثر','مش محسوب'],2,'النموذج الأصلي: أقل من 1.81 منطقة خطر، 1.81–2.99 رمادية، أكبر من 2.99 آمنة. مؤشر مساعد لتقييم الاستمرارية مش بديل عنه.'),
+Q('تحليل القوائم',36,'Beneish M-Score أكبر من −1.78 معناه:',['الشركة كويسة','احتمال أعلى للتلاعب في الأرباح','الشركة مفلسة','مفيش معنى'],1,'الحد المشهور −1.78 (نموذج 8 متغيرات): أعلى منه = احتمال تلاعب أعلى. بيوجّه اختبارات الغش، مش دليل إدانة.'),
+Q('تحليل القوائم',36,'رأس المال العامل سالب في سلسلة سوبر ماركت كبيرة:',['دايماً كارثة','ممكن يكون طبيعي لأنها بتبيع كاش وبتدفع للموردين آجل','معناه إفلاس','خطأ محاسبي'],1,'في نشاط التجزئة الموردين بيمولوا الشركة، فرأس المال العامل السالب ممكن يكون نتيجة نموذج النشاط مش ضعف.'),
+Q('تحليل القوائم',36,'مشروعات تحت التنفيذ بقالها 3 سنين ومتنقلتش للأصول. الخطر:',['مفيش','الأصل ممكن يكون شغال ومش بيتهلك، أو متعطل ومحتاج اضمحلال','زيادة الإيراد','نقص النقدية'],1,'لازم تتأكد من حالة المشروع: لو اتشغّل لازم يتحول ويبدأ إهلاكه، ولو متوقف تقيّم مؤشرات الاضمحلال.'),
+Q('تحليل القوائم',36,'شركة عندها «صافي ربح العام» في حقوق الملكية 5.2 مليون وفي قائمة الدخل 4.8 مليون:',['عادي','خطأ لازم يتسوى — الرقمين لازم يتطابقوا','بسبب الضرايب','بسبب التوزيعات'],1,'صافي ربح العام في قائمة التغير في حقوق الملكية والمركز المالي لازم يساوي قائمة الدخل. الفرق معناه قيد ناقص أو خطأ في المسودة.'),
+Q('تحليل القوائم',36,'مبالغ «تحت حساب زيادة رأس المال» تتبوب في حقوق الملكية لو:',['دايماً','لو مش قابلة للرد والزيادة ماشية في إجراءاتها','لو أكبر من رأس المال','عمرها ما بتتبوب في حقوق الملكية'],1,'لو المساهم من حقه يسترد المبلغ أو الزيادة ممكن متتمش، المبلغ ممكن يكون التزام (IAS 32). بيتراجع قرار الجمعية وإجراءات السجل التجاري.'),
+Q('تحليل القوائم',36,'أسهم الخزينة بتظهر:',['أصل متداول','استثمار طويل الأجل','مطروحة من حقوق الملكية','مصروف'],2,'IAS 32 فقرة 33: إعادة شراء أسهم الشركة نفسها بتتطرح من حقوق الملكية، ومفيش ربح أو خسارة في قائمة الدخل عند بيعها.'),
+Q('IFRS 5',9,'أصل محتفظ بيه للبيع قيمته الدفترية 8 مليون، القيمة العادلة 7.2 وتكاليف البيع 0.2. القياس:',['8 مليون','7 مليون مع خسارة 1 مليون','7.2 مليون','7.4 مليون'],1,'الأقل من القيمة الدفترية (8) والقيمة العادلة ناقص تكاليف البيع (7.2 − 0.2 = 7). الخسارة 1 مليون في قائمة الدخل ويقف الإهلاك.'),
+Q('IAS 19',23,'الفروق الاكتوارية على التزام مكافأة نهاية الخدمة (خطة منافع محددة) بتتسجل في:',['قائمة الدخل','الدخل الشامل الآخر ومبتتنقلش للدخل','حقوق الملكية مباشرة كتوزيع','مش بتتسجل'],1,'IAS 19 فقرة 120: إعادة القياس (الفروق الاكتوارية) في الدخل الشامل الآخر ومبتترحلش للأرباح والخسائر بعدين.'),
+Q('IAS 1',13,'قرض أقساطه السنوية 2 مليون ورصيده 10 مليون. التبويب في المركز المالي:',['10 مليون طويل الأجل','2 مليون متداول (الجزء المتداول) و8 مليون غير متداول','10 مليون متداول','2 مليون بس'],1,'IAS 1 فقرة 69: الجزء المستحق خلال 12 شهر متداول. وده بيأثر جامد على نسبة التداول.'),
+Q('IAS 7',33,'الفوائد المدفوعة في الشركات غير المالية ممكن تتبوب في:',['التشغيل أو التمويل بشرط الثبات','الاستثمار بس','مبتظهرش','حقوق الملكية'],0,'IAS 7 فقرة 33 بيسمح بالتشغيل أو التمويل (مع الثبات من سنة لسنة). ملحوظة: IFRS 18 هيغيّر ده لما يتطبق.'),
+Q('IAS 7',33,'شراء أصل ثابت بقرض مباشر من البائع من غير ما فلوس تطلع:',['تدفق استثماري خارج','معاملة غير نقدية بيتفصح عنها','تدفق تمويلي داخل','تدفق تشغيلي'],1,'IAS 7 فقرة 43: المعاملات اللي مفيهاش نقدية مبتظهرش في القائمة وبيتفصح عنها.'),
+// ═══ معايير ═══
+Q('IFRS 9',4,'أذن خزانة قيمته الاسمية 1,000,000 لمدة 364 يوم اتشرى بـ 800,000. في نص المدة التكلفة المستهلكة تقريباً:',['900,000','894,427','800,000','1,000,000'],1,'بالفائدة الفعلية: 800,000 × √1.25 = 894,427. القسط الثابت (900,000) مش هو طريقة IFRS 9.'),
+Q('IFRS 9',4,'وثائق صندوق استثمار نقدي قابلة للاسترداد بتتقاس بـ:',['التكلفة المستهلكة','FVOCI باختيار نهائي','FVTPL','التكلفة'],2,'الوثيقة القابلة للاسترداد مش أداة حقوق ملكية في إيد المستثمر ومش بتعدي SPPI، فبتروح FVTPL.'),
+Q('IFRS 9',4,'اختيار FVOCI لأدوات حقوق الملكية:',['ممكن يتغير كل سنة','نهائي وعند البيع الأرباح متتنقلش لقائمة الدخل','بيطلب اختبار اضمحلال','لأدوات الدين بس'],1,'الاختيار عند الاقتناء ولا رجعة فيه، والتوزيعات بس في الدخل، ومفيش recycling للأرباح عند البيع.'),
+Q('IFRS 9',4,'الطريقة المبسطة للخسائر الائتمانية (مصفوفة مخصص) مطلوبة أو مسموحة لـ:',['القروض البنكية','العملاء وأصول العقود من غير عنصر تمويل مهم','السندات الحكومية','أسهم الشركات'],1,'IFRS 9 فقرة 5.5.15: للعملاء وأصول العقود بيتحسب ECL على مدى العمر مباشرة (الطريقة المبسطة).'),
+Q('IAS 28',1,'استثمار 30% في شقيقة بـ 6 مليون، الشقيقة ربحت 2 مليون ووزعت 0.5 مليون. رصيد الاستثمار:',['6 مليون','6.45 مليون','6.6 مليون','8 مليون'],1,'6 + 30% × 2 − 30% × 0.5 = 6 + 0.6 − 0.15 = 6.45 مليون. التوزيعات بتقلل الاستثمار ومش إيراد.'),
+Q('IFRS 10',1,'شركة تملك 40% وباقي المساهمين متفرقين جداً ومحدش منهم معاه أكتر من 1%:',['شقيقة أكيد','ممكن تكون سيطرة فعلية (de facto control) حسب الحقائق','مشروع مشترك','أصل مالي'],1,'IFRS 10 فقرة B41–B42: حقوق تصويت أقل من النص ممكن تدي سيطرة لو باقي الأصوات متفرقة جداً.'),
+Q('IFRS 3',1,'المقابل 10 مليون لـ 80%، صافي الأصول بالقيمة العادلة 11 مليون، الحقوق غير المسيطرة بنصيبها. الشهرة:',['1.2 مليون','−1 مليون','2.2 مليون','0'],0,'الحقوق غير المسيطرة = 20% × 11 = 2.2. الشهرة = 10 + 2.2 − 11 = 1.2 مليون.'),
+Q('IAS 36',10,'أصل قيمته الدفترية 1,100 ألف، القيمة الاستخدامية 1,017 ألف، والقيمة العادلة ناقص تكاليف البيع 950 ألف. الخسارة:',['150 ألف','83 ألف','صفر','67 ألف'],1,'الاستردادية = الأعلى (1,017). الخسارة = 1,100 − 1,017 = 83 ألف.'),
+Q('IAS 36',10,'رد خسارة الاضمحلال ليه سقف هو:',['القيمة العادلة','القيمة الدفترية اللي كانت هتبقى لو مفيش اضمحلال (بعد الإهلاك)','التكلفة الأصلية','مفيش سقف'],1,'IAS 36 فقرة 117. والشهرة خسارتها مبتترددش أبداً.'),
+Q('IAS 36',10,'أنهي أصل لازم يتختبر اضمحلال كل سنة حتى من غير مؤشرات؟',['المباني','الشهرة والأصول غير الملموسة غير محددة العمر','المخزون','العملاء'],1,'IAS 36 فقرة 10: الشهرة، والأصول غير الملموسة غير محددة العمر أو اللي لسه مش متاحة للاستخدام.'),
+Q('IFRS 16',3,'عقد إيجار 9 شهور لمخزن:',['لازم أصل حق انتفاع','ممكن يتعامل كإيجار قصير الأجل ويتسجل مصروف','ممنوع','يتسجل استثمار عقاري'],1,'IFRS 16 فقرة 5: إعفاء العقود 12 شهر أو أقل (من غير خيار شراء) والأصول منخفضة القيمة.'),
+Q('IFRS 15',2,'عميل دفع مقدم 500,000 في ديسمبر لبضاعة هتتسلم في فبراير:',['إيراد ديسمبر','التزام عقد لحد التسليم','إيراد مؤجل في الأصول','مخصص'],1,'الإيراد بيتسجل عند نقل السيطرة. لحد كده المبلغ التزام عقد (Contract liability).'),
+Q('IFRS 15',2,'خصم كمية بأثر رجعي متوقع إن العميل يوصله:',['مبيتسجلش لحد ما يتحقق','مقابل متغير بيقلل الإيراد من دلوقتي بالتقدير الأرجح أو القيمة المتوقعة','مصروف بيعي','إيراد أكبر'],1,'IFRS 15 فقرة 50–54: المقابل المتغير بيتقدر ويقلل سعر المعاملة بشرط القيد (ميحصلش رد كبير للإيراد بعدين).'),
+Q('IAS 12',8,'خسائر ضريبية مرحلة 10 مليون والشركة بتخسر 4 سنين ومفيش خطة أرباح واضحة. الأصل الضريبي المؤجل:',['2.25 مليون','صفر أو المبلغ المدعوم بفروق ضريبية دائنة','10 مليون','5 مليون'],1,'IAS 12 فقرة 35: تاريخ خسائر متكررة دليل قوي ضد الاعتراف، إلا بقدر الفروق المؤقتة الخاضعة أو دليل مقنع.'),
+Q('IAS 12',8,'أصل دفتري 1,000,000 وأساسه الضريبي 700,000، والسعر 22.5%:',['أصل ضريبي مؤجل 67,500','التزام ضريبي مؤجل 67,500','لا شيء','التزام 300,000'],1,'القيمة الدفترية أكبر من الأساس الضريبي في أصل = فرق مؤقت خاضع للضريبة: 300,000 × 22.5% = 67,500 التزام.'),
+Q('IAS 37',6,'شركة عليها ضمان منتجات: 2% من المبيعات بتتصلح بتكلفة متوسطة 500 جنيه، والمبيعات 100,000 وحدة. المخصص:',['500,000','1,000,000','2,000,000','صفر'],1,'2% × 100,000 = 2,000 وحدة × 500 = 1,000,000 (القيمة المتوقعة لمجتمع كبير — IAS 37 فقرة 39).'),
+Q('IAS 37',6,'خسائر تشغيل متوقعة السنة الجاية بسبب ركود السوق:',['مخصص','مبيتعملهاش مخصص','إفصاح إلزامي بقيمة','احتياطي'],1,'IAS 37 فقرة 63: مفيش مخصص لخسائر تشغيل مستقبلية. ممكن تكون مؤشر اضمحلال (IAS 36).'),
+Q('IAS 16',20,'عمرة أساسية لماكينة بتطول عمرها 3 سنين، تكلفتها 900,000:',['مصروف صيانة','تترسمل كجزء من الأصل','تتسجل مخزون','تتسجل حقوق ملكية'],1,'لو بتستوفي شروط الاعتراف (منافع مستقبلية وقياس موثوق) بتترسمل، وبيتشال الجزء المستبدل (IAS 16 فقرة 13–14).'),
+Q('IAS 16',20,'الإهلاك بيبدأ من:',['تاريخ الشراء','لما الأصل يبقى متاح للاستخدام','أول السنة المالية بعدها','تاريخ الدفع'],1,'IAS 16 فقرة 55: من تاريخ الإتاحة للاستخدام (مكانه وحالته جاهزين) حتى لو ماتشغلش فعلاً.'),
+Q('IAS 21',25,'مورد خارجي رصيده 100,000 دولار متسجل بسعر 30.9 والإقفال 48.6. الفرق:',['مفيش فرق','خسارة فرق عملة 1,770,000','ربح 1,770,000','يتسجل في حقوق الملكية'],1,'البنود النقدية بتتترجم بسعر الإقفال: (48.6 − 30.9) × 100,000 = 1,770,000 خسارة في الدخل.'),
+Q('IAS 23',26,'تكلفة الاقتراض على مصنع تحت الإنشاء لمدة سنتين:',['مصروف دايماً','بتترسمل على الأصل المؤهل خلال فترة الإنشاء','حقوق ملكية','مخزون'],1,'IAS 23 فقرة 8: الفوائد المتعلقة مباشرة بأصل مؤهل بتترسمل، وبتقف لما الأصل يبقى جاهز.'),
+Q('IAS 38',11,'تكلفة إعلانات لإطلاق منتج جديد 3 مليون:',['أصل غير ملموس','مصروف لما تتصرف','مخزون','شهرة'],1,'IAS 38 فقرة 69: الإعلان والترويج مصروف فوراً.'),
+Q('IAS 40',28,'مبنى مؤجر للغير بالكامل والشركة اختارت نموذج القيمة العادلة. التغير في القيمة العادلة:',['الدخل الشامل الآخر','قائمة الدخل','حقوق الملكية مباشرة','مبيتسجلش'],1,'IAS 40 فقرة 35: تحت نموذج القيمة العادلة التغيرات في الأرباح والخسائر ومفيش إهلاك.'),
+Q('IAS 10',17,'توزيعات اتقررت بعد تاريخ القوائم:',['التزام في القوائم','مش التزام، وبيتفصح عنها','مصروف','تتطرح من الإيراد'],1,'IAS 10 فقرة 12–13: التوزيعات اللي اتقررت بعد نهاية الفترة مش التزام في تاريخ القوائم.'),
+Q('IAS 33',32,'صافي ربح 12 مليون، الأسهم أول السنة 10 مليون واتصدر 2 مليون سهم أول يوليو. نصيب السهم:',['1.2','1.0','1.09','1.1'],2,'المتوسط المرجح = 10 + 2 × 6/12 = 11 مليون سهم ⇐ 12 ÷ 11 = 1.09 جنيه.'),
+Q('IAS 8',34,'اكتشاف إن مخزون السنة اللي فاتت كان متضخم بمبلغ جوهري:',['تسوية في ربح السنة الحالية','تصحيح بأثر رجعي وتعديل أرقام المقارنة','تجاهل','إفصاح بس'],1,'IAS 8 فقرة 42: الأخطاء الجوهرية للفترات السابقة بتتصحح بأثر رجعي بتعديل المقارنة والرصيد الافتتاحي.'),
+Q('IAS 8',34,'تغيير العمر الإنتاجي لأصل من 10 لـ 6 سنين:',['تغيير سياسة بأثر رجعي','تغيير تقدير بأثر مستقبلي','تصحيح خطأ','مش مسموح'],1,'IAS 8 فقرة 36: تغيير التقدير بيتطبق من الفترة الحالية وجاي.'),
+// ═══ ضرايب مصرية ═══
+Q('ضريبة الدخل',21,'سعر الضريبة على أرباح الأشخاص الاعتبارية في مصر حسب قانون 91 لسنة 2005:',['20%','22.5%','25%','30%'],1,'السعر العام 22.5% (مع أسعار خاصة لبعض الجهات زي قناة السويس والهيئة العامة للبترول).'),
+Q('ضريبة الدخل',21,'غرامة مرور على عربية الشركة 5,000 جنيه في الإقرار الضريبي:',['مصروف قابل للخصم','بتتضاف للوعاء (غير قابلة للخصم)','بتتطرح مرتين','إعفاء'],1,'الغرامات والعقوبات المالية مش من التكاليف واجبة الخصم، فبتتضاف للربح المحاسبي في التسوية الضريبية.'),
+Q('ضريبة الدخل',21,'شركة ربحها المحاسبي 8 مليون، ومصروفات غير قابلة للخصم 400 ألف، وإيرادات معفاة 200 ألف. الوعاء:',['8 مليون','8.2 مليون','8.6 مليون','7.8 مليون'],1,'8,000 + 400 − 200 = 8,200 ألف × 22.5% = 1,845 ألف ضريبة.'),
+Q('ضريبة القيمة المضافة',21,'السعر العام لضريبة القيمة المضافة في مصر:',['10%','14%','15%','5%'],1,'قانون 67 لسنة 2016: السعر العام 14% (مع سلع وخدمات ليها جدول أو إعفاء).'),
+Q('ضريبة القيمة المضافة',21,'المراجع بيطابق إيرادات الدفاتر مع إقرارات القيمة المضافة والفاتورة الإلكترونية عشان يختبر:',['الوجود في المخزون','اكتمال وحدوث الإيرادات','الإهلاك','رأس المال'],1,'الفرق بين الدفاتر والمنظومة بيكشف إيرادات مش متسجلة (اكتمال) أو متسجلة من غير فواتير (حدوث).'),
+Q('الخصم والإضافة',21,'هدف نظام الخصم تحت حساب الضريبة بالنسبة للمراجع:',['مالوش علاقة','يتأكد إن الشركة خصمت وورّدت في المواعيد، وإن رصيد «ضرائب مدينة» قابل للاستخدام','يحسب الإهلاك','يحسب ضريبة المرتبات بس'],1,'الخصم اللي اتخصم من الشركة أصل بيتخصم من الضريبة المستحقة، واللي الشركة المفروض تخصمه ومخصمتهوش ممكن يتطالبوها بيه.'),
+];
+const base=QUESTIONS.reduce((m,q)=>Math.max(m,+q.id||0),0);
+add.forEach((q,i)=>QUESTIONS.push(Object.assign({id:base+1+i},q)));
+})();
+
+// ── v15: أسئلة قطاعية + حالات عملية + معادلات + قيود + نصائح يومية ──
+(function(){
+const Q=(topic,topicId,ar,opts,correct,explain)=>({topic,topicId,ar,opts,correct,explain});
+const add=[
+// مقاولات
+Q('IFRS 15',2,'شركة مقاولات: عقد 50 مليون، تكلفة فعلية لحد دلوقتي 18 مليون، والتكلفة الكلية المتوقعة 40 مليون. نسبة الإتمام والإيراد:',['36% و18 مليون','45% و22.5 مليون','40% و20 مليون','50% و25 مليون'],1,'نسبة الإتمام بالتكلفة = 18 ÷ 40 = 45% × 50 مليون = 22.5 مليون إيراد.'),
+Q('IAS 37',6,'عقد مقاولات تكلفته المتوقعة 55 مليون وقيمته 50 مليون:',['مفيش حاجة لحد ما يخلص','مخصص عقد مثقل بالخسارة المتوقعة كلها فوراً','الخسارة بتتوزع على المدة','بيتفصح عنه بس'],1,'IAS 37 فقرة 66: العقد المثقل (Onerous) بيتعمله مخصص بالخسارة المتوقعة فوراً (5 مليون ناقص اللي اتسجل).'),
+Q('ISA 500',16,'في مراجعة شركة مقاولات، أنسب دليل خارجي لنسبة الإتمام:',['تقدير مدير المشروع','شهادات الاستشاري والمستخلصات المعتمدة من المالك','ميزان المراجعة','عدد العمال'],1,'المستخلص المعتمد من الاستشاري طرف خارجي ومستقل نسبياً، وبيتقارن بالتكاليف الفعلية وتقديرات التكلفة الكلية.'),
+Q('IFRS 15',2,'محتجزات ضمان أعمال 5% عند العميل في عقد مقاولات:',['مصروف','أصل (عملاء/أصل عقد) لحد ما تتحصل بعد فترة الضمان','إيراد مؤجل','التزام'],1,'المحتجزات جزء من المقابل اللي الشركة اكتسبته، وبتظهر أصل (وتراجع ECL عليها) لحد تحصيلها.'),
+// مصانع
+Q('IAS 2',14,'مصنع طاقته العادية 100,000 وحدة وأنتج 60,000 بس. التكاليف الثابتة 10 مليون. المحمّل على المخزون:',['10 مليون','6 مليون والباقي مصروف','4 مليون','صفر'],1,'IAS 2 فقرة 13: التكاليف الثابتة بتتوزع على أساس الطاقة العادية: 100 جنيه للوحدة × 60,000 = 6 مليون، و4 مليون طاقة عاطلة مصروف.'),
+Q('IAS 2',14,'أنهي تكلفة متدخلش في تكلفة المخزون؟',['خامات مباشرة','أجور الإنتاج','مصروفات تخزين المنتج التام بعد الإنتاج (إلا لو ضرورية للإنتاج)','إهلاك ماكينات المصنع'],2,'IAS 2 فقرة 16: التخزين بعد الإنتاج والمصروفات الإدارية والبيعية والهالك غير العادي بتتحمل مصروف.'),
+Q('ISA 501',16,'مخزون عند الغير (مخزن مؤجر أو عند مقاول من الباطن):',['متجاهله','مصادقة من الطرف التاني أو زيارة وجرد لو المبلغ جوهري','بيتشال من القوائم','خطاب من الإدارة'],1,'ISA 501 فقرة 8: المصادقة أو الحضور أو إجراءات تانية حسب الجوهرية والخطر.'),
+// تمويل متناهي الصغر / تأجير
+Q('IFRS 9',4,'محفظة تمويل متناهي الصغر: الأرصدة المتأخرة أكتر من 90 يوم في القطاع بتتصنف غالباً:',['المرحلة 1','المرحلة 2','المرحلة 3 (متعثر)','مش محتاجة مخصص'],2,'IFRS 9 فيه افتراض قابل للدحض إن التأخر أكتر من 90 يوم = تعثر (فقرة B5.5.37)، وبيتحسب ECL على مدى العمر بالفوائد على الصافي.'),
+Q('IFRS 9',4,'التأخر أكتر من 30 يوم في IFRS 9 افتراض قابل للدحض على:',['التعثر','زيادة جوهرية في مخاطر الائتمان (انتقال للمرحلة 2)','الشطب','لا شيء'],1,'IFRS 9 فقرة 5.5.11: أكتر من 30 يوم = زيادة جوهرية في المخاطر ⇐ ECL على مدى العمر.'),
+Q('ISA 530',16,'في محفظة قروض متناهية الصغر بآلاف العملاء، أنسب أسلوب لاختبار الوجود:',['مصادقة كل العملاء','عينة إحصائية للمصادقة أو الزيارة مع اختبار أنظمة إدارة المحفظة','مفيش داعي','ميزان المراجعة'],1,'مع مجتمع كبير ومتجانس، العينة مع اختبار رقابة النظام (الصرف، التحصيل، الأعمار) هي الطريقة العملية.'),
+Q('IFRS 16',3,'في التأجير التمويلي، المؤجر بيعرض الأصل المؤجر في قوائمه كـ:',['أصل ثابت','مدينو عقود تأجير (صافي الاستثمار في العقد)','مخزون','حق انتفاع'],1,'IFRS 16 فقرة 67: في التأجير التمويلي المؤجر بيستبعد الأصل ويسجل مديونية بصافي الاستثمار.'),
+// عقارات
+Q('IFRS 15',2,'مطوّر عقاري بيبيع وحدات على الخريطة، والعقد بيدي المطور حق تحويل الوحدة لعميل تاني لو العميل اتأخر. الأرجح:',['إيراد على مدار الوقت','إيراد عند التسليم (نقطة زمنية)','إيراد عند التعاقد','إيراد عند التحصيل'],1,'لو المطور يقدر يحوّل الوحدة لعميل تاني (فيه استخدام بديل) أو مفيش حق نافذ في المقابل عن الشغل اللي خلص، شروط فقرة 35(c) مش متحققة فالإيراد عند نقل السيطرة.'),
+Q('IAS 2',14,'أراضي مشتراة بغرض التطوير والبيع لشركة عقارات بتتبوب:',['استثمار عقاري','أصل ثابت','مخزون (أعمال تحت التنفيذ)','أصل غير ملموس'],2,'العقار المحتفظ بيه للبيع في النشاط العادي مخزون (IAS 2)، مش استثمار عقاري (IAS 40 فقرة 9).'),
+// أطراف ذات علاقة عملي
+Q('ISA 550',30,'شريك سحب 5 مليون من خزينة الشركة في مارس ورجعهم 28 ديسمبر. المراجع:',['مفيش مشكلة','يفحص الحركة خلال السنة ويقيّم الإفصاح ومدى الالتزام بقانون الشركات','يتجاهل لأن الرصيد صفر','يعدّل الإيرادات'],1,'الرصيد في آخر السنة صفر بس المعاملة نفسها طرف ذو علاقة ولازم تتفصح، وممكن تكون مخالفة لقانون الشركات (تمويل الشركاء).'),
+Q('ISA 550',30,'معاملة كبيرة مع طرف ذو علاقة خارج النشاط العادي:',['خطر عادي','بيتعامل معها كخطر مهم وبيتفحص المبرر التجاري والموافقات','بتتجاهل','بيتفصح عنها بس'],1,'ISA 550 فقرة 18: المعاملات المهمة مع أطراف ذات علاقة خارج النشاط العادي بتتعامل كمخاطر مهمة.'),
+// تحليل قوائم إضافي
+Q('تحليل القوائم',36,'شركة مبيعاتها 365 مليون وفترة التحصيل نزلت من 90 لـ 60 يوم. النقدية اللي اتحررت تقريباً:',['30 مليون','60 مليون','90 مليون','3 مليون'],0,'المبيعات اليومية مليون × 30 يوم = 30 مليون اتحرروا من العملاء.'),
+Q('تحليل القوائم',36,'هامش مجمل الربح 35% ثابت، والمبيعات 200 مليون، والمخزون آخر المدة متضخم 6 مليون. تأثير ده:',['مفيش','مجمل الربح يزيد 6 مليون والهامش يبقى 38%','الهامش ينزل','الإيرادات تزيد'],1,'مخزون آخر المدة الزايد بيقلل التكلفة بنفس المبلغ: 70 + 6 = 76 مليون مجمل ربح ÷ 200 = 38%. علشان كده الهامش الغريب بيوجه لاختبار المخزون.'),
+Q('تحليل القوائم',36,'التدفق النقدي الحر سالب 3 سنين والقروض بتزيد كل سنة. القراءة:',['الشركة بتمول الاستثمار والتوزيعات بديون — راجع الاستمرارية والتعهدات','أداء ممتاز','مفيش علاقة','الضرايب عالية'],0,'FCF سالب باستمرار معناه إن التشغيل مش مغطي الاستثمار، والفرق بيتمول من الخارج. مهم تقيّم قدرة الشركة على إعادة التمويل.'),
+Q('تحليل القوائم',36,'التحليل الأفقي: المصروفات الإدارية زادت 40% والمبيعات 5%. أول خطوة:',['تقبل','تحلل المصروفات حسب الطبيعة وتطلب تفسير مدعوم (مرتبات جديدة، استشارات، أطراف ذات علاقة)','تعدّل القوائم','تتجاهل'],1,'التغير الكبير غير المتسق مع النشاط بيتحلل لمكوناته، وأحياناً بيكشف مصروفات شخصية أو معاملات مع أطراف ذات علاقة.'),
+Q('تحليل القوائم',36,'شركة نسبة القروض لحقوق الملكية 3× وتغطية الفوائد 1.1×. أنسب إجراء:',['لا شيء','تقييم الاستمرارية ومراجعة تعهدات القروض والتبويب ومصادقات البنوك','زيادة الإيراد','حساب الإهلاك'],1,'رافعة عالية مع تغطية ضعيفة = خطر عدم السداد وإخلال بالتعهدات، وده بيأثر على التبويب والإفصاح والاستمرارية.'),
+Q('تحليل القوائم',36,'دوران الأصول نزل من 1.8× لـ 1.1× بعد استثمار كبير في مصنع جديد اتشغّل آخر الشهر في السنة:',['أداء سيئ أكيد','طبيعي مؤقتاً لأن المصنع لسه مبيعاته مظهرتش — قارن السنة الجاية','خطأ','الإيراد متضخم'],1,'الأصول زادت كلها بس الإيراد بتاعها لسه، فاستخدام متوسط الأصول أو انتظار سنة كاملة بيدي صورة أدق.'),
+Q('تحليل القوائم',36,'الأرصدة المستحقة من أطراف ذات علاقة 25% من إجمالي الأصول:',['عادي','مؤشر خطر يستاهل مصادقات وتقييم قابلية التحصيل والإفصاح','مش مهم','بيتطرح من الإيراد'],1,'أرصدة كبيرة مع أطراف ذات علاقة بتطرح أسئلة عن قابلية التحصيل والشروط وممكن تكون تحويل أموال.'),
+Q('تحليل القوائم',36,'نسبة التوزيع 140% من صافي الربح:',['طبيعي','الشركة بتوزع من أرباح سابقة أو بتستلف — تأكد من الأرباح القابلة للتوزيع والسيولة','إيجابي','خطأ في الضريبة'],1,'التوزيع أكبر من الربح بيستنزف حقوق الملكية والسيولة، ولازم يكون من أرباح قابلة للتوزيع بعد الاحتياطي القانوني.'),
+Q('تحليل القوائم',36,'الضريبة المؤجلة في قائمة الدخل كانت مصروف 3 مليون والجارية 1 مليون، والربح قبل الضريبة 16 مليون. سعر الضريبة الفعلي:',['6.3%','18.8%','25%','22.5%'],2,'(1 + 3) ÷ 16 = 25%. لازم تجمع الجارية والمؤجلة عشان تحسب السعر الفعلي.'),
+// تحريفات وعرض
+Q('IAS 1',13,'«مصروفات بيعية وعمومية وإدارية» مجمعة في سطر واحد:',['ممنوع','مسموح لو العرض حسب الوظيفة مع إفصاح عن طبيعة المصروفات (إهلاك، مرتبات) في الإيضاحات','لازم تتفصل دايماً في القائمة','مش بيتفصح'],1,'IAS 1 فقرة 104: لو العرض حسب الوظيفة، لازم إفصاح إضافي عن طبيعة المصروفات (الإهلاك ومزايا العاملين).'),
+Q('IAS 1',13,'مقاصة رصيد بنك سحب على المكشوف مع رصيد بنك تاني موجب في المركز المالي:',['مسموحة دايماً','مش مسموحة إلا لو فيه حق قانوني ونية تسوية بالصافي','إلزامية','بتتعمل في قائمة الدخل'],1,'IAS 32 فقرة 42: المقاصة بشروط. في قائمة التدفقات السحب على المكشوف ممكن يدخل في النقدية لو جزء من إدارة النقدية (IAS 7 فقرة 8).'),
+Q('IAS 1',13,'الأرقام المقارنة:',['اختيارية','مطلوبة لكل الأرقام في القوائم، وفي الإيضاحات لو مفيدة لفهم الفترة الحالية','للمركز المالي بس','لقائمة الدخل بس'],1,'IAS 1 فقرة 38: معلومات مقارنة عن الفترة السابقة لكل المبالغ.'),
+];
+const base=QUESTIONS.reduce((m,q)=>Math.max(m,+q.id||0),0);
+add.forEach((q,i)=>QUESTIONS.push(Object.assign({id:base+1+i},q)));
+
+// ═══ حالات عملية يومية ═══
+const C=(id,std,title,icon,group,difficulty,context,questions,learnings)=>({id,std,title,icon,group,difficulty,points:difficulty==='صعب'?20:difficulty==='متوسط'?15:10,context,questions,learnings});
+CASE_STUDIES.push(
+ C('cs101','ISA 505 · ISA 330','مصادقات عملاء شركة توزيع أدوية','💊','Audit','متوسط','شركة توزيع أدوية رصيد عملائها 80 مليون موزع على 1,200 صيدلية و6 سلاسل كبيرة (45 مليون). الأهمية النسبية للتنفيذ 1.5 مليون. ردود المصادقات: السلاسل الـ 6 ردوا وواحدة فيهم بفرق 2.3 مليون، و30 صيدلية من عينة 60 مردتش.',
+  [{q:'إزاي تتعامل مع الفرق 2.3 مليون؟',hint:'الفرق مش بالضرورة تحريف — حلّله',answer:'تحلل الفرق لمكوناته: فواتير في الطريق (قطع)، مرتجعات أو خصومات متسجلتش، أو نزاع. اللي ميتفسرش بمستندات بيبقى تحريف يتسجل في قائمة التحريفات ويتقارن بـ PM.'},
+   {q:'الـ 30 صيدلية اللي مردوش؟',hint:'ISA 505 — إجراءات بديلة',answer:'التحصيلات بعد نهاية السنة لكل واحدة، ولو مفيش: الفواتير وإذونات التسليم الموقعة. ولو نسبة عدم الرد عالية بشكل غريب، تقيّم إن كان فيه مخاطر غش.'}],
+  ['العينة تتقسم: البنود الكبيرة 100% + عينة من الباقي','فرق المصادقة بيتحلل قبل ما يتسمى تحريف','عدم الرد بيتعالج بإجراءات بديلة مش بتجاهل']),
+ C('cs102','IAS 2 · ISA 501','مخزون راكد في مصنع ملابس','👕','Audit','متوسط','مصنع ملابس مخزونه 36 مليون، منهم 9 مليون موديلات من موسمين فاتوا. أسعار البيع في الأوكازيون 40% من التكلفة، وتكاليف البيع 5% من سعر البيع. الإدارة مكونة مخصص 1 مليون بس.',
+  [{q:'صافي القيمة البيعية للموديلات القديمة كام والتخفيض المطلوب؟',hint:'سعر البيع ناقص تكاليف البيع',answer:'سعر البيع = 40% × 9 = 3.6 مليون، ناقص تكاليف البيع 5% × 3.6 = 0.18 ⇐ صافي القيمة البيعية 3.42 مليون. التخفيض المطلوب 9 − 3.42 = 5.58 مليون، والمكون 1 مليون بس ⇐ تحريف 4.58 مليون.'},
+   {q:'إيه الأدلة اللي تطلبها؟',hint:'أسعار فعلية بعد نهاية السنة',answer:'تقرير أعمار المخزون، فواتير بيع الأوكازيون بعد نهاية السنة، وخطة الإدارة لتصريف المخزون، وملاحظات الجرد عن حالة البضاعة.'}],
+  ['المخزون بالأقل من التكلفة وصافي القيمة البيعية','الأسعار الفعلية بعد نهاية السنة أقوى دليل','الموسمية في الملابس بتخلي التقادم سريع']),
+ C('cs103','ISA 550 · IAS 24','شركة شقيقة مدينة بمبلغ كبير','🤝','Audit','صعب','شركة عقارات ليها مستحق من شركة شقيقة 42 مليون (12% من الأصول)، الرصيد بيزيد كل سنة ومفيش عقد ولا فوايد. الشقيقة خسرانة سنتين وصافي أصولها 15 مليون. الإدارة بتقول «هتتسدد لما المشروع يتباع».',
+  [{q:'إيه المخاطر هنا؟',hint:'الوجود، التقييم، العرض',answer:'(1) قابلية التحصيل: الشقيقة صافي أصولها 15 مليون مقابل 42 ⇐ خسارة ائتمانية متوقعة كبيرة. (2) التبويب: من غير موعد سداد واضح غالباً غير متداول. (3) ممكن يكون تمويل غير معلن أو توزيع مقنع. (4) إفصاح IAS 24.'},
+   {q:'الإجراءات؟',hint:'ISA 550 و IFRS 9',answer:'مصادقة الرصيد من الشقيقة، قوائمها المالية المراجعة، دراسة قابلية التحصيل (تدفقات المشروع)، الموافقات من المجلس/الجمعية، تقييم ECL مع الإدارة، ومراجعة الإفصاح عن الطبيعة والشروط والضمانات.'}],
+  ['الأرصدة مع الأطراف ذات العلاقة من غير شروط = علامة تحذير','قابلية التحصيل بتتقاس بقدرة المدين مش بوعود الإدارة','الإفصاح عن الشروط مطلوب حتى لو مفيش فوايد']),
+ C('cs104','IAS 36 · ISA 540','اضمحلال مصنع بعد زيادة أسعار الغاز','🏭','IFRS','صعب','مصنع سيراميك قيمته الدفترية 120 مليون. أسعار الغاز زادت والمصنع خسر السنة دي. توقعات الإدارة: تدفقات 20 مليون سنوياً لـ 8 سنين، ومعدل الخصم قبل الضريبة 22%. القيمة العادلة ناقص تكاليف البيع 70 مليون.',
+  [{q:'احسب القيمة الاستخدامية تقريباً والخسارة.',hint:'معامل القيمة الحالية لدفعة 8 سنين بـ 22% ≈ 3.619',answer:'20 × 3.619 ≈ 72.4 مليون. الاستردادية = الأعلى (72.4 مقابل 70) = 72.4 ⇐ خسارة 120 − 72.4 ≈ 47.6 مليون.'},
+   {q:'إزاي تراجع توقعات الإدارة؟',hint:'ISA 540',answer:'قارن توقعات السنين اللي فاتت بالفعلي، اختبر افتراضات الأسعار والكميات وسعر الغاز مع بيانات السوق، قيّم معدل الخصم (بخبير لو لازم)، واعمل حساسية: نقطة زيادة في الخصم بتغير الخسارة قد إيه.'}],
+  ['الاستردادية = الأعلى من القيمة الاستخدامية والقيمة العادلة ناقص تكاليف البيع','الخسارة التشغيلية مؤشر اضمحلال','حساسية الافتراضات لازم تتفصح']),
+ C('cs105','IFRS 15','مستخلصات مقاولات قبل نهاية السنة','🏗️','IFRS','متوسط','شركة مقاولات سجلت مستخلص 12 مليون يوم 29 ديسمبر. الاستشاري اعتمد 7 مليون بس في 15 يناير وقال إن باقي الأعمال لسه متعملتش. التكلفة الفعلية متسقة مع 7 مليون.',
+  [{q:'المعالجة الصح؟',hint:'الإيراد بالإنجاز الفعلي',answer:'الإيراد 7 مليون بس. الـ 5 مليون الزيادة بتتلغي (أو تتحول التزام عقد لو اتحصلت). ده تحريف في الإيراد والعملاء/أصول العقود.'},
+   {q:'ده يأثر على تقييمك لخطر الغش؟',hint:'ISA 240',answer:'أيوه — قيد إيراد كبير آخر أيام السنة من غير إنجاز فعلي مؤشر تلاعب، فبتوسع اختبار القطع وقيود آخر السنة وتراجع باقي المستخلصات.'}],
+  ['الإيراد على مدار الوقت = نسبة الإنجاز الفعلي','اعتماد الاستشاري دليل خارجي مهم','قيود آخر السنة الكبيرة بتستاهل فحص']),
+ C('cs106','IAS 21','مديونية بالدولار بعد التعويم','💵','IFRS','متوسط','شركة مستوردة عليها لمورد خارجي 2 مليون دولار متسجلة بسعر 30.9. سعر الإقفال 48.6. والشركة كمان عندها وديعة 500,000 دولار متسجلة بـ 30.9.',
+  [{q:'صافي فرق العملة؟',hint:'البنود النقدية بسعر الإقفال',answer:'المورد: 2,000,000 × (48.6 − 30.9) = 35.4 مليون خسارة. الوديعة: 500,000 × 17.7 = 8.85 مليون ربح. صافي خسارة 26.55 مليون في قائمة الدخل.'},
+   {q:'المخزون المستورد قبل التعويم بيتعدل؟',hint:'بند غير نقدي',answer:'لأ — المخزون بند غير نقدي بيفضل بسعر يوم المعاملة، لكن لازم تختبر صافي القيمة البيعية.'}],
+  ['النقدي بسعر الإقفال، وغير النقدي بالسعر التاريخي','فرق العملة على المورد بيتسجل حتى لو مدفعش','التعويم مؤشر لمراجعة صافي القيمة البيعية والاضمحلال']),
+ C('cs107','IAS 12','ضريبة مؤجلة على أصول ثابتة','🧾','IFRS','متوسط','آلة تكلفتها 10 مليون، الإهلاك المحاسبي 10% والإهلاك الضريبي 20% (معجل). بعد سنتين.',
+  [{q:'الفرق المؤقت والضريبة المؤجلة؟',hint:'القيمة الدفترية مقابل الأساس الضريبي',answer:'الدفترية = 10 − 2 = 8 مليون. الضريبية = 10 − 4 = 6 مليون. فرق خاضع 2 مليون × 22.5% = 450,000 التزام ضريبي مؤجل.'},
+   {q:'المصروف في السنة التانية؟',hint:'الحركة',answer:'الالتزام آخر السنة الأولى 225,000 وآخر التانية 450,000 ⇐ مصروف ضريبة مؤجلة 225,000 في السنة التانية.'}],
+  ['الفرق = القيمة الدفترية − الأساس الضريبي','الإهلاك المعجل ضريبياً بيطلع التزام مؤجل','المصروف = الحركة في الرصيد']),
+ C('cs108','ISA 570','شركة خسائرها وصلت نص رأس المال','⚠️','Audit','صعب','شركة رأس مالها 50 مليون وخسائرها المتراكمة شاملة نتيجة العام 31 مليون. نسبة التداول 0.7×، وعليها قرض 40 مليون مستحق في مارس، والبنك ما وافقش على التجديد لحد تاريخ التقرير.',
+  [{q:'إيه المؤشرات؟',hint:'مالية وقانونية',answer:'خسائر أكتر من نص رأس المال (قانون الشركات بيطلب جمعية غير عادية تقرر الاستمرار)، عجز رأس مال عامل، وقرض مستحق قريب من غير تجديد.'},
+   {q:'تأثير على التقرير؟',hint:'ISA 570',answer:'لو خطط الإدارة مش كفاية لإزالة الشك الجوهري: لو الإفصاح كافي ⇐ فقرة «عدم تأكد جوهري متعلق بالاستمرارية» مع رأي غير معدل؛ لو مش كافي ⇐ رأي متحفظ أو معارض.'}],
+  ['الخسائر نص رأس المال لها أثر قانوني','التمويل بعد نهاية السنة دليل أساسي','الإفصاح الكافي بيحدد شكل التقرير']),
+ C('cs109','IFRS 9','محفظة تمويل متناهي الصغر','🏦','IFRS','صعب','شركة تمويل متناهي الصغر محفظتها 300 مليون: 270 منتظم (PD 3%)، 20 متأخر 31–90 يوم (PD على مدى العمر 35%)، 10 متأخر أكتر من 90 يوم. الخسارة عند التعثر 60%.',
+  [{q:'احسب الخسائر الائتمانية المتوقعة تقريباً.',hint:'المراحل الثلاث',answer:'المرحلة 1: 270 × 3% × 60% = 4.86 مليون. المرحلة 2: 20 × 35% × 60% = 4.2 مليون. المرحلة 3: 10 × 100% × 60% = 6 مليون. الإجمالي ≈ 15.06 مليون.'},
+   {q:'إيه اللي تراجعه في النظام؟',hint:'دقة الأعمار',answer:'دقة تصنيف أيام التأخير في النظام (عينة من العقود وتواريخ السداد)، إعادة الجدولة اللي ممكن تخبي التأخير، ومصادر PD وLGD التاريخية والتعديل بالمعلومات المستقبلية.'}],
+  ['أيام التأخير أساس المراحل','إعادة الجدولة ممكن تخبي التعثر','LGD بيتأثر بالضمانات والتحصيل الفعلي']),
+ C('cs110','IAS 16 · IAS 23','مشروع تحت التنفيذ متأخر','🔧','IFRS','متوسط','شركة عندها مشروعات تحت التنفيذ 60 مليون لخط إنتاج جديد. الخط بدأ تشغيل تجريبي في يوليو والإنتاج التجاري في سبتمبر، والشركة لسه مكبراه في المشروعات تحت التنفيذ في ديسمبر، ومرسملة فوايد قرض لحد ديسمبر.',
+  [{q:'إيه الغلط؟',hint:'إمتى يبدأ الإهلاك وتقف الرسملة؟',answer:'الخط بقى متاح للاستخدام في سبتمبر ⇐ لازم يتحول لأصول ثابتة ويبدأ إهلاكه من سبتمبر، والفوايد تقف رسملتها من سبتمبر وتتحمل مصروف بعد كده.'},
+   {q:'التأثير لو العمر 10 سنين؟',hint:'4 شهور إهلاك',answer:'إهلاك ناقص = 60 ÷ 10 × 4/12 = 2 مليون، بالإضافة للفوايد المرسملة من سبتمبر لديسمبر.'}],
+  ['الإهلاك من تاريخ الإتاحة للاستخدام','رسملة الفوائد بتقف لما الأصل يبقى جاهز','المشروعات تحت التنفيذ القديمة علامة تحذير']),
+ C('cs111','ISA 240','قيود يومية آخر السنة','📒','Audit','متوسط','في فحص قيود اليومية لقيت قيد يدوي يوم 31 ديسمبر الساعة 11 بالليل: من ح/ العملاء إلى ح/ المبيعات 4 مليون، وصف القيد «تسوية»، ومدخله المدير المالي، وفي 5 يناير اتعمل قيد عكسي بنفس المبلغ.',
+  [{q:'إيه اللي يقلقك؟',hint:'خصائص القيود المشبوهة',answer:'قيد يدوي، في آخر يوم، وقت غير معتاد، وصف مبهم، من مستخدم كبير، وعكسه بعد أيام — كلها خصائص قيد غش لتضخيم الإيراد (ISA 240 فقرة A44).'},
+   {q:'تعمل إيه؟',hint:'أدلة واستفسار ومسؤولين',answer:'تطلب المستندات المؤيدة، تستفسر من الإدارة والمكلفين بالحوكمة، تحسب الأثر (إيراد مضخم 4 مليون)، توسّع فحص القيود المشابهة، وتقيّم تأثيرها على مصداقية إقرارات الإدارة.'}],
+  ['اختبار القيود إلزامي في كل مراجعة','القيود العكسية بعد نهاية السنة علامة تحذير','الغش بيأثر على تقييم المخاطر كلها']),
+ C('cs112','IAS 37','قضية عمالية وغرامة بيئية','⚖️','IFRS','سهل','المحامي قال: قضية عمالية احتمال خسارتها 70% بتعويض 1.8 مليون، وقضية مورد احتمالها 30% بمبلغ 5 مليون، وفيه غرامة بيئية اتقررت في فبراير عن مخالفة حصلت في نوفمبر بمبلغ 600 ألف.',
+  [{q:'المعالجة لكل واحدة؟',hint:'محتمل، ممكن، حدث لاحق',answer:'القضية العمالية: مخصص 1.8 مليون (محتمل). قضية المورد: إفصاح كالتزام محتمل (ممكن ومش بعيد). الغرامة: المخالفة حصلت قبل نهاية السنة ⇐ حدث لاحق محتاج تسوية: مخصص/التزام 600 ألف.'}],
+  ['محتمل = مخصص، ممكن = إفصاح، بعيد = ولا حاجة','الأحداث اللاحقة اللي بتوضح حالة قائمة بتتسوى','مصادقة المحامي دليل أساسي']),
+ C('cs113','تحليل القوائم','قراءة نسب شركة بلاستيك','📊','Analysis','متوسط','مصنع بلاستيك: نسبة التداول 1.9× (السنة اللي فاتت 1.4×)، أيام التحصيل 95 (كانت 60)، أيام التخزين 110 (كانت 70)، هامش مجمل الربح 26% (كان 21%)، والتدفق التشغيلي نزل من +14 لـ −3 مليون.',
+  [{q:'إزاي تقرا الصورة دي؟',hint:'السيولة اتحسنت فعلاً؟',answer:'نسبة التداول اتحسنت بس بسبب زيادة العملاء والمخزون، مش نقدية. ومع هامش أعلى وتدفق سالب، ده نمط ممكن يعني مخزون متضخم (يقلل التكلفة ويرفع الهامش) وعملاء مش هيتحصلوا.'},
+   {q:'خطة المراجعة؟',hint:'البنود الأخطر',answer:'توسيع اختبار المخزون (جرد، تسعير، صافي قيمة بيعية، قطع)، مصادقات العملاء والتحصيل اللاحق، تحليل الهامش حسب المنتج، وتقييم مؤشرات الغش (ISA 240).'}],
+  ['النسبة الواحدة مش كفاية — اربط النسب ببعض','تحسن الهامش مع تدهور النقدية علامة تحذير','النسب بتوجه الإجراءات لبنود محددة']),
+ C('cs114','IFRS 16','تجديد عقد إيجار فرع','🏬','IFRS','متوسط','شركة عندها عقد إيجار فرع 5 سنين بـ 600,000 سنوياً متسجل كمصروف إيجار من غير أصل والتزام. معدل الاقتراض الإضافي 20%. الدفعات في آخر السنة.',
+  [{q:'الالتزام الأولي تقريباً؟',hint:'معامل دفعة 5 سنين بـ 20% ≈ 2.991',answer:'600,000 × 2.991 ≈ 1,794,600 التزام وأصل حق انتفاع بنفس المبلغ (لو مفيش تكاليف مباشرة).'},
+   {q:'مصروفات السنة الأولى؟',hint:'إهلاك + فائدة',answer:'إهلاك 1,794,600 ÷ 5 = 358,920 + فائدة 20% × 1,794,600 = 358,920 ⇐ 717,840 بدل 600,000 إيجار. المصروف في الأول أعلى ويقل مع الوقت.'}],
+  ['كل عقد أكتر من 12 شهر في المركز المالي','المصروف بيتقدم في أول العقد','التدفقات بتتنقل من التشغيل للتمويل']),
+ C('cs115','IAS 19','مكافأة نهاية الخدمة','👷','IFRS','سهل','لائحة شركة بتدي مكافأة نهاية خدمة شهر عن كل سنة. فيه 200 موظف، متوسط المرتب 15,000 ومتوسط الخدمة 8 سنين. الشركة مبتسجلش أي التزام وبتحمل المصروف وقت الصرف.',
+  [{q:'المشكلة إيه؟',hint:'خطة منافع محددة',answer:'دي خطة منافع محددة (IAS 19) لازم يتعملها التزام بالقيمة الحالية بالطريقة الاكتوارية. الرقم غير المخصوم التقريبي = 200 × 15,000 × 8 = 24 مليون — غالباً جوهري.'},
+   {q:'إجراءات المراجعة؟',hint:'خبير اكتواري',answer:'تطلب تقرير خبير اكتواري، تختبر بيانات العاملين المستخدمة مع كشوف المرتبات، تقيّم الافتراضات (خصم، زيادة مرتبات، معدل ترك)، وتراجع تسجيل الفروق الاكتوارية في الدخل الشامل الآخر.'}],
+  ['الالتزام بيتكون على مدة الخدمة مش وقت الصرف','الخبير الاكتواري — ISA 620','الفروق الاكتوارية في الدخل الشامل الآخر'])
+);
+
+// ═══ معادلات يومية ═══
+FORMULAS.push(
+ {group:'تحليل القوائم — السيولة والنشاط',color:'var(--teal)',items:[
+  {title:'فترة التحصيل (DSO)',formula:'العملاء ÷ الإيرادات × 365',example:'22 ÷ 120 × 365 = 67 يوم',note:'قارنها بشروط الائتمان؛ الأدق تستخدم المبيعات الآجلة'},
+  {title:'فترة التخزين (DIO)',formula:'المخزون ÷ تكلفة المبيعات × 365',example:'20 ÷ 96 × 365 = 76 يوم',note:'بتتقسم على التكلفة مش المبيعات'},
+  {title:'فترة السداد (DPO)',formula:'الموردين ÷ تكلفة المبيعات (أو المشتريات) × 365',example:'14 ÷ 96 × 365 = 53 يوم',note:'المشتريات أدق لو المخزون اتغير كتير'},
+  {title:'دورة التحويل النقدي',formula:'DSO + DIO − DPO',example:'67 + 76 − 53 = 90 يوم',note:'× المبيعات اليومية = تمويل رأس المال العامل المطلوب'},
+  {title:'النسبة السريعة',formula:'(الأصول المتداولة − المخزون) ÷ الالتزامات المتداولة',example:'(48 − 20) ÷ 40 = 0.7×',note:'أقل من 1 = اعتماد على بيع المخزون'},
+ ]},
+ {group:'تحليل القوائم — الربحية والرافعة',color:'var(--gold)',items:[
+  {title:'DuPont',formula:'ROE = هامش صافي الربح × دوران الأصول × (الأصول ÷ حقوق الملكية)',example:'3.5% × 1.7 × 2.33 = 13.9%',note:'بيوضح العائد جاي من الربحية ولا الكفاءة ولا الديون'},
+  {title:'تغطية الفوائد',formula:'ربح التشغيل ÷ مصروف الفوائد',example:'9 ÷ 3.6 = 2.5×',note:'أقل من 1.5× = مؤشر استمرارية'},
+  {title:'صافي الدين ÷ EBITDA',formula:'(القروض + التأجير − النقدية) ÷ EBITDA',example:'(18 − 6) ÷ 15 = 0.8×',note:'تعهد شائع في عقود القروض'},
+  {title:'سعر الضريبة الفعلي',formula:'(الضريبة الجارية + المؤجلة) ÷ الربح قبل الضريبة',example:'(1 + 3) ÷ 16 = 25%',note:'قارنه بـ 22.5% واعمل تسوية'},
+  {title:'جودة الأرباح',formula:'التدفق النقدي التشغيلي ÷ صافي الربح',example:'3 ÷ 4.2 = 0.71×',note:'أقل من 1 لسنين متتالية = علامة تحذير'},
+ ]},
+ {group:'المراجعة — الأهمية النسبية والعينات',color:'var(--purple)',items:[
+  {title:'الأهمية النسبية الإجمالية',formula:'الأساس × النسبة (مثلاً 5% من الربح قبل الضريبة)',example:'24 مليون × 5% = 1.2 مليون',note:'ISA 320 — حكم مهني'},
+  {title:'الأهمية النسبية للتنفيذ',formula:'الإجمالية × 50–75%',example:'1.2 × 75% = 900 ألف',note:'أقل لو فيه تحريفات كتير السنة اللي فاتت'},
+  {title:'التحريف المتوقع (طريقة النسبة)',formula:'(تحريف العينة ÷ قيمة العينة) × قيمة المجتمع',example:'(12 ÷ 800) × 10,000 = 150 ألف',note:'ISA 530 — قارنه بـ PM'},
+  {title:'فترة الاختيار المنتظم',formula:'قيمة المجتمع ÷ حجم العينة',example:'10,000,000 ÷ 40 = 250,000',note:'اختيار بالوحدة النقدية (MUS)'},
+ ]},
+ {group:'IFRS 9 / IAS 28 / IAS 36 — حسابات سريعة',color:'var(--orange)',items:[
+  {title:'التكلفة المستهلكة لأذن خزانة',formula:'سعر الشراء × (القيمة الاسمية ÷ سعر الشراء)^(الأيام المنقضية ÷ مدة الأذن)',example:'800,000 × 1.25^0.5 = 894,427',note:'طريقة الفائدة الفعلية'},
+  {title:'الخسارة الائتمانية المتوقعة',formula:'PD × LGD × EAD',example:'5,000,000 × 2% × 45% = 45,000',note:'المرحلة 1 = 12 شهر'},
+  {title:'طريقة حقوق الملكية',formula:'التكلفة + النصيب في الربح − النصيب في التوزيعات',example:'6,000 + 600 − 150 = 6,450 ألف',note:'التوزيعات بتقلل الاستثمار'},
+  {title:'رد الاضمحلال — السقف',formula:'الأقل من: الاستردادية، أو القيمة الدفترية لو مفيش اضمحلال',example:'min(700, 600) − 450 = 150 ألف',note:'الشهرة مبتترددش'},
+ ]}
+);
+
+// ═══ قيود يومية ═══
+JOURNALS.push(
+ {group:'أطراف ذات علاقة وحقوق ملكية',color:'var(--purple)',entries:[
+  {title:'تمويل شركة شقيقة',entries:[{dr:'مستحق من أطراف ذات علاقة',cr:'البنك',amount:'5,000,000',note:'بيتفصح عنه في IAS 24 مع الشروط'}]},
+  {title:'خسارة ائتمانية على مستحق من شقيقة',entries:[{dr:'خسائر ائتمانية متوقعة',cr:'مخصص خسائر ائتمانية — أطراف ذات علاقة',amount:'1,200,000',note:'IFRS 9 — قدرة المدين على السداد'}]},
+  {title:'تجنيب الاحتياطي القانوني',entries:[{dr:'أرباح مرحلة / صافي ربح العام',cr:'احتياطي قانوني',amount:'250,000',note:'حسب النظام الأساسي وقانون الشركات'}]},
+  {title:'مبالغ تحت حساب زيادة رأس المال',entries:[{dr:'البنك',cr:'مبالغ مسددة تحت حساب زيادة رأس المال',amount:'10,000,000',note:'حقوق ملكية لو مش قابلة للرد'}]},
+  {title:'شراء أسهم خزينة',entries:[{dr:'أسهم خزينة (مطروحة من حقوق الملكية)',cr:'البنك',amount:'3,000,000',note:'IAS 32 — مفيش ربح أو خسارة'}]},
+  {title:'توزيعات أرباح بعد قرار الجمعية',entries:[{dr:'أرباح مرحلة',cr:'توزيعات أرباح مستحقة',amount:'2,000,000',note:'تتسجل بعد القرار مش قبله'}]},
+ ]},
+ {group:'مخزون وأصول ثابتة',color:'var(--teal)',entries:[
+  {title:'تخفيض المخزون لصافي القيمة البيعية',entries:[{dr:'تكلفة المبيعات (تخفيض مخزون)',cr:'مخصص / تخفيض المخزون',amount:'5,580,000',note:'IAS 2 — الأقل من التكلفة وصافي القيمة البيعية'}]},
+  {title:'تحويل مشروع تحت التنفيذ لأصول',entries:[{dr:'آلات ومعدات',cr:'مشروعات تحت التنفيذ',amount:'60,000,000',note:'من تاريخ الإتاحة للاستخدام'}]},
+  {title:'طاقة عاطلة',entries:[{dr:'مصروف طاقة غير مستغلة',cr:'تكاليف صناعية غير مباشرة',amount:'4,000,000',note:'IAS 2 فقرة 13 — مش على المخزون'}]},
+  {title:'تبويب أصل محتفظ بيه للبيع',entries:[{dr:'أصول محتفظ بها لغرض البيع',cr:'أصول ثابتة (صافي)',amount:'8,000,000',note:'ويقف الإهلاك'},{dr:'خسارة إعادة قياس',cr:'أصول محتفظ بها لغرض البيع',amount:'1,000,000',note:'للقيمة العادلة ناقص تكاليف البيع'}]},
+ ]},
+ {group:'إيرادات وضرائب',color:'var(--gold)',entries:[
+  {title:'دفعة مقدمة من عميل',entries:[{dr:'البنك',cr:'التزامات العقود (دفعات مقدمة)',amount:'500,000',note:'الإيراد عند التسليم'}]},
+  {title:'إيراد عقد مقاولات بنسبة الإتمام',entries:[{dr:'أصول العقود',cr:'الإيرادات',amount:'22,500,000',note:'45% × 50 مليون'}]},
+  {title:'ضريبة دخل جارية',entries:[{dr:'ضريبة الدخل الجارية',cr:'ضريبة الدخل المستحقة',amount:'1,845,000',note:'8.2 مليون × 22.5%'}]},
+  {title:'ضريبة مؤجلة على الإهلاك المعجل',entries:[{dr:'ضريبة مؤجلة (قائمة الدخل)',cr:'التزامات ضريبية مؤجلة',amount:'225,000',note:'الحركة في الرصيد'}]},
+  {title:'فرق عملة على مورد خارجي',entries:[{dr:'خسائر فروق عملة',cr:'الموردين',amount:'35,400,000',note:'2 مليون دولار × (48.6 − 30.9)'}]},
+  {title:'مكافأة نهاية الخدمة',entries:[{dr:'مصروف مزايا العاملين',cr:'التزامات مزايا العاملين',amount:'1,500,000',note:'تكلفة الخدمة + الفائدة'},{dr:'الدخل الشامل الآخر',cr:'التزامات مزايا العاملين',amount:'300,000',note:'فروق اكتوارية'}]},
+ ]}
+);
+
+// ═══ نصائح يومية ═══
+const T=(cat,tag,title,body,std)=>({cat,tag,title,body,std});
+DAILY_TIPS.push(
+ T('audit','🔍 مراجعة','المصادقة مش نهاية الشغل','الرد اللي بفرق لازم يتحلل: فواتير في الطريق؟ مرتجعات؟ نزاع؟ الفرق اللي ميتفسرش بمستند هو اللي بيبقى تحريف.','ISA 505'),
+ T('audit','📊 تحليل','النسبة لوحدها مش بتقول حاجة','اربطها: نسبة تداول بتتحسن مع تدفق تشغيلي سالب معناها إن التحسن جاي من عملاء ومخزون، مش فلوس.','ISA 520'),
+ T('ifrs','📘 IAS 24','الأطراف ذات العلاقة مش بس الشركات الشقيقة','أعضاء المجلس والإدارة العليا وأقاربهم والشركات اللي بيملكوها كلهم أطراف ذات علاقة. اطلب الحصر مكتوب وطابقه مع السجل التجاري والمحاضر.','IAS 24 · ISA 550'),
+ T('audit','🔍 مراجعة','اختبار الاكتمال للموردين','دوّر في المدفوعات والفواتير اللي جت بعد نهاية السنة، مش في ميزان المراجعة. الالتزام المش متسجل مش هتلاقيه في الدفاتر.','ISA 500'),
+ T('audit','📊 تحليل','DuPont بيفكك العائد','العائد على حقوق الملكية = الهامش × دوران الأصول × الرافعة. عائد عالي من رافعة عالية مخاطرته أكبر بكتير من عائد عالي من هامش.','—'),
+ T('tax','💰 ضرائب','السعر الفعلي محتاج تسوية','الضريبة الجارية + المؤجلة ÷ الربح قبل الضريبة. لو بعيد عن 22.5% اعمل تسوية: غرامات، تبرعات فوق الحد، إعفاءات، أصل مؤجل.','IAS 12'),
+ T('ifrs','📘 IFRS 9','أذون الخزانة بالفائدة الفعلية','العائد بيتوزع على مدة الأذن بالمعدل الفعلي، مش قسط ثابت ومش مرة واحدة عند الاستحقاق.','IFRS 9'),
+ T('audit','🔍 مراجعة','جرد المخزون في الاتجاهين','من القوائم للمخزن = وجود، ومن المخزن للقوائم = اكتمال. واطلب آخر إذونات استلام وصرف قبل الجرد للقطع.','ISA 501'),
+ T('audit','📊 تحليل','أيام التخزين على التكلفة','المخزون متقيم بالتكلفة، فاقسمه على تكلفة المبيعات مش المبيعات، وإلا هتطلع الأيام أقل من الحقيقة.','—'),
+ T('ifrs','📘 IAS 16','الإهلاك من تاريخ الإتاحة','مش من تاريخ الشراء ولا من أول السنة. مشروع تحت التنفيذ شغال ومتحولش = إهلاك ناقص.','IAS 16'),
+ T('audit','🔍 مراجعة','قيود آخر السنة','دوّر على: قيود يدوية، أيام إجازات أو بالليل، أوصاف مبهمة، أرقام مدورة، وقيود بتتعكس في أول السنة الجديدة.','ISA 240'),
+ T('ifrs','📘 IAS 1','الجزء المتداول من القروض','القسط المستحق خلال 12 شهر متداول. تبويبه طويل الأجل بيضخم نسبة التداول ويغير قراءة السيولة.','IAS 1'),
+ T('audit','📊 تحليل','صافي ربح العام لازم يتطابق','الرقم في حقوق الملكية = الرقم في قائمة الدخل. فرق بسيط معناه قيد ناقص في واحدة منهم.','IAS 1'),
+ T('audit','🔍 مراجعة','الاستمرارية 12 شهر على الأقل','قيّم تقييم الإدارة لـ 12 شهر من تاريخ القوائم على الأقل، وبص على التمويل والتدفقات الفعلية بعد نهاية السنة.','ISA 570'),
+ T('tax','💰 ضرائب','طابق الإيرادات بالفاتورة الإلكترونية','الفرق بين الدفاتر ومنظومة الفاتورة الإلكترونية وإقرارات القيمة المضافة اختبار اكتمال قوي للإيرادات.','ISA 500'),
+ T('ifrs','📘 IFRS 5','الأصول المحتفظ بها للبيع','شرطين: متاحة للبيع فوراً والبيع مرجح جداً خلال سنة. القياس بالأقل والإهلاك بيقف.','IFRS 5'),
+ T('audit','🔍 مراجعة','الإقرارات المكتوبة مش دليل كفاية','خطاب الإقرارات بيكمّل الأدلة ومش بيحل محلها، وتاريخه قريب من تاريخ التقرير.','ISA 580'),
+ T('audit','📊 تحليل','العملاء أسرع من المبيعات','لو العملاء بيزيدوا أسرع بكتير من الإيرادات: إيراد قبل وقته أو تحصيل ضعيف. وسّع المصادقات والقطع.','ISA 240'),
+ T('ifrs','📘 IAS 19','مكافأة نهاية الخدمة التزام','الخطة اللي بتدي مبلغ حسب سنين الخدمة = منافع محددة، والالتزام بيتكون على المدة مش وقت الصرف.','IAS 19'),
+ T('audit','🔍 مراجعة','ورقة العمل لمراجع غريب','اكتبها بحيث مراجع خبير مش معاك في المهمة يفهم عملت إيه وليه ووصلت لإيه.','ISA 230'),
+ T('ifrs','📘 IAS 21','البنود النقدية بسعر الإقفال','العملاء والموردين والنقدية والقروض بالعملة الأجنبية بتتعاد ترجمتها آخر السنة، والمخزون والأصول الثابتة لأ.','IAS 21'),
+);
+})();
+
+// ── v15: الرئيسية — سؤال وحالة عملية كل يوم (مع «التالي»)، ومعادلة وقيد بتتقلب ──
+var _hqOff=0,_hcOff=0,_hfOff=0,_hjOff=0;
+const _hDay=()=>Math.floor((Date.now()-Date.parse('2025-01-01'))/86400000);
+function homeQ(){ const n=QUESTIONS.length; return QUESTIONS[((_hDay()*5+_hqOff)*37)%n]; }
+function homeCase(){ return CASE_STUDIES[(_hDay()*3+_hcOff+7)%CASE_STUDIES.length]; }
+function hqAnswer(i){
+  const q=homeQ(); const box=document.getElementById('homeQ'); if(!box) return;
+  box.querySelectorAll('.hq-opt').forEach((b,k)=>{ b.disabled=true; if(k===q.correct) b.classList.add('ok'); else if(k===i) b.classList.add('bad'); });
+  const ex=box.querySelector('.hq-ex'); ex.style.display='block'; ex.innerHTML=(i===q.correct?'✅ إجابة صحيحة':'❌ الإجابة الصحيحة: '+String.fromCharCode(65+q.correct))+'<br>'+q.explain;
+  try{ const dk=typeof getDailyKey==='function'?getDailyKey():'dq_'+new Date().toISOString().split('T')[0]; localStorage.setItem(dk,(parseInt(localStorage.getItem(dk)||'0')+1).toString()); if(typeof updateDailyCounter==='function') setTimeout(updateDailyCounter,100); }catch(e){}
+}
+function renderHomeLearn(){
+  const pg=document.getElementById('page-home'); if(!pg||typeof QUESTIONS==='undefined'||typeof CASE_STUDIES==='undefined') return;
+  let w=document.getElementById('homeLearn');
+  if(!w){ w=document.createElement('div'); w.id='homeLearn'; w.className='home-learn'; const sg=pg.querySelector('.stats-grid'); sg?sg.before(w):pg.appendChild(w); }
+  const q=homeQ(), cs=homeCase();
+  w.innerHTML=`<div class="card hl-card" id="homeQ"><div class="hl-h"><span class="hl-t">◎ سؤال اليوم</span><span class="hl-tag">${q.topic}</span><span class="hl-n">${(_hqOff%5)+1} من 5 · البنك ${QUESTIONS.length} سؤال</span></div>
+    <div class="hl-q">${q.ar}</div>
+    <div class="hl-opts">${q.opts.map((o,i)=>'<button class="hq-opt" onclick="hqAnswer('+i+')"><b>'+String.fromCharCode(65+i)+'.</b> '+o+'</button>').join('')}</div>
+    <div class="hq-ex" style="display:none"></div>
+    <div class="hl-f"><button class="btn btn-outline btn-sm" onclick="_hqOff++;renderHomeLearn()">سؤال تاني ←</button><button class="btn btn-outline btn-sm" onclick="goTo('quiz',NAVBTN_('quiz'))">كويز كامل</button></div></div>
+  <div class="card hl-card" id="homeCase"><div class="hl-h"><span class="hl-t">${cs.icon} مثال عملي</span><span class="hl-tag">${cs.std}</span><span class="hl-n">${cs.difficulty}</span></div>
+    <div class="hl-ct">${cs.title}</div><div class="hl-ctx">${cs.context}</div>
+    ${cs.questions.slice(0,2).map((x,i)=>'<div class="hl-cq"><b>'+(i+1)+'. '+x.q+'</b><div class="hl-hint">💡 '+x.hint+'</div><button class="btn btn-outline btn-sm" onclick="this.nextElementSibling.style.display=\'block\';this.remove()">إظهار الإجابة</button><div class="hl-ans" style="display:none">✅ '+x.answer+'</div></div>').join('')}
+    ${cs.learnings&&cs.learnings.length?'<div class="hl-learn">📌 '+cs.learnings.join(' · ')+'</div>':''}
+    <div class="hl-f"><button class="btn btn-outline btn-sm" onclick="_hcOff++;renderHomeLearn()">مثال تاني ← (${CASE_STUDIES.length})</button><button class="btn btn-outline btn-sm" onclick="goTo('casestudies',NAVBTN_('casestudies'))">كل الحالات</button></div></div>`;
+  // أزرار «التالي» للمعادلة والقيد
+  [['dfDay','_hfOff'],['djDay','_hjOff']].forEach(([id,v])=>{ const d=document.getElementById(id); if(d&&!d.nextElementSibling?.classList?.contains('hl-next')){ const b=document.createElement('button'); b.className='hl-next'; b.textContent='التالي ←'; b.onclick=e=>{ e.stopPropagation(); if(v==='_hfOff') _hfOff++; else _hjOff++; injectDailyHome(); }; d.after(b); } });
+}
+try{ if(typeof renderDailyQuestion==='function') renderDailyQuestion(); if(typeof renderDailyCaseStudy==='function') renderDailyCaseStudy(); if(typeof injectDailyHome==='function') injectDailyHome(); }catch(e){}
 </script>
 <script>
 // PWA service worker — يشتغل فقط على http/https (يتجاهَل تلقائياً على file://)
